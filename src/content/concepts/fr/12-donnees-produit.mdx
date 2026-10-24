@@ -199,7 +199,7 @@ import Schema12 from '../../../components/schemas/Schema12.astro';
 
 Un PO data ne calcule pas l'indicateur ni n'écrit les tests : les Developers s'en chargent. Il fait **écrire et fixer** ce que l'indicateur compte (sa définition) et ce que « données de qualité » veut dire pour l'usage (des règles mesurables), et il sait **ce qu'il demande** à celui qui donne l'accès : quelles colonnes, pour quoi faire. Sans définition, deux chiffres justes se contredisent ; sans règle de qualité, « fiable » ne se teste pas ; sans finalité, l'accès ne s'obtient pas, ou s'obtient trop large.
 
-<Figure legende="Trois panneaux. 12a : la fiche d'un indicateur a cinq cases, et celles qu'on ne peut pas remplir restent à faire fixer. 12b : ce que la plateforme reçoit mal se corrige, ce qu'elle ne reçoit jamais est une limite de la source. 12c : on ne demande que les colonnes qui servent la finalité.">
+<Figure legende="Trois panneaux (exemples inventés pour l'illustration). 12a : la fiche d'un indicateur a cinq cases, et celles qu'on ne peut pas remplir restent à faire fixer. 12b : ce que la plateforme reçoit mal se corrige, ce qu'elle ne reçoit jamais est une limite de la source. 12c : on ne demande que les colonnes qui servent la finalité.">
   <Schema12 />
 </Figure>
 
@@ -221,9 +221,9 @@ La définition dit **ce qu'on compte, sur quoi, quand**, jamais comment : une re
 
 <h4 id="12a2"><span class="num">12a2</span> Ce qui manque, et qui le fixe</h4>
 
-Une case qu'on ne peut pas remplir signale une règle non fixée, ou une source qui manque. Pour un indicateur de nouveaux abonnés, un renouvellement compte-t-il ? Deux analystes répondront chacun à leur façon, et leurs deux chiffres seront justes. Ce désaccord montre la règle qui manque.
+Une case qu'on ne peut pas remplir signale une règle non fixée, ou une source qui manque. Pour un indicateur de nouveaux abonnés (exemple inventé pour l'illustration), un renouvellement compte-t-il ? Deux analystes répondront chacun à leur façon, et leurs deux chiffres seront justes. Ce désaccord montre la règle qui manque.
 
-Le PO ne la tranche pas : il la fait fixer par celui qui utilise l'indicateur, ou qui montre le chiffre (<Renvoi n="8a2" />). Il ne comble pas une case vide par une règle inventée. Et la définition s'écrit **une fois, pour l'indicateur**, non dans les critères d'une story : un critère est propre à une story <Pastille kind="cours" />, alors que deux stories qui publient le même indicateur (un mois, puis la comparaison avec une période passée) doivent prendre la même définition.
+Le PO ne la tranche pas : il la fait fixer par celui qui utilise l'indicateur, ou qui montre le chiffre (<Renvoi n="8a2" />). Il ne comble pas une case vide par une règle inventée. Et la définition s'écrit **une fois, pour l'indicateur**, non dans les critères d'une story : un critère est propre à une story <Pastille kind="cours" />, alors que deux stories qui publient le même indicateur, chacune dans sa vue, doivent prendre la même définition.
 
 </Sous>
 
@@ -239,7 +239,7 @@ La qualité des données s'exprime en règles mesurables sur des **dimensions** 
 
 Le cours <Pastille kind="cours" /> range une exigence de qualité selon sa portée : dans la **DoD** si elle vaut pour toute story (<Renvoi n="11a" />), dans un **critère** si elle est propre à une story (<Renvoi n="8" />), dans la **définition de l'indicateur** si elle le concerne.
 
-Reste à distinguer ce que la plateforme reçoit mal de ce qu'elle ne reçoit jamais. Un doublon dans ce qu'elle reçoit se corrige. Une donnée que la source n'envoie pas est une **limite de la source** : aucun traitement ne la fera apparaître, et une story de nettoyage n'y changerait rien. La limite s'écrit dans la définition de l'indicateur et se montre à ceux qui lisent le chiffre, là où ils le lisent. Si leur usage exige plus, la question va au propriétaire de la source : c'est une dépendance envers une autre équipe (<Renvoi n="10b2" />).
+Reste à distinguer ce que la plateforme reçoit mal de ce qu'elle ne reçoit jamais. Un doublon dans ce qu'elle reçoit se corrige. Une donnée que la source n'envoie pas est une **limite de la source** : aucun traitement ne la fera apparaître. La limite s'écrit dans la définition de l'indicateur et se montre à ceux qui lisent le chiffre, là où ils le lisent. Si leur usage exige plus, la question va au propriétaire de la source : c'est une dépendance envers une autre équipe (<Renvoi n="10b2" />).
 
 </Sous>
 
@@ -247,17 +247,17 @@ Reste à distinguer ce que la plateforme reçoit mal de ce qu'elle ne reçoit ja
 
 <h4 id="12c1"><span class="num">12c1</span> Une colonne, une raison</h4>
 
-Pour obtenir un accès, le PO dit ce qu'il demande et pourquoi. Le RGPD, texte de loi et non choix d'école <Pastille kind="consensus" />, pose deux principes : des **finalités** déterminées, et la **minimisation**, c'est-à-dire seulement les données nécessaires à ces finalités. Le PO part donc de la finalité, puis demande, pour chaque colonne, à quoi elle sert, et s'il lui faut le détail ou des données agrégées. Les lignes se bornent aussi : une période utile, pas tout l'historique. Une colonne sans raison ne se demande pas.
+Pour obtenir un accès, le PO dit ce qu'il demande et pourquoi. Le RGPD, texte de loi et non choix d'école <Pastille kind="consensus" />, pose deux principes : des **finalités** déterminées, et la **minimisation**, c'est-à-dire seulement les données nécessaires à ces finalités. Le PO part donc de la finalité, puis demande, pour chaque colonne, à quoi elle sert, et s'il lui faut le détail ou des données agrégées. Les lignes se bornent aussi : une période utile, pas tout l'historique (application du cours <Pastille kind="cours" />). Une colonne sans raison ne se demande pas.
 
-<FilRouge>La source Abonnés, tenue par l'équipe appli, contient le nom et les coordonnées de l'abonné, son abonnement et sa station favorite. Pour compter les abonnés par station favorite, la colonne qui sert est la station favorite ; le nom et les coordonnées ne servent pas à compter.</FilRouge>
+<FilRouge>La source Abonnés, tenue par l'équipe appli, contient le nom et les coordonnées de l'abonné, son abonnement et sa station favorite. Pour compter les abonnés par station favorite (exemple inventé pour l'illustration), la colonne qui sert est la station favorite ; le nom et les coordonnées ne servent pas à compter.</FilRouge>
 
-Celui qui donne l'accès et demande de justifier chaque colonne applique la minimisation : ce n'est pas un frein, et une demande justifiée colonne par colonne avance plus vite.
+Celui qui donne l'accès et demande de justifier chaque colonne applique la minimisation, selon la lecture du cours <Pastille kind="cours" /> : ce n'est pas un frein, et une demande justifiée colonne par colonne avance en général plus vite.
 
 <h4 id="12c2"><span class="num">12c2</span> Ce qui est une donnée personnelle</h4>
 
-Une donnée personnelle est toute information sur une personne identifiée ou identifiable, y compris par un identifiant. « Ce n'est qu'un numéro, pas un nom » ne tient pas : une donnée pseudonymisée reste personnelle pour qui peut la rattacher à une personne, et un opérateur qui connaît le nom de ses abonnés sait à qui correspond un numéro d'abonné.
+Une donnée personnelle est toute information sur une personne identifiée ou identifiable, y compris par un identifiant. Un identifiant n'est pas moins personnel qu'un nom : une donnée pseudonymisée reste personnelle pour qui peut la rattacher à une personne, par exemple parce qu'il détient le fichier qui relie les identifiants aux abonnés.
 
-Une finalité se dit **avant** d'utiliser les données, pas après : « peut-être plus tard » n'en est pas une. Une nouvelle finalité fait une nouvelle demande <Pastille kind="cours" />. Le PO ne fait pas le droit : il sait quoi demander et pourquoi, et le délégué à la protection des données, s'il y en a un, conseille sur la règle.
+Une finalité se dit **avant** d'utiliser les données, pas après : un besoin hypothétique n'est pas une finalité. Une nouvelle finalité fait une nouvelle demande <Pastille kind="cours" />. Le PO ne fait pas le droit : il sait quoi demander et pourquoi, et le délégué à la protection des données, s'il y en a un, conseille sur la règle.
 
 </Sous>
 

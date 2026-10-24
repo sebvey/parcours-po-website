@@ -33,7 +33,7 @@ ecoles:
       refs: ["S2"]
     - texte: "Dire non, c'est dire « pas maintenant », en montrant où est la demande et pourquoi. Ni le Guide ni Pichler ne le formulent ainsi."
       refs: ["S1", "S4"]
-    - texte: "Dire ce qui ferait monter la demande, et revoir l'ordre sur un fait nouveau sans que ce soit céder : c'est ordonner. Pichler n'en dit que l'écoute et le refus de la précipitation."
+    - texte: "Revoir l'ordre sur un fait nouveau n'est pas céder : c'est ordonner. Pichler n'en dit que l'écoute et le refus de la précipitation."
       refs: ["S4"]
     - texte: "L'ordre des démarches pour un obstacle : d'abord la personne concernée (ce n'est pas encore une escalade), puis le Scrum Master, puis le sponsor. Aucune source consultée ne le donne."
       refs: ["S1", "S11"]
@@ -91,7 +91,7 @@ sources:
       kind: "cours"
       refs: ["S1", "S4"]
       verifie: "Formulation du cours. Le Guide donne l'ordre et l'objectif produit comme repères ; Pichler dit de refuser une demande non alignée sur l'objectif produit. Ni l'un ni l'autre ne dit « pas maintenant »."
-    - affirmation: "Dire ce qui ferait monter la demande ; revoir l'ordre sur un fait nouveau n'est pas céder."
+    - affirmation: "Revoir l'ordre sur un fait nouveau n'est pas céder."
       kind: "cours"
       refs: ["S4", "S1"]
       verifie: "Pratique du cours. Pichler dit d'écouter d'abord et de ne pas trancher dans la précipitation ; le PO ordonne un backlog émergent (Guide)."
@@ -179,7 +179,7 @@ sources:
   nonVerifie:
     - "**L'ordre des démarches** (la personne concernée, puis le Scrum Master, puis le sponsor) et **le moment de passer à la suivante.** Aucune source consultée ne les donne : le Guide fixe le rôle du Scrum Master, PMI celui du sponsor. C'est un choix du cours, présenté comme tel, jamais comme consensus."
     - "**« Dire non, c'est dire pas maintenant ».** Formulation du cours : Pichler parle de refuser une demande non alignée sur l'objectif produit, pas de la reporter."
-    - "**Dire ce qui ferait monter la demande, et revoir l'ordre sur un fait nouveau sans que ce soit céder.** Pratique du cours ; Pichler n'en dit que l'écoute et le refus de la précipitation."
+    - "**Revoir l'ordre sur un fait nouveau sans que ce soit céder.** Pratique du cours ; Pichler n'en dit que l'écoute et le refus de la précipitation."
     - "**Qu'oublier les fournisseurs de données soit une erreur fréquente.** Aucune étude : erreur plausible pour le public du cours."
     - "**La grille pouvoir et intérêt.** L'article de Mendelow n'a été vu que par son résumé ; l'édition et la date de Johnson et Scholes (2e ou 3e édition, 1993 ; 1999 selon une figure) et l'origine des noms des quadrants (Eden et Ackermann, 1998, selon une seule source) restent discordantes. La page ne date pas la grille et ne dit pas à quoi servent ses quadrants : aucune source consultée n'a été relue sur cet usage."
     - "**La définition de Freeman.** Citée par une source secondaire dont Freeman est coauteur ; le livre de 1984 n'a pas été lu."
@@ -190,7 +190,7 @@ import Schema14 from '../../../components/schemas/Schema14.astro';
 
 Une **partie prenante** est concernée par le produit : elle s'en sert, le finance, le porte, travaille à côté, ou lui fournit ses données. Le PO représente leurs besoins dans le backlog et tranche seul entre elles : dire non, c'est dire « pas maintenant », en montrant l'ordre et l'objectif produit. Un **obstacle**, que l'équipe ne lève pas seule, se traite d'abord avec la personne concernée, puis s'escalade : le Scrum Master, puis le sponsor. Un désaccord sur l'ordre de son propre backlog, lui, ne s'escalade pas.
 
-<Sous id="14a" titre="Qui sont-elles" promesse="Cinq familles de parties prenantes, dont une qu'on oublie.">
+<Sous id="14a" titre="Qui sont-elles" promesse="Cinq familles de parties prenantes, dont une qu'on risque d'oublier.">
 
 Le Scrum Guide parle de parties prenantes connues sans les définir. Le concept <Renvoi n="1b" /> les définit comme toute personne ou équipe concernée par le produit. On élargit avec une définition de management <Pastille kind="ecole" /> : quiconque peut agir sur l'organisation ou est touché par elle, fournisseurs compris (R. Edward Freeman). Le cours range celles d'un produit data en cinq catégories <Pastille kind="cours" /> :
 
@@ -200,15 +200,15 @@ Le Scrum Guide parle de parties prenantes connues sans les définir. Le concept 
 - les **équipes voisines**, qui travaillent à côté du produit et le consomment ou l'alimentent ;
 - les **fournisseurs de données**, ceux dont le produit tire ses données.
 
-Les fournisseurs sont ceux qu'on oublie : ils ne demandent rien, mais peuvent bloquer ou dégrader le produit. Un même acteur peut cumuler plusieurs catégories, et la conversation change selon la casquette. L'équipe Scrum n'en fait pas partie : elle présente son travail aux parties prenantes, elle n'en est pas une.
+Les fournisseurs sont ceux qu'on risque d'oublier (une erreur plausible, sans étude à l'appui) : ils ne demandent rien, mais peuvent bloquer ou dégrader le produit. Un même acteur peut cumuler plusieurs catégories. L'équipe Scrum n'en fait pas partie : elle présente son travail aux parties prenantes, elle n'en est pas une.
 
 <Figure legende="Le produit comme un tuyau. En amont, les fournisseurs de données ; en aval, les utilisateurs ; au-dessus, ceux qui paient et portent le budget ; à côté, l'équipe voisine. Un même acteur peut apparaître à plusieurs endroits, relié par un pointillé.">
   <Schema14 p="a" />
 </Figure>
 
-La grille pouvoir et intérêt classe ensuite chacun selon son pouvoir sur le produit et son intérêt pour lui. C'est un choix d'école, souvent attribuée à Mendelow, mais l'attribution est discordante : Mendelow croisait le pouvoir et le dynamisme, et la forme pouvoir et intérêt vient de Johnson et Scholes. On la nomme sans l'enseigner.
+La grille pouvoir et intérêt classe ensuite chacun selon son pouvoir sur le produit et son intérêt pour lui. C'est un choix d'école <Pastille kind="ecole" />. Elle est souvent attribuée à Mendelow, mais l'attribution est discordante : Mendelow croisait le pouvoir et le dynamisme, et la forme pouvoir et intérêt vient de Johnson et Scholes, selon des sources secondaires concordantes. On la nomme sans l'enseigner.
 
-<FilRouge>Les relevés des stations viennent du système des bornes, via la DSI de l'opérateur : la plateforme dépend d'elle pour son matériau, sans que la DSI lui demande rien.</FilRouge>
+<FilRouge>La météo (la pluie, par heure) est une source envisagée, pas encore collectée, qui viendrait d'un service externe : s'il la coupait ou la dégradait, le produit en souffrirait sans que ce service lui demande rien.</FilRouge>
 
 </Sous>
 
@@ -218,13 +218,13 @@ Le PO tranche entre les parties prenantes, et l'organisation respecte ses décis
 
 Le cours résume : dire non, c'est dire **« pas maintenant »** <Pastille kind="cours" />. Une bonne réponse tient en trois cases :
 
-- **pas maintenant**, pas « jamais » : la demande reste au backlog, à une place que la partie prenante peut voir ;
+- **pas maintenant**, pas « jamais » ;
 - **pourquoi** : l'objectif produit, ce qui est prêt, ce qui manque ;
-- **ce qui la ferait monter** : un fait nouveau, une échéance qui approche (<Renvoi n="13b" />).
+- **où est la demande** : au backlog, à une place que la partie prenante peut voir.
 
-Revoir l'ordre sur un fait nouveau n'est pas céder, c'est ordonner. Les faits que détient une partie prenante (une date, ce qu'attend son instance) se demandent à elle : le PO ne les fixe pas. Les Developers choisissent ce qui entre au sprint avec le PO (<Renvoi n="15" />), donc on ne promet pas le même sprint à deux demandeurs, ni « un peu de chaque ». Le sponsor, enfin, convainc le PO comme les autres : il porte le budget, pas l'ordre.
+Revoir l'ordre sur un fait nouveau n'est pas céder, c'est ordonner <Pastille kind="cours" />. Les faits que détient une partie prenante se demandent à elle : le PO ne les fixe pas. Les Developers choisissent ce qui entre au sprint avec le PO (<Renvoi n="15" />), donc on ne promet pas à l'avance ce qui n'est pas décidé. Le sponsor, enfin, convainc le PO comme les autres : il porte le budget, pas l'ordre.
 
-<Figure legende="Dire non à une partie prenante : sa demande reste visible dans le backlog, à sa place, et la réponse tient en trois cases.">
+<Figure legende="Dire non à une partie prenante : sa demande reste visible dans le backlog, à sa place, et la réponse tient en trois cases : pas maintenant, pourquoi, où est la demande.">
   <Schema14 p="b" />
 </Figure>
 
@@ -234,7 +234,7 @@ Revoir l'ordre sur un fait nouveau n'est pas céder, c'est ordonner. Les faits q
 
 Un **obstacle** bloque l'équipe et elle ne le lève pas seule. Le Scrum Master fait lever les obstacles et lève les barrières entre l'équipe et les parties prenantes (Scrum Guide). En gestion de projet, le sponsor sert de voie d'escalade pour ce qui dépasse le responsable <Pastille kind="ecole" /> (PMI). Le Guide ne dit pas dans quel ordre saisir qui : le cours propose trois marches <Pastille kind="cours" />.
 
-1. **La personne concernée**, de vive voix. Ce n'est pas encore une escalade : il s'agit de comprendre ce qui bloque. Relancer n'est pas comprendre. On arrive avec le besoin, la finalité des données demandées (<Renvoi n="12c" />) et ce que le blocage coûte (<Renvoi n="13b" />).
+1. **La personne concernée**, de vive voix. Ce n'est pas encore une escalade : il s'agit de comprendre ce qui bloque. Une relance ne dit pas ce qui bloque.
 2. **Le Scrum Master**, si cela bloque encore : il réunit les personnes et rend l'obstacle visible.
 3. **Le sponsor**, si cela bloque toujours : il peut porter le désaccord à l'instance où se tranchent les désaccords entre services.
 

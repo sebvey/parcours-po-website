@@ -19,20 +19,20 @@ const bins = [
   { name: 'Must', note: 'le minimum utilisable', y: 56 },
   { name: 'Should', note: 'important, pas vital', y: 126 },
   { name: 'Could', note: 'souhaitable, lâché en premier', y: 196 },
-  { name: 'Won’t', note: 'pas cette fois', y: 266 },
+  { name: "Won't", note: 'pas cette fois', y: 266 },
 ];
 ---
 {p === 'a' && (
   <svg viewBox="0 0 600 490" role="img" aria-labelledby="g13a-t g13a-d" class="sch">
     <title id="g13a-t">Ordonner : une place par demande, un pourquoi par place</title>
     <desc id="g13a-d">
-      En haut, un drapeau : l’objectif produit, le cap face auquel on pèse la valeur.
-      En dessous, une colonne de quatre cartes, une par place, de la place 1 à la place 4. Aucune carte n’est côte à côte avec une autre.
+      En haut, un drapeau : l'objectif produit, le cap face auquel on pèse la valeur.
+      En dessous, une colonne de quatre cartes, une par place, de la place 1 à la place 4. Aucune carte n'est côte à côte avec une autre.
       À droite de chaque carte, quatre pastilles, une par critère : valeur, coût, risque, dépendances.
       La pastille de risque est coupée en deux moitiés : risque pour le produit et risque pour les utilisateurs.
-      La carte de la place 2 porte un cadenas et un contour pointillé : elle n’est pas prête.
-      Une note explique le cadenas : ce qui la rend prête (règle fixée, accès obtenu, accord avec l’autre équipe) remonte dans l’ordre.
-      Légende : le coût est estimé par les Developers ; la gravité d’un risque pour les utilisateurs est qualifiée par ceux qui en répondent.
+      La carte de la place 2 porte un cadenas et un contour pointillé : elle n'est pas prête.
+      Une note explique le cadenas : ce qui la rend prête (règle fixée, accès obtenu, accord avec l'autre équipe) remonte dans l'ordre.
+      Légende : le coût est estimé par les Developers ; la gravité d'un risque pour les utilisateurs est qualifiée par ceux qui en répondent.
     </desc>
     <defs>
       <pattern id="g13a-hatch" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
@@ -79,7 +79,7 @@ const bins = [
     <!-- Notes -->
     <g class="note">
       <text x="24" y="382"><tspan class="strong">Cadenas</tspan> : pas prête. Ce qui la rend prête remonte :</text>
-      <text x="24" y="404">règle fixée, accès obtenu, accord avec l’autre équipe.</text>
+      <text x="24" y="404">règle fixée, accès obtenu, accord avec l'autre équipe.</text>
       <text x="24" y="432"><tspan class="strong">Coût</tspan> : estimé par les Developers.</text>
       <text x="24" y="454"><tspan class="strong">Risque</tspan> : produit (gauche), utilisateurs (droite) ; gravité qualifiée par qui en répond.</text>
       <text x="24" y="480" class="soft">Une place par carte, un pourquoi par place.</text>
@@ -92,9 +92,9 @@ const bins = [
     <title id="g13b-t">Deux formes de coût du retard dans le temps</title>
     <desc id="g13b-d">
       Un graphique à main levée sans graduation : le temps en abscisse, le coût du retard en ordonnée.
-      Première courbe : un coût qui grandit dès aujourd’hui, qui monte régulièrement du départ jusqu’à la fin.
-      Seconde courbe : un coût lié à une échéance, presque nul et plat au début, qui monte de plus en plus vite à l’approche de l’échéance, repérée par un trait vertical pointillé.
-      Après l’échéance, la courbe retombe au plus bas : la valeur est perdue jusqu’à l’échéance suivante.
+      Première courbe : un coût qui grandit dès aujourd'hui, qui monte régulièrement du départ jusqu'à la fin.
+      Seconde courbe : un coût lié à une échéance, presque nul et plat au début, qui monte de plus en plus vite à l'approche de l'échéance, repérée par un trait vertical pointillé.
+      Après l'échéance, la courbe retombe au plus bas : la valeur est perdue jusqu'à l'échéance suivante.
       Légende : la forme, pas les chiffres.
     </desc>
     <!-- Axes -->
@@ -108,7 +108,7 @@ const bins = [
     <!-- Légende dans le graphique -->
     <g class="note">
       <path d="M70 56 h30" class="curve-a" />
-      <text x="110" y="62">coût qui grandit dès aujourd’hui</text>
+      <text x="110" y="62">coût qui grandit dès aujourd'hui</text>
       <path d="M70 84 h30" class="curve-b" />
       <text x="110" y="90">coût lié à une échéance</text>
     </g>
@@ -122,7 +122,7 @@ const bins = [
     <path d="M60 296 L200 294 C 280 290, 350 235, 410 120 L410 298 L568 298" class="curve-b" fill="none" />
 
     <g class="note">
-      <text x="424" y="262">après l’échéance,</text>
+      <text x="424" y="262">après l'échéance,</text>
       <text x="424" y="282">valeur perdue</text>
     </g>
     <text x="50" y="352" class="soft small">La forme, pas les chiffres.</text>
@@ -133,10 +133,10 @@ const bins = [
   <svg viewBox="0 0 600 420" role="img" aria-labelledby="g13c-t g13c-d" class="sch">
     <title id="g13c-t">MoSCoW pour une échéance, et le backlog qui reste ordonné</title>
     <desc id="g13c-d">
-      À gauche, une boîte « une échéance » contenant quatre bacs empilés : Must (le minimum utilisable), Should (important, pas vital), Could (souhaitable, lâché en premier) et Won’t (pas cette fois).
-      Le bac Must est rempli aux trois cinquièmes au plus, repéré par un trait : environ 60 % de l’effort au plus, recommandation de DSDM.
-      À droite, la colonne ordonnée du backlog, cinq cartes numérotées de 1 à 5 : elle continue d’exister. Une flèche pointillée part du bac Won’t vers le backlog : ce qui n’est pas pour cette échéance y reste, à sa place.
-      Légende : MoSCoW pour une échéance ; l’ordre, toujours.
+      À gauche, une boîte « une échéance » contenant quatre bacs empilés : Must (le minimum utilisable), Should (important, pas vital), Could (souhaitable, lâché en premier) et Won't (pas cette fois).
+      Le bac Must est rempli aux trois cinquièmes au plus, repéré par un trait : environ 60 % de l'effort au plus, recommandation de DSDM.
+      À droite, la colonne ordonnée du backlog, cinq cartes numérotées de 1 à 5 : elle continue d'exister. Une flèche pointillée part du bac Won't vers le backlog : ce qui n'est pas pour cette échéance y reste, à sa place.
+      Légende : MoSCoW pour une échéance ; l'ordre, toujours.
     </desc>
 
     <rect x="20" y="40" width="340" height="304" rx="10" class="pb" />
@@ -151,7 +151,7 @@ const bins = [
       </>
     ))}
     <path d="M221 50 V336" class="mark" />
-    <text x="190" y="368" text-anchor="middle" class="note-t"><tspan class="strong">Must</tspan> : environ 60 % de l’effort</text>
+    <text x="190" y="368" text-anchor="middle" class="note-t"><tspan class="strong">Must</tspan> : environ 60 % de l'effort</text>
     <text x="190" y="388" text-anchor="middle" class="note-t">au plus (DSDM)</text>
 
     <!-- Won't -> backlog -->
@@ -168,8 +168,8 @@ const bins = [
         <text x="490" y={c.y + 26} class="kdname small">place {c.n}</text>
       </>
     ))}
-    <text x="510" y="336" text-anchor="middle" class="note-t soft">Won’t y reste, à sa place</text>
-    <text x="300" y="414" text-anchor="middle" class="legend">MoSCoW pour une échéance ; l’ordre, toujours.</text>
+    <text x="510" y="336" text-anchor="middle" class="note-t soft">Won't y reste, à sa place</text>
+    <text x="300" y="414" text-anchor="middle" class="legend">MoSCoW pour une échéance ; l'ordre, toujours.</text>
   </svg>
 )}
 

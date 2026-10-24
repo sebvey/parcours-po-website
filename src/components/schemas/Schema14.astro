@@ -12,7 +12,7 @@ const backlog = [1, 2, 3, 4].map((n) => ({ n, y: 56 + (n - 1) * 62, target: n ==
 const cells = [
   { head: 'Pas maintenant', sub: 'pas « jamais »', y: 70 },
   { head: 'Pourquoi', sub: 'l’objectif produit, ce qui est prêt', y: 158 },
-  { head: 'Ce qui la ferait monter', sub: 'un fait nouveau, une échéance', y: 246 },
+  { head: 'Où est la demande', sub: 'au backlog, visible, à sa place', y: 246 },
 ];
 const BASE = 340;
 const steps = [
@@ -26,7 +26,7 @@ const steps = [
   <svg viewBox="0 0 600 450" role="img" aria-labelledby="g14a-t g14a-d" class="sch">
     <title id="g14a-t">Les parties prenantes d’un produit data, en cinq familles</title>
     <desc id="g14a-d">
-      Le produit est un tuyau qui va de la gauche vers la droite. À gauche, en amont : les fournisseurs de données, propriétaires des sources, entourés d’un pointillé et légendés « en amont, ceux qu’on oublie ». Une flèche de données entre dans le produit.
+      Le produit est un tuyau qui va de la gauche vers la droite. À gauche, en amont : les fournisseurs de données, propriétaires des sources, entourés d’un pointillé et légendés « en amont, ceux qu’on risque d’oublier ». Une flèche de données entre dans le produit.
       À droite, en aval : les utilisateurs, ceux qui se servent des vues, des alertes et des indicateurs. Une flèche de données sort du produit vers eux.
       Au-dessus, deux boîtes reliées au produit : le financeur, qui paie le service, et le sponsor, qui porte le budget.
       Sous le produit, l’équipe voisine, qui travaille à côté. Deux pointillés la relient aux fournisseurs et aux utilisateurs : un même acteur peut apparaître à plusieurs endroits, avec plusieurs casquettes.
@@ -79,16 +79,16 @@ const steps = [
     <path d="M200 346 C 120 346, 88 318, 88 278" class="dotted" fill="none" />
     <path d="M400 346 C 480 346, 512 318, 512 278" class="dotted" fill="none" />
     <text x="300" y="404" text-anchor="middle" class="note soft">pointillés : un même acteur, plusieurs casquettes</text>
-    <text x="300" y="434" text-anchor="middle" class="legend">En amont, ceux qu’on oublie.</text>
+    <text x="300" y="434" text-anchor="middle" class="legend">En amont, ceux qu’on risque d’oublier.</text>
   </svg>
 )}
 
 {p === 'b' && (
   <svg viewBox="0 0 600 358" role="img" aria-labelledby="g14b-t g14b-d" class="sch">
-    <title id="g14b-t">Dire non : pas maintenant, pourquoi, ce qui ferait monter la demande</title>
+    <title id="g14b-t">Dire non : pas maintenant, pourquoi, où est la demande</title>
     <desc id="g14b-d">
       À gauche, le backlog en colonne, visible de tous : quatre cartes, de la place 1 à la place 4. La demande d’une partie prenante occupe la place 3, mise en évidence.
-      Une flèche part de cette carte vers une bulle « la réponse » à droite, qui contient trois cases empilées : « Pas maintenant », pas « jamais » ; « Pourquoi », l’objectif produit et ce qui est prêt ; « Ce qui la ferait monter », un fait nouveau ou une échéance.
+      Une flèche part de cette carte vers une bulle « la réponse » à droite, qui contient trois cases empilées : « Pas maintenant », pas « jamais » ; « Pourquoi », l’objectif produit et ce qui est prêt ; « Où est la demande », au backlog, visible, à sa place.
       Légende : la demande reste visible, à sa place.
     </desc>
     <defs>

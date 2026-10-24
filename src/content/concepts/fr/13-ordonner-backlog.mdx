@@ -261,12 +261,12 @@ Une demande qui en suppose une autre passe après elle. Mettre tout en tête n'o
 
 <Sous id="13b" titre="Valeur et coût du retard" promesse="La valeur d'une demande dépend aussi du moment où elle arrive.">
 
-C'est un choix d'école <Pastille kind="ecole" />. Le **coût du retard** est ce qu'on perd à livrer plus tard. Don Reinertsen (2009) en fait la mesure économique à quantifier. Joshua Arnold propose de commencer sans chiffres : raisonner sur la **forme** de l'urgence, en bandes de valeur et d'urgence. Deux formes suffisent pour commencer :
+C'est un choix d'école <Pastille kind="ecole" />. Le **coût du retard** est ce qu'on perd à livrer plus tard. Don Reinertsen (2009) en fait la mesure économique à quantifier. Joshua Arnold propose de commencer sans chiffres, par des bandes qualitatives de valeur et d'urgence, et décrit des profils d'urgence, c'est-à-dire la **forme** du coût dans le temps, dont l'échéance externe. Lui-même chiffre ensuite (CD3, le coût du retard divisé par la durée). Le cours <Pastille kind="cours" /> retient deux formes pour commencer :
 
 - un coût qui grandit **dès aujourd'hui**, chaque jour de retard s'ajoutant aux autres ;
 - un coût lié à une **échéance** : presque nul au début, il monte à l'approche ; après l'échéance, la valeur est perdue jusqu'à la suivante.
 
-L'échéance fait **monter** une demande, et avec elle ce dont elle dépend, d'autant qu'il faut le temps de les faire ; elle ne la met pas en tête d'office. Ce sont les Developers qui disent le temps qu'il faut, et la date d'une échéance se demande à qui la détient.
+Une échéance fait **monter** la demande qui y est liée, sans la mettre en tête d'office : les autres critères pèsent toujours. Ce sont les Developers qui disent le temps qu'il faut, et la date d'une échéance se demande à qui la détient.
 
 <Figure legende="Le coût du retard dans le temps, sans graduation. Une demande dont le coût grandit dès aujourd'hui ; une demande liée à une échéance, presque sans coût tant qu'elle est loin, qui monte à son approche puis retombe après elle. La forme, pas les chiffres.">
   <Schema13 p="b" />
@@ -285,13 +285,13 @@ C'est un choix d'école <Pastille kind="ecole" />, celui de DSDM, attribué à D
 - **Could** : souhaitable, la première réserve qu'on lâche si l'échéance est menacée ;
 - **Won't** : pas cette fois, pas « jamais ».
 
-DSDM recommande de ne pas dépasser environ 60 % de l'effort en Must : au-delà, l'échéance devient risquée, et si tout est Must, on n'a rien classé. Chez DSDM, c'est le représentant de l'activité concernée qui dit ce qui est Must. Le cours en tire que le PO aide à classer, par exemple avec « si l'échéance n'avait que ça, tiendrait-elle ? », mais que la réponse revient à celui qui sait ce que l'échéance exige <Pastille kind="cours" />.
+DSDM recommande de ne pas dépasser environ 60 % de l'effort en Must : au-delà, l'échéance devient risquée, et si tout est Must, on n'a rien classé. Chez DSDM, c'est le représentant de l'activité concernée qui dit ce qui est Must. Le cours en tire que le PO aide à classer, mais que la réponse revient à celui qui sait ce que l'échéance exige <Pastille kind="cours" />.
 
 <Figure legende="MoSCoW pour une échéance : quatre bacs, le Must rempli au plus aux trois cinquièmes de l'effort. À côté, le backlog reste une colonne ordonnée : un Won't y reste, à sa place.">
   <Schema13 p="c" />
 </Figure>
 
-MoSCoW ne remplace pas l'ordre : quatre catégories laissent des ex aequo, et avec dix Must l'équipe ne sait pas lequel prendre d'abord. Un Must n'a de sens que face à une échéance : « Must pour quoi ? ». Pour le reste du backlog, il faut toujours un ordre.
+MoSCoW ne remplace pas l'ordre : quatre catégories laissent des ex aequo, alors que chaque élément du backlog a besoin d'une place unique. Un Must n'a de sens que face à une échéance. Pour le reste du backlog, il faut toujours un ordre.
 
 </Sous>
 
@@ -301,7 +301,7 @@ MoSCoW ne remplace pas l'ordre : quatre catégories laissent des ex aequo, et av
 
 <Erreurs>
 
-- **Ordonner par l'ordre d'arrivée** (« c'est le bon moment », « on vient d'en parler ») ou **par la personne** (celle qui finance, celle qui insiste) : la demande s'ordonne face au reste.
+- **Ordonner par l'ordre d'arrivée** ou **par la personne** (celle qui insiste) : la demande s'ordonne face au reste.
 - **Tout placer en tête** : on n'a rien ordonné.
 - **Estimer à la place des Developers**, ou **trancher un fait métier** (la gravité d'un risque, une règle, la date d'une échéance) : cela se demande à qui le détient.
 - **Mettre en tête une demande qui n'est pas prête** sans rien faire pour la rendre prête, ou **placer une demande avant celle qu'elle suppose**.
