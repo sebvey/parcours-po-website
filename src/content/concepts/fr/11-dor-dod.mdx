@@ -10,7 +10,7 @@ ecoles:
       texte: "La DoD est l'engagement de l'incrément : la description de son état quand il remplit les exigences de qualité du produit. Un élément qui la remplit entre dans l'incrément ; sinon, il n'est ni livré ni présenté en revue de sprint, et retourne au backlog. Les équipes d'un même produit partagent la même DoD. Si l'organisation a un standard, l'équipe le suit au minimum ; sinon, l'équipe Scrum écrit la sienne. Les Developers la respectent ; la rétrospective l'inspecte."
       refs: ["S1", "S2"]
     - auteur: "Le Scrum Guide 2020, sur la DoR et les critères"
-      texte: "Ne parle ni de story, ni de critère d'acceptation, ni de DoR. Dit qu'un élément que l'équipe peut finir en un sprint est prêt à être choisi au Sprint Planning, et qu'il le devient en général après avoir été précisé."
+      texte: "Ne parle ni de story, ni de critère d'acceptation, ni de DoR. Dit qu'un élément que l'équipe peut finir en un sprint est prêt à être choisi au Sprint Planning, et qu'il le devient en général après avoir été précisé ; l'équipe peut encore le préciser pendant le Sprint Planning."
       refs: ["S1"]
     - auteur: "Pratique établie, hors du Scrum Guide"
       texte: "Distinguer DoD et critère d'acceptation. Mike Cohn voit la DoD comme des critères ajoutés à chaque story ; les critères d'acceptation, eux, sont propres à une story."
@@ -22,6 +22,9 @@ ecoles:
     - auteur: "Écrire une DoR"
       texte: "Pratique née chez des praticiens vers 2008-2009 ; son premier auteur est discuté, on ne l'attribue à personne. Le terme « ready-ready » (prêt pour de bon), face à « done-done », est celui de l'entreprise Systematic."
       refs: ["S4", "S5"]
+    - auteur: "La DoR selon Mike Cohn"
+      texte: "Il en cite des conditions typiques : critères d'acceptation identifiés, taille qui tient dans un sprint, dépendances externes levées."
+      refs: ["S6"]
     - auteur: "Mike Cohn : le risque d'une DoR trop stricte"
       texte: "Elle devient une barrière à franchir avant chaque sprint, qui ramène au cycle en cascade. Il conseille des repères plutôt que des règles, avec une exception possible : certaines dépendances envers une autre équipe ou un fournisseur."
       refs: ["S6"]
@@ -166,13 +169,12 @@ sources:
   nonVerifie:
     - "**Premier auteur de la DoR.** Les Scrum Patterns [S5] écrivent que Kronfält en a « apparently » publié la première description formelle (2008) ; le billet n'a pas été lu. Un billet de Sutherland (juillet 2009) attribue une « Definition of Ready » à Serge Beaumont ; Systematic introduit « ready-ready » [S4]. Origine discordante : la page ne l'attribue à personne."
     - "**En data, une DoD contient souvent des tests de qualité, la documentation des indicateurs, des temps de réponse.** Un seul exemple d'auteur trouvé (Ambler [S7] : détection des erreurs de données, documentation, métadonnées) ; aucune enquête sur la fréquence ; « temps de réponse » absent de cette source. La page présente ces points comme des exemples, sans « souvent »."
-    - "**Sur un projet data, l'accès aux données figure souvent dans la DoR.** Aucune source sur la fréquence ; seul Cohn [S6] donne une dépendance externe comme exemple de condition. La page ne le dit pas."
     - "**« Mini cahier des charges ».** Image du cours ; Cohn parle de « stage-gate » et de cascade."
     - "**Livres non lus.** Sutherland, *Scrum: The Art of Doing Twice the Work in Half the Time* (2014), chapitre « Be Ready to be Done », cité par [S5] : rien de la page ne s'y appuie."
 alignement:
   coursVersion: "1.0.0"
-  fiche: "e39e0363fcae2f1704738542e5e402df8846104f9e9c4fb0b7f1fcd12c959532"
-  sources: "7b8ab8b9a8ac82d8b9520ba6e324ab91924f6704fdc642788e50be7b8934fe2a"
+  fiche: "cf8a51676f17242379847200052e8861c4302aa933be46c27108c10dcfef6a8c"
+  sources: "d08ccb50d8597eef03b056b47293e333fa5f63819e6d0bb90b1db71c17832a9c"
 ---
 import Schema11 from '../../../components/schemas/Schema11.astro';
 
@@ -202,9 +204,7 @@ Un test du cours <Pastille kind="cours" /> aide à ranger une exigence : « vaut
 
 <h4 id="11b1"><span class="num">11b1</span> Ce que dit le Guide, et ce que la DoR ajoute</h4>
 
-Le Scrum Guide ne parle pas de DoR. Il dit seulement qu'un élément que l'équipe peut finir en un sprint est **prêt à être choisi** au Sprint Planning, et qu'il le devient en général après avoir été précisé, et l’équipe peut encore le préciser pendant le Sprint Planning (<Renvoi n="15" />). La DoR est une liste écrite par l'équipe pour cela <Pastille kind="ecole" /> : une pratique née chez des praticiens vers 2008-2009, dont le premier auteur est discuté. Mike Cohn en cite des conditions typiques : critères d'acceptation identifiés, taille qui tient dans un sprint, dépendances externes levées.
-
-<FilRouge>La DoR de l'équipe vélos exige des critères d'acceptation écrits, des règles métier fixées, des dépendances identifiées et un accès aux données obtenu.</FilRouge>
+Le Scrum Guide ne parle pas de DoR. Il dit seulement qu'un élément que l'équipe peut finir en un sprint est **prêt à être choisi** au Sprint Planning, et qu'il le devient en général après avoir été précisé, l'équipe peut encore le préciser pendant le Sprint Planning (<Renvoi n="15" />). La DoR est une liste écrite par l'équipe pour cela <Pastille kind="ecole" /> : une pratique née chez des praticiens vers 2008-2009, dont le premier auteur est discuté. Mike Cohn en cite des conditions typiques : critères d'acceptation identifiés, taille qui tient dans un sprint, dépendances externes levées.
 
 La DoR suppose des sprints : sans sprint, voir <Renvoi n="A2" />.
 
@@ -224,8 +224,8 @@ Mais une DoR trop stricte devient une barrière à franchir avant chaque sprint 
 
 <Erreurs>
 
-- **Recopier la même exigence dans les critères de chaque story** : elle va dans la DoD.
-- **Mettre dans la DoD ce qui est propre à une story** : c'est un critère d'acceptation.
+- **Recopier la même exigence dans les critères de chaque story** (par exemple une relecture par un second Developer) : elle va dans la DoD.
+- **Mettre dans la DoD ce qui est propre à une story** : c'est un critère d'acceptation (cas inventé : « la liste des vélos signalés est triée du signalement le plus ancien au plus récent »).
 - **Prendre une règle métier pour une exigence de la DoD** parce qu'elle vaut pour plusieurs stories.
 - **Croire à une DoD par incrément, par sprint ou par équipe d'un même produit** : une seule DoD, pour toute story, qui change en rétrospective pour tous.
 - **Lever la DoD pour une story pressée** : la story n'est pas terminée et retourne au backlog.

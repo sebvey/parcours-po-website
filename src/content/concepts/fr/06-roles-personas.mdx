@@ -98,7 +98,7 @@ sources:
       kind: "cours"
       refs: []
       verifie: "Sans source : choix du cours. Écrire la story au nom d'un persona est une pratique répandue que Cohn décrirait dans son livre (non lu) : la page la donne comme possibilité, sans attribution."
-    - affirmation: "Les exemples du fil rouge (Régis, Étienne, Abba, le tiers des abonnés avec un téléphone basique) sont des faits inventés."
+    - affirmation: "Les exemples du fil rouge (Régis, Étienne) sont des faits inventés."
       refs: []
       verifie: "Sans source : le cas de l'opérateur de vélos en libre-service est fictif."
   references:
@@ -152,14 +152,14 @@ sources:
     - "**Écrire pour des rôles précis comme consensus.** Aucune source ne permet de parler de consensus (Scrum Guide muet) ; Cohn le recommande et admet que « utilisateur » suffit parfois. La page le présente comme une recommandation de Cohn."
 alignement:
   coursVersion: "1.0.0"
-  fiche: "845e6c4770ef446682c3f96c91b4b1da5dfdb8a92c0723bc026ca809fdd650cb"
-  sources: "4a40919799a5bac8d52dc8dc8c5f4f513da6a145a0cf1ce8c5f93aa1a612fed8"
+  fiche: "e69f5b1e07814ad8a0d87fd431dca656508ac7e2b61b502e53e70f2a95c667da"
+  sources: "ea05653e55b0e74c7ca0eda3ff28f19b599a8db76dab0fe2e456ab390438c2bc"
 ---
 import Schema06 from '../../../components/schemas/Schema06.astro';
 
 Une story a besoin d'un **acteur**, désigné par son **rôle** : une catégorie d'utilisateurs aux besoins communs (technicien de maintenance, abonné). Le bon acteur **agit et y gagne** : il fait ce que dit le « je veux » et reconnaît son propre gain dans le « afin de ». Un mauvais acteur donne une mauvaise raison, donc un mauvais ordre. Le PO ne le devine pas : il le vérifie auprès des utilisateurs. Un **persona**, portrait fictif d'un rôle, aide à se le représenter, sans le remplacer.
 
-<Figure legende="L'acteur d'une story. La case « En tant que » est vide ; du « je veux » part une flèche vers celui qui agit, du « afin de » une flèche vers celui qui y gagne. Les deux arrivent sur le même rôle, qui s'écrit dans la case. Celui qui construit ou qui demande n'est pas acteur de ce seul fait.">
+<Figure legende="L'acteur d'une story. La case « En tant que » est vide ; du « je veux » part une flèche vers celui qui agit, du « afin de » une flèche vers celui qui y gagne. Les deux arrivent sur le même rôle, qui s'écrit dans la case. Un autre rôle, l'agent d'accueil, n'a aucune flèche : il n'est pas l'acteur de cette story.">
   <Schema06 />
 </Figure>
 
@@ -167,7 +167,7 @@ Une story a besoin d'un **acteur**, désigné par son **rôle** : une catégorie
 
 Le test tient en deux questions : **qui fait l'action du « je veux » ? qui gagne ce que dit le « afin de » ?** Si les deux réponses désignent le même rôle, c'est l'acteur. Sinon, l'acteur est à revoir. C'est un choix du cours <Pastille kind="cours" />, qui réunit deux repères de Mike Cohn : quand deux formulations se valent, il prend pour acteur celui qui lance l’action, et sa story nomme celui qui en profite. Cohn écrit pourtant parfois une story pour un rôle qui gagne sans agir : c'est une règle pratique, pas une règle sans exception. Le Scrum Guide, lui, ne parle ni de rôle ni d'acteur.
 
-<FilRouge>Étienne, responsable d'exploitation, envoie les régulateurs vers les stations ; Régis, régulateur, conduit la camionnette et redistribue les vélos. Deux rôles, deux actions : ils ne prendront pas forcément la même place dans une même story.</FilRouge>
+<FilRouge>Étienne, responsable d'exploitation, envoie les régulateurs vers les stations ; Régis, régulateur, conduit la camionnette et redistribue les vélos.</FilRouge>
 
 Quatre confusions reviennent.
 
@@ -185,8 +185,6 @@ Dans la phrase, on écrit le rôle, jamais le prénom d'une personne : la story 
 Un persona est un **portrait fictif et réaliste d'un rôle** : un prénom, des objectifs, des comportements. C'est un choix d'école <Pastille kind="ecole" /> d'Alan Cooper, venu du design d'interaction, absent du Scrum Guide et discuté entre praticiens (on leur reproche des preuves surtout anecdotiques et un risque de stéréotype). Aucune équipe n'est obligée d'en avoir.
 
 Il se construit **à partir d'utilisateurs réels** interrogés, pas de l'imagination de l'équipe : le persona est fictif par son prénom, pas par ses traits. Chaque trait doit pouvoir répondre à la question « d'où vient-il ? ». Un portrait tiré des seules hypothèses de l'équipe (un proto-persona) n'en est pas un. C'est ce qui sépare un persona d'un utilisateur réel : on interroge un technicien en chair et en os ; un persona, lui, résume des utilisateurs réels.
-
-<FilRouge>Un tiers des abonnés n'a pas l'appli, seulement un téléphone basique. L'équipe en parle à travers Abba, persona des abonnés sans l'appli, construit à partir d'abonnés interrogés.</FilRouge>
 
 Le persona sert à la **conversation** et aux **exemples** : il rend le rôle concret quand l'équipe en parle. Il ne remplace ni le rôle dans la phrase de la story ni les entretiens avec les utilisateurs. Dans ce cours, la story garde le rôle (« en tant qu'abonné ») <Pastille kind="cours" /> ; certaines équipes écrivent leurs stories au nom d'un persona, ce qui reste possible si le persona vient d'utilisateurs réels. Les critères d'une story, eux, se rédigent au <Renvoi n="8" />.
 

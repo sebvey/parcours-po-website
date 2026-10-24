@@ -193,7 +193,7 @@ sources:
     - "**Cohn, *User Stories Applied* (2004).** Livre non lu : rien de la page ne s'y appuie."
 alignement:
   coursVersion: "1.0.0"
-  fiche: "98e589e14183d860532126da01116bc38083439cc6bc652754436f68f32163b9"
+  fiche: "7e85a0d986e48eebc5694207a87f618d523e64f3df6228c7df5ba4a4623b8118"
   sources: "fbbde243dbe16f6bbbe1b93068332d35adc49f6401eddbb90a96509c7b91cc28"
 ---
 import Schema08 from '../../../components/schemas/Schema08.astro';
@@ -214,7 +214,7 @@ Deux questions permettent de les séparer : pour une règle, « est-ce encore vr
 
 Une **contrainte d'usage** (par exemple, l'utilisateur ne dispose que d'un moyen d'accès précis) va dans le contexte de départ, le Given, d'un critère : c'est ainsi que le testeur la vérifie (<Renvoi n="7b" />) <Pastille kind="cours" />. Ce qui vaut pour toutes les vues de l'équipe, lui, ne se répète pas dans chaque story : c'est la Definition of Done (<Renvoi n="11" />).
 
-<FilRouge>L'équipe vélos a une DoR qui demande des règles métier fixées avant qu'une story entre dans un sprint.</FilRouge>
+<FilRouge>La DoR de l'équipe vélos demande des règles métier fixées avant qu'une story entre dans un sprint (<Renvoi n="11" />).</FilRouge>
 
 <h4 id="8a2"><span class="num">8a2</span> La règle non fixée</h4>
 
@@ -230,7 +230,7 @@ Pour le repérer, on se demande, critère par critère : **quelle règle ce cas 
 
 **Given** décrit le contexte de départ, **When** l'événement ou l'action, **Then** le résultat attendu, observable : ce que le testeur vérifie. En français : étant donné, quand, alors. C'est un choix d'école <Pastille kind="ecole" /> de Dan North et Chris Matts, issu du BDD ; Cucumber et son langage Gherkin l'outillent, mais la forme s'écrit sans outil. Elle n'est pas obligatoire : un critère écrit autrement convient s'il reste tranchable.
 
-Un critère devient vite flou par quatre défauts. Un **When absent** : on ne sait pas quel événement déclenche le résultat. Un **Then vague** (« l'utilisateur est informé ») : on ne sait pas quoi vérifier ; on écrit ce que le testeur regarde, un nombre, un âge. Un **mot flou** (« récent », « rapidement ») : le testeur doit encore poser une question ; on écrit la valeur fixée (cas inventé : « chargée en moins de 3 secondes »). Et **le moyen au lieu du résultat** : le Then vérifie ce que l'utilisateur obtient ou observe, pas un choix de l'équipe qu'elle pouvait changer <Pastille kind="cours" />. « La page est servie depuis un cache » est un moyen ; « la vue affiche le nombre de vélos disponibles » est un résultat. Un Then qui nomme une solution fige ce que l'équipe pouvait négocier (<Renvoi n="7b" />).
+Un critère devient vite flou par quatre défauts. Un **When absent** : on ne sait pas quel événement déclenche le résultat. Un **Then vague** (« l'utilisateur est informé ») : on ne sait pas quoi vérifier ; on écrit ce que le testeur regarde, un nombre, un âge. Un **mot flou** (« récent », « rapidement ») : le testeur doit encore poser une question ; on écrit la valeur fixée (cas inventé : « chargée en moins de 3 secondes »). Et **le moyen au lieu du résultat** : le Then vérifie ce que l'utilisateur obtient ou observe, pas un choix de l'équipe qu'elle pouvait changer <Pastille kind="cours" />. « La page est servie depuis un cache » est un moyen ; « la page se charge en moins de 3 secondes » est un résultat (exemple inventé). Un Then qui nomme une solution fige ce que l'équipe pouvait négocier (<Renvoi n="7b" />).
 
 <h4 id="8b2"><span class="num">8b2</span> Une variable à la fois</h4>
 
