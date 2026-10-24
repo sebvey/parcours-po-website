@@ -5,6 +5,13 @@ dit sur quelle version du cours elle est alignée.
 
 ## Non publié
 
+- Réalignement sur les corrections du cours (T-053) : concept 3 (« retirer n'est pas définitif »,
+  choix du cours), concepts 12 et 13 (« relevé en double »), concept 14 (les cinq catégories, choix
+  du cours sans source), concept 17 (« chaque semaine »). Éléments que les fiches n'ont plus,
+  retirés : références S3 et S4 et « CSPO 1.6 et 1.7 » (1), entrées « non vérifié » (4, 7),
+  affirmation CRISP-DM (17), liste des types de liens Jira et affirmation « ticket » (A1),
+  citation « If you only quantify one thing » et référence S15 (13).
+
 ## 0.1.0, 2026-10-24 (aligné sur le cours 1.0.0)
 
 Première version, en aperçu : 18 concepts (0 à 17) et 2 annexes (A1, A2), glossaire, fil rouge,
@@ -34,9 +41,3 @@ l'a pas repris ou refusé (le fond vient d'abord du cours) :
 - 0a3, 1a, 1b, 5a2, 7a2, 7b, 8a2, 8b1, 11a2, 12a1, 14b : exemples ou phrases sans équivalent dans la fiche ;
 - 4 : quatre stories et deux tâches du schéma, libellés proposés (la fiche ne fixe que l'epic, les
   features et la story sous l'epic) ;
-- sources : références S3 et S4 du concept 1, entrées « non vérifié » des concepts 4 et 7, affirmation
-  CRISP-DM (17), types de liens Jira Data Center et affirmation « ticket » (A1), citation « If you only
-  quantify one thing » (13) ;
-- désaccords entre fiches : « retirer n'est pas définitif » (3 : Cohn et Rubin dans la fiche concept,
-  choix du cours dans la fiche sources) ; « un doublon » / « relevé en double » (12) ; rattachement à S2 des cinq catégories (14) ;
-  « au moins hebdomadaires » (17).
