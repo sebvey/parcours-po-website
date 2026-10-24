@@ -1,66 +1,15 @@
 ---
-import Base from '../layouts/Base.astro';
-import '../styles/transversal.css';
-import { inline } from '../lib/inline';
-import { conceptUrl } from '../lib/concepts';
-import { url } from '../i18n/ui';
-import { conceptOf, tousLesConcepts } from '../data/parcours';
-import { lectures } from '../data/lectures';
-
-const concept = (ref: string) => tousLesConcepts.find((c) => c.n === conceptOf(ref));
-const conceptsDe = (l: (typeof lectures)[number]) => [...new Set(l.etapes.map((e) => conceptOf(e.ref)))];
-const duree = (m: number) => `environ ${m} min`;
+// Anciens parcours de lecture, devenus les lectures rapides des domaines.
+import Redirection from '../components/Redirection.astro';
 ---
-<Base title="Parcours de lecture" nav="lectures" description="Neuf parcours de lecture par situation : découvrir le métier, écrire une story, découper, préparer un sprint, ordonner le backlog, définir un indicateur, douter d’une idée, répondre « pour quand ? », travailler sans sprint.">
-  <div class="container-wide">
-    <section class="page tr">
-      <p class="eyebrow">Lire selon votre situation</p>
-      <h1>Parcours de lecture</h1>
-      <p class="lead">Vous n’avez pas besoin de lire le cours dans l’ordre. Chaque parcours part d’une situation et enchaîne les sections de concepts qui y répondent, dans l’ordre où elles servent. La <a href={url('parcours/')}>carte du cours</a> reste la vue d’ensemble.</p>
-
-      <ol class="lec-liste">
-        {lectures.map((l, i) => (
-          <li>
-            <a class="lec-carte" href={`#${l.id}`}>
-              <span class="n">{i + 1}</span>
-              <span class="t">{inline(l.titre)}</span>
-              <span class="m">{duree(l.minutes)} · {l.etapes.length} sections</span>
-            </a>
-          </li>
-        ))}
-      </ol>
-
-      {lectures.map((l, i) => (
-        <section class="lec" id={l.id} aria-labelledby={`${l.id}-t`}>
-          <p class="n">Parcours {i + 1}</p>
-          <h2 id={`${l.id}-t`}>{inline(l.titre)}<a class="ancre" href={`#${l.id}`} aria-label={`Lien vers le parcours : ${l.titre}`}>#</a></h2>
-          <p class="situation" set:html={inline(l.situation)} />
-          <p class="lec-meta">
-            <span>{duree(l.minutes)}</span>
-            <span>{l.etapes.length} sections</span>
-            <span>{conceptsDe(l).length > 1 ? 'Concepts' : 'Concept'} {conceptsDe(l).join(', ')}</span>
-          </p>
-          {l.avant && <p class="lec-avant" set:html={inline(l.avant)} />}
-          <ol class="etapes">
-            {l.etapes.map((e) => {
-              const c = concept(e.ref);
-              return (
-                <li>
-                  <a class="etape" href={conceptUrl(conceptOf(e.ref), e.ref)}>
-                    <span class="ref">{e.ref}</span>
-                    <span class="corps">
-                      <span class="tt" set:html={inline(e.titre)} />
-                      <span class="src">{/^A/.test(conceptOf(e.ref)) ? 'Annexe' : 'Concept'} {conceptOf(e.ref)}{c ? ` : ${c.titre}` : ''}</span>
-                      <span class="pq" set:html={inline(e.pourquoi)} />
-                    </span>
-                  </a>
-                </li>
-              );
-            })}
-          </ol>
-          <p class="apres"><strong>Après ce parcours.</strong> <span set:html={inline(l.apres)} /></p>
-        </section>
-      ))}
-    </section>
-  </div>
-</Base>
+<Redirection ancres={{
+  'decouvrir': 'domaine-1-lecture',
+  'premiere-story': 'domaine-2-lecture',
+  'decouper': 'domaine-3-lecture',
+  'refinement-sprint': 'domaine-6-lecture',
+  'ordre-backlog': 'domaine-5-lecture',
+  'indicateur': 'domaine-4-lecture',
+  'idee-vaut-le-coup': 'domaine-7-lecture',
+  'pour-quand': 'domaine-6-lecture',
+  'sans-sprint': 'annexes-lecture',
+}} />

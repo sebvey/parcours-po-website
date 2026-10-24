@@ -3,7 +3,7 @@ import Base from '../layouts/Base.astro';
 import '../styles/transversal.css';
 import { inline } from '../lib/inline';
 import { conceptUrl } from '../lib/concepts';
-import { tousLesConcepts } from '../data/parcours';
+import { tousLesConcepts } from '../data/domaines';
 import { termes, aEviter } from '../data/glossaire';
 
 const sansAccent = (s: string) => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();

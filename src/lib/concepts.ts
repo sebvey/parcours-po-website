@@ -1,5 +1,5 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
-import { slugOf, conceptOf, tousLesConcepts } from '../data/parcours';
+import { slugOf, conceptOf, tousLesConcepts } from '../data/domaines';
 import { url } from '../i18n/ui';
 
 export type ConceptEntry = CollectionEntry<'concepts'>;

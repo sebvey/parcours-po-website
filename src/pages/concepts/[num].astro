@@ -12,9 +12,8 @@ import Erreurs from '../../components/Erreurs.astro';
 import Figure from '../../components/Figure.astro';
 import { useT, url } from '../../i18n/ui';
 import { typoFr } from '../../lib/typo-fr';
-import { slugOf, tousLesConcepts } from '../../data/parcours';
+import { slugOf, tousLesConcepts, domaineId } from '../../data/domaines';
 import { disponibles, conceptUrl } from '../../lib/concepts';
-import { objectifsDe } from '../../data/objectifs';
 
 export async function getStaticPaths() {
   const entries = (await getCollection('concepts')).filter((e) => e.id.startsWith('fr/'));
@@ -42,17 +41,15 @@ const prereqs = d.prerequis.map((n) => {
   return { n, titre: c?.titre ?? '', href: dispo.has(n) ? conceptUrl(n) : undefined };
 });
 
-const objs = objectifsDe(d.numero);
-
 const tabs = [
   { id: 'comprendre', label: t('tab.comprendre') },
   { id: 'ecoles', label: t('tab.ecoles') },
   { id: 'sources', label: t('tab.sources') },
 ];
 ---
-<Base title={`Concept ${d.numero} : ${d.titre}`} description={typoFr(d.description)} nav="path">
+<Base title={`Concept ${d.numero} : ${d.titre}`} description={typoFr(d.description)} nav="domaines">
   <header class="concept-head container">
-    <p class="eyebrow">{/^A/.test(String(d.numero)) ? 'Annexe' : t('concept.label')} {d.numero}{known && !/^A/.test(String(d.numero)) && <> · {known.bloc.titre}</>}</p>
+    <p class="eyebrow">{isAnnexe ? 'Annexe' : t('concept.label')} {d.numero}{known && !isAnnexe && <> · <a class="eyebrow-lien" href={url(`domaines/#${domaineId(known.domaine)}`)}>Domaine {known.domaine.n} : {known.domaine.titre}</a></>}</p>
     <h1>{typoFr(d.titre)}</h1>
     <p class="lead">{typoFr(d.objectif)}</p>
     <div class="concept-meta" data-pagefind-ignore>
@@ -64,16 +61,6 @@ const tabs = [
           : <span>{p.n}. {p.titre}<span class="soon">{t('concept.soon')}</span></span>}</>
       ))}
     </div>
-    {objs.length > 0 && (
-      <div class="concept-meta objs" data-pagefind-ignore>
-        <span class="objs-label" id="objs-label">Objectifs du cours servis :</span>
-        <ul aria-labelledby="objs-label">
-          {objs.map((o) => (
-            <li><a class="obj-chip" href={url(`parcours/#objectif-${o.n}`)}><span class="obj-n">Objectif {o.n}</span> {o.titre}</a></li>
-          ))}
-        </ul>
-      </div>
-    )}
     {!isAnnexe && (
       <nav class="pn" aria-label="Concepts voisins" data-pagefind-ignore>
         <div>

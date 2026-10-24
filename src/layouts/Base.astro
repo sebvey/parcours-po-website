@@ -6,7 +6,7 @@ import { siteVersion, coursVersion } from '../data/version';
 interface Props {
   title?: string;
   description?: string;
-  /** Entrée de navigation active : 'home' | 'path' | 'lectures' | 'filrouge' | 'glossaire' | 'ecoles' | 'sources' | 'about' | 'search' */
+  /** Entrée de navigation active : 'home' | 'domaines' | 'filrouge' | 'glossaire' | 'ecoles' | 'sources' | 'about' | 'search' */
   nav?: string;
   lang?: Lang;
   /** Exclure la page de l'index de recherche. */
@@ -21,8 +21,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 const preview = siteVersion.startsWith('0.');
 const items = [
   { key: 'home', href: url(''), label: t('nav.home') },
-  { key: 'path', href: url('parcours/'), label: t('nav.path') },
-  { key: 'lectures', href: url('lectures/'), label: t('nav.lectures') },
+  { key: 'domaines', href: url('domaines/'), label: t('nav.domaines') },
   { key: 'filrouge', href: url('fil-rouge/'), label: t('nav.filrouge') },
   { key: 'glossaire', href: url('glossaire/'), label: t('nav.glossary') },
   // --- Pages transversales : index (début)

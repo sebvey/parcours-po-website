@@ -1,7 +1,7 @@
 // Données des pages transversales (Consensus ou école, Sources), tirées de la collection
 // `concepts` : rien n'est recopié à la main.
 import { disponibles, conceptUrl, type ConceptEntry } from './concepts';
-import { tousLesConcepts } from '../data/parcours';
+import { tousLesConcepts } from '../data/domaines';
 
 export type Kind = 'consensus' | 'ecole' | 'cours';
 

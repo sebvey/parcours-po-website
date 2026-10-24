@@ -1,0 +1,102 @@
+---
+import Base from '../layouts/Base.astro';
+import '../styles/transversal.css';
+import { inline } from '../lib/inline';
+import { domaines, annexes, domaineId, conceptOf, tousLesConcepts, type Domaine } from '../data/domaines';
+import { lectureDe, type Lecture } from '../data/lectures';
+import { disponibles, conceptUrl } from '../lib/concepts';
+import { useT } from '../i18n/ui';
+const t = useT();
+const dispo = await disponibles();
+const concept = (ref: string) => tousLesConcepts.find((c) => c.n === conceptOf(ref));
+const duree = (m: number) => `environ ${m} min`;
+const libelle = (n: string) => (/^A/.test(n) ? 'Annexe' : 'Concept');
+const sections: { d: Domaine; l?: Lecture }[] = [...domaines, annexes].map((d) => ({ d, l: lectureDe(d.n) }));
+---
+<Base title="Domaines" nav="domaines" description="Le cours en sept domaines, du cadre du produit à l’exploration : ce qu’on sait faire à la fin de chacun, ses concepts et sa lecture rapide.">
+  <div class="container-wide">
+    <section class="page tr">
+      <p class="eyebrow">La carte du cours</p>
+      <h1>Domaines</h1>
+      <p class="lead">Dix-huit concepts en sept domaines, plus deux annexes. Le cours se lit dans l’ordre, domaine après domaine ; chaque concept appartient à un seul domaine, et les sept couvrent tout le cours. Pour aller droit à l’essentiel d’un domaine, ouvrez sa lecture rapide.</p>
+
+      <ol class="tr-jump dom-jump" aria-label="Aller à un domaine">
+        {domaines.map((d) => <li><a href={`#${domaineId(d)}`}>{d.n}. {d.titre}</a></li>)}
+        <li><a href="#annexes">Annexes</a></li>
+      </ol>
+
+      {sections.map(({ d, l }) => (
+        <section class="domaine" id={domaineId(d)} aria-labelledby={`${domaineId(d)}-t`}>
+          <div>
+            <p class="n">{d.n === 0 ? 'Hors domaines' : `Domaine ${d.n}`}</p>
+            <h2 id={`${domaineId(d)}-t`}>{d.titre}<a class="ancre" href={`#${domaineId(d)}`} aria-label={`Lien vers : ${d.titre}`}>#</a></h2>
+            <p class="q">{d.n === 0 ? d.saitFaire : <>À la fin, vous savez : {d.saitFaire.charAt(0).toLowerCase() + d.saitFaire.slice(1)}</>}</p>
+          </div>
+          <div>
+            <ul class="cards">
+              {d.concepts.map((c) => {
+                const e = dispo.get(c.n);
+                return (
+                  <li>
+                    {e ? (
+                      <a class="card" href={conceptUrl(c.n)}>
+                        <span class="num">{libelle(c.n)} {c.n}</span>
+                        <span class="t">{c.titre}</span>
+                        <span class="st">Lire le concept</span>
+                      </a>
+                    ) : (
+                      <div class="card off">
+                        <span class="num">{libelle(c.n)} {c.n}</span>
+                        <span class="t">{c.titre}</span>
+                        <span class="st">{t('concept.soon')}</span>
+                      </div>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+            {l && (
+              <details class="lec" id={`${domaineId(d)}-lecture`}>
+                <summary>
+                  <span class="lec-t">{l.titre ? <>Lecture : {inline(l.titre)}</> : 'Lecture rapide'}</span>
+                  <span class="lec-m">{duree(l.minutes)} · {l.etapes.length} sections</span>
+                </summary>
+                {l.situation && <p class="situation" set:html={inline(l.situation)} />}
+                {l.avant && <p class="lec-avant" set:html={inline(l.avant)} />}
+                <ol class="etapes">
+                  {l.etapes.map((e) => {
+                    const c = concept(e.ref);
+                    return (
+                      <li>
+                        <a class="etape" href={conceptUrl(conceptOf(e.ref), e.ref)}>
+                          <span class="ref">{e.ref}</span>
+                          <span class="corps">
+                            <span class="tt" set:html={inline(e.titre)} />
+                            <span class="src">{libelle(conceptOf(e.ref))} {conceptOf(e.ref)}{c ? ` : ${c.titre}` : ''}</span>
+                            <span class="pq" set:html={inline(e.pourquoi)} />
+                          </span>
+                        </a>
+                      </li>
+                    );
+                  })}
+                </ol>
+              </details>
+            )}
+          </div>
+        </section>
+      ))}
+    </section>
+  </div>
+
+  <script is:inline>
+    // Une adresse qui vise une lecture (#domaine-3-lecture) l'ouvre.
+    (function () {
+      function ouvrir() {
+        var el = location.hash && document.getElementById(location.hash.slice(1));
+        if (el && el.tagName === 'DETAILS') { el.open = true; el.scrollIntoView(); }
+      }
+      ouvrir();
+      window.addEventListener('hashchange', ouvrir);
+    })();
+  </script>
+</Base>
