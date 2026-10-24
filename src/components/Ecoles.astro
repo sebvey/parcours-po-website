@@ -17,8 +17,8 @@ const cols = [
       <h3 id={`col-${c.kind}`}><Pastille kind={c.kind} /></h3>
       <p class="col-intro">{c.intro}</p>
       <ul>
-        {c.items.map((it) => (
-          <li>
+        {c.items.map((it, i) => (
+          <li id={`${c.kind}-${i + 1}`}>
             {it.auteur && <span class="auteur">{it.auteur}</span>}
             <span set:html={inline(it.texte)} />{' '}
             <Refs refs={it.refs} />

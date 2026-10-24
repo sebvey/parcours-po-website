@@ -1,0 +1,115 @@
+---
+import Base from '../layouts/Base.astro';
+import { bibliographie, nonVerifie } from '../lib/transversal';
+import { inline } from '../lib/inline';
+
+const { entrees, totalCitations } = await bibliographie();
+const nv = await nonVerifie();
+const nbNonVerifie = nv.reduce((s, c) => s + c.items.length, 0);
+
+// Lettre de tête, pour repérer un auteur dans une longue liste.
+const lettre = (tri: string) => {
+  const c = tri.normalize('NFD').replace(/[̀-ͯ]/g, '').charAt(0).toUpperCase();
+  return /[A-Z]/.test(c) ? c : '#';
+};
+const lettres = [...new Set(entrees.map((e) => lettre(e.tri)))];
+const cherche = (e: (typeof entrees)[number]) =>
+  `${e.texte} ${e.url ?? ''} ${e.types.join(' ')} ${e.citations.map((c) => `concept ${c.n}`).join(' ')}`.toLowerCase();
+---
+<Base title="Sources" nav="sources" description="La bibliographie du cours, dédoublonnée, et la liste de ce que les sources consultées ne permettent pas d’établir.">
+  <div class="container-wide">
+    <section class="page index-page">
+      <p class="eyebrow">Index transversal</p>
+      <h1>Sources</h1>
+      <p class="lead">Tout ce que le cours a consulté, une fois par document, avec les concepts qui le citent. Puis, concept par concept, ce que ces sources ne permettent pas d’établir.</p>
+      <nav class="saut" aria-label="Sections de la page" data-pagefind-ignore>
+        <ul>
+          <li><a href="#bibliographie">Bibliographie <span class="nb">{entrees.length}</span></a></li>
+          <li><a href="#non-verifie">Non vérifié <span class="nb">{nbNonVerifie}</span></a></li>
+        </ul>
+      </nav>
+
+      <section id="bibliographie" aria-labelledby="h-biblio">
+        <h2 id="h-biblio">Bibliographie</h2>
+        <p class="sec-intro">{entrees.length} documents distincts, cités {totalCitations} fois dans les pages de concept. Triés par auteur ou par titre. Les numéros [S1], [S2]… renvoient à la liste de références de l’onglet Sources du concept.</p>
+
+        <div class="filtre-sources" data-pagefind-ignore hidden>
+          <label for="filtre-src">Filtrer la bibliographie</label>
+          <input id="filtre-src" type="search" placeholder="Auteur, titre, adresse ou « concept 9 »" autocomplete="off" />
+          <p id="filtre-etat" class="etat" role="status" aria-live="polite"></p>
+        </div>
+
+        <nav class="saut lettres" aria-label="Lettres" data-pagefind-ignore>
+          <ul>{lettres.map((l) => (<li><a href={`#l-${l}`}>{l}</a></li>))}</ul>
+        </nav>
+
+        <ol class="biblio" id="biblio">
+          {entrees.map((e, i) => {
+            const ouvre = i === 0 || lettre(entrees[i - 1].tri) !== lettre(e.tri);
+            return (
+              <li class="bib" data-cherche={cherche(e)} id={ouvre ? `l-${lettre(e.tri)}` : undefined}>
+                <p class="bib-texte">
+                  {e.url
+                    ? <a href={e.url} rel="noopener"><span set:html={inline(e.texte)} /></a>
+                    : <span set:html={inline(e.texte)} />}
+                </p>
+                <p class="bib-meta">{e.types.join(' · ')}</p>
+                <p class="bib-cites">
+                  <span class="lib">Cité dans</span>
+                  <span class="chips">
+                    {e.citations.map((c) => (
+                      <a class="chip" href={c.href} title={`Concept ${c.n} : ${c.titre}`} aria-label={`Concept ${c.n}, référence ${c.id}`}>{c.n}<span class="chip-ref"> {c.id}</span></a>
+                    ))}
+                  </span>
+                </p>
+              </li>
+            );
+          })}
+        </ol>
+        <p id="biblio-vide" class="etat" hidden>Aucune référence ne correspond à ce filtre.</p>
+      </section>
+
+      <section id="non-verifie" aria-labelledby="h-nv">
+        <h2 id="h-nv">Non vérifié</h2>
+        <p class="sec-intro">Ce que les sources consultées ne permettent pas d’établir, tel que chaque concept le dit. Les pages n’affirment rien de plus sur ces points.</p>
+        {nv.map((c) => (
+          <section class="nv-concept" aria-labelledby={`nv-${c.n}`}>
+            <h3 id={`nv-${c.n}`}>Concept {c.n} · {c.titre}</h3>
+            <ul class="nonverifie">
+              {c.items.map((t) => (<li set:html={inline(t)} />))}
+            </ul>
+            <p class="nv-lien" data-pagefind-ignore><a href={c.href}>Voir dans l’onglet Sources du concept {c.n}</a></p>
+          </section>
+        ))}
+      </section>
+    </section>
+  </div>
+
+  <script is:inline>
+    (function () {
+      var box = document.querySelector('.filtre-sources');
+      var input = document.getElementById('filtre-src');
+      var etat = document.getElementById('filtre-etat');
+      var vide = document.getElementById('biblio-vide');
+      var items = Array.prototype.slice.call(document.querySelectorAll('#biblio .bib'));
+      if (!box || !input || !items.length) return;
+      box.hidden = false;
+      var total = items.length;
+      function norm(s) { return (s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, ''); }
+      var index = items.map(function (li) { return norm(li.getAttribute('data-cherche')); });
+      function filtrer() {
+        var q = norm(input.value).trim().split(/\s+/).filter(Boolean);
+        var n = 0;
+        items.forEach(function (li, i) {
+          var ok = q.every(function (m) { return index[i].indexOf(m) >= 0; });
+          li.hidden = !ok;
+          if (ok) n++;
+        });
+        etat.textContent = q.length ? n + ' sur ' + total + ' références' : '';
+        vide.hidden = n !== 0;
+        document.querySelector('.lettres').hidden = q.length > 0;
+      }
+      input.addEventListener('input', filtrer);
+    })();
+  </script>
+</Base>

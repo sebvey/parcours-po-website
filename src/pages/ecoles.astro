@@ -1,0 +1,102 @@
+---
+import Base from '../layouts/Base.astro';
+import Pastille from '../components/Pastille.astro';
+import Position from '../components/Position.astro';
+import { positions, scinde, groupeConsensus, slug, type Position as Pos } from '../lib/transversal';
+
+const toutes = await positions();
+const par = (kind: Pos['kind']) => toutes.filter((p) => p.kind === kind);
+const consensus = par('consensus');
+const ecole = par('ecole');
+const cours = par('cours');
+
+interface Groupe { titre: string; id: string; items: { p: Pos; sujet?: string }[] }
+const cmp = (a: string, b: string) => a.localeCompare(b, 'fr', { sensitivity: 'base' });
+
+function grouper(items: Pos[], cle: (p: Pos) => { groupe: string; sujet?: string }, premier?: string, dernier?: string): Groupe[] {
+  const m = new Map<string, Groupe>();
+  for (const p of items) {
+    const { groupe, sujet } = cle(p);
+    if (!m.has(groupe)) m.set(groupe, { titre: groupe, id: slug(groupe), items: [] });
+    // Pas de sujet quand il répète le titre du groupe.
+    m.get(groupe)!.items.push({ p, sujet: sujet === groupe ? undefined : sujet });
+  }
+  const rang = (g: Groupe) => (g.titre === premier ? 0 : g.titre === dernier ? 2 : 1);
+  return [...m.values()].sort((a, b) => rang(a) - rang(b) || cmp(a.titre, b.titre));
+}
+
+const AUTRES = 'Positions sans auteur unique';
+const gConsensus = grouper(
+  consensus,
+  (p) => ({ groupe: groupeConsensus(p.auteur), sujet: scinde(p.auteur).sujet }),
+  'Le Scrum Guide 2020',
+);
+const gEcole = grouper(
+  ecole,
+  (p) => {
+    const { groupe, sujet } = scinde(p.auteur);
+    return groupe ? { groupe, sujet } : { groupe: AUTRES, sujet };
+  },
+  undefined,
+  AUTRES,
+);
+// Choix du cours : par concept, dans l'ordre du cours.
+const gCours: Groupe[] = [];
+for (const p of cours) {
+  const titre = `Concept ${p.n} · ${p.titre}`;
+  let g = gCours.find((x) => x.titre === titre);
+  if (!g) { g = { titre, id: `c-${slug(p.n)}`, items: [] }; gCours.push(g); }
+  g.items.push({ p });
+}
+
+const sections = [
+  { kind: 'consensus', id: 'consensus', groupes: gConsensus, n: consensus.length, intro: 'Ce que disent les textes de référence (d’abord le Scrum Guide) et ce que les praticiens font en général. Les positions sont groupées par texte ou par pratique.' },
+  { kind: 'ecole', id: 'ecoles', groupes: gEcole, n: ecole.length, intro: 'Des positions défendables, chacune attribuée à son auteur ou à son école. Elles sont posées côte à côte, pas fondues. Groupées par auteur.' },
+  { kind: 'cours', id: 'cours', groupes: gCours, n: cours.length, intro: 'Ce que ce cours décide, sans source externe qui l’impose : à prendre comme tel. Groupées par concept.' },
+] as const;
+---
+<Base title="Consensus ou école" nav="ecoles" description="Toutes les positions du cours, par nature : ce qui fait consensus, ce qui relève d’un choix d’école, ce que le cours décide lui-même.">
+  <div class="container-wide">
+    <section class="page index-page">
+      <p class="eyebrow">Index transversal</p>
+      <h1>Consensus ou école</h1>
+      <p class="lead">Toutes les positions du cours, de tous les concepts, rangées selon ce qui les fonde. Chaque entrée renvoie au concept et à l’endroit exact où elle est posée.</p>
+
+      <dl class="legende" data-pagefind-ignore>
+        <div><dt><Pastille kind="consensus" /></dt><dd>Ce que disent les textes de référence et ce que les praticiens font en général.</dd></div>
+        <div><dt><Pastille kind="ecole" /></dt><dd>Une position défendable, portée par un auteur ou une école, à côté d’autres : le lecteur voit qui la défend.</dd></div>
+        <div><dt><Pastille kind="cours" /></dt><dd>Un choix que le cours fait lui-même, sans source externe qui l’impose.</dd></div>
+      </dl>
+
+      <nav class="saut" aria-label="Sections de l’index" data-pagefind-ignore>
+        <ul>
+          {sections.map((s) => (
+            <li><a href={`#${s.id}`}><Pastille kind={s.kind} /> <span class="nb">{s.n}</span></a></li>
+          ))}
+        </ul>
+      </nav>
+
+      {sections.map((s) => (
+        <section class={`index-sec ${s.kind}`} id={s.id} aria-labelledby={`h-${s.id}`}>
+          <h2 id={`h-${s.id}`}><Pastille kind={s.kind} /> <span class="nb">{s.n} positions</span></h2>
+          <p class="sec-intro">{s.intro}</p>
+          {s.kind === 'ecole' && (
+            <nav class="saut auteurs" aria-label="Auteurs et écoles" data-pagefind-ignore>
+              <ul>
+                {s.groupes.map((g) => (<li><a href={`#${g.id}`}>{g.titre}</a></li>))}
+              </ul>
+            </nav>
+          )}
+          {s.groupes.map((g) => (
+            <section class="groupe" aria-labelledby={`g-${g.id}`}>
+              <h3 id={g.id}><span id={`g-${g.id}`}>{g.titre}</span> <span class="nb">{g.items.length}</span></h3>
+              <ul class="pos-liste">
+                {g.items.map((it) => (<Position p={it.p} sujet={it.sujet} />))}
+              </ul>
+            </section>
+          ))}
+        </section>
+      ))}
+    </section>
+  </div>
+</Base>
