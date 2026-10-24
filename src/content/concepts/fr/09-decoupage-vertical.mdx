@@ -1,0 +1,291 @@
+---
+numero: "9"
+titre: "Découpage en tranches verticales"
+objectif: "Découper un besoin data en tranches qui traversent les couches du produit et servent seules à l'utilisateur."
+description: "Comment découper un besoin d'un produit data en tranches verticales qui servent seules, et pourquoi une couche entière, elle, ne sert pas seule."
+prerequis: ["8"]
+ecoles:
+  consensus:
+    - auteur: "Le Scrum Guide 2020"
+      texte: "Ne parle ni de tranche, ni de couche, ni de story. Dit que l'incrément doit être utilisable et que les éléments du backlog se découpent en éléments plus petits et plus précis, sans dire comment."
+      refs: ["S1"]
+    - auteur: "Pratique établie, hors du Scrum Guide"
+      texte: "Découper par valeur plutôt que par couche technique. Les auteurs de stories concordent : Bill Wake (on trouve chez lui, en 2003, la métaphore du gâteau en couches, sous le V d'INVEST), Richard Lawrence (2009) et le guide qu'il publie avec Peter Green."
+      refs: ["S2", "S3", "S4"]
+  ecole:
+    - auteur: "Mike Cohn : SPIDR"
+      texte: "Cinq techniques de découpage : Spike, Paths, Interfaces, Data, Rules. Cohn dit les avoir tirées des stories qu'il avait découpées. Le spike y est une technique essentielle, mais normalement pas la première à essayer."
+      refs: ["S5"]
+    - auteur: "Richard Lawrence : neuf patrons (2009)"
+      texte: "Publiés en 2009, publiés aujourd'hui avec Peter Green. Lawrence écrit ne pas les avoir inventés, mais observés et compilés. Pour lui, le spike est le dernier recours. Parmi les neuf : Variations in Data (traiter d'abord une sorte de données) et Simple/Complex (chercher la version la plus simple, puis sortir chaque variante dans sa story)."
+      refs: ["S3", "S4"]
+    - auteur: "Lawrence et Green : choisir son découpage"
+      texte: "Choisir le découpage qui permet de reporter, voire d'abandonner, une story de faible valeur. Ordonner reste l'affaire du backlog (concept 13)."
+      refs: ["S4"]
+    - auteur: "Bill Wake : « Twenty Ways to Split Stories » (2005)"
+      texte: "Un troisième catalogue, plus long : une vingtaine de dimensions de découpage. Pour Wake, découper sert à séparer les parties de forte valeur de celles de faible valeur."
+      refs: ["S6"]
+    - auteur: "Entre les catalogues"
+      texte: "Ils se recoupent en partie, sans se confondre. Le D de SPIDR et Variations in Data (Lawrence) disent la même chose. Le R de SPIDR (assouplir d'abord la règle) et Business Rule Variations (une story par variante de règle) diffèrent. Simple/Complex n'existe pas dans SPIDR. On attribue chaque patron à son catalogue, on ne les fond pas en un seul."
+      refs: ["S3", "S4", "S5"]
+  cours:
+    - texte: "Les quatre couches d'un produit data (ingestion, transformation, données prêtes, restitution) sont un exemple, pas un découpage normé. Wake donne d'autres couches : réseau, persistance, logique, présentation."
+      refs: ["S2"]
+    - texte: "« Sert seule à l'utilisateur » est l'exigence de chaque tranche. C'est proche de Wake et de Lawrence, qui demandent que chaque tranche ait de la valeur pour l'utilisateur."
+      refs: ["S2", "S3", "S4"]
+    - texte: "Le test : « si on s'arrête après cette tranche, l'utilisateur s'en sert-il demain matin ? ». Aucune source ne le formule ainsi."
+      refs: ["S2", "S4"]
+    - texte: "Au niveau du sprint, une tranche est une story."
+      refs: []
+    - texte: "Chaque story est une tranche verticale. Ce n'est pas un texte du Guide. Deux exceptions entrent aussi au backlog sans en être une : un travail technique qui porte sa propre raison (concept 3) et une exploration bornée (concept 17)."
+      refs: ["S1"]
+  voisines:
+    - auteur: "Le walking skeleton (Alistair Cockburn, années 1990)"
+      texte: "Une toute petite implémentation de bout en bout, qui relie les principaux composants de l'architecture. Elle sert l'équipe ; elle peut ne rien apporter seule à l'utilisateur. Ce n'est pas une tranche verticale au sens du cours."
+      refs: ["S8"]
+sources:
+  affirmations:
+    - affirmation: "Le Scrum Guide ne parle ni de tranche, ni de couche, ni de story."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "Le mot « story » n'y apparaît pas. Le texte ne contient ni « slice », ni « layer », ni « vertical » au sens du découpage."
+    - affirmation: "Découper un élément en éléments plus petits relève du refinement ; le Guide ne dit pas comment."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "Le Guide définit le refinement comme l'action de découper et de préciser les éléments du backlog en éléments plus petits et plus précis. Il ne dit pas comment découper."
+    - affirmation: "L'incrément doit être utilisable."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "Formulé ainsi dans le Guide : « the Increment must be usable »."
+    - affirmation: "Découper par valeur plutôt que par couche technique est une pratique établie chez les auteurs de stories (Wake, Lawrence, Lawrence et Green)."
+      kind: "consensus"
+      refs: ["S2", "S3", "S4", "S7"]
+      verifie: "Wake : la meilleure façon est de trancher « vertically through the layers ». Lawrence (2009) : un découpage par couche peut satisfaire « small », mais échoue sur « independent » et « valuable ». Humanizing Work : beaucoup d'équipes débutantes découpent par couche d'architecture. Trois sources du même milieu (XP, Scrum), concordantes : c'est une pratique partagée, pas un texte de consensus. Le site de Cohn [S7] dit la même chose, mais il n'est pas signé, et [S5], signé Cohn, ne le dit pas : on n'attribue pas ce principe à Cohn."
+    - affirmation: "On trouve la métaphore du gâteau en couches chez Wake (2003), dans INVEST, au critère V."
+      refs: ["S2"]
+      verifie: "Sous le titre « Valuable » : une story vue comme un gâteau à plusieurs couches (réseau, persistance, logique, présentation), dont on veut donner au client l'essentiel en tranchant verticalement. Que Wake en soit l'inventeur n'est pas vérifié (voir « Non vérifié »)."
+    - affirmation: "Les couches s'empilent, on les dessine à l'horizontale ; une tranche horizontale est une couche, une tranche verticale traverse toutes les couches."
+      refs: ["S2", "S4"]
+      verifie: "Humanizing Work définit la tranche verticale comme un élément de travail qui livre un changement de comportement du système ayant de la valeur, et qui touche probablement plusieurs couches. La tranche horizontale change un seul composant ou une seule couche, et doit être combinée à d'autres pour avoir une valeur observable. Que les couches se dessinent à l'horizontale est l'explication du cours, cohérente avec les deux sources."
+    - affirmation: "Une couche seule ne sert pas seule à l'utilisateur tant que les autres manquent."
+      refs: ["S2", "S4", "S7"]
+      verifie: "Wake : une couche de base de données complète a peu de valeur pour le client sans couche de présentation. Humanizing Work : la tranche horizontale doit être combinée à d'autres. Mountain Goat : le travail est divisé, pas la valeur. « Ne sert à personne » durcirait « peu de valeur » : la page écrit « ne sert pas seule »."
+    - affirmation: "Traverser les couches ne suffit pas : la tranche doit servir seule."
+      kind: "cours"
+      refs: ["S2", "S3", "S4", "S7"]
+      verifie: "Wake : rendre chaque tranche utile au client. Lawrence : les stories obtenues après découpage doivent encore suivre INVEST, dont le V. Humanizing Work : la tranche verticale livre un changement de comportement ayant de la valeur. Nuance d'école : le site de Cohn [S7] admet qu'une petite story peut créer de la valeur en réduisant un risque ou en validant une hypothèse, et que toutes les petites stories n'ont pas assez de valeur pour être livrées aussitôt. Le cours retient « sert seule à l'utilisateur »."
+    - affirmation: "Le principe vaut à plusieurs niveaux ; au niveau du sprint, une tranche est une story."
+      kind: "cours"
+      refs: ["S5"]
+      verifie: "Mountain Goat présente SPIDR comme valable pour les grosses stories, les epics et les features. « Au niveau du sprint, une tranche est une story » est une formulation du cours : le Scrum Guide ne parle pas de story."
+    - affirmation: "Le vertical s'arrête à la story : ses tâches sont souvent horizontales, et c'est normal ; elles sont le plan des Developers."
+      refs: ["S1", "S2"]
+      verifie: "Scrum Guide : les Developers découpent les éléments choisis en éléments de travail d'un jour ou moins, à leur seule discrétion ; le backlog de sprint est un plan fait par et pour les Developers. Wake : les tâches servent les développeurs, mais chacune doit pouvoir être expliquée et justifiée. « Une tâche par couche » est un exemple du cours, pas une règle des sources."
+    - affirmation: "Le PO juge la story sur ses critères d'acceptation, pas sur ses tâches."
+      refs: ["S1"]
+      verifie: "Le Guide laisse le plan aux Developers. Les critères d'acceptation sont une pratique établie, traitée au concept 8. « Le PO valide » n'est pas un terme du Guide."
+    - affirmation: "Une story qui ne tient pas dans un sprint se découpe ; ce sont les Developers qui estiment sa taille."
+      refs: ["S1"]
+      verifie: "Guide : « The Developers who will be doing the work are responsible for the sizing ». Le repère « une story tient dans un sprint » est un choix du cours (concept 4)."
+    - affirmation: "Chaque story est une tranche verticale."
+      kind: "cours"
+      refs: ["S1"]
+      verifie: "Pas écrit dans le Guide : choix du cours, présenté comme tel. Un travail technique qui porte sa propre raison et une exploration bornée entrent aussi au backlog sans en être une (vérifié aux concepts 3 et 17)."
+    - affirmation: "Les catalogues de patrons de découpage sont des choix d'école, chacun avec son auteur."
+      kind: "ecole"
+      refs: ["S3", "S4", "S5", "S6"]
+      verifie: "Trois catalogues d'auteurs différents et de tailles différentes (neuf patrons, cinq techniques, une vingtaine de dimensions), qui se recoupent en partie. Lawrence écrit lui-même : « I didn't invent these patterns, I've just observed and compiled them »."
+    - affirmation: "SPIDR, de Mike Cohn : Spikes, Paths, Interfaces, Data, Rules."
+      kind: "ecole"
+      refs: ["S5"]
+      verifie: "« The five I ended up with form the acronym SPIDR ». Cohn dit l'avoir tiré des stories qu'il avait découpées. La date d'origine n'est pas affichée (voir « Non vérifié »)."
+    - affirmation: "SPIDR, D (Data) : une première version ne traite qu'une partie des données."
+      kind: "ecole"
+      refs: ["S5", "S9"]
+      verifie: "« an initial version of a story that processes only a subset of the data ». Pour un rapport, Mountain Goat propose aussi de n'intégrer d'abord qu'une partie des sources de données."
+    - affirmation: "SPIDR, R (Rules) : assouplir d'abord une règle."
+      kind: "ecole"
+      refs: ["S5"]
+      verifie: "« Temporarily relaxing support for the rules that a story will ultimately need to support »."
+    - affirmation: "SPIDR, P et I : un chemin de l'utilisateur à la fois ; une interface à la fois, ou une interface minimale d'abord."
+      kind: "ecole"
+      refs: ["S5", "S5b"]
+      verifie: "P : quand l'utilisateur peut faire une chose de plusieurs façons. I : découper par navigateur ou par matériel ; l'affiche de Mountain Goat ajoute de construire d'abord une interface minimale."
+    - affirmation: "SPIDR, S (Spike) : une activité de recherche pour en savoir plus ; normalement pas la première technique à essayer."
+      kind: "ecole"
+      refs: ["S5"]
+      verifie: "« A spike is a research activity a team undertakes to learn more about some backlog item » ; « This is absolutely an essential way to split stories » ; « But normally it won't be the first technique you'll reach for »."
+    - affirmation: "Lawrence : neuf patrons, publiés le 28 octobre 2009, aujourd'hui publiés avec Peter Green."
+      kind: "ecole"
+      refs: ["S3", "S4"]
+      verifie: "Billet du 28 octobre 2009 : « I've discovered nine patterns ». Le guide actuel d'Humanizing Work reprend les mêmes neuf patrons dans un autre ordre ; il n'a pas de signature écrite, seulement les noms de Richard Lawrence et de Peter Green sous leurs photos, et l'adresse de 2009 y redirige. La page écrit « les patrons de Richard Lawrence »."
+    - affirmation: "Lawrence, Simple/Complex : demander « quelle est la version la plus simple ? », puis sortir chaque variante dans sa story. Ce patron n'existe pas dans SPIDR."
+      kind: "ecole"
+      refs: ["S3", "S4"]
+      verifie: "« stop and ask, “What's the simplest version of this?” Capture that simple version as its own story » ; les variantes et les complexités sortent dans leurs propres stories."
+    - affirmation: "Lawrence, Variations in Data : traiter d'abord une sorte de données, puis les autres. Proche du D de SPIDR."
+      kind: "ecole"
+      refs: ["S3", "S4"]
+      verifie: "Exemple de Lawrence : une recherche de transporteurs d'abord par département, puis par ville ou par quartier."
+    - affirmation: "Lawrence, Business Rule Variations : une story par variante de règle. Cela diffère du R de SPIDR."
+      kind: "ecole"
+      refs: ["S3", "S4"]
+      verifie: "Lawrence remplace la story par une story par variante de règle ; Cohn assouplit la règle dans une première story. Lawrence distingue lui-même ce patron de Simple/Complex (réponse à un commentaire, page [S3])."
+    - affirmation: "Pour Lawrence, le spike est le dernier recours ; Cohn est moins tranché."
+      kind: "ecole"
+      refs: ["S3", "S5"]
+      verifie: "Lawrence : « The spike split is last because it should be your last resort. » Cohn : « normally it won't be the first technique ». Nuance d'école."
+    - affirmation: "Choisir le découpage qui permet de reporter ou d'abandonner une story de faible valeur (Lawrence et Green)."
+      kind: "ecole"
+      refs: ["S4", "S6"]
+      verifie: "Humanizing Work : « Choose the split that lets you deprioritize or throw away a story ». Wake dit aussi que découper sert à séparer les parties de forte valeur de celles de faible valeur."
+    - affirmation: "Wake, « Twenty Ways to Split Stories » (2005) : un troisième catalogue, plus long."
+      kind: "ecole"
+      refs: ["S6"]
+      verifie: "Publié le 30 septembre 2005 ; une vingtaine de dimensions (Research/Action, Manual/Automated, Static/Dynamic, Unreliable/Reliable…), certaines attribuées à William Pietri (janvier 2006)."
+    - affirmation: "Rattacher le morceau « centre-ville » au D de SPIDR ou à Variations in Data, et « tendance de la dernière heure » à Simple/Complex (le R de SPIDR étant défendable)."
+      kind: "cours"
+      refs: ["S3", "S4", "S5"]
+      verifie: "C'est l'application du cours, pas un fait de source. R : « Temporarily relaxing support for the rules… » ; Simple/Complex : « What's the simplest version of this? »."
+    - affirmation: "Le walking skeleton (Alistair Cockburn) est une toute petite implémentation de bout en bout qui relie les principaux composants de l'architecture ; ce n'est pas une tranche verticale au sens du cours."
+      refs: ["S8"]
+      verifie: "« A Walking Skeleton is a tiny implementation of the system that performs a small end-to-end function. » Cockburn vise l'architecture et accepte une fonction minimale (« read a number, write a number »). Que ce ne soit pas une tranche verticale est une déduction du cours, appuyée sur ces citations."
+    - affirmation: "Les quatre couches d'un produit data (ingestion, transformation, données prêtes, restitution) sont un exemple."
+      kind: "cours"
+      refs: ["S2"]
+      verifie: "Aucune source data consultée. Wake donne d'autres couches (réseau, persistance, logique, présentation). À prendre comme un exemple, pas comme un découpage normé."
+    - affirmation: "Le réflexe : « si on s'arrête après cette tranche, l'utilisateur s'en sert-il demain matin ? »"
+      kind: "cours"
+      refs: ["S2", "S4"]
+      verifie: "Formulation du cours, cohérente avec Wake (valeur pour le client) et Humanizing Work (changement de comportement ayant de la valeur). Aucune source ne la formule ainsi."
+    - affirmation: "Les exemples du fil rouge (Régis, les stations, le centre-ville, la météo) sont des faits inventés."
+      refs: []
+      verifie: "Sans source : le cas de l'opérateur de vélos en libre-service est fictif. Le rattachement des morceaux aux patrons est l'application du cours. Les renvois à d'autres concepts (forme de la solution, règle non fixée, hypothèse à vérifier) s'appuient sur les sources de ces concepts."
+  references:
+    - id: "S1"
+      texte: "Schwaber, Sutherland, *The Scrum Guide*, novembre 2020"
+      url: "https://scrumguides.org/scrum-guide.html"
+      type: "primaire"
+      consultee: "2026-10-22"
+    - id: "S2"
+      texte: "Wake, « INVEST in Good Stories, and SMART Tasks », xp123.com, 17 août 2003 (postscript du 16 février 2011)"
+      url: "https://xp123.com/invest-in-good-stories-and-smart-tasks/"
+      type: "primaire"
+      consultee: "2026-10-22"
+    - id: "S3"
+      texte: "Lawrence, « Patterns for Splitting User Stories », richardlawrence.info, 28 octobre 2009 (copie archivée du 14 décembre 2010)"
+      url: "https://web.archive.org/web/20101214102545/http://www.richardlawrence.info/2009/10/28/patterns-for-splitting-user-stories/"
+      type: "primaire"
+      consultee: "2026-10-22"
+    - id: "S4"
+      texte: "Humanizing Work (Richard Lawrence, Peter Green), « The Humanizing Work Guide to Splitting User Stories » (sans date affichée)"
+      url: "https://www.humanizingwork.com/the-humanizing-work-guide-to-splitting-user-stories"
+      type: "primaire (site des auteurs, qui vendent formations et coaching)"
+      consultee: "2026-10-22"
+    - id: "S5"
+      texte: "Cohn, « SPIDR: Five Simple but Powerful Ways to Split User Stories », Mountain Goat Software (mise à jour le 6 août 2026, date d'origine non affichée)"
+      url: "https://www.mountaingoatsoftware.com/blog/five-simple-but-powerful-ways-to-split-user-stories"
+      type: "primaire (site de l'auteur, qui vend ses formations)"
+      consultee: "2026-10-22"
+    - id: "S5b"
+      texte: "Mountain Goat Software, affiche « SPIDR, the approach to splitting stories » (PDF)"
+      url: "https://www.mountaingoatsoftware.com/uploads/blog/spidr-poster.pdf"
+      type: "primaire, marketing"
+      consultee: "2026-10-22"
+    - id: "S6"
+      texte: "Wake, « Twenty Ways to Split Stories », xp123.com, 30 septembre 2005"
+      url: "https://xp123.com/twenty-ways-to-split-stories"
+      type: "primaire"
+      consultee: "2026-10-22"
+    - id: "S7"
+      texte: "Mountain Goat Software, « Story Splitting: How to Split User Stories So Teams Can Finish » (mise à jour le 2 juillet 2026, sans signature)"
+      url: "https://www.mountaingoatsoftware.com/agile/user-stories/story-splitting"
+      type: "primaire (site de Cohn, qui vend ses formations)"
+      consultee: "2026-10-22"
+    - id: "S8"
+      texte: "Cockburn, « Walking skeleton », alistair.cockburn.us (extrait de *Crystal Clear*, 2004 ; copie archivée de 2013)"
+      url: "https://web.archive.org/web/20130924061832/http://alistair.cockburn.us/Walking+skeleton"
+      type: "primaire"
+      consultee: "2026-10-22"
+    - id: "S9"
+      texte: "Mountain Goat Software, « Advice on How to Split Reporting User Stories » (mise à jour le 25 juin 2024, sans signature)"
+      url: "https://mountaingoatsoftware.com/blog/advice-on-how-to-split-reporting-user-stories"
+      type: "primaire (site de Cohn)"
+      consultee: "2026-10-22"
+  nonVerifie:
+    - "**Origine de la métaphore du gâteau.** On la trouve chez Wake (2003) [S2] ; aucune source consultée ne dit qui l'a employée le premier. La page écrit « on la trouve chez Wake », pas « Wake l'a inventée »."
+    - "**Origine du terme « vertical slice ».** Non trouvée."
+    - "**Date d'origine de SPIDR.** La page [S5] n'affiche que sa mise à jour (6 août 2026) ; une vidéo de Mountain Goat date de janvier 2024 et l'acronyme est plus ancien. La page ne date pas SPIDR."
+    - "**Signature des pages de Mountain Goat.** [S5] est signé Mike Cohn ; [S7] et [S9] ne nomment pas d'auteur (site et voix de Cohn). Seul [S5] sert à attribuer quelque chose à Cohn."
+    - "**Signature et date du guide d'Humanizing Work [S4].** Pas de signature écrite, seulement des noms sous des photos ; date de mise en ligne inconnue. L'auteur des patrons de 2009 est Lawrence seul [S3]."
+    - "**Date du walking skeleton.** Cockburn donne « vers 1994 » pour la découverte et deux fourchettes pour le nom (entre 1994 et 1997, ou la fin des années 1990) [S8] ; *Crystal Clear* (2004) n'a pas été lu. La page écrit « années 1990 »."
+    - "**Le découpage par couches serait « l'erreur la plus courante ».** Affirmation de [S7], sans donnée à l'appui : la page ne la reprend pas comme un fait."
+    - "**Couches d'un produit data.** Aucune source data consultée : les quatre couches sont un exemple du cours."
+---
+import Gateau from '../../../components/schemas/Gateau.astro';
+import PartRecoupee from '../../../components/schemas/PartRecoupee.astro';
+
+Un produit data s'empile en couches : l'ingestion, la transformation, les données prêtes, la restitution. Une tranche **horizontale** est une couche entière : tant que les autres manquent, elle ne sert pas seule à l'utilisateur. Une tranche **verticale** traverse toutes les couches, en tranche fine, comme une part de gâteau, et elle **sert seule** : si on s'arrête après elle, l'utilisateur s'en sert. Le vertical s'arrête à la story (le besoin d'un utilisateur, à la taille d'un sprint) : ses tâches, elles, sont horizontales.
+
+<Figure legende="Le gâteau en couches. En bas, l'ingestion des données ; en haut, la restitution, ce que voit l'utilisateur. Une couche prise en entier (grisée) ne sert pas seule ; chaque part verticale traverse toutes les couches et sert seule.">
+  <Gateau />
+</Figure>
+
+<Sous id="9a" titre="La tranche verticale" promesse="Une tranche se juge à ce qu'elle apporte à l'utilisateur, pas aux couches qu'elle traverse.">
+
+<h4 id="9a1"><span class="num">9a1</span> La tranche qui sert seule</h4>
+
+Les couches s'empilent, donc on les dessine à l'horizontale : l'ingestion en bas, la restitution en haut. De là viennent les mots. Une tranche horizontale est une couche entière. Une tranche verticale coupe toutes les couches de haut en bas, comme une part de gâteau : un peu de chaque couche, et l'utilisateur s'en sert. On trouve cette métaphore du gâteau en couches chez Bill Wake (2003), dans INVEST, au critère V.
+
+Traverser les couches ne suffit pas : la tranche doit **servir seule**. Cette exigence est un choix du cours <Pastille kind="cours" />, proche de ce que demandent Wake et Lawrence : que chaque tranche ait de la valeur pour l'utilisateur. Une tranche qui relie les couches sans rien apporter à l'utilisateur sert l'équipe, pas lui.
+
+<FilRouge>Régis, régulateur, veut savoir quelles stations vont se vider, pour y aller avant. Découper ce besoin en « préparer les données, entraîner un modèle, afficher » revient à découper par couches : Régis n'a rien avant la fin.</FilRouge>
+
+<h4 id="9a2"><span class="num">9a2</span> Où s'arrête le vertical</h4>
+
+« Tranche » est une façon de découper, pas un niveau. Le principe vaut à plusieurs niveaux : un epic se découpe en stories verticales (les niveaux du backlog sont au <Renvoi n="4" />). Au niveau du sprint, une tranche est une story <Pastille kind="cours" />.
+
+Mais le vertical s'arrête là. Quand les Developers découpent la story en tâches, au Sprint Planning (<Renvoi n="15" />), celles-ci sont souvent une par couche : des tâches horizontales, et c'est normal. Elles sont le plan des Developers, pas ce qu'on livre : l'utilisateur ne reçoit jamais une tâche seule, et le PO juge la story sur ses critères d'acceptation, pas sur ses tâches.
+
+</Sous>
+
+<Sous id="9b" titre="Les patrons de découpage" promesse="Quand une story est trop grosse, des catalogues de patrons aident à trouver où couper.">
+
+<h4 id="9b1"><span class="num">9b1</span> Couche ou tranche</h4>
+
+Une story que les Developers estiment trop grosse pour un sprint se découpe (<Renvoi n="4" />). Chaque morceau passe le même test qu'en 9a : sert-il seul à l'utilisateur ?
+
+<FilRouge>« Prévoir les stations à risque » pour Régis est jugé trop gros pour un sprint. Trois morceaux sont proposés : a, b et c dans le schéma.</FilRouge>
+
+<Figure legende="Une part trop grosse, recoupée. Les morceaux a et c sont des parts verticales ; b est une lamelle horizontale : la couche d'ingestion, seule. Sous chaque morceau, le patron de découpage et son catalogue.">
+  <PartRecoupee />
+</Figure>
+
+Le centre-ville seulement (a) et la tendance de la dernière heure, avant tout modèle (c), traversent les couches et livrent à Régis une prévision qu'il peut consulter. La collecte des données météo (b) est une couche : une source de plus, rien pour Régis tant qu'elle n'est pas raccrochée à un usage. Que la tendance de la dernière heure suffise, et que la pluie change vraiment les départs, n'est pas tranché : ce sont des hypothèses, à vérifier avant de s'engager (exploration bornée, <Renvoi n="17" />).
+
+<h4 id="9b2"><span class="num">9b2</span> Les patrons et leur catalogue</h4>
+
+Des catalogues de patrons aident à trouver où couper. Ce sont des choix d'école <Pastille kind="ecole" />, chacun à son auteur, posés côte à côte :
+
+- **SPIDR**, de Mike Cohn : cinq techniques. Spike (une exploration bornée, <Renvoi n="17" />), Paths (un chemin de l'utilisateur à la fois), Interfaces (une interface à la fois, ou une interface minimale d'abord), Data (une partie des données d'abord), Rules (assouplir d'abord une règle).
+- **Richard Lawrence**, neuf patrons (2009), dont Variations in Data (une variante des données d'abord) et Simple/Complex (« quelle est la version la plus simple ? », puis les variantes en stories à part).
+
+Les deux catalogues se recoupent en partie, sans se confondre : on attribue chaque patron à son catalogue. Sur l'exemple, le morceau a restreint les données : c'est le D de SPIDR, ou Variations in Data chez Lawrence, même idée sous deux noms. Le morceau c prend la version la plus simple d'abord : c'est Simple/Complex, de Lawrence. SPIDR n'a pas de patron sous ce nom ; y voir le R (assouplir d'abord la règle de calcul) est défendable. Ce rattachement est l'application du cours <Pastille kind="cours" />, pas un fait de source. Le nom compte moins que la question qu'il fait poser.
+
+</Sous>
+
+<Reflexe note="Formulation du cours, cohérente avec la valeur pour l'utilisateur que demandent Wake et Lawrence.">
+« Si on s'arrête après cette tranche, l'utilisateur s'en sert-il demain matin ? »
+</Reflexe>
+
+<Erreurs>
+
+- **Découper par couche** (préparer les données, entraîner le modèle, afficher) : rien pour l'utilisateur avant la fin. C'est le réflexe probable d'un profil technique.
+- **Croire que traverser les couches suffit** : la tranche doit servir seule. Un walking skeleton sert l'équipe, pas l'utilisateur.
+- **Appliquer le vertical aux tâches** : il s'arrête à la story. Les tâches sont horizontales et appartiennent aux Developers.
+- **Nommer la forme dans la tranche** (« carte », « liste ») : la story dit ce que l'utilisateur obtient, la forme reste aux Developers (<Renvoi n="5" />).
+- **Trancher en découpant ce qui n'est pas fixé ou vérifié** (« station vide », « presque vide », « la pluie compte ») : le PO fait fixer la règle (<Renvoi n="8" />), et l'hypothèse se vérifie avant (<Renvoi n="17" />).
+- **Collecter une source « pour plus tard »** (la météo) : c'est une couche. Il faut la raccrocher à un usage.
+- **Mélanger les catalogues** : attribuer un patron de Lawrence à SPIDR, ou l'inverse.
+
+</Erreurs>
