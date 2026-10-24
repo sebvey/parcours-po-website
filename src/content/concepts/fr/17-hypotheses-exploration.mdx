@@ -43,6 +43,8 @@ ecoles:
       refs: ["S3", "S4", "S8"]
     - texte: "Deux seuils à ne pas mêler : celui qui juge l'exploration (ce qui compte comme « oui »), fixé avant comme chez Torres, que le PO fait dire par les utilisateurs concernés sans le chiffrer ; et le niveau qu'un critère d'acceptation exige de la fonction livrée, fixé après l'exploration, qui montre ce qu'on peut atteindre. Les guides de Google choisissent le seuil d'un modèle sur ses résultats mesurés, donc après la mesure : un appui, pas un consensus."
       refs: ["S6", "S7", "S10", "S13"]
+    - texte: "Un prototype se jette : il n'est pas une story livrée et ne remplit pas la DoD (17b2)."
+      refs: []
   voisines:
     - auteur: "Deux sens du mot « prévision »"
       texte: "La prévision des stations à risque est une fonction du produit pour Régis (concept 9). La prévision au sens du glossaire, ce que les Developers pensent livrer et quand, est celle du concept 16. Distinction de vocabulaire du cours."
@@ -258,8 +260,8 @@ sources:
     - "**Analyse d'historique comme technique d'exploration.** Aucune source de gestion de produit consultée ne la nomme ainsi ; CRISP-DM l'appuie côté données. Le nom est celui du cours."
 alignement:
   coursVersion: "1.0.0"
-  fiche: "dfefdbf84a7ea4aa209a1bb319e8c8800ed3516011b141f46d628dec8f9de500"
-  sources: "f4e69dd731786946aaa967181989a0d2801718c13ae7822673835a41dd6d3a83"
+  fiche: "1f96c0b70a4590c0be4caf37c8d70141f94b0b16cb50db62eb65bed0c60c30fe"
+  sources: "25a4df109ca81da0058e269affdf5e49d3b55949ee422944cfaf5eed819ef42b"
 ---
 import Schema17 from '../../../components/schemas/Schema17.astro';
 
@@ -279,7 +281,7 @@ Pour chaque affirmation qui soutient une story, une seule question sépare ce qu
 
 Marty Cagan <Pastille kind="ecole" /> nomme quatre grands risques : valeur, utilisabilité, faisabilité, viabilité, et veut qu'on les traite tôt, avant de construire. Le cours en retient deux <Pastille kind="cours" />. La **valeur** : l'utilisateur s'en servira-t-il, et cela sert-il l'objectif produit ? La **faisabilité** : peut-on le construire, avec des données qui existent, assez bonnes et assez fraîches ? Ce rangement des données dans la faisabilité est un choix du cours, Cagan n'en parle pas.
 
-Pour ranger une supposition, on se demande ce qui se passe si elle est fausse : on ne sait pas le construire (faisabilité), ou on le construit pour rien (valeur). Une même phrase peut cacher les deux. Exemple inventé pour l'illustration : « on enverra un SMS de disponibilité, et les abonnés sans l'appli iront à une station où il reste des vélos » suppose qu'on sait calculer la disponibilité à temps (faisabilité), puis que les abonnés changeront d'itinéraire (valeur). Le PO ne tranche pas une hypothèse, même plausible : il la fait vérifier.
+Pour ranger une supposition, on se demande ce qui se passe si elle est fausse : on ne sait pas le construire (faisabilité), ou on le construit pour rien (valeur). Une même phrase peut cacher les deux. Exemple inventé pour l'illustration : « on enverra un SMS de disponibilité, et les abonnés sans l'appli iront à une station où il reste des vélos » suppose d'abord que le SMS arrive avec une disponibilité assez fraîche (faisabilité), puis que ces abonnés changeront d'itinéraire (valeur). La disponibilité vient de la plateforme ; le canal relève de l'équipe appli. Le PO ne tranche pas une hypothèse, même plausible : il la fait vérifier.
 
 <FilRouge>Dans le fil rouge, la disponibilité par station vient de la plateforme (règle fixée : un vélo à quai et louable) ; la livrer à Abba par SMS, serveur vocal ou appli dépend de l'équipe appli.</FilRouge>
 

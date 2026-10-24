@@ -133,9 +133,12 @@ sources:
       kind: "cours"
       refs: []
       verifie: "Choix du cours, sans source externe."
-    - affirmation: "Les exemples de l'arbre (vols de vélos) sont illustratifs."
+    - affirmation: "Exemple du fil rouge : la journée d'Étienne (point du matin, envoi des régulateurs, suivi des incidents, bilan du soir) compte plusieurs moments distincts ; un besoin qui la couvre est un epic."
       refs: []
-      verifie: "Sans source : les besoins de l'arbre sont inventés pour illustrer, pas des faits du fil rouge."
+      verifie: "Fait du fil rouge (la journée d'Étienne) ; la conclusion est l'application du test du cours (plusieurs groupes), sans source externe."
+    - affirmation: "Les libellés de l'arbre du schéma (« Prévenir les vols », quatre stories sous deux features, une story sous l'epic, deux tâches) sont inventés pour illustrer."
+      refs: []
+      verifie: "Cas inventé, pas un fait du fil rouge ni un cas d'exercice ; sans source."
   references:
     - id: "S1"
       texte: "Schwaber, Sutherland, *The Scrum Guide*, novembre 2020"
@@ -182,14 +185,14 @@ sources:
     - "**Les trois tests du cours** (compter les « je veux », niveau de trop, juger ce qu'il reste à livrer). Choix du cours, sans source externe, observées sur un seul apprenant (base faible) : à prendre comme des règles pratiques, pas comme un consensus."
 alignement:
   coursVersion: "1.0.0"
-  fiche: "56fcc1a737f654ba7fe762d8f55c9f082f15f31f84ab3b28f5fda200520a1576"
-  sources: "dbc85cf3071ba6c2f46ba8a2eba734fa8915e907125640c4588b18d8dda9f192"
+  fiche: "d1f60535efa479af4a7fdc0d41cdf3597cfc90c073c65972df5b6d9e1042c06a"
+  sources: "8d0bf30adad8043e19c041b13378e4d21655e9866259c93eecf21ad58cfde1c6"
 ---
 import Schema04 from '../../../components/schemas/Schema04.astro';
 
 Le Scrum Guide ne connaît que des **éléments du backlog**, sans niveau. Le cours emploie quatre mots courants pour les classer : **epic** (trop gros pour un sprint), **feature** (sert seule, faite de plusieurs besoins), **story** (un besoin, qui tient dans un sprint) et **tâche** (travail des Developers pour réaliser une story). Aucun guide n'impose ces niveaux : les outils ont leurs réglages par défaut, l'équipe choisit les siens, et peu suffisent. Pour trancher, on compte les « je veux » qu'il reste à livrer. Le compte l'emporte sur la taille.
 
-<Figure legende="Un exemple illustratif d'arbre. L'epic se déplie en deux features (deux stories chacune) et une story rattachée directement à l'epic : on peut sauter un niveau. Sous une story, deux tâches grisées : elles appartiennent aux Developers. À droite, le compte de « je veux » qui désigne chaque niveau. Les besoins de l'arbre sont inventés pour illustrer.">
+<Figure legende="Un arbre sur un cas inventé (des vols de vélos), qui n'est pas un fait du fil rouge. L'epic se déplie en deux features (deux stories chacune) et une story rattachée directement à l'epic : on peut sauter un niveau. Sous une story, deux tâches grisées : elles appartiennent aux Developers. À droite, le compte de « je veux » qui désigne chaque niveau. Cas inventé, pour illustrer.">
   <Schema04 />
 </Figure>
 
@@ -235,7 +238,7 @@ Le test est un choix du cours <Pastille kind="cours" />. On écrit les « je veu
 - **plusieurs**, chacun utile seul : une **feature**, et chaque « je veux » devient une story candidate ;
 - **plusieurs groupes** (par exemple des moments différents de la journée d'un utilisateur), ou des « je veux » qu'on ne sait pas encore écrire : un **epic**. Un « je veux » qui en contient d'autres se déplie avant de compter.
 
-<FilRouge>La journée d'Étienne (point du matin, envoi des régulateurs, suivi des incidents, bilan du soir) compte plusieurs moments distincts : un besoin qui couvre toute sa journée est un epic, pas une story.</FilRouge>
+<FilRouge>La journée d'Étienne (point du matin, envoi des régulateurs, suivi des incidents, bilan du soir) compte plusieurs moments distincts ; un besoin qui couvre toute sa journée est un epic, pas une story.</FilRouge>
 
 <h4 id="4b2"><span class="num">4b2</span> Ce que le compte ne regarde pas</h4>
 

@@ -134,9 +134,9 @@ sources:
       kind: "cours"
       refs: ["S1"]
       verifie: "Formulation du cours, appuyée sur T de Wake (« I could write a test for it » ; un client qui ne sait pas tester signale une story pas assez claire)."
-    - affirmation: "Les exemples du fil rouge (la plateforme, les équipes, les abonnés) sont des faits inventés."
+    - affirmation: "Les mots flous typiques (« rapidement », « récent », « important ») et l'exemple du régulateur sur un petit écran (contrainte) face au tableau, à la liste ou à la carte (solutions) sont des exemples inventés pour illustrer."
       refs: []
-      verifie: "Sans source : le cas de l'opérateur de vélos en libre-service est fictif."
+      verifie: "Sans source : exemples inventés, ni faits du fil rouge ni cas d'exercice. La distinction entre contrainte et solution est un choix du cours (voir « Négociable ne veut pas dire tout est ouvert »)."
   references:
     - id: "S1"
       texte: "Wake, « INVEST in Good Stories, and SMART Tasks », xp123.com, 17 août 2003 (postscript du 16 février 2011)"
@@ -174,8 +174,8 @@ sources:
     - "**Mot flou dont dépendent plusieurs lettres** et **« négociable ne veut pas dire tout ouvert ».** Règles pratiques du cours, sans source externe : base faible."
 alignement:
   coursVersion: "1.0.0"
-  fiche: "bb008b62c0abbf28605248443348195156c29f91902691341f4b1d512676e62d"
-  sources: "e38c1d0c3d790b7193316741c00982d2bd70ebdecf547a2e11ccb5946e180fbd"
+  fiche: "d053f270e33ab11fa01bb10933f9d88213b44b4bdc622e90e3076f849b4416ec"
+  sources: "e66c257e6ec945f2dba82de9751b5b615c624d11913c661b088dcb8b177f5605"
 ---
 import Schema07 from '../../../components/schemas/Schema07.astro';
 
@@ -198,11 +198,9 @@ INVEST donne six critères pour juger une story : **I**ndependent, **N**egotiabl
 
 Le PO ne coche pas E et S seul : le Scrum Guide confie l'estimation de la taille aux Developers, le PO peut les aider à comprendre les compromis.
 
-<FilRouge>L'équipe vélos travaille en sprints de deux semaines : pour elle, la question de S est « cette story tient-elle dans le sprint ? », et ce sont ses Developers qui y répondent.</FilRouge>
-
 <h4 id="7a2"><span class="num">7a2</span> Le mot flou</h4>
 
-Quand E, S et T restent douteux **ensemble**, ils dépendent souvent d'un même mot que personne n'a fixé : « rapidement », « récent », « important ». Wake lie E à la compréhension (on estime mal ce qu'on ne comprend pas), S au périmètre connu et T à la clarté (si on ne sait pas tester, la story n'est pas assez claire). Un seul mot flou peut donc faire douter des trois.
+Quand E, S et T restent douteux **ensemble**, ils dépendent souvent d'un même mot que personne n'a fixé : « rapidement », « récent », « important » (exemples inventés). Wake lie E à la compréhension (on estime mal ce qu'on ne comprend pas), S au périmètre connu et T à la clarté (si on ne sait pas tester, la story n'est pas assez claire). Un seul mot flou peut donc faire douter des trois.
 
 Cocher « OK » ne règle rien : on **cherche le mot**, puis on le fait préciser. Ce réflexe est une règle pratique du cours <Pastille kind="cours" />, pas un texte de Wake. Qui précise ? Ni le PO, qui ne l'invente pas, ni les Developers, qui estiment sans fixer le besoin : c'est **l'utilisateur concerné**, que le PO interroge avant le sprint (<Renvoi n="15" />). En attendant, la story attend (<Renvoi n="4" />).
 
@@ -214,9 +212,7 @@ Une même question aide à le repérer : un testeur qui ne connaît que la story
 
 N veut dire que la story n'est pas un contrat de fonctions : elle porte l'essentiel, et les détails se construisent avec l'équipe, jusque pendant la réalisation (Wake). Dans la lecture du cours, la story fixe le besoin, et ce qui relève de la **solution** (le canal, la forme, l'outil) reste ouvert à la discussion. Écrire la solution dans la story, ou dans un critère, empêche l'équipe de proposer mieux <Pastille kind="cours" />.
 
-<FilRouge>Le canal par lequel un abonné reçoit une information (SMS, serveur vocal, appli) relève de l'équipe appli, pas de l'équipe vélos.</FilRouge>
-
-Mais **négociable ne veut pas dire tout ouvert** <Pastille kind="cours" />. Une **contrainte** est une exigence réelle de l'usage, qui ne se négocie pas . Elle n'est pas une solution : plusieurs solutions peuvent la respecter. Elle s'écrit dans un **critère d'acceptation**, sans nommer de solution, pour que le testeur la lise (<Renvoi n="8" />). La phrase de la story, elle, ne change pas : elle reste le besoin.
+Mais **négociable ne veut pas dire tout ouvert** <Pastille kind="cours" />. Une **contrainte** est une exigence réelle de l'usage, qui ne se négocie pas. Elle n'est pas une solution : plusieurs solutions peuvent la respecter. Elle s'écrit dans un **critère d'acceptation**, sans nommer de solution, pour que le testeur la lise (<Renvoi n="8" />). La phrase de la story, elle, ne change pas : elle reste le besoin.
 
 Exemple inventé pour l'illustration : un régulateur consulte une vue depuis sa camionnette, sur un petit écran. « Se lire sur un petit écran » est une contrainte, qui va dans un critère ; un tableau, une liste ou une carte sont des solutions, que l'équipe peut proposer.
 

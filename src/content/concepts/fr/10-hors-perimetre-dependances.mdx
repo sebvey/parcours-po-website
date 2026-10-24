@@ -117,7 +117,7 @@ sources:
       kind: "ecole"
       refs: ["S10"]
       verifie: "Jira : quatre types de liens par défaut, dont « blocks / is blocked by » ; pas de type « dépend de » par défaut (les types sont configurables)."
-    - affirmation: "Les exemples du fil rouge (l'équipe appli et sa PO, Pia) sont des faits inventés ; les exemples de stories de cette page sont des illustrations."
+    - affirmation: "Les exemples du fil rouge sont des faits inventés ; les exemples de stories de cette page sont des illustrations."
       refs: []
       verifie: "Sans source : le cas de l'opérateur de vélos en libre-service est fictif."
   references:
@@ -179,7 +179,7 @@ sources:
     - "**Date et auteur de [S6].** Page non datée, auteur non affiché (site de Cohn)."
 alignement:
   coursVersion: "1.0.0"
-  fiche: "c65c7f0d5c58afaaf8c7a3f60761792b24960e72232c8dc086c57c09dfb3cf6f"
+  fiche: "250f02f519a6c4287a5df03c27751923d575d3c8501c9c18d9be4814c0f09136"
   sources: "0d8a0ecc8d8756d8f8a038cebbff27549be491c54442dee278b52a51eaf8786d"
 ---
 import Schema10 from '../../../components/schemas/Schema10.astro';
@@ -218,8 +218,6 @@ Une dépendance qui reste s'écrit, et le PO ordonne : l'élément dont l'autre 
 
 <h4 id="10b2"><span class="num">10b2</span> Envers une autre équipe</h4>
 
-<FilRouge>L'équipe appli a sa propre PO, Pia, et son propre backlog : la plateforme lui fournit des données, elle porte l'appli et ses canaux.</FilRouge>
-
 Une dépendance envers une autre équipe ne se règle pas dans son seul backlog. Livrer sa part et tenir la story pour faite ne suffit pas, si l'utilisateur n'est pas servi. Le PO écrit la dépendance dans son backlog, demande à l'autre PO de l'écrire dans le sien, et s'accorde avec lui sur l'ordre dans les deux backlogs, pour que les deux parts arrivent à temps. Chaque PO ordonne seul son backlog : pour changer la place d'un élément chez l'autre, on le convainc.
 
 Le Scrum Guide ne traite pas deux produits qui ont chacun leur PO : plusieurs équipes sur un même produit partagent le PO et le backlog. S’accorder entre PO est donc un choix du cours <Pastille kind="cours" />. Si l’accord ne se fait pas, ou si la dépendance bloque, c’est une escalade (<Renvoi n="14" />), et elle vient après avoir parlé à l’autre PO. Dans l’outil, la dépendance se note souvent par un lien entre les deux éléments (<Renvoi n="A1" />), ce qui est un choix d’école <Pastille kind="ecole" />.
@@ -235,10 +233,10 @@ Autre équipe : « son PO sait-il, et l'ordre est-il convenu entre nous ? »
 <Erreurs>
 
 - **Ne rien écrire hors périmètre** : chacun comble les silences avec ses attentes, et la revue tourne au « c'est un bug ».
-- **Lister des évidences ou des tâches** : le hors périmètre ne sert qu'aux demandes plausibles.
+- **Lister des évidences ou des tâches** : le hors périmètre ne sert qu'aux demandes plausibles. Cas inventé : « Hors périmètre : réécrire les systèmes sources » n'apprend rien à personne ; une ligne vague (« le reste ») est aussi à éviter.
 - **Prendre le hors périmètre pour un refus**, ou **traiter aussitôt** la demande qui en sort : elle entre au backlog et le PO l'ordonne comme les autres. Une règle qu'elle soulève se fait fixer, pas trancher en revue.
 - **Fusionner deux stories pour supprimer une dépendance saine** : on retarde la valeur de la première. La fusion se défend si la story fusionnée reste petite.
-- **Accepter deux stories dont aucune n'a de valeur seule** : ce sont souvent des tranches horizontales.
+- **Accepter deux stories dont aucune n'a de valeur seule** : ce sont souvent des tranches horizontales, à redécouper en tranches verticales (<Renvoi n="9" />). Cas inventé : « préparer les relevés », puis « afficher les relevés ».
 - **Livrer sa part d'une dépendance envers une autre équipe et s'arrêter là** : l'utilisateur n'est pas servi.
 - **Ordonner le backlog d'une autre équipe à sa place**, ou escalader avant de lui parler.
 - **Croire que le Scrum Guide prescrit une rubrique « Hors périmètre » ou un outil de suivi des dépendances** : il n'en parle pas.

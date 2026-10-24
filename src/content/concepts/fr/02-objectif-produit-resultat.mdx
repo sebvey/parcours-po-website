@@ -180,7 +180,7 @@ sources:
       kind: "ecole"
       refs: ["S16", "S17", "S18"]
       verifie: "EBM : la page parle de « 4 Key Value Areas » mesurées par des « Key Value Indicators » ; le guide EBM n'a pas été lu. Patton : une mesure de succès par tranche de version. Dehghani : qualité des données, délai pour les consommer, satisfaction des consommateurs."
-    - affirmation: "Les faits du fil rouge (objectif produit et mesure de la plateforme, Odile, Étienne, la vue des stations vides) sont inventés."
+    - affirmation: "Les faits du fil rouge (objectif produit et mesure de la plateforme, Étienne, Maud, la vue des stations vides) sont inventés."
       refs: []
       verifie: "Sans source : le cas de l'opérateur de vélos en libre-service est fictif. Les formulations d'objectifs et de mesures évoquées pour illustrer sont du cours."
   references:
@@ -282,8 +282,8 @@ sources:
     - "**Indicateur avancé et indicateur retardé** (*leading*, *lagging*) : non recherché ; la page ne les traite pas."
 alignement:
   coursVersion: "1.0.0"
-  fiche: "b2fcf560a7b222a257b32134127f4403821c790381443a6b9c1cc0ce3230428e"
-  sources: "ee081006b58b8017d0966484f8991527a1ed301ff085530d52762b7be9cb6946"
+  fiche: "af53650507284e0c4ff89158c851a27d51d71ecbc03068c1fb21f0dc3cde5194"
+  sources: "e919b02ec72db90fc9baedb85bba14e155a060c400b356931f893266fd1210e8"
 ---
 import Schema02 from '../../../components/schemas/Schema02.astro';
 
@@ -299,7 +299,7 @@ Le **livrable** est ce que l'équipe produit. Le **résultat** est ce qui change
 
 Un test simple <Pastille kind="cours" /> : si l'équipe peut le faire seule, sans que personne ne change sa façon de travailler, c'est un livrable. Pour un produit data, un **indicateur** que la plateforme calcule est un livrable, même quand on s'en sert ensuite pour juger le produit : c'est le même chiffre, avec deux rôles.
 
-<FilRouge>Maud fixe chaque semaine le nombre de techniciens en tournée, et demande le nombre de vélos en panne par semaine. Le calculer est un livrable. Si Maud ajuste ses tournées à partir de ce chiffre, c'est un changement de comportement : le début du résultat.</FilRouge>
+<FilRouge>Maud fixe chaque semaine le nombre de techniciens en tournée et demande le nombre de vélos en panne par semaine ; le calculer est un livrable, et si Maud ajuste ses tournées à partir de ce chiffre, c'est un changement de comportement, le début du résultat.</FilRouge>
 
 </Sous>
 
@@ -307,11 +307,9 @@ Un test simple <Pastille kind="cours" /> : si l'équipe peut le faire seule, san
 
 Selon le Scrum Guide, l'objectif produit est un état futur du produit qui sert de cible à l'équipe, son objectif à long terme <Pastille kind="consensus" />. Il figure dans le backlog produit, dont il est l'engagement. L'équipe l'atteint ou l'abandonne avant d'en prendre un autre : **un seul à la fois**. Accoler un second objectif au premier disperse l'équipe et rend l'ordre du backlog impossible à argumenter. Le PO le développe et le communique, c'est la première de ses tâches sur le backlog. Chaque incrément est un pas vers lui ; le Sprint Planning y rattache les éléments choisis, la revue de sprint discute du progrès. Le Guide n'impose ni format ni horizon, et c'est avec la version 2020 qu'il a introduit l'objectif produit.
 
-Un bon objectif vise un **résultat**. Il n'est donc ni une liste de livrables ou une feuille de route datée (on peut tout livrer sans que rien ne change), ni une caractéristique du livrable ou un moyen (adopter telle technique ne dit pas ce qui change pour qui), ni une aspiration si vaste qu'aucune mesure ne dirait si l'équipe s'en approche <Pastille kind="cours" />. Scrum.org propose des critères : aligné sur la vision, clair et concis, orienté résultat, mesurable, transparent. Pour Scrum.org aussi, l'objectif est une **hypothèse** (concept <Renvoi n="17" />) : on peut le reformuler quand on apprend, sans que ce soit un échec <Pastille kind="ecole" />.
+Un bon objectif vise un **résultat**. Il n'est donc ni une liste de livrables ou une feuille de route datée (on peut tout livrer sans que rien ne change), ni une caractéristique du livrable ou un moyen (adopter telle technique ne dit pas ce qui change pour qui), ni une aspiration si vaste qu'aucune mesure ne dirait si l'équipe s'en approche <Pastille kind="cours" />. Sans cible chiffrée, un objectif est une direction : une mesure dit si on s'en approche, pas qu'il est atteint. Scrum.org propose des critères : aligné sur la vision, clair et concis, orienté résultat, mesurable, transparent. Pour Scrum.org aussi, l'objectif est une **hypothèse** (concept <Renvoi n="17" />) : on peut le reformuler quand on apprend, sans que ce soit un échec <Pastille kind="ecole" />.
 
 La **vision produit**, plus lointaine et souvent aspirationnelle, est un choix d'école <Pastille kind="ecole" />. Le Scrum Guide 2020 ne contient plus le mot (la version 2017 l'employait) ; Scrum.org et Scrum Alliance la gardent, et pour Scrum.org l'objectif produit en est un pas concret et mesurable.
-
-<FilRouge>Objectif produit de la plateforme : « Que les stations du centre-ville restent le moins longtemps possible vides aux heures de pointe, grâce à des données à jour pour l'exploitation. » Il dit un état futur, un périmètre (centre-ville, heures de pointe) et ce que le produit y apporte. Sans cible chiffrée, pas encore fixée, c'est une direction : on ne peut pas dire qu'il est atteint.</FilRouge>
 
 </Sous>
 
@@ -324,8 +322,6 @@ Le tri se fait avec une question : cette mesure peut-elle monter alors que le r�
 - **la mesure du livrable** (ce que l'équipe a produit ou livré) ;
 - **l'usage seul** (consultations, connexions) : un signal utile, pas une preuve, car on peut consulter un livrable sans changer ce que l'on fait ;
 - **le comptage brut qui monte avec la taille du réseau ou du nombre d'abonnés** : il faut le ramener à une base avant de le lire. Eric Ries parle de mesures de vanité : flatteuses, inutiles pour décider <Pastille kind="ecole" />.
-
-<FilRouge>La mesure retenue pour la plateforme : le temps cumulé pendant lequel une station du centre-ville est vide aux heures de pointe, calculé depuis les relevés des stations. Elle n'est pas prête à l'emploi : les heures de pointe, la cible chiffrée et le calcul (par station ou cumulé sur le centre-ville) ne sont pas fixés. Le PO ne les invente pas, il les fait fixer avec les parties prenantes.</FilRouge>
 
 Une mesure seule ne suffit pas à conclure : on la croise avec d'autres sources (entretiens, observation) <Pastille kind="ecole" />. L'exploration rigoureuse d'une hypothèse vient au concept <Renvoi n="17" />. Enfin, la définition d'un indicateur se travaille au concept <Renvoi n="12" />, car une mesure mal définie trompe sans que personne le veuille.
 

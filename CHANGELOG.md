@@ -5,6 +5,13 @@ dit sur quelle version du cours elle est alignée.
 
 ## Non publié
 
+- Contenu d'enseignement propre au site repris dans le cours (T-054) : les pages suivent les fiches
+  corrigées. Encadrés « fil rouge » retirés quand ils reprenaient la situation ou le verdict d'une
+  question de la banque (concepts 0, 1, 2, 3, 6, 7, 9, 10, 11), alignés sur les fiches pour les autres
+  (21 restent, tous présents dans les fiches). Schéma du concept 4 : cas inventé de vols de vélos fixé
+  par la fiche. Schéma du concept 6 et encadré 5b2 alignés. Exemples de 15b et 17a2 remplacés par des
+  cas que l'équipe vélos maîtrise seule ou des cas inventés dits tels.
+
 - Réalignement sur les corrections du cours (T-053) : concept 3 (« retirer n'est pas définitif »,
   choix du cours), concepts 12 et 13 (« relevé en double »), concept 14 (les cinq catégories, choix
   du cours sans source), concept 17 (« chaque semaine »). Éléments que les fiches n'ont plus,
@@ -30,14 +37,3 @@ fiches : les cas que l'audit avait généralisés seul (concepts 1, 4, 5, 6, 8, 
 pièges avec leurs exemples, les nuances et attributions manquantes, les références et
 affirmations de sources absentes. Les schémas des concepts 1, 4, 5, 12, 16 et A1 suivent le cas de la
 fiche.
-
-### Écarts connus, à traiter par le cours
-
-Contenu d'enseignement que le site porte et que la fiche n'a pas. Il reste en place tant que le cours ne
-l'a pas repris ou refusé (le fond vient d'abord du cours) :
-
-- encadrés « fil rouge » propres au site : Scarlette (0a1), Étienne (1a, 4b1), Odile et Sid (1b),
-  Maud (2a), Pia (3a2), Régis (5a1, 6a), Abba (5a2, 9a1, 17a2), météo (14a), SMS (17a2) ;
-- 0a3, 1a, 1b, 5a2, 7a2, 7b, 8a2, 8b1, 11a2, 12a1, 14b : exemples ou phrases sans équivalent dans la fiche ;
-- 4 : quatre stories et deux tâches du schéma, libellés proposés (la fiche ne fixe que l'epic, les
-  features et la story sous l'epic) ;
