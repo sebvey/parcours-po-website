@@ -1,0 +1,259 @@
+---
+numero: "A1"
+titre: "Structurer le backlog dans un outil"
+objectif: "Dire ce qu'un PO règle dans l'outil du backlog, et pourquoi : les niveaux (et le niveau de trop), le lien qui note une dépendance, y compris envers une autre équipe, et les états d'un élément, où « fait » veut dire DoD remplie."
+description: "Niveaux, liens de dépendance et états d'un élément dans l'outil du backlog : ce que Scrum n'impose pas, ce que les outils proposent par défaut, et ce que le PO demande à l'équipe et à l'administrateur."
+prerequis: ["4", "10", "11"]
+ecoles:
+  consensus:
+    - auteur: "Le Scrum Guide 2020"
+      texte: "Ne parle ni d'outil de suivi, ni d'état, ni de lien entre éléments, ni de niveau. D'autres pratiques peuvent s'employer dans le cadre. Le PO veille à ce que le backlog soit transparent, visible et compris. Un élément qui ne remplit pas la DoD ne fait pas partie de l'incrément. La rétrospective inspecte aussi les outils de l'équipe."
+      refs: ["S1"]
+    - auteur: "Ce que font les outils (documentation des éditeurs : un constat, pas un consensus)"
+      texte: "Niveaux par défaut : Jira, Epic > Story > Subtask ; Azure DevOps (processus Agile), Epic > Feature > User Story > Task. Aucun outil vérifié n'a de lien nommé « dépend de » : Jira dit « blocks / is blocked by », Azure DevOps « Predecessor / Successor », Linear « blocked / blocking ». Les états viennent avec un jeu par défaut que l'équipe change. Les réglages se trouvent chez les administrateurs, et certains valent pour plusieurs équipes."
+      refs: ["S2", "S3", "S4", "S6", "S7", "S8", "S10", "S12"]
+  ecole:
+    - auteur: "Mike Cohn : la Definition of Ready"
+      texte: "Une DoR stricte devient une barrière avant chaque sprint, un pas vers une approche séquentielle, par étapes. Cohn conseille des repères plutôt que des règles (concept 11)."
+      refs: ["S13"]
+    - auteur: "Atlassian : peu d'états (conseil d'éditeur, pas un choix d'école)"
+      texte: "L'éditeur de Jira conseille de limiter les états et les transitions à ce dont l'équipe a besoin. C'est une recommandation de l'éditeur, à lire comme telle, pas un consensus."
+      refs: ["S9"]
+  cours:
+    - texte: "Peu de niveaux suffisent, et un niveau qui ne contient d'habitude qu'un seul élément est de trop (concept 4). La règle pratique est tirée d'une session, sans source externe."
+      refs: []
+    - texte: "Dans l'outil, « fait » veut dire DoD remplie. Le Scrum Guide dit qu'un élément qui ne la remplit pas ne fait pas partie de l'incrément ; que l'état de l'outil doive suivre la DoD est la règle du cours."
+      refs: ["S1"]
+    - texte: "Un état « prêt » de l'outil reste un repère, pas une barrière. Le cours applique ici l'avis de Cohn sur la DoR."
+      refs: ["S13"]
+    - texte: "Le lien ne remplace pas la conversation avec l'autre PO. Le Manifeste agile met les individus et leurs interactions avant les processus et les outils, sans parler d'un lien d'outil."
+      refs: ["S14"]
+    - texte: "Le PO dit ce qu'il veut voir dans l'outil et pourquoi ; l'équipe choisit ; l'administrateur règle."
+      refs: []
+  voisines:
+    - auteur: "La « Definition of Done » d'une colonne d'Azure DevOps"
+      texte: "Même nom, autre objet : ce sont les critères pour passer une étape du tableau. La DoD de Scrum est unique et porte sur l'incrément."
+      refs: ["S11", "S1"]
+sources:
+  affirmations:
+    - affirmation: "Le Scrum Guide ne parle ni d'outil de suivi, ni d'état d'élément, ni de lien entre éléments, et n'impose aucun niveau."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "Texte téléchargé et cherché le 23 octobre 2026 : « status », « workflow », « board », « link », « ticket », « Jira » n'y apparaissent pas ; « tool » une fois, quand la rétrospective inspecte « individuals, interactions, processes, tools, and their Definition of Done ». « State » ne désigne que l'état des artefacts, de l'objectif produit et de l'incrément."
+    - affirmation: "Scrum laisse le choix des pratiques et des outils."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« Various processes, techniques and methods can be employed within the framework ». L'outil n'y est pas nommé : « laisse le choix de l'outil » est une lecture du cours, cohérente avec cette phrase."
+    - affirmation: "Le PO veille à ce que le backlog soit transparent, visible et compris."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« Ensuring that the Product Backlog is transparent, visible and understood ». Que l'outil serve cette transparence est le choix du cours."
+    - affirmation: "Jira propose par défaut trois niveaux (Epic, Story, Subtask), qu'on peut renommer ; ajouter des niveaux demande les offres Premium et Enterprise."
+      refs: ["S2"]
+      verifie: "« By default, Jira is set up with three levels of work type hierarchy » ; « Rename a hierarchy level » ; « Jira Premium and Enterprise customers can also create and manage additional levels ». Les changements valent pour tous les espaces gérés par l'entreprise du site et cassent les liens parent et enfant existants."
+    - affirmation: "Azure DevOps, processus Agile : Epic > Feature > User Story > Task."
+      refs: ["S3", "S4"]
+      verifie: "Les niveaux dépendent du processus choisi à la création du projet (Scrum : Product Backlog Item ; Basic : Epic > Issue > Task). La page sur les backlogs confirme les deux backlogs de portefeuille, Epics et Features, pour les processus Agile, Scrum et CMMI."
+    - affirmation: "Azure DevOps ne retire pas un niveau hérité ; chaque équipe choisit les niveaux qu'elle affiche."
+      refs: ["S4", "S5"]
+      verifie: "« You can't remove an inherited portfolio level from a product. You can rename the level, or disable WITs to prevent teams from creating new work items of those types ». Désactiver le type le retire de l'interface, pour tous les projets qui emploient le processus. « Each team can select and configure the backlog levels that fit their needs »."
+    - affirmation: "Pour Jira, la documentation décrit le retrait d'un niveau ajouté, pas celui d'un niveau par défaut."
+      refs: ["S2"]
+      verifie: "« To remove a level you have added to the work type hierarchy ». La page ne dit pas qu'un niveau par défaut ne se retire pas : c'est implicite, la page n'affirme donc pas que Jira l'interdit (voir « Non vérifié »)."
+    - affirmation: "Un niveau est de trop quand il ne contient d'habitude qu'un seul élément ; choisir peu de niveaux."
+      kind: "cours"
+      refs: []
+      verifie: "Règle pratique du cours, tirée d'une session et déjà sourcée au concept 4, avec l'appui partiel de Cohn (le terme « feature » superflu, à garder en étiquette plutôt qu'en niveau). Aucune source externe ne fixe un nombre de niveaux."
+    - affirmation: "Aucun des trois outils n'a de type de lien « dépend de » : Jira dit « blocks / is blocked by », Azure DevOps « Predecessor / Successor », Linear « blocked / blocking »."
+      refs: ["S6", "S6b", "S7", "S12"]
+      verifie: "Constat sur les types de liens des trois pages. Jira Data Center 11.3 : quatre types par défaut (relates to, duplicates, blocks, clones), configurables ; exemple de la page, A « is blocked by » B, B « blocks » A. Azure DevOps : « Choose Predecessor when linking to a work item that should complete before the current item ». Linear : « You can mark issues as blocked, blocking, related, and duplicate »."
+    - affirmation: "Le lien peut relier des éléments de deux équipes : dans Jira, de deux espaces ; dans Azure DevOps, de deux projets."
+      refs: ["S6b", "S7"]
+      verifie: "Jira Cloud : « You can link work items across different spaces ». Azure DevOps : « You can create predecessor-successor links across projects » ; entre deux organisations, des liens distants (Consumes From / Produced For) si le même annuaire Entra ID les gère. Pour Linear, la page ne dit pas si une relation relie deux équipes : non vérifié."
+    - affirmation: "Le lien ne remplace pas la conversation avec l'autre PO ; chaque PO ordonne seul son backlog et on le convainc."
+      kind: "cours"
+      refs: ["S1", "S14"]
+      verifie: "Scrum Guide : « Those wanting to change the Product Backlog can do so by trying to convince the Product Owner » (déjà sourcé au concept 10). L'accord entre deux PO est le choix du cours. Le Manifeste agile, « Individuals and interactions over processes and tools », l'appuie en général, pas pour un lien d'outil."
+    - affirmation: "Les états d'un élément (Jira dit « statuts ») sont les étapes du flux de travail de l'équipe, qui les choisit."
+      refs: ["S8", "S10", "S12"]
+      verifie: "Jira : « Statuses are the steps of a team's workflow » ; les statuts par défaut sont des points de départ qu'on peut modifier, retirer ou compléter. Azure DevOps : on masque un état hérité ou on ajoute un état personnalisé, sans renommer un état hérité. Linear : statuts propres à chaque équipe, à ajouter, renommer, retirer."
+    - affirmation: "États par défaut : Azure DevOps (Agile, User Story) New, Active, Resolved, Closed ; Linear Backlog, Todo, In Progress, Done, Canceled."
+      refs: ["S10", "S12"]
+      verifie: "Azure DevOps : « In the Agile process, a user story typically moves through New, Active, Resolved, and Closed ». Linear : « a default set and order: Backlog > Todo > In Progress > Done > Canceled ». Pour Jira, la page donne « To do, In progress, Done » comme exemple de flux et comme catégories d'états, pas comme liste par défaut d'un modèle (voir « Non vérifié »)."
+    - affirmation: "Atlassian conseille de garder peu d'états et de transitions."
+      refs: ["S9"]
+      verifie: "« Keep your workflow simple: limit statuses and transitions » ; « include only the statuses and transitions you need ». Recommandation d'éditeur, présentée comme telle."
+    - affirmation: "Un élément qui ne remplit pas la DoD ne fait pas partie de l'incrément ; dans l'outil, « fait » doit donc vouloir dire DoD remplie."
+      kind: "cours"
+      refs: ["S1"]
+      verifie: "« Work cannot be considered part of an Increment unless it meets the Definition of Done » (déjà vérifié aux concepts 0 et 11). Que l'état « Done » de l'outil doive correspondre à la DoD est la règle du cours, déduite de cette phrase."
+    - affirmation: "L'outil juge « terminé » d'après sa propre règle, pas d'après la DoD."
+      refs: ["S8"]
+      verifie: "Base de connaissances d'Atlassian : les tableaux Scrum de Jira jugent un travail terminé « exclusively on whether a status is in the rightmost board column » ; les tableaux Kanban se fondent sur la catégorie d'état."
+    - affirmation: "Azure DevOps propose une « Definition of Done » par colonne du tableau, qui n'est pas la DoD de Scrum."
+      refs: ["S11", "S1"]
+      verifie: "« Define the criteria for the Definition of Done in each column. This action helps the team identify necessary tasks before advancing an item to the next stage ». La DoD de Scrum est unique et porte sur l'incrément : même nom, autre objet (constat du cours)."
+    - affirmation: "Un état « prêt » ne doit pas faire de la DoR une barrière."
+      kind: "ecole"
+      refs: ["S13", "S1"]
+      verifie: "Cohn : une DoR stricte « becomes a huge step towards a sequential, stage-gate approach » ; « Favor guidelines rather than rules on your Definition of Ready ». Appliquer cet avis à un état « prêt » de l'outil est le choix du cours. Les outils vérifiés n'ont pas d'état « Ready » par défaut pour une story. Le Scrum Guide dit seulement qu'un élément faisable en un sprint est « ready for selection »."
+    - affirmation: "Chaque état se tient à jour : en ajouter un par étape coûte, et les états ne racontent pas la vie d'une story."
+      kind: "cours"
+      refs: ["S9"]
+      verifie: "Atlassian : « include only the statuses and transitions you need » (marketing). Le coût de la tenue à jour est le raisonnement du cours, parallèle au niveau de trop. La vie d'une story (refinement, Sprint Planning, revue) relève du concept 15."
+    - affirmation: "Le PO dit ce qu'il veut et pourquoi ; l'administrateur règle ; certains réglages touchent d'autres équipes."
+      kind: "cours"
+      refs: ["S2", "S4", "S5", "S10"]
+      verifie: "Jira : la hiérarchie se règle pour tous les espaces gérés par l'entreprise. Azure DevOps : le processus s'applique à tous les projets qui l'emploient (« any projects that use the process automatically reflect the customizations ») ; les niveaux affichés se règlent par équipe. Ces pages disent qui a les droits, pas le rôle du PO : « le PO propose, l'administrateur règle » est le choix du cours."
+    - affirmation: "Le cours ne décrit pas où cliquer : les écrans et les noms changent d'un outil et d'une version à l'autre."
+      kind: "cours"
+      refs: ["S6b", "S8"]
+      verifie: "Atlassian a renommé « issue » en « work item » et « project » en « space ». Ne pas décrire les clics est un parti pris de la page."
+    - affirmation: "« Ticket » est un terme d'outil, absent du Scrum Guide : la page dit « élément du backlog »."
+      refs: ["S1"]
+      verifie: "« Ticket » n'apparaît pas dans le Scrum Guide. Atlassian et Microsoft disent « work item », Linear « issue »."
+    - affirmation: "Les exemples du fil rouge (équipe vélos, DSI, équipe appli, vues d'Étienne) sont des faits inventés."
+      refs: []
+      verifie: "Sans source : le cas de l'opérateur de vélos en libre-service est fictif. Le fil rouge ne dit pas quel outil emploie l'équipe vélos : la page n'en suppose aucun."
+  references:
+    - id: "S1"
+      texte: "Schwaber, Sutherland, *The Scrum Guide*, novembre 2020"
+      url: "https://scrumguides.org/scrum-guide.html"
+      type: "primaire"
+      consultee: "2026-10-23"
+    - id: "S2"
+      texte: "Atlassian, « Configure the work type hierarchy », Jira Cloud administration (sans date, © 2026)"
+      url: "https://support.atlassian.com/jira-cloud-administration/docs/configure-the-issue-type-hierarchy/"
+      type: "primaire (documentation de l'éditeur)"
+      consultee: "2026-10-23"
+    - id: "S3"
+      texte: "Microsoft, « Default processes and process templates », Azure Boards, mise à jour 2026"
+      url: "https://learn.microsoft.com/en-us/azure/devops/boards/work-items/guidance/choose-process"
+      type: "primaire (documentation de l'éditeur)"
+      consultee: "2026-10-22"
+    - id: "S4"
+      texte: "Microsoft, « Customize Backlogs and Boards », Azure Boards, 20 août 2025"
+      url: "https://learn.microsoft.com/en-us/azure/devops/organizations/settings/work/customize-process-backlogs-boards"
+      type: "primaire (documentation de l'éditeur)"
+      consultee: "2026-10-23"
+    - id: "S5"
+      texte: "Microsoft, « Select backlog navigation levels », Azure DevOps (sans date affichée)"
+      url: "https://learn.microsoft.com/en-us/azure/devops/organizations/settings/select-backlog-navigation-levels"
+      type: "primaire (documentation de l'éditeur)"
+      consultee: "2026-10-23"
+    - id: "S6"
+      texte: "Atlassian, « Configuring issue linking », Jira Data Center 11.3"
+      url: "https://confluence.atlassian.com/spaces/ADMINJIRASERVER/pages/938847862/Configuring+issue+linking"
+      type: "primaire pour ce que fait l'outil (documentation de l'éditeur)"
+      consultee: "2026-10-23"
+    - id: "S6b"
+      texte: "Atlassian, « Link work items », Jira Cloud (sans date, © 2026)"
+      url: "https://support.atlassian.com/jira-software-cloud/docs/link-issues"
+      type: "primaire pour ce que fait l'outil ; marketing pour ce qu'il recommande"
+      consultee: "2026-10-23"
+    - id: "S7"
+      texte: "Microsoft, « Link Types Reference Guide », Azure Boards, 8 octobre 2025"
+      url: "https://learn.microsoft.com/en-us/azure/devops/boards/queries/link-type-reference"
+      type: "primaire (documentation de l'éditeur)"
+      consultee: "2026-10-23"
+    - id: "S8"
+      texte: "Atlassian, « What is a workflow status? » ; « What are work item statuses, priorities, and resolutions? » ; base de connaissances « Kanban board shows or hides completed work unexpectedly in Jira Cloud » (sans date, © 2026)"
+      url: "https://support.atlassian.com/jira-cloud-administration/docs/what-is-a-workflow-status"
+      type: "primaire (documentation de l'éditeur)"
+      consultee: "2026-10-23"
+    - id: "S9"
+      texte: "Atlassian, « Best practices for workflows in Jira », Jira Cloud (sans date)"
+      url: "https://support.atlassian.com/jira-software-cloud/docs/best-practices-for-workflows-in-jira"
+      type: "marketing (recommandation de l'éditeur)"
+      consultee: "2026-10-23"
+    - id: "S10"
+      texte: "Microsoft, « How workflow category states are used in Azure Boards backlogs and boards » ; « Customize the workflow of an inherited process », 3 mars 2026"
+      url: "https://learn.microsoft.com/en-us/azure/devops/boards/work-items/workflow-and-state-categories"
+      type: "primaire (documentation de l'éditeur)"
+      consultee: "2026-10-23"
+    - id: "S11"
+      texte: "Microsoft, « Manage columns on your board », Azure Boards, section « Add Definition of Done to a column » (sans date relevée)"
+      url: "https://learn.microsoft.com/en-us/azure/devops/boards/boards/add-columns"
+      type: "primaire (documentation de l'éditeur)"
+      consultee: "2026-10-23"
+    - id: "S12"
+      texte: "Linear, documentation : « Issue relations », « Issue status » (sans date)"
+      url: "https://linear.app/docs/issue-relations"
+      type: "primaire (documentation de l'éditeur)"
+      consultee: "2026-10-23"
+    - id: "S13"
+      texte: "Mountain Goat Software (Cohn), « Definition of Ready: What It Is and Why It's Dangerous », mise à jour du 28 juin 2023"
+      url: "https://www.mountaingoatsoftware.com/blog/the-dangers-of-a-definition-of-ready"
+      type: "primaire (site de l'auteur, qui vend aussi ses formations)"
+      consultee: "2026-10-22"
+    - id: "S14"
+      texte: "Beck et al., *Manifesto for Agile Software Development*, 2001"
+      url: "https://agilemanifesto.org/"
+      type: "primaire"
+      consultee: "2026-10-23"
+  nonVerifie:
+    - "**Retirer le niveau Epic par défaut de Jira.** La documentation ne décrit que le retrait d'un niveau ajouté ; qu'un niveau par défaut ne se retire pas est implicite, pas écrit. La page dit que l'équipe peut ne pas l'employer, pas que Jira l'interdit."
+    - "**Niveaux et réglages des espaces gérés par l'équipe dans Jira** : la page sur la hiérarchie ne vaut que pour les espaces gérés par l'entreprise."
+    - "**Types de liens par défaut de Jira Cloud.** La documentation Cloud liste dix-sept libellés sans dire lesquels existent sur un site neuf ; seuls les quatre types de Data Center sont donnés comme « default »."
+    - "**Lien entre deux équipes dans Linear.** La page ne dit pas si une relation relie deux équipes."
+    - "**Linear comme outil « courant »**, ou tout classement des outils par usage : aucune donnée de part de marché consultée. Linear est présenté comme un troisième outil, rien de plus."
+    - "**Lien « dépend de » des autres outils** (Trello, GitHub Projects, Monday…) : non vérifié."
+    - "**Statuts par défaut d'un espace Scrum ou Kanban de Jira.** La documentation donne des exemples et la liste des statuts disponibles, pas la liste exacte d'un modèle. Le statut « Selected for Development » existe, mais dans quel modèle : non vérifié ; il ne se confond pas avec la DoR."
+    - "**Dates des pages Atlassian et Linear** : aucune date de mise à jour affichée, seulement « © 2026 » chez Atlassian. Les noms changent (« work item », ex-« issue » ; « space », ex-« project ») : la page ne cite aucun intitulé de menu."
+    - "**Le niveau de trop** : règle pratique du cours, tirée d'une session (un seul apprenant), non vérifiée hors du cours."
+    - "**« Le PO propose, l'administrateur règle » et « le lien ne remplace pas la conversation »** : choix du cours. Les pages d'éditeurs disent qui a les droits, pas le rôle du PO."
+---
+import SchemaA1 from '../../../components/schemas/SchemaA1.astro';
+
+Le Scrum Guide ne dit rien des outils de suivi : ni niveau, ni lien, ni état d'un élément. Il demande un backlog transparent, visible et compris. L'outil propose des **réglages par défaut** (niveaux, types de liens, états) ; l'équipe les change, et aucun n'est une règle de Scrum. Le PO dit ce qu'il veut voir dans l'outil et pourquoi ; l'administrateur de l'outil fait le réglage, qui peut toucher d'autres équipes. Cette page ne dit pas où cliquer : les écrans changent d'un outil et d'une version à l'autre.
+
+<Figure legende="Un écran d'outil stylisé, en trois bandes. Niveaux : la ligne Feature est grisée, c'est le niveau de trop. Liens : une story est bloquée par un élément de l'autre équipe, et les deux PO s'accordent d'abord. États : « Prêt » est un repère, « Fait » veut dire DoD remplie.">
+  <SchemaA1 />
+</Figure>
+
+<Sous id="A1a" titre="Les niveaux dans l'outil" promesse="Les niveaux viennent de l'outil, pas de Scrum : l'équipe en choisit peu.">
+
+Jira propose par défaut trois niveaux (Epic, Story, Subtask). Azure DevOps, en processus Agile, en propose quatre (Epic, Feature, User Story, Task). Ce sont des réglages par défaut : l'équipe choisit les siens, et peu suffisent (<Renvoi n="4" />). Un niveau est de trop quand il ne contient d'habitude qu'un seul élément <Pastille kind="cours" /> : il oblige à écrire deux éléments là où un seul porte le besoin (<Renvoi n="4a3" />).
+
+Un niveau de trop ne se retire pas toujours. Azure DevOps ne retire pas un niveau hérité : on le renomme, on désactive son type, et chaque équipe choisit les niveaux qu'elle affiche. Pour Jira, la documentation décrit le retrait d'un niveau ajouté, pas celui d'un niveau par défaut. Mais ne pas pouvoir retirer un niveau n'oblige pas à l'employer : l'équipe peut cesser de s'en servir, et ne pas l'afficher quand l'outil le permet.
+
+Ces réglages touchent plus que l'équipe. La hiérarchie de Jira vaut pour tous les espaces gérés par l'entreprise, et la changer casse les liens parent et enfant existants. Le processus d'Azure DevOps s'applique à tous les projets qui l'emploient. D'où le partage des rôles <Pastille kind="cours" /> : le PO dit quel niveau il veut garder et pourquoi, l'équipe choisit, l'administrateur règle.
+
+</Sous>
+
+<Sous id="A1b" titre="Les liens de dépendance" promesse="Un lien note une dépendance entre deux éléments, aussi entre deux équipes ; il n'en tient pas lieu d'accord.">
+
+Une dépendance (<Renvoi n="10b" />) se note par un lien entre deux éléments. Aucun des trois outils vérifiés n'a de lien nommé « dépend de » : Jira dit « blocks / is blocked by », Azure DevOps « Predecessor / Successor », Linear « blocked / blocking ». Le lien peut relier des éléments de deux équipes, dans deux espaces (Jira) ou deux projets (Azure DevOps). Il rend la dépendance visible des deux côtés.
+
+<FilRouge>La story qui bloque à la location un vélo signalé en panne dépend de la DSI, qui gère le système de location : c'est une dépendance envers une autre équipe, du genre que le lien note.</FilRouge>
+
+Un lien n'est pas un accord. Chaque PO inscrit et ordonne dans son propre backlog, et on le convainc plutôt que de le contourner (<Renvoi n="10b2" />). Le lien ne remplace donc pas la conversation avec l'autre PO <Pastille kind="cours" /> : on parle d'abord, le lien suit la dépendance ensuite.
+
+</Sous>
+
+<Sous id="A1c" titre="Les états" promesse="Les états sont un choix d'équipe ; « fait » doit y vouloir dire DoD remplie.">
+
+Les états d'un élément (Jira dit « statuts ») disent où il en est : à faire, en cours, fait, par exemple. Chaque outil en propose un jeu par défaut, que l'équipe change : Azure DevOps (processus Agile, User Story) a New, Active, Resolved, Closed ; Linear, Backlog, Todo, In Progress, Done, Canceled. Atlassian conseille d'en garder peu, un conseil d'éditeur et non un consensus.
+
+Deux règles du cours <Pastille kind="cours" /> s'y ajoutent. D'abord, « fait » veut dire DoD remplie (<Renvoi n="11a" />) : un élément qui ne la remplit pas ne fait pas partie de l'incrément, selon le Scrum Guide. Or l'outil ne connaît pas la DoD ; il juge « terminé » d'après sa propre règle. Dans les tableaux Scrum de Jira, c'est ce qui se trouve dans la colonne la plus à droite. À l'équipe de faire coïncider le dernier état avec la DoD.
+
+Ensuite, un état « prêt » reste un repère, pas une barrière (<Renvoi n="11b" />) : il suit la DoR de l'équipe, mais la conversation continue pendant le sprint. Et chaque état se tient à jour : en ajouter un par étape coûte, d'autant que les états ne racontent pas la vie d'une story (<Renvoi n="15" />). Le PO propose, l'équipe décide, par exemple en rétrospective, l'administrateur règle.
+
+</Sous>
+
+<Reflexe note="Formulation du cours : aucune source ne la formule ainsi.">
+Ce réglage sert-il l'équipe ou l'utilisateur ? L'autre PO connaît-il la dépendance que le lien note ? « Fait » veut-il dire DoD remplie ?
+</Reflexe>
+
+<Erreurs>
+
+- **Copier les niveaux par défaut sans les choisir** : l'équipe choisit les siens, peu suffisent.
+- **Se croire coincé par un niveau que l'outil ne retire pas** : l'équipe peut cesser de l'employer et ne pas l'afficher.
+- **Chercher un lien « dépend de »** : il s'appelle « blocks / is blocked by », « Predecessor / Successor » ou « blocked / blocking ».
+- **Prendre le lien pour l'accord**, ou créer soi-même l'élément dans le backlog d'une autre équipe : chaque PO inscrit et ordonne dans le sien.
+- **Un « fait » qui ne veut pas dire DoD remplie** : l'outil juge terminé d'après sa propre règle, pas d'après la DoD.
+- **Confondre la « Definition of Done » d'une colonne d'Azure DevOps avec la DoD de Scrum** : même nom, autre objet.
+- **Un état « prêt » en barrière**, ou **multiplier les états** : la DoR tourne au mini cahier des charges, et chaque état se tient à jour.
+- **Décrire les clics, ou régler seul** : le PO dit quoi et pourquoi ; certains réglages touchent d'autres équipes.
+
+</Erreurs>

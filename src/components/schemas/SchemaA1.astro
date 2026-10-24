@@ -1,0 +1,112 @@
+---
+// Schéma A1 : un écran d'outil stylisé, en trois bandes (niveaux, liens, états) et un bandeau.
+// Couleurs : variables CSS --sch-* (clair/sombre) définies dans global.css.
+const niveaux = ['Epic', 'Feature', 'User Story', 'Task'];
+const etats = [
+  { nom: 'À faire', cls: 'plain' },
+  { nom: 'Prêt', cls: 'repere' },
+  { nom: 'En cours', cls: 'plain' },
+  { nom: 'Fait', cls: 'fait' },
+];
+---
+<svg viewBox="0 0 600 640" role="img" aria-labelledby="ga1-t ga1-d" class="sch">
+  <title id="ga1-t">Un écran d'outil de backlog : niveaux, liens et états, que l'équipe choisit</title>
+  <desc id="ga1-d">
+    Trois bandes empilées et un bandeau. Première bande, niveaux : un arbre à quatre lignes, Epic, Feature, User Story, Task.
+    La ligne Feature est grisée et légendée : pas affichée pour l'équipe, le niveau de trop.
+    Deuxième bande, liens : deux colonnes, l'équipe vélos et l'équipe appli, chacune avec son backlog.
+    Une story de l'équipe vélos est reliée par une flèche « is blocked by » à un élément de l'équipe appli.
+    Au-dessus, une bulle entre les deux PO : on s'accorde d'abord.
+    Troisième bande, états : quatre colonnes de tableau, À faire, Prêt, En cours, Fait.
+    Prêt est en pointillés et légendé repère : la DoR. Fait est encadré et légendé DoD remplie.
+    En bandeau : le Scrum Guide ne dit rien des niveaux, des liens ni des états ; l'outil propose, l'équipe choisit.
+  </desc>
+  <defs>
+    <pattern id="ga1-hatch" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="9" height="9" class="hatch-bg" />
+      <line x1="0" y1="0" x2="0" y2="9" class="hatch-line" />
+    </pattern>
+    <marker id="ga1-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" class="arrow-head" />
+    </marker>
+  </defs>
+
+  <!-- Bande 1 : niveaux -->
+  <rect x="10" y="8" width="580" height="186" rx="8" class="band" />
+  <text x="26" y="34" class="head">Niveaux</text>
+  {niveaux.map((n, i) => (
+    <>
+      {i === 1
+        ? <>
+            <rect x={30 + i * 24} y={48 + i * 34} width="210" height="28" rx="5" fill="url(#ga1-hatch)" />
+            <rect x={30 + i * 24} y={48 + i * 34} width="210" height="28" rx="5" class="grey-outline" />
+          </>
+        : <rect x={30 + i * 24} y={48 + i * 34} width="210" height="28" rx="5" class="node" />}
+      <text x={42 + i * 24} y={68 + i * 34} class="label">{n}</text>
+    </>
+  ))}
+  <path d="M268 96 H318" class="link" marker-end="url(#ga1-arr)" />
+  <text x="326" y="92" class="note">pas affiché pour l'équipe :</text>
+  <text x="326" y="114" class="note"><tspan class="strong">le niveau de trop</tspan></text>
+
+  <!-- Bande 2 : liens -->
+  <rect x="10" y="202" width="580" height="196" rx="8" class="band" />
+  <text x="26" y="228" class="head">Liens</text>
+  <rect x="198" y="238" width="204" height="32" rx="16" class="bubble" />
+  <text x="300" y="260" text-anchor="middle" class="note"><tspan class="strong">on s'accorde d'abord</tspan></text>
+  <path d="M214 270 L130 288 M386 270 L470 288" class="link dash" />
+
+  <rect x="30" y="288" width="200" height="98" rx="6" class="col" />
+  <text x="130" y="312" text-anchor="middle" class="sub">Équipe vélos</text>
+  <rect x="48" y="326" width="164" height="42" rx="5" class="node" />
+  <text x="130" y="353" text-anchor="middle" class="label">Ma story</text>
+
+  <rect x="370" y="288" width="200" height="98" rx="6" class="col" />
+  <text x="470" y="312" text-anchor="middle" class="sub">Équipe appli</text>
+  <rect x="388" y="326" width="164" height="42" rx="5" class="node" />
+  <text x="470" y="353" text-anchor="middle" class="label">Son élément</text>
+
+  <path d="M212 347 H386" class="link" marker-end="url(#ga1-arr)" />
+  <text x="300" y="336" text-anchor="middle" class="note">is blocked by</text>
+
+  <!-- Bande 3 : états -->
+  <rect x="10" y="406" width="580" height="162" rx="8" class="band" />
+  <text x="26" y="432" class="head">États</text>
+  {etats.map((e, i) => (
+    <>
+      <rect x={28 + i * 143} y="446" width="130" height="62" rx="6" class={`etat ${e.cls}`} />
+      <text x={93 + i * 143} y="484" text-anchor="middle" class={e.cls === 'fait' ? 'label on-dark' : 'label'}>{e.nom}</text>
+    </>
+  ))}
+  <text x={93 + 143} y="534" text-anchor="middle" class="note">repère : la DoR</text>
+  <text x={93 + 3 * 143} y="534" text-anchor="middle" class="note"><tspan class="strong">DoD remplie</tspan></text>
+
+  <!-- Bandeau -->
+  <rect x="10" y="578" width="580" height="54" rx="8" class="banner" />
+  <text x="300" y="602" text-anchor="middle" class="note">Scrum Guide : ni niveau, ni lien, ni état.</text>
+  <text x="300" y="624" text-anchor="middle" class="note"><tspan class="strong">L'outil propose, l'équipe choisit.</tspan></text>
+</svg>
+
+<style>
+  .sch { font-family: var(--font-ui); }
+  .band { fill: var(--sch-band); stroke: var(--sch-band-line); stroke-width: 1.5; }
+  .banner { fill: none; stroke: var(--sch-band-line); stroke-width: 1.5; }
+  .col { fill: none; stroke: var(--sch-band-line); stroke-width: 1.5; }
+  .hatch-bg { fill: var(--sch-grey); }
+  .hatch-line { stroke: var(--sch-grey-line); stroke-width: 2; opacity: 0.55; }
+  .grey-outline { fill: none; stroke: var(--sch-grey-line); stroke-width: 2.5; stroke-dasharray: 7 5; }
+  .node { fill: var(--sch-s3); stroke: var(--sch-s1); stroke-width: 1.5; }
+  .bubble { fill: var(--sch-band); stroke: var(--sch-s1); stroke-width: 2; }
+  .link { fill: none; stroke: var(--sch-s1); stroke-width: 2.5; }
+  .link.dash { stroke-dasharray: 5 5; stroke-width: 1.8; opacity: 0.8; }
+  .arrow-head { fill: var(--sch-s1); }
+  .etat.plain { fill: var(--sch-s3); stroke: var(--sch-s1); stroke-width: 1.5; }
+  .etat.repere { fill: none; stroke: var(--sch-s1); stroke-width: 2.5; stroke-dasharray: 7 5; }
+  .etat.fait { fill: var(--sch-s1); stroke: var(--sch-text); stroke-width: 3; }
+  .head { font-size: 20px; font-weight: 700; fill: var(--sch-text); }
+  .sub { font-size: 18px; font-weight: 650; fill: var(--sch-text); }
+  .label { font-size: 18px; font-weight: 600; fill: var(--sch-text); }
+  .label.on-dark { fill: var(--sch-s-ink); }
+  .note { font-size: 17.5px; fill: var(--sch-text-soft); }
+  .note .strong, .strong { font-weight: 650; fill: var(--sch-text); }
+</style>

@@ -1,0 +1,239 @@
+---
+numero: "A2"
+titre: "Travailler sans sprint"
+objectif: "Pour une équipe en flux continu, sans sprint : dire ce qui ne change pas, et ce que deviennent le Sprint Planning et la DoR, l'objectif de sprint, la revue de sprint et la prévision."
+description: "Comment un Product Owner travaille quand l'équipe est en flux continu, sans sprint : tirer l'élément, la direction sans objectif de sprint, inspecter ce qui est livré, prévoir avec le temps de cycle."
+prerequis: ["11", "15", "16"]
+ecoles:
+  consensus:
+    - auteur: "Pas de consensus pour travailler sans sprint"
+      texte: "Aucun texte ne fait consensus. Ce que le cours tient du Scrum Guide reste vrai : un incrément peut être livré avant toute revue, et les pratiques de prévision (dont les « cumulative flows ») sont citées sans être imposées."
+      refs: ["S3"]
+  ecole:
+    - auteur: "The Kanban Guide (John Coleman, Daniel Vacanti, v2025.5)"
+      texte: "Le texte du flux sans sprint. Kanban y est une stratégie pour optimiser le flux de valeur : définir et visualiser le workflow, gérer activement les éléments, améliorer le workflow. L'équipe écrit sa Definition of Workflow (ce qu'est un élément, quand il commence et finit, ses états, des règles de passage explicites), tire un élément quand elle a de la place et suit quatre mesures : travail en cours, débit, âge d'un élément, temps de cycle. Pas de rôles, pas d'événements, pas de cadence imposée. Le guide dit « contrôler » le travail en cours."
+      refs: ["S1"]
+    - auteur: "La méthode Kanban (David J. Anderson, Kanban University)"
+      texte: "Une autre école que le *Kanban Guide*, avec son propre vocabulaire : le point d'engagement, le réapprovisionnement, des cadences de revue dont la revue de la livraison du service. Ni elle ni le *Kanban Guide* ne sont le consensus."
+      refs: ["S4", "S5", "S7"]
+  cours:
+    - texte: "Ce qui ne change pas sans sprint : le backlog ordonné par le PO, la DoD, l'incrément, l'objectif produit. Le *Kanban Guide* n'en parle pas ; le cours les garde du Scrum Guide."
+      refs: ["S1", "S3"]
+    - texte: "Le PO ordonne, les Developers tirent. Le *Kanban Guide* ne nomme que les membres du système Kanban."
+      refs: ["S1"]
+    - texte: "La DoR devient la règle pour franchir le début du flux."
+      refs: ["S1", "S5"]
+    - texte: "L'objectif produit et l'ordre du backlog donnent la direction, à la place de l'objectif de sprint."
+      refs: ["S3"]
+    - texte: "L'équipe inspecte ce qui est livré avec les parties prenantes, à une cadence qu'elle choisit."
+      refs: ["S1", "S3", "S4"]
+    - texte: "« Limite du travail en cours » : le mot du *Kanban Guide for Scrum Teams* ; « flux continu » est le vocabulaire du cours."
+      refs: ["S1", "S2"]
+  voisines:
+    - auteur: "Kanban dans Scrum : The Kanban Guide for Scrum Teams (Scrum.org, janvier 2021)"
+      texte: "Un autre cas, à ne pas confondre : le Scrum Guide s'y applique en entier, le sprint reste. Une équipe qui garde ses sprints et y ajoute des pratiques de flux suit le cours tel quel, sans cette annexe. Ce guide relie le débit aux dates de livraison probables dont parle le PO."
+      refs: ["S2"]
+sources:
+  affirmations:
+    - affirmation: "Le *Kanban Guide* est de John Coleman et Daniel Vacanti, version v2025.5 du 1er mai 2025 ; il définit Kanban comme une stratégie pour optimiser le flux de valeur."
+      kind: "ecole"
+      refs: ["S1"]
+      verifie: "« Updated: May 1, 2025 », contributeurs « Creator » : Coleman et Vacanti. « Kanban is a strategy for optimizing the flow of value through a process. It comprises the following three practices working in tandem: Defining and visualizing a workflow; Actively managing items in a workflow; Improving a workflow »."
+    - affirmation: "Le *Kanban Guide* n'a ni rôles, ni événements, ni sprint, ni backlog, ni PO, et n'impose aucune cadence."
+      refs: ["S1"]
+      verifie: "Texte téléchargé et cherché : « role », « event », « sprint », « Scrum », « backlog », « product owner », « Definition of Ready », « done » : aucune occurrence. Il nomme seulement les « Kanban system members ». « Cadence » : une occurrence, pour dire qu'il n'en faut pas : « There is no requirement, however, to wait for a formal meeting at a regular cadence to make these changes »."
+    - affirmation: "Le *Kanban Guide for Scrum Teams* décrit Kanban dans Scrum : le Scrum Guide s'applique en entier et le sprint reste."
+      kind: "ecole"
+      refs: ["S2"]
+      verifie: "Scrum.org, Vacanti, Yeret (avec Porter), janvier 2021. « The Scrum Guide applies in its entirety. » « The Kanban complementary practices don't invalidate the need for Scrum's Sprint. » Les deux guides sont deux cas : le premier ne mentionne pas Scrum. Appeler le cas du *Kanban Guide* « flux continu » est le vocabulaire du cours, le terme n'apparaît pas dans le guide."
+    - affirmation: "La méthode Kanban (Anderson, Kanban University) est une autre école que le *Kanban Guide* ; aucune ne fait consensus."
+      kind: "ecole"
+      refs: ["S1", "S4", "S5", "S7"]
+      verifie: "Wikipédia distingue la méthode Kanban (Anderson, livre de 2010) et le *Kanban Guide* de 2020. Les textes primaires n'ont pas le même vocabulaire : point d'engagement, cadences et réapprovisionnement chez Kanban University ; « commitment point » et « replenish » n'apparaissent pas dans le *Kanban Guide*."
+    - affirmation: "Ce qui ne change pas sans sprint : le backlog ordonné par le PO, la DoD, l'incrément, l'objectif produit."
+      kind: "cours"
+      refs: ["S1", "S2", "S3"]
+      verifie: "Parti pris du cours, pas un consensus. Le *Kanban Guide* n'en parle pas ; le cours garde ces éléments du Scrum Guide dans une équipe en flux. Le *Kanban Guide for Scrum Teams* les garde, puisque le Scrum Guide s'y applique en entier."
+    - affirmation: "On tire un élément quand une place se libère : le système est tiré."
+      kind: "ecole"
+      refs: ["S1", "S2"]
+      verifie: "*Kanban Guide* : les membres du système « should start work on an item (pull or select) only when there is a clear signal that there is capacity to do so. When WIP drops below the control set in the DoW, that can be a signal to select new work. » *Guide for Scrum Teams* : l'équipe commence un élément « only when it is clear that it has the capacity to do so »."
+    - affirmation: "Le travail en cours est le nombre d'éléments commencés et pas finis ; l'équipe le contrôle explicitement."
+      refs: ["S1", "S2"]
+      verifie: "« WIP: The number of work items started but not finished » ; « Kanban system members must explicitly control the number of work items in a workflow from started to finished ». Le mot « limite » vient du *Guide for Scrum Teams* (« must explicitly limit »). Le *Kanban Guide* 2025 dit « contrôler » ; ses adaptations de 2025 parlent d'un contrôle « less explicit (and hence more flexible) »."
+    - affirmation: "La Definition of Workflow fixe au minimum : ce qu'est un élément, quand il commence et finit, ses états, le contrôle du travail en cours, des règles de passage explicites, une attente de niveau de service."
+      refs: ["S1"]
+      verifie: "« At a minimum, Kanban system members must create their DoW using all of the following elements » : unités de valeur, définition du début et de la fin, un ou plusieurs états, contrôle du travail en cours, règles explicites de passage, attente de niveau de service."
+    - affirmation: "La DoR devient la règle pour franchir le début du flux."
+      kind: "cours"
+      refs: ["S1", "S2", "S5"]
+      verifie: "Choix du cours. Le *Kanban Guide* n'a pas de DoR (« ready » : aucune occurrence) ; ce qui s'en approche est la règle explicite de passage au point de début défini dans la Definition of Workflow. *Guide for Scrum Teams* : les règles de passage « may include items from a Scrum Team's Definition of Done and pull policies between stages »."
+    - affirmation: "Un élément commencé sans pouvoir avancer compte dans le travail en cours et occupe une place."
+      kind: "cours"
+      refs: ["S1"]
+      verifie: "Déduit de la définition : « Any work items between a started point and a finished point are considered work in progress ». Le guide ne parle pas d'élément bloqué dans les phrases relevées."
+    - affirmation: "Le PO ordonne, les Developers tirent."
+      kind: "cours"
+      refs: ["S1", "S3"]
+      verifie: "Le *Kanban Guide* ne nomme que les « Kanban system members », qui tirent ; le cours y met les Developers, le PO gardant l'ordre du backlog (Scrum Guide)."
+    - affirmation: "Le point d'engagement : le moment où l'on décide de commencer les activités pour livrer un élément."
+      kind: "ecole"
+      refs: ["S5"]
+      verifie: "Glossaire de Kanban University : « The point at which the decision is made to start activities to deliver a work item. Before this point, work done supports the decision whether to deliver the work item. » Absent du *Kanban Guide*."
+    - affirmation: "Sans objectif de sprint, la direction vient de l'objectif produit et de l'ordre du backlog ; la place libérée va à l'élément prêt le plus haut."
+      kind: "cours"
+      refs: ["S1", "S3"]
+      verifie: "Le *Kanban Guide* n'a ni objectif de sprint ni objectif produit. Que l'objectif produit et l'ordre du backlog donnent la direction en flux est le choix du cours, appuyé sur le Scrum Guide pour l'objectif produit et l'ordre (concepts 2 et 13). Aucun guide Kanban ne le dit en ces termes."
+    - affirmation: "Le réapprovisionnement : revoir les éléments demandés qui remplissent les critères « prêt » et choisir ceux qui entrent selon la capacité."
+      kind: "ecole"
+      refs: ["S4", "S5"]
+      verifie: "Glossaire : « The act of reviewing the requested work items that fulfill the « ready for delivery » criteria and selecting the ones to be pulled into the system based on available capacity. » Chez Anderson, la réunion « Replenishment/Commitment » est l'une des sept cadences de la méthode, à adapter ou combiner aux réunions existantes plutôt qu'à ajouter."
+    - affirmation: "Aucun guide ne fixe la fréquence des moments d'équipe en flux, ni leurs participants."
+      refs: ["S1", "S4", "S6", "S6b"]
+      verifie: "Le *Kanban Guide* n'impose aucune cadence ; la revue des éléments en cours peut avoir lieu « continuously, at regular intervals, or through a combination of both ». Les fréquences (réapprovisionnement hebdomadaire, revue de la livraison du service toutes les deux semaines) ne se lisent que dans un exemple d'Anderson et dans des sources d'éditeurs d'outils (marketing) : ce sont des exemples, pas des règles."
+    - affirmation: "Un élément fini peut être livré sans attendre de revue."
+      kind: "consensus"
+      refs: ["S3"]
+      verifie: "Scrum Guide : « an Increment may be delivered to stakeholders prior to the end of the Sprint. The Sprint Review should never be considered a gate to releasing value ». Que chaque élément fini soit livré aussitôt n'est dit par aucun texte : la fin d'un élément est définie par l'équipe (« may have more than one started or finished point »)."
+    - affirmation: "Inspecter ce qui est livré avec les parties prenantes, à une cadence que l'équipe choisit."
+      kind: "cours"
+      refs: ["S1", "S3", "S4", "S5"]
+      verifie: "Choix du cours, qu'aucun auteur ne porte. Le *Kanban Guide* ne prévoit aucune réunion avec les parties prenantes (il les définit, sans dire quand on inspecte le produit avec elles) ; il n'impose aucune cadence. Kanban University décrit des cadences de revue."
+    - affirmation: "La revue de la livraison du service (Service Delivery Review) est une cadence de la méthode Kanban, qui porte sur la performance du service."
+      kind: "ecole"
+      refs: ["S5", "S4"]
+      verifie: "Glossaire : une « Review » est « a type of cadence designed to reflect on the performance or risk of one or more services with a goal to improve service delivery », « largely performed based on data and observations ». Qu'elle ne soit pas l'inspection de l'incrément, ni une revue de sprint sans sprint, est le choix du cours."
+    - affirmation: "Le *Kanban Guide* fait suivre quatre mesures : travail en cours, débit, âge d'un élément, temps de cycle."
+      refs: ["S1"]
+      verifie: "« WIP » ; « Throughput: The number of work items finished per unit of time » ; « Work Item Age: The elapsed time between when a work item started and the current date » ; « Cycle Time: The elapsed time between when a work item started and when a work item finished ». Appelées « Flow Metrics » depuis 2025 (avant : « Kanban Measures »)."
+    - affirmation: "On prévoit en flux avec l'attente de niveau de service : une durée et une probabilité, tirées de l'historique du temps de cycle."
+      refs: ["S1"]
+      verifie: "La SLE « is a forecast of how long it should take a work item to flow from started to finished » ; deux parties, une durée et une probabilité (exemple du guide : « 85% of work items will be finished in eight days or less ») ; « should be based on historical cycle time » ; sans historique, « a best guess will do »."
+    - affirmation: "La prévision vient des Developers et de leurs mesures ; elle n'est pas une promesse, et le temps de cycle se compte depuis le début d'un élément."
+      kind: "cours"
+      refs: ["S1"]
+      verifie: "Définitions du temps de cycle et de la SLE vérifiées ci-dessus. Que la prévision vienne des Developers est le renvoi au concept 16c (le *Kanban Guide* parle des « Kanban system members »)."
+    - affirmation: "Le débit aide le PO à parler des dates de livraison probables, dans Kanban dans Scrum."
+      refs: ["S2"]
+      verifie: "« Reviewing Throughput can provide additional information when the Product Owner discusses likely delivery dates » : c'est le *Guide for Scrum Teams*, dans des sprints. Ne pas l'attribuer au *Kanban Guide*. Le Scrum Guide cite aussi « cumulative flows » parmi les pratiques de prévision, sans les imposer."
+      kind: "ecole"
+    - affirmation: "La page n'affirme pas que les équipes data travaillent surtout en flux."
+      refs: ["S8"]
+      verifie: "Aucune enquête trouvée sur la part des équipes data en flux. Saltz, Shamshurin, Crowston (2017) est une expérience contrôlée sur des étudiants, dont seul le résumé a été lu."
+    - affirmation: "Les exemples du fil rouge (équipe vélos, Étienne) sont des faits inventés."
+      refs: []
+      verifie: "Sans source : le cas de l'opérateur de vélos en libre-service est fictif. L'équipe vélos travaille en sprints : tout ce que la page en dit sans sprint est une situation imaginée."
+  references:
+    - id: "S1"
+      texte: "Coleman, Vacanti (créateurs), avec Johnson, Singh, Wester et al., *The Kanban Guide*, v2025.5, 1er mai 2025"
+      url: "https://kanbanguides.org/english/"
+      type: "primaire"
+      consultee: "2026-10-23"
+    - id: "S2"
+      texte: "Scrum.org, Vacanti, Yeret (avec Porter), *The Kanban Guide for Scrum Teams*, janvier 2021, version en ligne"
+      url: "https://www.scrum.org/resources/online-kanban-guide-scrum-teams"
+      type: "primaire (Scrum.org vend aussi la formation et la certification associées)"
+      consultee: "2026-10-23"
+    - id: "S3"
+      texte: "Schwaber, Sutherland, *The Scrum Guide*, novembre 2020"
+      url: "https://scrumguides.org/scrum-guide.html"
+      type: "primaire"
+      consultee: "2026-10-23"
+    - id: "S4"
+      texte: "Anderson, « Kanban Cadences », Kanban University (sans date)"
+      url: "https://kanban.university/kanban-cadences"
+      type: "primaire pour ce que dit la méthode ; marketing pour ce qu'elle recommande (organisme qui vend ses formations)"
+      consultee: "2026-10-23"
+    - id: "S5"
+      texte: "Kanban University, « The Kanban Method Glossary » (sans date), entrées « Commitment Point », « Replenishment », « Review », « Cadences »"
+      url: "https://kanban.university/glossary"
+      type: "primaire pour les définitions de la méthode ; marketing pour ce qu'elle recommande"
+      consultee: "2026-10-23"
+    - id: "S6"
+      texte: "Nave, « The Rhythm of Success: Kanban Meetings »"
+      url: "https://getnave.com/blog/kanban-meetings"
+      type: "marketing (éditeur d'outil ; extrait de recherche seulement)"
+      consultee: "2026-10-23"
+    - id: "S6b"
+      texte: "Kanban Zone, « Improve information flow with Kanban cadences », 2019"
+      url: "https://kanbanzone.com/2019/improve-your-information-flow-with-kanban-cadences"
+      type: "marketing (éditeur d'outil ; extrait de recherche seulement)"
+      consultee: "2026-10-23"
+    - id: "S7"
+      texte: "Wikipédia, « Kanban (development) »"
+      url: "https://en.wikipedia.org/wiki/Kanban_(development)"
+      type: "secondaire (extrait de recherche seulement)"
+      consultee: "2026-10-23"
+    - id: "S8"
+      texte: "Saltz, Shamshurin, Crowston, « Comparing Data Science Project Management Methodologies via a Controlled Experiment », HICSS-50, janvier 2017"
+      url: "https://scholarspace.manoa.hawaii.edu/items/de744e20-d1a2-4a3f-b213-227065eb83c6"
+      type: "primaire (résumé seul lu)"
+      consultee: "2026-10-23"
+  nonVerifie:
+    - "**Fréquences des cadences** (réapprovisionnement hebdomadaire, revue de la livraison du service toutes les deux semaines) : seulement un exemple d'Anderson et des sources d'éditeurs. La page ne donne aucune fréquence comme règle."
+    - "**Qui participe au réapprovisionnement** (le PO, le client) **et à la revue de la livraison du service** : sources d'éditeurs seulement ; le glossaire de Kanban University ne le dit pas dans les entrées lues. Le livre d'Anderson (2010) n'a pas été lu."
+    - "**Liste des pratiques de la méthode Kanban** (visualiser, limiter le travail en cours, gérer le flux, rendre les règles explicites, boucles de rétroaction, améliorer ensemble) : vue seulement sur Wikipédia. La page ne l'énumère pas."
+    - "**Première version du *Kanban Guide for Scrum Teams*** : seule la version de janvier 2021 a été lue ; une version antérieure (2019) n'a pas été vérifiée."
+    - "**Le mot « limite » dans les versions 2020 du *Kanban Guide*** : non lues ; seule la note des adaptations 2025 laisse penser qu'elles étaient plus explicites."
+    - "**Ce que mesure la revue de la livraison du service** (délais, attentes du client) : ni le glossaire ni la page des cadences ne le disent ; la page écrit seulement « performance du service »."
+    - "**Prévision du nombre d'éléments livrés à une date par le débit** (simulation de Monte Carlo ou autre) : absente des deux guides Kanban ; la page ne l'affirme pas."
+    - "**Part des équipes data qui travaillent en flux** : aucune enquête trouvée (ce qui ne prouve pas qu'il n'en existe pas). La page ne l'affirme pas."
+    - "**Dates des pages de Kanban University** : non datées ; l'ajout de la « Risk Review » en 2014 est dit par Anderson, sans autre source."
+---
+import SchemaA2 from '../../../components/schemas/SchemaA2.astro';
+
+En flux continu, il n'y a pas de sprint : l'équipe commence un élément quand elle a de la place, sous une limite du travail en cours, et peut le livrer dès qu'il est fini (la fin d'un élément, c'est l'équipe qui la définit). Cette page le décrit d'après le *Kanban Guide* <Pastille kind="ecole" />, qui n'a ni rôles, ni événements, ni cadence imposée. Ce qui ne change pas <Pastille kind="cours" /> : le backlog ordonné par le PO, la DoD, l'incrément, l'objectif produit.
+
+Une équipe qui garde ses sprints et y ajoute des pratiques de flux fait du Kanban dans Scrum : le sprint reste, et le reste du cours s'applique tel quel. Cette annexe concerne seulement le flux sans sprint.
+
+<Figure legende="Un tableau de flux. On tire une carte du backlog quand une place se libère sous la limite. La DoR garde le début du flux, la DoD la fin. Le temps de cycle court du début à la fin d'un élément ; le débit compte les éléments finis.">
+  <SchemaA2 />
+</Figure>
+
+<Sous id="A2a" titre="Tirer l'élément, la DoR au début du flux" promesse="Sans Sprint Planning, une place libre sous la limite déclenche le prochain élément.">
+
+Sans sprint, aucun Sprint Planning ne choisit le travail de deux semaines. L'équipe fixe combien d'éléments peuvent être en cours à la fois, c'est-à-dire commencés et pas finis, et en commence un nouveau quand le nombre repasse sous cette limite. Le *Kanban Guide* lui fait écrire sa Definition of Workflow, qui dit entre autres où commence un élément, où il finit, et à quelle règle il franchit chaque passage.
+
+Pour une équipe qui avait une DoR, c'est là qu'elle sert : la DoR devient la règle pour franchir le début du flux <Pastille kind="cours" />. Kanban University appelle ce moment le point d'engagement <Pastille kind="ecole" />. Le PO a ordonné le backlog, les Developers tirent l'élément suivant <Pastille kind="cours" />. Pour la DoR elle-même, voir <Renvoi n="11b" />.
+
+</Sous>
+
+<Sous id="A2b" titre="Sans objectif de sprint, ce qui donne la direction" promesse="Rien ne regroupe deux semaines de travail : la direction vient de l'objectif produit et de l'ordre du backlog.">
+
+Sans sprint, plus d'objectif de sprint : aucun pourquoi commun ne relie un lot d'éléments choisi pour deux semaines. La direction ne disparaît pas pour autant <Pastille kind="cours" />. Elle vient de l'objectif produit et de l'ordre du backlog, que le PO tient. Quand une place se libère, elle va à l'élément prêt le plus haut.
+
+C'est donc le PO qui ordonne, et qui veut changer l'ordre le convainc (<Renvoi n="1b" />). Qui relance le plus fort ne décide pas : ce serait laisser la pression ordonner à la place du PO. Le PO tient le haut du backlog à jour à mesure que les places se libèrent. Une équipe peut aussi se donner un moment régulier pour le revoir : c'est le réapprovisionnement de la méthode Kanban <Pastille kind="ecole" />, dont ni la fréquence ni les participants ne sont fixés ici.
+
+</Sous>
+
+<Sous id="A2c" titre="Sans revue de sprint, inspecter ce qui est livré" promesse="Livrer n'attend plus de revue ; inspecter ce qu'on a livré, si.">
+
+Sans sprint, pas de revue de sprint, et le *Kanban Guide* ne prévoit aucune réunion avec les parties prenantes. Un élément fini peut partir sans attendre : le Scrum Guide dit déjà que la revue ne doit jamais être une barrière à la livraison de valeur <Pastille kind="consensus" />.
+
+Ce qui reste nécessaire : inspecter ce qui est livré avec les parties prenantes et adapter le backlog, à une cadence que l'équipe choisit <Pastille kind="cours" />. Deux questions se séparent : quand livre-t-on, et quand regarde-t-on ensemble ce qu'on a livré ? L'inspection ne devient pas une recette qui retient la livraison. Et elle n'est pas la revue de la livraison du service de la méthode Kanban <Pastille kind="ecole" />, qui porte sur la performance du service, pas sur ce que l'incrément change pour ses utilisateurs. Une demande qui en naît entre au backlog et s'ordonne, sans se promettre en séance (<Renvoi n="13" />).
+
+</Sous>
+
+<Sous id="A2d" titre="Prévoir en flux" promesse="Sans prévision par sprint, le temps de cycle donne une durée et une probabilité, pas une promesse.">
+
+Parmi les quatre mesures que le *Kanban Guide* fait suivre (travail en cours, débit, âge d'un élément, temps de cycle), le temps de cycle va du début d'un élément à sa fin. Sur son historique, l'équipe en tire une prévision en deux parties, une durée et une probabilité : c'est son attente de niveau de service. Le guide donne cet exemple : « 85 % des éléments sont finis en huit jours ou moins ».
+
+Deux précisions. La durée se compte à partir du début d'un élément, pas de la demande ni d'aujourd'hui : un élément qui n'a pas commencé n'a pas encore de temps de cycle. Et la probabilité dit qu'une part des éléments prend plus longtemps : ce n'est pas une promesse. La prévision vient des Developers et de leurs mesures, pas d'une date que le PO invente <Pastille kind="cours" /> ; elle se revoit à mesure qu'on avance (<Renvoi n="16c" />).
+
+</Sous>
+
+<Reflexe note="Formulation du cours : aucune source ne la formule ainsi.">
+Pour chaque pièce du sprint, qu'est-ce qui la remplace, et qui la tient ?
+</Reflexe>
+
+<Erreurs>
+
+- **Confondre les deux cas** : un tableau de flux dans des sprints est du Kanban dans Scrum, le sprint reste et le cours s'applique.
+- **Présenter la méthode Kanban ou le *Kanban Guide* comme le consensus** : deux écoles, aucun texte ne fait consensus pour travailler sans sprint.
+- **Croire que sans sprint tout s'en va** : le backlog ordonné par le PO, la DoD, l'incrément et l'objectif produit restent.
+- **Commencer un élément qui n'est pas prêt « pour qu'il soit en route »** : il prend une place sous la limite sans avancer.
+- **Laisser la dernière relance décider de l'élément tiré** : c'est l'ordre du backlog.
+- **Supprimer l'inspection avec les parties prenantes** parce qu'il n'y a plus de revue de sprint, ou la confondre avec la revue de la livraison du service.
+- **Prendre l'attente de niveau de service pour une promesse**, ou la compter depuis aujourd'hui : c'est une durée avec une probabilité, à partir du début d'un élément.
+
+</Erreurs>
