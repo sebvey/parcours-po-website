@@ -143,10 +143,10 @@ sources:
       kind: "ecole"
       refs: ["S6"]
       verifie: "Publié le 30 septembre 2005 ; une vingtaine de dimensions (Research/Action, Manual/Automated, Static/Dynamic, Unreliable/Reliable…), certaines attribuées à William Pietri (janvier 2006)."
-    - affirmation: "Rattacher le morceau « centre-ville » au D de SPIDR ou à Variations in Data, et « tendance de la dernière heure » à Simple/Complex (le R de SPIDR étant défendable)."
+    - affirmation: "Rattacher le morceau « centre-ville seulement » au D de SPIDR ou à Variations in Data, et « le nombre avant la liste détaillée » à Simple/Complex."
       kind: "cours"
       refs: ["S3", "S4", "S5"]
-      verifie: "C'est l'application du cours, pas un fait de source. R : « Temporarily relaxing support for the rules… » ; Simple/Complex : « What's the simplest version of this? »."
+      verifie: "C'est l'application du cours à un exemple, pas un fait de source. D : « an initial version of a story that processes only a subset of the data » ; Simple/Complex : « What's the simplest version of this? »."
     - affirmation: "Le walking skeleton (Alistair Cockburn) est une toute petite implémentation de bout en bout qui relie les principaux composants de l'architecture ; ce n'est pas une tranche verticale au sens du cours."
       refs: ["S8"]
       verifie: "« A Walking Skeleton is a tiny implementation of the system that performs a small end-to-end function. » Cockburn vise l'architecture et accepte une fonction minimale (« read a number, write a number »). Que ce ne soit pas une tranche verticale est une déduction du cours, appuyée sur ces citations."
@@ -158,9 +158,9 @@ sources:
       kind: "cours"
       refs: ["S2", "S4"]
       verifie: "Formulation du cours, cohérente avec Wake (valeur pour le client) et Humanizing Work (changement de comportement ayant de la valeur). Aucune source ne la formule ainsi."
-    - affirmation: "Les exemples du fil rouge (Régis, les stations, le centre-ville, la météo) sont des faits inventés."
+    - affirmation: "Les exemples du fil rouge (Régis, Étienne, les stations, le centre-ville) sont des faits inventés."
       refs: []
-      verifie: "Sans source : le cas de l'opérateur de vélos en libre-service est fictif. Le rattachement des morceaux aux patrons est l'application du cours. Les renvois à d'autres concepts (forme de la solution, règle non fixée, hypothèse à vérifier) s'appuient sur les sources de ces concepts."
+      verifie: "Sans source : le cas de l'opérateur de vélos en libre-service est fictif. Le découpage de la vue des vélos en panne et son rattachement aux patrons sont une illustration du cours. Les renvois à d'autres concepts (forme de la solution, règle non fixée, hypothèse à vérifier) s'appuient sur les sources de ces concepts."
   references:
     - id: "S1"
       texte: "Schwaber, Sutherland, *The Scrum Guide*, novembre 2020"
@@ -255,13 +255,13 @@ Mais le vertical s'arrête là. Quand les Developers découpent la story en tâc
 
 Une story que les Developers estiment trop grosse pour un sprint se découpe (<Renvoi n="4" />). Chaque morceau passe le même test qu'en 9a : sert-il seul à l'utilisateur ?
 
-<FilRouge>« Prévoir les stations à risque » pour Régis est jugé trop gros pour un sprint. Trois morceaux sont proposés : a, b et c dans le schéma.</FilRouge>
+<FilRouge>Étienne veut une vue des vélos en panne, qui n'existe pas encore. Les Developers la jugent trop grosse pour un sprint. Trois morceaux sont envisagés : a, b et c dans le schéma.</FilRouge>
 
 <Figure legende="Une part trop grosse, recoupée. Les morceaux a et c sont des parts verticales ; b est une lamelle horizontale : la couche d'ingestion, seule. Sous chaque morceau, le patron de découpage et son catalogue.">
   <PartRecoupee />
 </Figure>
 
-Le centre-ville seulement (a) et la tendance de la dernière heure, avant tout modèle (c), traversent les couches et livrent à Régis une prévision qu'il peut consulter. La collecte des données météo (b) est une couche : une source de plus, rien pour Régis tant qu'elle n'est pas raccrochée à un usage. Que la tendance de la dernière heure suffise, et que la pluie change vraiment les départs, n'est pas tranché : ce sont des hypothèses, à vérifier avant de s'engager (exploration bornée, <Renvoi n="17" />).
+Les vélos signalés des stations du centre-ville seulement (a) et le simple nombre de vélos signalés, avant toute liste détaillée (c), traversent les couches et livrent à Étienne une vue qu'il peut consulter. La collecte des signalements de pannes (b) est une couche : une source de plus, rien pour Étienne tant qu'elle n'est pas raccrochée à un usage. Qu'un simple nombre suffise à Étienne n'est pas tranché : c'est une hypothèse, à vérifier avant de s'engager (exploration bornée, <Renvoi n="17" />).
 
 <h4 id="9b2"><span class="num">9b2</span> Les patrons et leur catalogue</h4>
 
@@ -270,7 +270,7 @@ Des catalogues de patrons aident à trouver où couper. Ce sont des choix d'éco
 - **SPIDR**, de Mike Cohn : cinq techniques. Spike (une exploration bornée, <Renvoi n="17" />), Paths (un chemin de l'utilisateur à la fois), Interfaces (une interface à la fois, ou une interface minimale d'abord), Data (une partie des données d'abord), Rules (assouplir d'abord une règle).
 - **Richard Lawrence**, neuf patrons (2009), dont Variations in Data (une variante des données d'abord) et Simple/Complex (« quelle est la version la plus simple ? », puis les variantes en stories à part).
 
-Les deux catalogues se recoupent en partie, sans se confondre : on attribue chaque patron à son catalogue. Sur l'exemple, le morceau a restreint les données : c'est le D de SPIDR, ou Variations in Data chez Lawrence, même idée sous deux noms. Le morceau c prend la version la plus simple d'abord : c'est Simple/Complex, de Lawrence. SPIDR n'a pas de patron sous ce nom ; y voir le R (assouplir d'abord la règle de calcul) est défendable. Ce rattachement est l'application du cours <Pastille kind="cours" />, pas un fait de source. Le nom compte moins que la question qu'il fait poser.
+Les deux catalogues se recoupent en partie, sans se confondre : on attribue chaque patron à son catalogue. Sur l'exemple, le morceau a restreint les données : c'est le D de SPIDR, ou Variations in Data chez Lawrence, même idée sous deux noms. Le morceau c prend la version la plus simple d'abord : c'est Simple/Complex, de Lawrence ; SPIDR n'a pas de patron sous ce nom. Ce rattachement est l'application du cours <Pastille kind="cours" />, pas un fait de source. Le nom compte moins que la question qu'il fait poser.
 
 </Sous>
 
@@ -284,8 +284,8 @@ Les deux catalogues se recoupent en partie, sans se confondre : on attribue chaq
 - **Croire que traverser les couches suffit** : la tranche doit servir seule. Un walking skeleton sert l'équipe, pas l'utilisateur.
 - **Appliquer le vertical aux tâches** : il s'arrête à la story. Les tâches sont horizontales et appartiennent aux Developers.
 - **Nommer la forme dans la tranche** (« carte », « liste ») : la story dit ce que l'utilisateur obtient, la forme reste aux Developers (<Renvoi n="5" />).
-- **Trancher en découpant ce qui n'est pas fixé ou vérifié** (« station vide », « presque vide », « la pluie compte ») : le PO fait fixer la règle (<Renvoi n="8" />), et l'hypothèse se vérifie avant (<Renvoi n="17" />).
-- **Collecter une source « pour plus tard »** (la météo) : c'est une couche. Il faut la raccrocher à un usage.
+- **Trancher en découpant ce qui n'est pas fixé ou vérifié** (« station vide », « presque vide », « un simple nombre suffira ») : le PO fait fixer la règle (<Renvoi n="8" />), et l'hypothèse se vérifie avant (<Renvoi n="17" />).
+- **Collecter une source « pour plus tard »** : c'est une couche. Il faut la raccrocher à un usage.
 - **Mélanger les catalogues** : attribuer un patron de Lawrence à SPIDR, ou l'inverse.
 
 </Erreurs>

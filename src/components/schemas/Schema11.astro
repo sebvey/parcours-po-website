@@ -1,0 +1,97 @@
+---
+// Schéma 11 : le sprint dessiné comme une pièce à deux portes.
+// À gauche, la porte d'entrée (DoR, choix d'école) : une carte passe, une carte reste bloquée.
+// À droite, la porte de sortie (DoD) : une carte sort vers l'incrément, une carte est refusée et retourne au backlog.
+// Couleurs : variables CSS --sch-* (clair/sombre) définies dans global.css.
+---
+<svg viewBox="0 0 600 450" role="img" aria-labelledby="g11-t g11-d" class="sch">
+  <title id="g11-t">Le sprint, une pièce à deux portes : la DoR à l'entrée, la DoD à la sortie</title>
+  <desc id="g11-d">
+    À gauche, le backlog contient deux cartes de story. La story A passe la porte d'entrée, la DoR, qui est un choix d'école, et entre dans le sprint.
+    La story B reste bloquée devant la porte : son accès à la source de données est en attente.
+    Dans le sprint, la story A est en cours. À droite, la porte de sortie, la DoD, mène à l'incrément : la story A en sort.
+    Une autre carte, la story C, ne remplit pas la DoD : elle est refusée et une flèche la ramène au backlog.
+    Chaque carte a ses propres critères d'acceptation ; la DoD est un seul cadre, le même pour toutes les cartes qui sortent.
+    Légende : la DoR dit quand une story peut commencer ; la DoD dit quand elle est terminée.
+  </desc>
+  <defs>
+    <marker id="g11-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" class="arrow-head" />
+    </marker>
+  </defs>
+
+  <!-- Titres des portes -->
+  <text x="176" y="52" text-anchor="middle" class="door-title">DoR</text>
+  <text x="176" y="74" text-anchor="middle" class="soft">choix d'école</text>
+  <text x="444" y="52" text-anchor="middle" class="door-title">DoD</text>
+
+  <!-- Le backlog -->
+  <rect x="10" y="100" width="150" height="230" rx="8" class="backlog" />
+  <text x="85" y="124" text-anchor="middle" class="strong">backlog</text>
+  <rect x="25" y="160" width="120" height="58" rx="8" class="scard s1" />
+  <text x="85" y="184" text-anchor="middle" class="card-text">story A</text>
+  <text x="85" y="205" text-anchor="middle" class="card-sub">ses critères</text>
+  <rect x="25" y="250" width="120" height="58" rx="8" class="scard blocked" />
+  <text x="85" y="274" text-anchor="middle" class="strong">story B</text>
+  <text x="85" y="295" text-anchor="middle" class="card-sub-ink">accès en attente</text>
+
+  <!-- Le sprint -->
+  <rect x="182" y="100" width="256" height="230" rx="8" class="room" />
+  <text x="310" y="124" text-anchor="middle" class="strong">le sprint</text>
+  <rect x="250" y="160" width="120" height="58" rx="8" class="scard s1" />
+  <text x="310" y="184" text-anchor="middle" class="card-text">story A</text>
+  <text x="310" y="205" text-anchor="middle" class="card-sub">en cours</text>
+  <rect x="250" y="250" width="120" height="58" rx="8" class="scard s2" />
+  <text x="310" y="274" text-anchor="middle" class="card-text">story C</text>
+  <text x="310" y="295" text-anchor="middle" class="card-sub">DoD non remplie</text>
+
+  <!-- Porte d'entrée : barre avec une ouverture en face de la story A -->
+  <rect x="170" y="100" width="12" height="52" class="door dor" />
+  <rect x="170" y="226" width="12" height="104" class="door dor" />
+  <!-- Porte de sortie -->
+  <rect x="438" y="100" width="12" height="52" class="door dod" />
+  <rect x="438" y="226" width="12" height="104" class="door dod" />
+
+  <!-- Mouvements -->
+  <path d="M147 189 H246" class="arrow" marker-end="url(#g11-arr)" />
+  <path d="M372 189 H466" class="arrow" marker-end="url(#g11-arr)" />
+  <path d="M310 310 V384 H85 V334" class="arrow" marker-end="url(#g11-arr)" />
+  <text x="200" y="408" text-anchor="middle" class="note">story C refusée : retour au backlog</text>
+
+  <!-- Story B bloquée devant la porte -->
+  <path d="M154 268 l16 16 M170 268 l-16 16" class="cross" />
+
+  <!-- L'incrément -->
+  <rect x="470" y="150" width="120" height="78" rx="8" class="incr" />
+  <text x="530" y="182" text-anchor="middle" class="strong">incrément</text>
+  <text x="530" y="206" text-anchor="middle" class="card-sub-ink">story A</text>
+  <text x="530" y="262" text-anchor="middle" class="note">une seule DoD,</text>
+  <text x="530" y="284" text-anchor="middle" class="note">la même pour</text>
+  <text x="530" y="306" text-anchor="middle" class="note">toutes les cartes</text>
+
+  <!-- Légende -->
+  <text x="300" y="436" text-anchor="middle" class="legend">DoR : quand une story peut commencer. DoD : quand elle est terminée.</text>
+</svg>
+
+<style>
+  .sch { font-family: var(--font-ui); }
+  .door-title { font-size: 22px; font-weight: 700; fill: var(--sch-text); }
+  .soft { font-size: 15px; fill: var(--sch-text-soft); }
+  .strong { font-size: 18px; font-weight: 650; fill: var(--sch-text); }
+  .backlog { fill: var(--sch-band); stroke: var(--sch-band-line); stroke-width: 2; }
+  .room { fill: none; stroke: var(--sch-band-line); stroke-width: 2; }
+  .scard.s1 { fill: var(--sch-s1); }
+  .scard.s2 { fill: var(--sch-s2); }
+  .scard.blocked { fill: var(--sch-grey); stroke: var(--sch-grey-line); stroke-width: 2.2; stroke-dasharray: 6 4; }
+  .card-text { font-size: 17px; font-weight: 700; fill: var(--sch-s-ink); }
+  .card-sub { font-size: 14.5px; fill: var(--sch-s-ink); }
+  .card-sub-ink { font-size: 14.5px; fill: var(--sch-text); }
+  .door.dor { fill: var(--sch-grey-line); }
+  .door.dod { fill: var(--sch-s1); }
+  .arrow { stroke: var(--sch-text-soft); stroke-width: 2.2; fill: none; }
+  .arrow-head { fill: var(--sch-text-soft); }
+  .cross { stroke: var(--sch-text); stroke-width: 3; stroke-linecap: round; fill: none; }
+  .incr { fill: var(--sch-band); stroke: var(--sch-s1); stroke-width: 3; }
+  .note { font-size: 16px; fill: var(--sch-text-soft); }
+  .legend { font-size: 16px; font-weight: 600; fill: var(--sch-text); }
+</style>

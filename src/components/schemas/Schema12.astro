@@ -1,0 +1,146 @@
+---
+// Schéma 12 : trois panneaux, un par sous-concept.
+// 12a : la fiche d'identité d'un indicateur, à cinq cases, dont deux restent à faire fixer ; elle vaut pour toutes ses sorties.
+// 12b : ce que la plateforme reçoit mal (se corrige) et ce qu'elle ne reçoit jamais (limite de la source : s'écrit, se montre).
+// 12c : la table des abonnés passe par un filtre : une colonne, une raison.
+// Couleurs : variables CSS --sch-* (clair/sombre) définies dans global.css.
+const rows = [
+  { y: 92, k: 'règle de calcul', v: 'renouvellements : à fixer', open: true },
+  { y: 128, k: 'grain', v: 'par mois', open: false },
+  { y: 164, k: 'période', v: 'un mois civil entier', open: false },
+  { y: 200, k: 'source', v: 'la liste des abonnés', open: false },
+  { y: 236, k: 'fraîcheur', v: 'à demander', open: true },
+];
+const stopped = [
+  { y: 700, t: 'nom' },
+  { y: 746, t: 'coordonnées' },
+  { y: 792, t: 'abonnement' },
+];
+---
+<svg viewBox="0 0 600 960" role="img" aria-labelledby="g12-t g12-d" class="sch">
+  <title id="g12-t">Définir un indicateur, distinguer ce qui se corrige de ce qui manque, demander seulement ce qui sert</title>
+  <desc id="g12-d">
+    Trois panneaux. Panneau du haut, 12a : la fiche d'un indicateur, Nouveaux abonnés, à cinq cases : règle de calcul, grain, période, source, fraîcheur.
+    Deux cases sont en pointillé, à faire fixer par celui qui utilise l'indicateur : la règle de calcul, car on ne sait pas si les renouvellements comptent, et la fraîcheur.
+    La fiche est reliée à deux sorties, la vue du mois et le rapport annuel : une définition, partout où l'indicateur est publié.
+    Panneau du milieu, 12b : la plateforme reçoit une ligne en double, qui entre : reçu mal, cela se corrige, c'est une question d'unicité.
+    Une donnée jamais envoyée par la source reste dehors : jamais reçu, c'est une limite de la source, qui s'écrit et se montre.
+    Panneau du bas, 12c : la table des abonnés a quatre colonnes, nom, coordonnées, abonnement, station favorite.
+    Pour la finalité compter les abonnés par station favorite, seule la colonne station favorite passe le filtre et donne des comptes par station favorite ;
+    nom, coordonnées et abonnement s'arrêtent. Une colonne, une raison : finalité et minimisation.
+  </desc>
+  <defs>
+    <marker id="g12-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" class="arrow-head" />
+    </marker>
+  </defs>
+
+  <!-- Panneau 12a -->
+  <text x="20" y="34" class="ptitle">12a. Une fiche, cinq cases</text>
+  <rect x="20" y="50" width="420" height="36" rx="8" class="head-box" />
+  <text x="230" y="75" text-anchor="middle" class="head-text">Nouveaux abonnés</text>
+  {rows.map((r) => (
+    <>
+      <rect x="20" y={r.y} width="420" height="34" class={r.open ? 'cell open' : 'cell'} />
+      <text x="32" y={r.y + 23} class="key">{r.k}</text>
+      <text x="165" y={r.y + 23} class="txt">{r.v}</text>
+    </>
+  ))}
+  <path d="M442 115 H468" class="arrow" marker-end="url(#g12-arr)" />
+  <rect x="470" y="92" width="120" height="46" rx="8" class="out" />
+  <text x="530" y="120" text-anchor="middle" class="small">vue du mois</text>
+  <rect x="470" y="168" width="120" height="46" rx="8" class="out" />
+  <text x="530" y="196" text-anchor="middle" class="small">rapport annuel</text>
+  <path d="M442 191 H468" class="arrow" marker-end="url(#g12-arr)" />
+  <text x="530" y="244" text-anchor="middle" class="note-s">une définition,</text>
+  <text x="530" y="263" text-anchor="middle" class="note-s">partout où</text>
+  <text x="530" y="282" text-anchor="middle" class="note-s">l'indicateur</text>
+  <text x="530" y="301" text-anchor="middle" class="note-s">est publié</text>
+  <text x="20" y="296" class="note">En pointillé : à faire fixer par</text>
+  <text x="20" y="318" class="note">celui qui utilise l'indicateur.</text>
+
+  <line x1="20" x2="580" y1="334" y2="334" class="sep" />
+
+  <!-- Panneau 12b -->
+  <text x="20" y="372" class="ptitle">12b. Reçu mal, ou jamais reçu</text>
+  <rect x="200" y="402" width="200" height="150" rx="8" class="backlog" />
+  <text x="300" y="470" text-anchor="middle" class="strong">la plateforme</text>
+  <text x="300" y="494" text-anchor="middle" class="note">ce qu'elle reçoit</text>
+
+  <rect x="20" y="448" width="150" height="56" rx="8" class="scard s1" />
+  <text x="95" y="472" text-anchor="middle" class="card-text">une ligne reçue</text>
+  <text x="95" y="492" text-anchor="middle" class="card-text">deux fois</text>
+  <path d="M172 476 H198" class="arrow" marker-end="url(#g12-arr)" />
+  <text x="95" y="536" text-anchor="middle" class="strong">reçu mal :</text>
+  <text x="95" y="558" text-anchor="middle" class="note">se corrige</text>
+  <text x="95" y="580" text-anchor="middle" class="note">(unicité)</text>
+
+  <rect x="430" y="448" width="150" height="56" rx="8" class="ghost" />
+  <text x="505" y="472" text-anchor="middle" class="txt-s">une donnée jamais</text>
+  <text x="505" y="492" text-anchor="middle" class="txt-s">envoyée</text>
+  <path d="M406 466 l12 20 M418 466 l-12 20" class="cross" />
+  <text x="505" y="536" text-anchor="middle" class="strong">jamais reçu :</text>
+  <text x="505" y="558" text-anchor="middle" class="note">limite de la source,</text>
+  <text x="505" y="580" text-anchor="middle" class="note">s'écrit et se montre</text>
+
+  <line x1="20" x2="580" y1="608" y2="608" class="sep" />
+
+  <!-- Panneau 12c -->
+  <text x="20" y="646" class="ptitle">12c. Une colonne, une raison</text>
+  <text x="20" y="680" class="strong">table des abonnés</text>
+  {stopped.map((c) => (
+    <>
+      <rect x="20" y={c.y} width="170" height="38" rx="8" class="chip stop" />
+      <text x="105" y={c.y + 25} text-anchor="middle" class="txt">{c.t}</text>
+    </>
+  ))}
+  <rect x="20" y="838" width="170" height="38" rx="8" class="chip pass" />
+  <text x="105" y="863" text-anchor="middle" class="card-text">station favorite</text>
+
+  <rect x="230" y="690" width="12" height="144" class="gate" />
+  <path d="M192 857 H322" class="arrow" marker-end="url(#g12-arr)" />
+  <path d="M204 718 l12 12 M216 718 l-12 12" class="cross" />
+  <path d="M204 764 l12 12 M216 764 l-12 12" class="cross" />
+  <path d="M204 810 l12 12 M216 810 l-12 12" class="cross" />
+
+  <rect x="270" y="690" width="320" height="86" rx="8" class="fin" />
+  <text x="430" y="718" text-anchor="middle" class="strong">finalité</text>
+  <text x="430" y="742" text-anchor="middle" class="txt">compter les abonnés</text>
+  <text x="430" y="764" text-anchor="middle" class="txt">par station favorite</text>
+
+  <rect x="326" y="826" width="264" height="62" rx="8" class="out" />
+  <text x="458" y="852" text-anchor="middle" class="small">des comptes par</text>
+  <text x="458" y="874" text-anchor="middle" class="small">station favorite</text>
+
+  <text x="300" y="928" text-anchor="middle" class="legend">Une colonne, une raison : finalité et minimisation.</text>
+</svg>
+
+<style>
+  .sch { font-family: var(--font-ui); }
+  .ptitle { font-size: 21px; font-weight: 700; fill: var(--sch-text); }
+  .strong { font-size: 18px; font-weight: 650; fill: var(--sch-text); }
+  .txt { font-size: 17px; fill: var(--sch-text); }
+  .txt-s { font-size: 15.5px; fill: var(--sch-text); }
+  .small { font-size: 14.5px; font-weight: 600; fill: var(--sch-text); }
+  .note { font-size: 16px; fill: var(--sch-text-soft); }
+  .note-s { font-size: 14.5px; fill: var(--sch-text-soft); }
+  .legend { font-size: 17px; font-weight: 600; fill: var(--sch-text); }
+  .sep { stroke: var(--sch-band-line); stroke-width: 1.5; }
+  .head-box { fill: var(--sch-s1); }
+  .head-text { font-size: 18px; font-weight: 700; fill: var(--sch-s-ink); }
+  .cell { fill: var(--sch-band); stroke: var(--sch-band-line); stroke-width: 1.5; }
+  .cell.open { fill: none; stroke: var(--sch-grey-line); stroke-width: 2.4; stroke-dasharray: 6 4; }
+  .key { font-size: 16px; font-weight: 650; fill: var(--sch-text); }
+  .out { fill: var(--sch-band); stroke: var(--sch-s1); stroke-width: 2.5; }
+  .arrow { stroke: var(--sch-text-soft); stroke-width: 2.2; fill: none; }
+  .arrow-head { fill: var(--sch-text-soft); }
+  .backlog { fill: var(--sch-band); stroke: var(--sch-band-line); stroke-width: 2; }
+  .scard.s1 { fill: var(--sch-s1); }
+  .card-text { font-size: 16px; font-weight: 700; fill: var(--sch-s-ink); }
+  .ghost { fill: none; stroke: var(--sch-grey-line); stroke-width: 2.4; stroke-dasharray: 6 4; }
+  .cross { stroke: var(--sch-text); stroke-width: 3; stroke-linecap: round; fill: none; }
+  .chip.stop { fill: var(--sch-grey); stroke: var(--sch-grey-line); stroke-width: 2; stroke-dasharray: 6 4; }
+  .chip.pass { fill: var(--sch-s1); }
+  .gate { fill: var(--sch-grey-line); }
+  .fin { fill: none; stroke: var(--sch-s1); stroke-width: 2.5; }
+</style>

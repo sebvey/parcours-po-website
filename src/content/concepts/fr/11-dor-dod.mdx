@@ -1,0 +1,233 @@
+---
+numero: "11"
+titre: "Definition of Done, Definition of Ready"
+objectif: "Distinguer la Definition of Done (DoD), la Definition of Ready (DoR) et un critère d'acceptation ; ranger une exigence au bon endroit ; décider si une story est prête à entrer dans un sprint."
+description: "Ce que sont la Definition of Done et la Definition of Ready, en quoi elles diffèrent d'un critère d'acceptation, et quoi faire d'une story qui n'est pas prête."
+prerequis: ["0", "8", "10"]
+ecoles:
+  consensus:
+    - auteur: "Le Scrum Guide 2020"
+      texte: "La DoD est l'engagement de l'incrément : la description de son état quand il remplit les exigences de qualité du produit. Un élément qui la remplit entre dans l'incrément ; sinon, il n'est ni livré ni présenté en revue de sprint, et retourne au backlog. Les équipes d'un même produit partagent la même DoD. Si l'organisation a un standard, l'équipe le suit au minimum ; sinon, l'équipe Scrum écrit la sienne. Les Developers la respectent ; la rétrospective l'inspecte."
+      refs: ["S1", "S2"]
+    - auteur: "Le Scrum Guide 2020, sur la DoR et les critères"
+      texte: "Ne parle ni de story, ni de critère d'acceptation, ni de DoR. Dit qu'un élément que l'équipe peut finir en un sprint est prêt à être choisi au Sprint Planning, et qu'il le devient en général après avoir été précisé."
+      refs: ["S1"]
+    - auteur: "Pratique établie, hors du Scrum Guide"
+      texte: "Distinguer DoD et critère d'acceptation. Mike Cohn voit la DoD comme des critères ajoutés à chaque story ; les critères d'acceptation, eux, sont propres à une story."
+      refs: ["S3"]
+  ecole:
+    - auteur: "Le contenu de la DoD"
+      texte: "Il est propre au produit ou à l'organisation : le Scrum Guide ne le fixe pas. Exemple en data, chez Scott Ambler, pour une équipe d'entrepôt de données : détection et signalement des erreurs de données, documentation technique à jour, métadonnées captées et validées."
+      refs: ["S1", "S7"]
+    - auteur: "Écrire une DoR"
+      texte: "Pratique née chez des praticiens vers 2008-2009 ; son premier auteur est discuté, on ne l'attribue à personne. Le terme « ready-ready » (prêt pour de bon), face à « done-done », est celui de l'entreprise Systematic."
+      refs: ["S4", "S5"]
+    - auteur: "Mike Cohn : le risque d'une DoR trop stricte"
+      texte: "Elle devient une barrière à franchir avant chaque sprint, qui ramène au cycle en cascade. Il conseille des repères plutôt que des règles, avec une exception possible : certaines dépendances envers une autre équipe ou un fournisseur."
+      refs: ["S6"]
+  cours:
+    - texte: "La formule « une seule DoD, pour toute story »."
+      refs: ["S1", "S2"]
+    - texte: "Le test « vaut-il pour toute story du même type de travail, sans être recopié ? », qui sépare la DoD d'un critère d'acceptation."
+      refs: ["S3"]
+    - texte: "Une règle métier, vérité du domaine, n'est ni une exigence de la DoD ni un critère (concept 8)."
+      refs: []
+    - texte: "L'image du « mini cahier des charges » pour une DoR trop stricte. Cohn parle de stage-gate et de cascade, pas de cahier des charges."
+      refs: ["S6"]
+  voisines:
+    - auteur: "« Prêt à être choisi » (Scrum Guide)"
+      texte: "Le critère du Guide est qu'un élément soit faisable en un sprint, pas une liste de conditions. La DoR en est une version écrite par l'équipe, qui peut aller plus loin."
+      refs: ["S1"]
+sources:
+  affirmations:
+    - affirmation: "La DoD est l'engagement de l'incrément dans le Scrum Guide, et le Guide la définit comme l'état de l'incrément quand il remplit les exigences de qualité du produit."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« For the Increment it is the Definition of Done » ; « The Definition of Done is a formal description of the state of the Increment when it meets the quality measures required for the product »."
+    - affirmation: "Un élément qui remplit la DoD entre dans l'incrément ; sans elle, il n'en fait pas partie."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« The moment a Product Backlog item meets the Definition of Done, an Increment is born » ; « Work cannot be considered part of an Increment unless it meets the Definition of Done »."
+    - affirmation: "Un élément qui ne remplit pas la DoD n'est ni livré ni présenté à la revue de sprint : il retourne au backlog."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« If a Product Backlog item does not meet the Definition of Done, it cannot be released or even presented at the Sprint Review. Instead, it returns to the Product Backlog for future consideration. » Le Guide dit « Product Backlog item », pas « story » : « story » est le mot du cours."
+    - affirmation: "Une seule DoD, partagée par toutes les équipes d'un même produit ; l'organisation peut imposer un standard, que l'équipe suit au minimum."
+      kind: "consensus"
+      refs: ["S1", "S2"]
+      verifie: "SG 2020 : « If there are multiple Scrum Teams working together on a product, they must mutually define and comply with the same Definition of Done » ; « If the Definition of Done for an increment is part of the standards of the organization, all Scrum Teams must follow it as a minimum. If it is not an organizational standard, the Scrum Team must create a Definition of Done appropriate for the product. » SG 2017, plus explicite : « Any one product or system should have a definition of \"Done\" that is a standard for any work done on it. » « Une seule DoD, pour toute story » est la formulation du cours, fidèle au texte."
+    - affirmation: "Les Developers respectent la DoD ; la rétrospective l'inspecte et elle évolue, pour tous, pas selon le contenu d'un sprint."
+      kind: "consensus"
+      refs: ["S1", "S2"]
+      verifie: "SG 2020 : « The Developers are required to conform to the Definition of Done » ; la rétrospective inspecte « their Definition of Done » pour « plan ways to increase quality and effectiveness ». SG 2017 : « the Scrum Team plans ways to increase product quality by improving work processes or adapting the definition of \"Done\" » ; « As Scrum Teams mature, it is expected that their definitions of \"Done\" will expand to include more stringent criteria for higher quality. » Que la DoD ne change pas selon le contenu d'un sprint découle de « une seule DoD » : déduction du cours."
+    - affirmation: "Le Scrum Guide ne parle ni de critère d'acceptation, ni de story, ni de DoR."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "Texte cherché le 22 octobre 2026 : « acceptance » 0 occurrence ; « user stor » 0 ; « Definition of Ready » 0."
+    - affirmation: "Un élément que l'équipe peut finir en un sprint est prêt à être choisi au Sprint Planning ; il le devient en général après avoir été précisé, et l'équipe peut encore le préciser pendant le planning."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« Product Backlog items that can be Done by the Scrum Team within one Sprint are deemed ready for selection in a Sprint Planning event. They usually acquire this degree of transparency after refining activities. » ; « The Scrum Team may refine these items during this process, which increases understanding and confidence. » « Usually » : en général, pas toujours. Le critère du Guide est « faisable en un sprint », pas une liste de conditions."
+    - affirmation: "Au Sprint Planning, le PO propose et les Developers choisissent."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« The Product Owner proposes how the product could increase its value and utility in the current Sprint » ; « Through discussion with the Product Owner, the Developers select items from the Product Backlog to include in the current Sprint »."
+    - affirmation: "La DoD vaut pour toutes les stories ; un critère d'acceptation est propre à une story."
+      kind: "consensus"
+      refs: ["S3"]
+      verifie: "Cohn : la DoD est « an agreed-upon set of things that must be true before any product backlog item is considered complete » ; « every product backlog item for a particular product must satisfy the definition of done criteria » ; « conditions of satisfaction are specific to a given product backlog item ». Pratique établie, avis de Cohn."
+    - affirmation: "Les critères et la DoD s'ajoutent : la DoD est vue comme un jeu de critères ajoutés à chaque story."
+      kind: "consensus"
+      refs: ["S3"]
+      verifie: "Cohn : « Think of the definition of done as a special set of acceptance criteria that are added to every user story » ; image du tampon appliqué à chaque carte."
+    - affirmation: "Test pour séparer DoD et critère : « vaut-il pour toute story du même type de travail, sans être recopié ? »"
+      kind: "cours"
+      refs: ["S3"]
+      verifie: "Cohn : la DoD s'applique à tout élément du produit, ses critères sont ajoutés à chaque story. La précision « du même type de travail » et « sans être recopié » est la formulation du cours."
+    - affirmation: "Une règle métier, vérité du domaine, n'est ni une exigence de la DoD ni un critère."
+      kind: "cours"
+      refs: []
+      verifie: "Glossaire du cours : règle métier « vérité du domaine, valable hors de la story » ; DoD « exigences de qualité ». Distinction formulée par le cours, sans source externe."
+    - affirmation: "Une exigence de la DoD peut viser une sorte de travail (toute story qui publie des données) et rester la même pour toutes."
+      kind: "cours"
+      refs: ["S3", "S7"]
+      verifie: "Cohn : la DoD s'applique à tout élément du produit ; l'exemple d'Ambler contient des exigences propres aux données. La formulation « viser une sorte de travail » est celle du cours."
+    - affirmation: "En data, une DoD peut contenir des tests de qualité des données et la documentation."
+      kind: "ecole"
+      refs: ["S7"]
+      verifie: "Exemple de DoD d'une équipe d'entrepôt de données chez Ambler : « Detection and reporting of potential data errors implemented » ; « Supporting technical documentation is up to date » ; « Enterprise metadata captured, validated, and accepted ». Un exemple d'auteur, pas une fréquence : la page n'écrit pas « souvent » (voir « Non vérifié »)."
+    - affirmation: "La DoR est un choix d'école, née chez des praticiens vers 2008-2009, au premier auteur discuté ; le terme « ready-ready » est celui de Systematic."
+      kind: "ecole"
+      refs: ["S1", "S4", "S5", "S6"]
+      verifie: "Systematic (Jakobsen et Sutherland, Agile 2009) : « Systematic introduced the term ready-ready, to express that work from the Product Backlog has been sufficiently elaborated to be allocated to a sprint ». Première description formelle d'une « Definition of Ready » attribuée, sans certitude, à Kronfält (2008) par les Scrum Patterns [S5] ; un billet de Sutherland (juillet 2009) l'attribue à Serge Beaumont. Origine discordante : la page ne l'attribue à personne."
+    - affirmation: "Une DoR liste les conditions qu'une story remplit avant d'entrer dans un sprint ; ces conditions sont établies par l'équipe."
+      kind: "ecole"
+      refs: ["S6", "S7"]
+      verifie: "Cohn : « the user story or product backlog item meets a set of team-established criteria as to whether the story is ready for a sprint ». Ambler : la DoR « protects your team from poorly specified requests ». Le parallèle « terminée / peut commencer » est la formulation du cours ; il reprend le couple « ready-ready / done-done » de Systematic."
+    - affirmation: "Conditions typiques d'une DoR : critères d'acceptation identifiés, taille qui tient dans un sprint, dépendances externes levées."
+      kind: "ecole"
+      refs: ["S6"]
+      verifie: "Exemples cités par Cohn : « The conditions of satisfaction (acceptance criteria) have been fully identified for the story » ; « The story has been estimated and is under a certain size » ; « All external dependencies have been resolved, whether the dependency was on another team or on an outside vendor »."
+    - affirmation: "Risque d'une DoR trop stricte : une barrière qui ramène au cycle en cascade ; Cohn conseille des repères plutôt que des règles."
+      kind: "ecole"
+      refs: ["S6"]
+      verifie: "« the definition of ready becomes a huge step towards a sequential, stage-gate approach » ; « A stage-gate approach is, after all, another way of describing a waterfall process » ; « Favor guidelines rather than rules on your Definition of Ready »."
+    - affirmation: "Cohn admet une exception : une DoR peut exiger que certaines dépendances envers d'autres équipes ou des fournisseurs soient levées."
+      kind: "ecole"
+      refs: ["S6"]
+      verifie: "Éviter les règles qui exigent qu'une chose soit faite à 100 % avant l'entrée de la story, « with the possible exception of dependencies on certain teams or vendors »."
+    - affirmation: "Une DoR trop stricte est un « mini cahier des charges »."
+      kind: "cours"
+      refs: ["S6"]
+      verifie: "Image du cours. Cohn parle de « stage-gate » et de cascade : on ne met pas l'expression dans sa bouche."
+    - affirmation: "La DoR suppose des sprints ; sans sprint, l'annexe A2 s'applique."
+      kind: "cours"
+      refs: []
+      verifie: "Décision interne du cours, sans source externe."
+    - affirmation: "Les faits du fil rouge (la DoR de l'équipe vélos) sont inventés."
+      refs: []
+      verifie: "Sans source : le cas de l'opérateur de vélos en libre-service est fictif. Les exemples d'exigences de cette page sont des illustrations."
+  references:
+    - id: "S1"
+      texte: "Schwaber, Sutherland, *The Scrum Guide*, novembre 2020"
+      url: "https://scrumguides.org/scrum-guide.html"
+      type: "primaire"
+      consultee: "2026-10-22"
+    - id: "S2"
+      texte: "Schwaber, Sutherland, *The Scrum Guide*, novembre 2017 (version abrogée, pour l'évolution de la DoD et le mot « Ready »)"
+      url: "https://scrumguides.org/docs/scrumguide/v2017/2017-Scrum-Guide-US.pdf"
+      type: "primaire"
+      consultee: "2026-10-22"
+    - id: "S3"
+      texte: "Mountain Goat Software (Cohn), « Relationship between Definition of Done and Conditions of Satisfaction », mise à jour du 24 juin 2024 (sans signature ; site et voix de Cohn)"
+      url: "https://www.mountaingoatsoftware.com/blog/clarifying-the-relationship-between-definition-of-done-and-conditions-of-sa"
+      type: "primaire (site de l'auteur, qui vend aussi ses formations)"
+      consultee: "2026-10-22"
+    - id: "S4"
+      texte: "Jakobsen, Sutherland, « Scrum and CMMI – Going from Good to Great: are you ready-ready to be done-done? », Agile 2009, Chicago"
+      url: "http://jeffsutherland.org/scrum/JakobsenScrumCMMIGoingfromGoodtoGreatAgile2009.pdf"
+      type: "primaire"
+      consultee: "2026-10-22"
+    - id: "S5"
+      texte: "Scrum Patterns Group (Coplien et al.), « Definition of Ready », *A Scrum Book* ; cite Kronfält, « Ready-ready: the Definition of Ready for User Stories going into Sprint Planning », blog, octobre 2008"
+      url: "https://scrumbook.org/value-stream/product-backlog/definition-of-ready.html"
+      type: "secondaire (le billet de Kronfält n'a pas été lu)"
+      consultee: "2026-10-22"
+    - id: "S6"
+      texte: "Mountain Goat Software (Cohn), « Definition of Ready: What It Is and Why It's Dangerous », mise à jour du 28 juin 2023 (sans signature ; site et voix de Cohn)"
+      url: "https://www.mountaingoatsoftware.com/blog/the-dangers-of-a-definition-of-ready"
+      type: "primaire (site de l'auteur, qui vend aussi ses formations)"
+      consultee: "2026-10-22"
+    - id: "S7"
+      texte: "Ambler, « Definition of Done (DoD) for a Data Warehouse Team », *Agile Data* (sans date ; site © 2002-2026)"
+      url: "https://agiledata.org/essays/definition-of-done.html"
+      type: "primaire (site de l'auteur, qui vend sa méthode)"
+      consultee: "2026-10-22"
+  nonVerifie:
+    - "**Premier auteur de la DoR.** Les Scrum Patterns [S5] écrivent que Kronfält en a « apparently » publié la première description formelle (2008) ; le billet n'a pas été lu. Un billet de Sutherland (juillet 2009) attribue une « Definition of Ready » à Serge Beaumont ; Systematic introduit « ready-ready » [S4]. Origine discordante : la page ne l'attribue à personne."
+    - "**En data, une DoD contient souvent des tests de qualité, la documentation des indicateurs, des temps de réponse.** Un seul exemple d'auteur trouvé (Ambler [S7] : détection des erreurs de données, documentation, métadonnées) ; aucune enquête sur la fréquence ; « temps de réponse » absent de cette source. La page présente ces points comme des exemples, sans « souvent »."
+    - "**Sur un projet data, l'accès aux données figure souvent dans la DoR.** Aucune source sur la fréquence ; seul Cohn [S6] donne une dépendance externe comme exemple de condition. La page ne le dit pas."
+    - "**« Mini cahier des charges ».** Image du cours ; Cohn parle de « stage-gate » et de cascade."
+    - "**Livres non lus.** Sutherland, *Scrum: The Art of Doing Twice the Work in Half the Time* (2014), chapitre « Be Ready to be Done », cité par [S5] : rien de la page ne s'y appuie."
+---
+import Schema11 from '../../../components/schemas/Schema11.astro';
+
+La **DoD** (Definition of Done) est l'engagement de l'incrément : les exigences de qualité que tout élément remplit pour en faire partie. Il n'y a **qu'une DoD, pour toute story**. Le critère d'acceptation dit ce que fait une story donnée (<Renvoi n="8" />) ; la DoD, comment toutes sont faites. La **DoR** (Definition of Ready) liste les conditions qu'une story remplit avant d'entrer dans un sprint : la DoD dit quand elle est terminée, la DoR quand elle peut commencer. La DoD est dans le Scrum Guide, la DoR non.
+
+<Figure legende="Le sprint comme une pièce à deux portes. À l'entrée, la DoR (choix d'école) : une story bloquée y reste au backlog. À la sortie, la DoD : une seule, la même pour toutes les cartes ; une carte qui ne la remplit pas retourne au backlog. Chaque carte garde ses propres critères d'acceptation.">
+  <Schema11 />
+</Figure>
+
+<Sous id="11a" titre="La Definition of Done" promesse="Une exigence de qualité commune à toute story, qu'il ne faut confondre ni avec un critère ni avec une règle métier.">
+
+<h4 id="11a1"><span class="num">11a1</span> Une seule DoD, pour toute story</h4>
+
+La DoD dit quand un élément entre dans l'incrément (<Renvoi n="0a3" />) <Pastille kind="consensus" />. Un élément qui la remplit en fait partie. Sinon, il n'est ni livré ni présenté à la revue de sprint : il retourne au backlog (<Renvoi n="0b" />). Les équipes d'un même produit partagent la même DoD : si l'organisation a un standard, l'équipe le suit au minimum, sinon elle écrit la sienne. Les Developers la respectent, et la rétrospective l'inspecte : c'est là qu'elle évolue, pour toutes les stories à venir, et non d'un sprint à l'autre selon le contenu.
+
+Le Scrum Guide ne fixe pas le contenu de la DoD : il est propre au produit <Pastille kind="ecole" />. En data, Scott Ambler cite, pour une équipe d'entrepôt de données, la détection des erreurs de données et une documentation à jour. Une DoD qu'on lèverait pour une story pressée ne serait plus commune : la story qui ne la remplit pas n'est pas terminée.
+
+<h4 id="11a2"><span class="num">11a2</span> DoD, critère ou règle métier</h4>
+
+Le Scrum Guide ne parle pas de critère d'acceptation. La distinction vient d'une pratique établie : pour Mike Cohn, la DoD est un jeu de critères ajouté à chaque story, alors que les critères sont propres à une story <Pastille kind="consensus" />. Une story terminée passe donc ses critères **et** toute la DoD.
+
+Un test du cours <Pastille kind="cours" /> aide à ranger une exigence : « vaut-il pour toute story du même type de travail, sans être recopié ? » Si oui, c'est la DoD : « les tests de qualité des données passent avant publication » vaut pour toute story qui publie des données, on l'écrit une fois. Un cas précis, propre à une story, est un critère : « un vélo signalé deux fois n'apparaît qu'une fois dans la liste ». Une règle métier qui vaut pour plusieurs stories n'est ni l'un ni l'autre : c'est une vérité du domaine, pas une exigence de qualité sur le travail (<Renvoi n="8" />).
+
+</Sous>
+
+<Sous id="11b" titre="La Definition of Ready" promesse="Une liste d'entrée dans le sprint, qui est un choix d'école : utile comme repère, dangereuse comme barrière.">
+
+<h4 id="11b1"><span class="num">11b1</span> Ce que dit le Guide, et ce que la DoR ajoute</h4>
+
+Le Scrum Guide ne parle pas de DoR. Il dit seulement qu'un élément que l'équipe peut finir en un sprint est **prêt à être choisi** au Sprint Planning, et qu'il le devient en général après avoir été précisé (<Renvoi n="15" />). La DoR est une liste écrite par l'équipe pour cela <Pastille kind="ecole" /> : une pratique née chez des praticiens vers 2008-2009, dont le premier auteur est discuté. Mike Cohn en cite des conditions typiques : critères d'acceptation identifiés, taille qui tient dans un sprint, dépendances externes levées.
+
+<FilRouge>La DoR de l'équipe vélos exige des critères d'acceptation écrits, des règles métier fixées, des dépendances identifiées et un accès aux données obtenu.</FilRouge>
+
+La DoR suppose des sprints : sans sprint, voir l'annexe <Renvoi n="A2" />.
+
+<h4 id="11b2"><span class="num">11b2</span> Prête ou pas, et le risque de la barrière</h4>
+
+Au Sprint Planning, le PO propose et les Developers choisissent. Une story dont une condition d'entrée manque n'est pas prête : on ne la prend pas sur un « sûrement ». Le PO propose à la place une story prête, et il fait avancer ce qui bloque, par exemple une dépendance envers une autre équipe (<Renvoi n="10b" />). Si cela bloque sprint après sprint, c'est une escalade (<Renvoi n="14" />).
+
+Mais une DoR trop stricte devient une barrière à franchir avant chaque sprint : pour Cohn, un retour au cycle en cascade, d'où son conseil de préférer des repères à des règles. Il admet une exception : certaines dépendances envers une autre équipe ou un fournisseur. Le cours <Pastille kind="cours" /> parle d'un « mini cahier des charges » quand tout doit être spécifié avant le sprint, alors que la conversation continue pendant. La DoR se décide en équipe : le PO la propose, il ne la fixe pas seul.
+
+</Sous>
+
+<Reflexe note="Formulation du cours, d'après le test de Cohn pour séparer la DoD des critères.">
+« Vaut-il pour toute story du même type de travail, sans être recopié ? » C'est la DoD.<br />
+« Propre à cette story ? » C'est un critère d'acceptation.<br />
+« Faut-il l'avoir avant de commencer ? » C'est la DoR.
+</Reflexe>
+
+<Erreurs>
+
+- **Recopier la même exigence dans les critères de chaque story** : elle va dans la DoD.
+- **Mettre dans la DoD ce qui est propre à une story** : c'est un critère d'acceptation.
+- **Prendre une règle métier pour une exigence de la DoD** parce qu'elle vaut pour plusieurs stories.
+- **Croire à une DoD par incrément, par sprint ou par équipe d'un même produit** : une seule DoD, pour toute story, qui change en rétrospective pour tous.
+- **Lever la DoD pour une story pressée** : la story n'est pas terminée et retourne au backlog.
+- **Présenter la DoR comme du Scrum** : le Guide parle d'éléments prêts à être choisis, pas de DoR.
+- **Prendre une story sur un « sûrement »** : une dépendance externe non levée la laisse au backlog.
+- **Faire de la DoR un mini cahier des charges** : les stories attendent d'être entièrement spécifiées.
+- **Fixer en douce une règle non fixée pour rendre une story prête** : le PO la fait fixer (<Renvoi n="8a2" />).
+
+</Erreurs>

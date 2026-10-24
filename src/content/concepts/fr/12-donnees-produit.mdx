@@ -1,0 +1,282 @@
+---
+numero: "12"
+titre: "Les données du produit"
+objectif: "Faire écrire la définition d'un indicateur qui ne laisse pas deux lectures ; exprimer une exigence de qualité des données en règle mesurable et la ranger au bon endroit ; savoir quelles données demander, pour quelle finalité, quand l'accès touche des données personnelles."
+description: "Comment définir un indicateur sans ambiguïté, traduire « données de qualité » en règles mesurables, et demander un accès aux données avec une finalité, sans excès."
+prerequis: ["2", "8", "11"]
+ecoles:
+  consensus:
+    - auteur: "Pratiques de la donnée : DAMA UK, reprise par le gouvernement britannique ; recensement de DAMA NL"
+      texte: "La qualité des données s'exprime en règles mesurables sur des dimensions, et le niveau de qualité exigé dépend de l'usage. Le Scrum Guide et les référentiels du PO ne disent ni comment définir un indicateur ni comment exprimer la qualité des données."
+      refs: ["S2", "S3", "S4", "S9"]
+    - auteur: "Le RGPD (texte de loi)"
+      texte: "Une donnée personnelle est une information sur une personne identifiée ou identifiable, y compris par un identifiant ; une donnée pseudonymisée qu'on peut rattacher à une personne reste personnelle. Les données sont collectées pour des finalités déterminées (limitation des finalités) et limitées à ce qui est nécessaire à ces finalités (minimisation)."
+      refs: ["S5", "S6"]
+  ecole:
+    - auteur: "La liste des dimensions de qualité"
+      texte: "Six chez DAMA UK : exactitude, complétude, unicité, cohérence, fraîcheur, validité. D'autres listes existent ailleurs, parfois bien plus longues."
+      refs: ["S2", "S4"]
+    - auteur: "Le grain (Kimball Group)"
+      texte: "Terme de la modélisation dimensionnelle : ce que représente une ligne d'une table de faits. Le cours l'étend à un indicateur : ce que représente une valeur de l'indicateur (par station, par quartier)."
+      refs: ["S1"]
+  cours:
+    - texte: "Le contenu d'une définition d'indicateur : ce qu'il compte et sa règle de calcul, son grain, sa période, sa source, sa fraîcheur. Aucun texte de référence ne fixe cette liste ; elle recoupe la pratique des outils d'indicateurs."
+      refs: ["S1", "S7", "S8"]
+    - texte: "Les trois lieux d'une exigence de qualité : la DoD, un critère d'acceptation, la définition de l'indicateur."
+      refs: []
+    - texte: "La définition vaut pour l'indicateur partout où il est publié."
+      refs: []
+    - texte: "Le PO fait écrire, fixer ou demander ; le calcul et les tests sont le comment des Developers."
+      refs: []
+    - texte: "« Fraîcheur » traduit *timeliness* : sens voisin mais pas identique. DAMA UK parle de données disponibles quand on en a besoin ; le cours vise l'âge maximal des données."
+      refs: ["S2"]
+  voisines:
+    - auteur: "Indicateur et mesure de résultat"
+      texte: "L'indicateur est une valeur calculée par le produit pour ses utilisateurs (un livrable). La mesure de résultat juge si le produit atteint son objectif (concept 2). Les deux ont besoin d'une définition complète."
+      refs: []
+sources:
+  affirmations:
+    - affirmation: "Ni le Scrum Guide ni les référentiels du PO ne disent comment définir un indicateur ou exprimer la qualité des données."
+      kind: "consensus"
+      refs: ["S9"]
+      verifie: "Les objectifs CSPO et les domaines PSPO n'en parlent pas (relevé le 22 octobre 2026). Le Scrum Guide confie la valeur au PO sans dire comment la mesurer."
+    - affirmation: "La qualité des données s'exprime en règles mesurables sur des dimensions."
+      kind: "consensus"
+      refs: ["S2", "S3", "S4"]
+      verifie: "Cadre de qualité des données du gouvernement britannique : « There are six core data quality dimensions, as defined by DAMA UK » ; chaque dimension s'y mesure (« Uniqueness measures the number of duplicates »). DAMA NL recense les dimensions de nombreuses sources : toutes passent par des dimensions. Consensus entre ces sources, pas un texte unique."
+    - affirmation: "La liste des dimensions est un choix d'école : six chez DAMA UK, davantage dans d'autres listes."
+      kind: "ecole"
+      refs: ["S2", "S3", "S4"]
+      verifie: "Six dimensions de DAMA UK (2013) reprises par le gouvernement britannique ; DAMA NL (2020) recense les dimensions par source. La date 2013 vient de la reprise britannique ; le livre blanc d'origine n'a pas été relu. Le DMBOK 2, payant, n'a pas été consulté : la page n'en cite pas le nombre de dimensions."
+    - affirmation: "Les six dimensions de DAMA UK : exactitude, complétude, unicité, cohérence, fraîcheur, validité."
+      kind: "ecole"
+      refs: ["S2"]
+      verifie: "Accuracy « data reflects reality » ; Completeness « all the data required for a particular use is present » ; Uniqueness « measures the number of duplicates » ; Consistency « data values do not conflict with other values » ; Timeliness « available when expected and needed » ; Validity « conforms to the expected format, type, and range ». Les traductions sont celles du glossaire du cours."
+    - affirmation: "La qualité dépend de l'usage : le niveau exigé varie selon la finalité."
+      kind: "consensus"
+      refs: ["S2", "S3"]
+      verifie: "« data quality can be thought of as 'fitness for purpose' » ; « The level of quality required will vary depending on the purpose » ; « Timeliness means different things for different uses »."
+    - affirmation: "Mesurer une dimension, c'est poser une règle chiffrable (un taux de doublons, un âge maximal)."
+      kind: "consensus"
+      refs: ["S2"]
+      verifie: "Chaque dimension y est définie comme mesurable (« measures the number of duplicates » ; format, type et plage pour la validité). Les exemples chiffrés de la page sont des illustrations du cours."
+    - affirmation: "Un doublon relève de l'unicité."
+      kind: "ecole"
+      refs: ["S2"]
+      verifie: "« Uniqueness measures the number of duplicates » ; la page précise qu'un enregistrement peut être un doublon même si certains champs diffèrent."
+    - affirmation: "Un indicateur est une valeur calculée par le produit pour ses utilisateurs ; c'est un livrable, pas une mesure de résultat."
+      kind: "cours"
+      refs: []
+      verifie: "Glossaire du cours (« Indicateur ») ; distinction livrable et résultat vue au concept 2."
+    - affirmation: "Contenu d'une définition : ce qu'il compte (règle de calcul, avec ce qu'il inclut et exclut), grain, période, source, fraîcheur."
+      kind: "cours"
+      refs: ["S1", "S7", "S8"]
+      verifie: "Aucun texte de référence ne fixe cette liste : choix du cours. Elle recoupe la pratique : dbt définit une mesure par son agrégation, son filtre (« Consider it as your WHERE clause ») et le grain de sa dimension de temps ; Klipfolio : « the measure to calculate, the aggregation to apply, the time grain to use, and any filters ». Ces deux sources sont marketing. Ne pas la présenter comme un standard."
+    - affirmation: "Le grain dit ce que représente une valeur de l'indicateur ; chez Kimball, une ligne de la table de faits, et le déclarer est l'étape centrale."
+      kind: "ecole"
+      refs: ["S1", "S7"]
+      verifie: "Kimball Group : « The grain establishes exactly what a single fact table row represents » ; « the pivotal step in a dimensional design » ; « a binding contract on the design ». Le terme vient de la modélisation dimensionnelle ; l'étendre à un indicateur est l'usage du cours, conforme à dbt (« Define the data's grain on the time dimension column »)."
+    - affirmation: "La fraîcheur d'un indicateur (âge maximal des données) fait partie de sa définition ; c'est aussi une dimension de qualité."
+      kind: "cours"
+      refs: ["S2"]
+      verifie: "DAMA UK : « Timeliness indicates whether the data is available when expected and needed ». « Fraîcheur » traduit *timeliness* dans le glossaire du cours : sens voisin, pas identique (disponible quand on en a besoin, contre âge des données)."
+    - affirmation: "La définition vaut pour l'indicateur partout où il est publié ; un critère d'acceptation est propre à une story."
+      kind: "cours"
+      refs: []
+      verifie: "Critère propre à une story : Cohn, « conditions of satisfaction are specific to a given product backlog item » (vu aux concepts 8 et 11). « Vaut partout où il est publié » : formulation du cours, sans source externe."
+    - affirmation: "Où écrire une exigence de qualité : la DoD si elle vaut pour toute story, un critère si elle est propre à une story, la définition de l'indicateur si elle le concerne."
+      kind: "cours"
+      refs: []
+      verifie: "DoD ou critère : test de Cohn, vu au concept 11. Le troisième lieu (la définition de l'indicateur) est un choix du cours, sans source externe."
+    - affirmation: "Ce que la plateforme reçoit mal se corrige ; ce qu'elle ne reçoit jamais est une limite de la source, qui s'écrit dans la définition et se montre aux utilisateurs."
+      kind: "cours"
+      refs: ["S2", "S3"]
+      verifie: "Communiquer la qualité aux utilisateurs : cadre britannique, « Communicate quality to users regularly and clearly to ensure data is used appropriately ». Lien avec la complétude (« all the data required for a particular use ») : rapprochement du cours. « Limite de la source, pas défaut à corriger par la plateforme » : raisonnement du cours."
+    - affirmation: "Donnée personnelle : toute information se rapportant à une personne physique identifiée ou identifiable, y compris indirectement par un identifiant."
+      kind: "consensus"
+      refs: ["S5"]
+      verifie: "RGPD, art. 4, 1 : « toute information se rapportant à une personne physique identifiée ou identifiable » ; identification indirecte « notamment par référence à un identifiant, tel qu'un nom, un numéro d'identification »."
+    - affirmation: "Une donnée pseudonymisée qu'on peut rattacher à une personne reste personnelle."
+      kind: "consensus"
+      refs: ["S5", "S6", "S11"]
+      verifie: "Considérant 26 : les données pseudonymisées « qui pourraient être attribuées à une personne physique par le recours à des informations supplémentaires devraient être considérées comme des informations concernant une personne physique identifiable ». Art. 4, 5 : la pseudonymisation empêche l'attribution à une personne sauf à utiliser des informations supplémentaires conservées séparément ; l'EDPB : les données pseudonymisées « restent donc des données à caractère personnel ». Nuance : selon des commentaires d'un arrêt de 2025 (voir « Non vérifié »), ce n'est pas vrai pour tout destinataire. La page écrit « pour qui peut la rattacher à une personne »."
+    - affirmation: "Limitation des finalités : données collectées pour des finalités déterminées, explicites et légitimes."
+      kind: "consensus"
+      refs: ["S5"]
+      verifie: "Art. 5, 1, b : « collectées pour des finalités déterminées, explicites et légitimes, et ne pas être traitées ultérieurement d'une manière incompatible avec ces finalités »."
+    - affirmation: "Minimisation : seulement les données nécessaires à la finalité."
+      kind: "consensus"
+      refs: ["S5"]
+      verifie: "Art. 5, 1, c : « adéquates, pertinentes et limitées à ce qui est nécessaire au regard des finalités pour lesquelles elles sont traitées (minimisation des données) »."
+    - affirmation: "Le PO demande quelles colonnes, pour quelle finalité, au détail ou agrégées ; il ne fait pas le droit."
+      kind: "cours"
+      refs: ["S5"]
+      verifie: "Choix du cours : borné à ce que le PO doit savoir demander, sans droit détaillé. Application de l'art. 5, 1, b et c."
+    - affirmation: "Une finalité se dit avant d'utiliser les données ; « peut-être plus tard » n'en est pas une ; une nouvelle finalité fait une nouvelle demande."
+      kind: "cours"
+      refs: ["S5"]
+      verifie: "Art. 5, 1, b. La demande de la plateforme est un nouvel usage de données déjà collectées par l'opérateur : d'où « avant d'utiliser ». « Nouvelle demande » : choix du cours."
+    - affirmation: "Demander de justifier chaque colonne, c'est la minimisation appliquée."
+      kind: "cours"
+      refs: ["S5"]
+      verifie: "Lien avec l'art. 5, 1, c : choix du cours."
+    - affirmation: "Le délégué à la protection des données, s'il y en a un, conseille sur la règle."
+      kind: "consensus"
+      refs: ["S10"]
+      verifie: "Art. 39, 1, a : « informer et conseiller le responsable du traitement […] ainsi que les employés qui procèdent au traitement » ; b : « contrôler le respect du présent règlement » ; art. 38, 1 : « associé […] à toutes les questions relatives à la protection des données ». L'obligation d'en désigner un (art. 37) n'a pas été vérifiée pour un opérateur de ce type : la page n'affirme pas qu'il en a un."
+    - affirmation: "Le PO fait écrire, fixer ou demander ; le calcul et les tests sont le comment des Developers."
+      kind: "cours"
+      refs: []
+      verifie: "Le quoi au PO, le comment aux Developers : vu au concept 1. L'application aux données est un choix du cours."
+    - affirmation: "Les exemples de la page (la source Abonnés et ses colonnes, les indicateurs cités) sont des illustrations ; les faits du fil rouge sont inventés."
+      refs: []
+      verifie: "Sans source : le cas de l'opérateur de vélos en libre-service est fictif."
+  references:
+    - id: "S1"
+      texte: "Kimball Group, « Grain », *Dimensional Modeling Techniques* (sans auteur ni date)"
+      url: "https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/dimensional-modeling-techniques/grain/"
+      type: "primaire (site du groupe de l'auteur, qui vend aussi des formations)"
+      consultee: "2026-10-22"
+    - id: "S2"
+      texte: "Government Data Quality Hub, « Meet the data quality dimensions », 24 juin 2021, d'après DAMA UK, « The six primary dimensions for data quality assessment », 2013"
+      url: "https://www.gov.uk/government/news/meet-the-data-quality-dimensions"
+      type: "primaire (reprise officielle des dimensions de DAMA UK)"
+      consultee: "2026-10-22"
+    - id: "S3"
+      texte: "Government Data Quality Hub, *The Government Data Quality Framework*, 3 décembre 2020"
+      url: "https://www.gov.uk/government/publications/the-government-data-quality-framework/the-government-data-quality-framework"
+      type: "primaire"
+      consultee: "2026-10-22"
+    - id: "S4"
+      texte: "DAMA NL, *Dimensions of Data Quality*, version 1.2, 3 septembre 2020"
+      url: "https://www.dama-nl.org/wp-content/uploads/2020/09/DDQ-Dimensions-of-Data-Quality-Research-Paper-version-1.2-d.d.-3-Sept-2020.pdf"
+      type: "secondaire (association professionnelle)"
+      consultee: "2026-10-22"
+    - id: "S5"
+      texte: "Règlement (UE) 2016/679 (RGPD), art. 4 et art. 5, texte reproduit par la CNIL"
+      url: "https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre2"
+      type: "primaire (texte de loi)"
+      consultee: "2026-10-22"
+    - id: "S6"
+      texte: "RGPD, considérant 26, texte reproduit par la CNIL ; EDPB, communiqué sur ses lignes directrices sur la pseudonymisation"
+      url: "https://www.edpb.europa.eu/news/edpb-adopts-pseudonymisation-guidelines-and-paves-the-way-to-improve-cooperation-with_fr"
+      type: "primaire (texte de loi ; autorité européenne)"
+      consultee: "2026-10-22"
+    - id: "S7"
+      texte: "dbt Labs, « Creating metrics » (documentation du Semantic Layer)"
+      url: "https://docs.getdbt.com/docs/build/metrics-overview"
+      type: "marketing (documentation d'un éditeur : un exemple de pratique, pas une norme)"
+      consultee: "2026-10-22"
+    - id: "S8"
+      texte: "Klipfolio, « What is a metric? » (glossaire)"
+      url: "https://www.klipfolio.com/glossary/metric"
+      type: "marketing"
+      consultee: "2026-10-22"
+    - id: "S9"
+      texte: "Scrum Alliance, *CSPO Learning Objectives*, janvier 2022 ; Scrum.org, Professional Scrum Product Owner I (domaines de l'évaluation)"
+      url: "https://www.scrum.org/assessments/professional-scrum-product-owner-i-certification"
+      type: "primaire (et marketing pour la certification)"
+      consultee: "2026-10-22"
+    - id: "S10"
+      texte: "RGPD, art. 37 à 39, texte reproduit par la CNIL"
+      url: "https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre4"
+      type: "primaire (texte de loi)"
+      consultee: "2026-10-22"
+    - id: "S11"
+      texte: "Cour de justice de l'UE, arrêt du 4 septembre 2025, CEPD c/ CRU, C-413/23 P (lu d'après des commentaires de cabinets : Inside Privacy, Skadden)"
+      url: "https://www.insideprivacy.com/eu-data-protection/eu-court-of-justice-clarifies-the-concept-of-personal-data-in-the-context-of-a-transfer-of-pseudonymized-data-to-third-parties"
+      type: "secondaire (arrêt non lu)"
+      consultee: "2026-10-22"
+  nonVerifie:
+    - "**Contenu d'une définition d'indicateur.** Aucune source établie (norme, texte de consensus) ne fixe la liste « règle de calcul, grain, période, source, fraîcheur ». Elle recoupe la pratique (dbt [S7], Klipfolio [S8], tous deux marketing ; le grain chez Kimball [S1]) : la page la présente comme le choix du cours."
+    - "**Pseudonymisation, arrêt de 2025.** Selon des commentaires de cabinets [S11], la Cour de justice a jugé le 4 septembre 2025 (C-413/23 P) qu'une donnée pseudonymisée n'est pas une donnée personnelle pour tout destinataire : seulement pour celui qui peut raisonnablement réidentifier la personne. L'arrêt n'a pas été lu. La page écrit « pour qui peut la rattacher à une personne », pas « toujours et pour tous »."
+    - "**« Fraîcheur » pour *timeliness*.** Traduction du cours ; DAMA UK définit *timeliness* comme une donnée disponible quand on l'attend, pas comme un âge maximal. Sens voisin."
+    - "**DAMA UK, 2013.** Le livre blanc d'origine n'a pas été relu, seule sa reprise par le gouvernement britannique [S2], [S3]."
+    - "**DMBOK 2.** Payant, non consulté ; la page ne cite pas son nombre de dimensions."
+    - "**Obligation de désigner un délégué à la protection des données (art. 37).** Non vérifiée pour un opérateur de ce type ; la page ne l'affirme pas."
+---
+import Schema12 from '../../../components/schemas/Schema12.astro';
+
+Un PO data ne calcule pas l'indicateur ni n'écrit les tests : les Developers s'en chargent. Il fait **écrire et fixer** ce que l'indicateur compte (sa définition) et ce que « données de qualité » veut dire pour l'usage (des règles mesurables), et il sait **ce qu'il demande** à celui qui donne l'accès : quelles colonnes, pour quoi faire. Sans définition, deux chiffres justes se contredisent ; sans règle de qualité, « fiable » ne se teste pas ; sans finalité, l'accès ne s'obtient pas, ou s'obtient trop large.
+
+<Figure legende="Trois panneaux. 12a : la fiche d'un indicateur a cinq cases, et celles qu'on ne peut pas remplir restent à faire fixer. 12b : ce que la plateforme reçoit mal se corrige, ce qu'elle ne reçoit jamais est une limite de la source. 12c : on ne demande que les colonnes qui servent la finalité.">
+  <Schema12 />
+</Figure>
+
+<Sous id="12a" titre="Définir un indicateur" promesse="Une définition écrite pour que deux personnes qui la lisent calculent le même nombre.">
+
+<h4 id="12a1"><span class="num">12a1</span> Les cinq cases</h4>
+
+Un indicateur est une valeur calculée par le produit pour ses utilisateurs, comme un nombre de locations par quartier. Il se lit d'une seule façon quand sa définition dit cinq choses :
+
+- **la règle de calcul** : ce qu'il compte, ce qu'on inclut, ce qu'on exclut ;
+- **le grain** : ce que représente une valeur (par station, par quartier) ;
+- **la période** : l'instant ou la durée sur laquelle on compte ;
+- **la source** : le système qui produit les données, avec son propriétaire ;
+- **la fraîcheur** : l'âge maximal des données quand on lit le chiffre.
+
+Cette liste est un choix du cours <Pastille kind="cours" />, qui recoupe la pratique des outils d'indicateurs ; le grain vient de la modélisation dimensionnelle de Kimball <Pastille kind="ecole" />. Période et fraîcheur ne se confondent pas : la première dit à quel moment le nombre est vrai, la seconde de combien ce moment peut dater quand on le lit.
+
+La définition dit **ce qu'on compte, sur quoi, quand**, jamais comment : une requête ou une jointure est le comment des Developers. Une équipe peut exiger dans sa DoD (<Renvoi n="11a" />) que chaque indicateur publié ait sa définition écrite. La mesure de résultat de l'objectif produit (<Renvoi n="2" />) est un indicateur comme les autres et demande la même définition.
+
+<h4 id="12a2"><span class="num">12a2</span> Ce qui manque, et qui le fixe</h4>
+
+Une case qu'on ne peut pas remplir signale une règle non fixée, ou une source qui manque. Pour un indicateur de nouveaux abonnés, un renouvellement compte-t-il ? Deux analystes répondront chacun à leur façon, et leurs deux chiffres seront justes. Ce désaccord montre la règle qui manque.
+
+Le PO ne la tranche pas : il la fait fixer par celui qui utilise l'indicateur, ou qui montre le chiffre (<Renvoi n="8a2" />). Il ne comble pas une case vide par une règle inventée. Et la définition s'écrit **une fois, pour l'indicateur**, non dans les critères d'une story : un critère est propre à une story <Pastille kind="cours" />, alors que deux stories qui publient le même indicateur (un mois, puis la comparaison avec une période passée) doivent prendre la même définition.
+
+</Sous>
+
+<Sous id="12b" titre="La qualité des données" promesse="Traduire « de qualité » en règles qu'on peut mesurer, et les ranger au bon endroit.">
+
+<h4 id="12b1"><span class="num">12b1</span> Des règles mesurables, par dimension</h4>
+
+La qualité des données s'exprime en règles mesurables sur des **dimensions** <Pastille kind="consensus" />, et le niveau exigé dépend de l'usage. La liste des dimensions est un choix d'école <Pastille kind="ecole" /> : six chez DAMA UK, reprises par le gouvernement britannique (exactitude, complétude, unicité, cohérence, fraîcheur, validité), d'autres listes ailleurs, parfois bien plus longues. Un doublon relève de l'unicité : on le mesure par un taux de doublons.
+
+« Fiable » ou « propre » sont des mots flous (<Renvoi n="7a2" />). Pour les rendre testables, on demande à l'utilisateur ce qui le ferait douter d'un chiffre, puis on écrit une règle par dimension. Le niveau (un taux, un âge maximal) est à faire dire par celui qui utilise le chiffre : le PO ne le fixe pas.
+
+<h4 id="12b2"><span class="num">12b2</span> Où l'écrire, et la limite de la source</h4>
+
+Le cours <Pastille kind="cours" /> range une exigence de qualité selon sa portée : dans la **DoD** si elle vaut pour toute story (<Renvoi n="11a" />), dans un **critère** si elle est propre à une story (<Renvoi n="8" />), dans la **définition de l'indicateur** si elle le concerne.
+
+Reste à distinguer ce que la plateforme reçoit mal de ce qu'elle ne reçoit jamais. Un doublon dans ce qu'elle reçoit se corrige. Une donnée que la source n'envoie pas est une **limite de la source** : aucun traitement ne la fera apparaître, et une story de nettoyage n'y changerait rien. La limite s'écrit dans la définition de l'indicateur et se montre à ceux qui lisent le chiffre, là où ils le lisent. Si leur usage exige plus, la question va au propriétaire de la source : c'est une dépendance envers une autre équipe (<Renvoi n="10b2" />).
+
+</Sous>
+
+<Sous id="12c" titre="Accès et données personnelles" promesse="Demander les colonnes qui servent une finalité dite, et reconnaître une donnée personnelle.">
+
+<h4 id="12c1"><span class="num">12c1</span> Une colonne, une raison</h4>
+
+Pour obtenir un accès, le PO dit ce qu'il demande et pourquoi. Le RGPD, texte de loi et non choix d'école <Pastille kind="consensus" />, pose deux principes : des **finalités** déterminées, et la **minimisation**, c'est-à-dire seulement les données nécessaires à ces finalités. Le PO part donc de la finalité, puis demande, pour chaque colonne, à quoi elle sert, et s'il lui faut le détail ou des données agrégées. Les lignes se bornent aussi : une période utile, pas tout l'historique. Une colonne sans raison ne se demande pas.
+
+<FilRouge>La source Abonnés, tenue par l'équipe appli, contient le nom et les coordonnées de l'abonné, son abonnement et sa station favorite. Pour compter les abonnés par station favorite, la colonne qui sert est la station favorite ; le nom et les coordonnées ne servent pas à compter.</FilRouge>
+
+Celui qui donne l'accès et demande de justifier chaque colonne applique la minimisation : ce n'est pas un frein, et une demande justifiée colonne par colonne avance plus vite.
+
+<h4 id="12c2"><span class="num">12c2</span> Ce qui est une donnée personnelle</h4>
+
+Une donnée personnelle est toute information sur une personne identifiée ou identifiable, y compris par un identifiant. « Ce n'est qu'un numéro, pas un nom » ne tient pas : une donnée pseudonymisée reste personnelle pour qui peut la rattacher à une personne, et un opérateur qui connaît le nom de ses abonnés sait à qui correspond un numéro d'abonné.
+
+Une finalité se dit **avant** d'utiliser les données, pas après : « peut-être plus tard » n'en est pas une. Une nouvelle finalité fait une nouvelle demande <Pastille kind="cours" />. Le PO ne fait pas le droit : il sait quoi demander et pourquoi, et le délégué à la protection des données, s'il y en a un, conseille sur la règle.
+
+</Sous>
+
+<Reflexe note="Formulation du cours.">
+Définition : « deux analystes qui la lisent calculent-ils le même nombre ? »<br />
+Qualité : « cette exigence vaut-elle pour toute story, pour une story, ou pour cet indicateur ? »<br />
+Accès : « à quoi sert chaque colonne demandée, pour quelle finalité ? »
+</Reflexe>
+
+<Erreurs>
+
+- **Écrire le calcul au lieu de la définition** : une requête dit comment, pas ce qu'on compte.
+- **Combler une case vide par une règle inventée** : le PO fait fixer la règle par celui qui utilise l'indicateur.
+- **Mettre la définition dans les critères d'une story** : elle vaut partout où l'indicateur est publié.
+- **Poser une exigence de qualité vague** (« fiable », « propre ») : la traduire en règles mesurables, par dimension, au niveau que dit l'utilisateur.
+- **Prendre une limite de la source pour un défaut à corriger** : la plateforme ne crée pas ce que la source n'envoie pas ; elle écrit la limite et la montre.
+- **Tout ranger dans la DoD** : ce qui ne vaut que pour un indicateur va dans sa définition, ce qui ne vaut que pour une story dans ses critères.
+- **Demander toute la table « au cas où »** : sans finalité, pas de colonne.
+- **Croire qu'un identifiant n'est pas une donnée personnelle** : il l'est pour qui peut le rattacher à une personne.
+- **Faire le juriste** : le PO sait quoi demander et pourquoi ; la règle de droit relève du délégué à la protection des données, s'il y en a un.
+
+</Erreurs>
