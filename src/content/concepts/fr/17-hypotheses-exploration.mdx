@@ -1,0 +1,328 @@
+---
+numero: "17"
+titre: "Hypothèses et exploration"
+objectif: "Séparer ce qu'on sait de ce qu'on suppose, décider une exploration bornée avant qu'elle commence, et accepter un résultat incertain par un niveau atteint que l'utilisateur concerné fixe."
+description: "Comment distinguer une hypothèse de valeur d'une hypothèse de faisabilité, borner une exploration avant de la lancer, et fixer un critère d'acceptation sur un résultat incertain."
+prerequis: ["2", "9", "12", "16"]
+ecoles:
+  consensus:
+    - auteur: "Le Scrum Guide 2020"
+      texte: "Scrum repose sur l'empirisme : la connaissance vient de l'expérience et on décide sur ce qu'on observe ; dans un environnement complexe, ce qui va arriver est inconnu. Le Guide ne parle ni de spike ni de découverte. Il ne nomme les hypothèses (assumptions) qu'à la rétrospective, pour celles qui ont égaré l'équipe dans sa façon de travailler, pas pour les hypothèses du produit."
+      refs: ["S1"]
+    - auteur: "Pratique établie, hors du Scrum Guide"
+      texte: "Repérer et valider les hypothèses du produit fait partie du travail du PO (objectifs d'apprentissage du CSPO de Scrum Alliance), et les façons de les valider se comparent par leur coût et par la qualité de ce qu'on apprend."
+      refs: ["S2"]
+    - auteur: "Pratique établie en analyse de données (CRISP-DM, guides de Google)"
+      texte: "La réussite d'une analyse de données se dit par un niveau atteint (une précision de prévision, par exemple), mesuré sur des données mises de côté, et distinct des critères de réussite du métier. Le seuil d'une alerte se choisit en pesant le coût d'une fausse alerte et celui d'un cas manqué, avec les utilisateurs. CRISP-DM met en garde contre les objectifs inatteignables et admet que les critères changent au fil de l'analyse. Cette pratique ne dit pas à quel moment on fixe le niveau."
+      refs: ["S10", "S12", "S13", "S14"]
+  ecole:
+    - auteur: "Marty Cagan : les quatre grands risques"
+      texte: "Valeur (les utilisateurs choisiront-ils de s'en servir ?), utilisabilité (sauront-ils s'en servir ?), faisabilité (les ingénieurs peuvent-ils le construire avec le temps, les compétences et la technologie dont on dispose ?), viabilité (la solution marche-t-elle pour l'entreprise ?). Cagan veut qu'on les traite tôt, avant de construire. Il parle de product manager, pas de PO, et répartit les risques par rôle : valeur et viabilité au product manager, utilisabilité au designer, faisabilité à l'ingénieur principal."
+      refs: ["S3"]
+    - auteur: "L'exploration bornée (spike), venue d'XP"
+      texte: "Un travail limité dans le temps qui ne traite que la question posée, et qu'on s'attend à jeter ; d'abord pour une question technique ou de conception, que certains emploient aussi pour une question métier. Certaines équipes la mettent au backlog produit, d'autres la gardent dans un autre élément. L'inventeur et la date ne sont pas vérifiés."
+      refs: ["S4", "S5"]
+    - auteur: "Marty Cagan : les prototypes"
+      texte: "Choisir la façon la plus rapide et la moins chère de tester une idée. Cagan en distingue plusieurs sortes, dont un prototype de faisabilité, écrit par les ingénieurs et qu'on peut jeter, et un prototype sur données réelles, utilisé pour de vrai par de vrais utilisateurs, pour prouver qu'une idée marche. Une maquette montrée à l'utilisateur ne prouve pas qu'il s'en servira : on dit une chose et on en fait une autre."
+      refs: ["S8"]
+    - auteur: "Teresa Torres : décider avant l'expérience"
+      texte: "Dire d'avance comment on jugera l'expérience et ce qu'on fera selon le résultat. Si toutes les réponses mènent à la même action, ne pas explorer. Torres fixe aussi avant le test le seuil qui dira s'il a réussi."
+      refs: ["S6", "S7"]
+    - auteur: "Teresa Torres : la découverte continue"
+      texte: "L'équipe qui construit le produit parle aux utilisateurs chaque semaine, par petites activités de recherche au service d'un résultat visé. Nommée ici, pas enseignée."
+      refs: ["S9"]
+    - auteur: "Eric Ries : le MVP"
+      texte: "La version d'un nouveau produit qui permet d'apprendre le plus sur ses clients pour le moindre effort : une manière d'apprendre parmi d'autres (concept 16)."
+      refs: ["S11"]
+  cours:
+    - texte: "Le cours retient deux des quatre risques, valeur et faisabilité, et range la donnée dans la faisabilité : existe-t-elle, est-elle assez bonne, assez fraîche ? Cagan ne parle pas de données."
+      refs: ["S3", "S10"]
+    - texte: "Une exploration se décide avant sur trois points : la question, la durée, ce qu'on décidera selon la réponse. La question et l'action viennent de Torres, la durée du spike ; les réunir est un choix du cours."
+      refs: ["S4", "S5", "S6"]
+    - texte: "Le PO pose la question, les Developers explorent."
+      refs: ["S3", "S4", "S8"]
+    - texte: "Deux seuils à ne pas mêler : celui qui juge l'exploration (ce qui compte comme « oui »), fixé avant comme chez Torres, que le PO fait dire par les utilisateurs concernés sans le chiffrer ; et le niveau qu'un critère d'acceptation exige de la fonction livrée, fixé après l'exploration, qui montre ce qu'on peut atteindre. Les guides de Google choisissent le seuil d'un modèle sur ses résultats mesurés, donc après la mesure : un appui, pas un consensus."
+      refs: ["S6", "S7", "S10", "S13"]
+  voisines:
+    - auteur: "Deux sens du mot « prévision »"
+      texte: "La prévision des stations à risque est une fonction du produit pour un régulateur (concept 9). La prévision au sens du glossaire, ce que les Developers pensent livrer et quand, est celle du concept 16. Distinction de vocabulaire du cours."
+      refs: []
+sources:
+  affirmations:
+    - affirmation: "Scrum repose sur l'empirisme ; dans un environnement complexe, ce qui va arriver est inconnu."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« Empiricism asserts that knowledge comes from experience and making decisions based on what is observed » ; « In complex environments, what will happen is unknown. Only what has already happened may be used for forward-looking decision making » (section sur la prévision)."
+    - affirmation: "Le Scrum Guide ne parle ni de spike ni de découverte ; il ne nomme les hypothèses qu'à la rétrospective, pour la façon de travailler de l'équipe."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "Rétrospective : « Assumptions that led them astray are identified and their origins explored » ; « spike » et « discover » sont absents du texte (téléchargé et cherché le 2026-10-23)."
+    - affirmation: "Repérer et valider les hypothèses du produit fait partie du travail du PO ; les approches se comparent par leur coût et la qualité de ce qu'on apprend."
+      kind: "consensus"
+      refs: ["S2"]
+      verifie: "CSPO, catégorie 4 « Validating Product Assumptions » : 4.1 « describe how scrum supports validating product assumptions » ; 4.2 « compare at least three approaches to validate product assumptions by their cost and quality of learning » ; 3.1 « how a product owner includes product discovery and validation in their work »."
+    - affirmation: "Une hypothèse est ce qu'on tient pour vrai sans l'avoir vérifié."
+      kind: "cours"
+      refs: []
+      verifie: "Définition d'usage du cours (glossaire), pas une citation. Pour Scrum.org, l'objectif produit est lui-même une hypothèse : choix d'école, tracé au concept 2."
+    - affirmation: "Cagan nomme quatre grands risques : valeur, utilisabilité, faisabilité, viabilité."
+      kind: "ecole"
+      refs: ["S3"]
+      verifie: "Billet du 4 décembre 2017 : « whether customers will buy it or users will choose to use it » ; « whether users can figure out how to use it » ; « whether our engineers can build what we need with the time, skills and technology we have » ; « whether this solution also works for the various aspects of our business »."
+    - affirmation: "Cagan parle de product manager, pas de PO, répartit les risques par rôle, et veut qu'on les traite tôt."
+      kind: "ecole"
+      refs: ["S3"]
+      verifie: "Valeur et viabilité : Product Manager, « overall accountable » ; utilisabilité : Product Designer ; faisabilité : Product Lead Engineer. Le terme « Product Owner » n'apparaît pas. « Tackle the big risks early », surtout la valeur et la viabilité."
+    - affirmation: "Le cours retient deux risques, valeur et faisabilité, et range la donnée dans la faisabilité."
+      kind: "cours"
+      refs: ["S3", "S10"]
+      verifie: "Choix du cours : Cagan ne parle pas de données. Appui : CRISP-DM fait vérifier la qualité des données avant de modéliser (complètes, correctes, sans valeurs manquantes) ; la fraîcheur est une dimension de qualité, vérifiée au concept 12. *Inspired* (Cagan, 2017), où il détaille les risques, n'a pas été consulté."
+    - affirmation: "CRISP-DM fait lister les hypothèses du projet : celles sur les données, vérifiables pendant l'analyse, et celles sur le métier, pas toujours vérifiables."
+      kind: "consensus"
+      refs: ["S10"]
+      verifie: "« List the assumptions made by the project. These may be assumptions about the data that can be verified during data mining, but may also include non-verifiable assumptions about the business related to the project »."
+    - affirmation: "Une exploration bornée (spike) est venue d'XP ; c'est un travail limité dans le temps qui ne garde que le problème étudié, qu'on s'attend à jeter."
+      kind: "ecole"
+      refs: ["S4", "S5"]
+      verifie: "Wells (© 1999) : « Build the spike to only addresses the problem under examination and ignore all other concerns » ; « Most spikes are not good enough to keep, so expect to throw it away ». Mountain Goat : « a concept adapted from Extreme Programming (XP) » ; « a time-boxed research activity ». L'inventeur et la date ne sont pas vérifiés. La durée « a week or two » est celle de Wells, pas une norme d'XP."
+    - affirmation: "L'exploration livre une réponse, de la connaissance, pas une fonction."
+      kind: "ecole"
+      refs: ["S5"]
+      verifie: "Le spike ne livre pas tout de suite une capacité : l'équipe construit « the knowledge » qui permettra de la livrer ; il fournit une information « technical and functional »."
+    - affirmation: "Le temps borné fixe le coût ; au terme, on décide, éventuellement d'explorer encore."
+      kind: "ecole"
+      refs: ["S5"]
+      verifie: "« Because spikes are time-boxed, the investment is fixed » ; au bout des heures prévues, une décision se prend, qui peut être d'investir plus de temps pour apprendre."
+    - affirmation: "Le spike sert aussi une question métier : son usage varie selon les écoles."
+      kind: "ecole"
+      refs: ["S4", "S5"]
+      verifie: "Mountain Goat : l'incertitude peut porter sur « how a feature should work » ou « how it will be built ». Wells le réserve aux « tough technical or design problems »."
+    - affirmation: "Une exploration peut figurer au backlog produit, ou n'apparaître qu'au backlog de sprint dans un autre élément."
+      kind: "ecole"
+      refs: ["S5"]
+      verifie: "Certaines équipes « put a spike story on the product backlog along with user stories » ; d'autres le traitent comme une partie d'un autre élément, au seul backlog de sprint. Une exploration au backlog s'ordonne comme le reste, avec le facteur « apprentissage » de Cohn (concept 13)."
+    - affirmation: "Décider avant d'explorer comment on jugera et ce qu'on fera selon le résultat ; si toutes les réponses mènent à la même action, ne pas explorer."
+      kind: "ecole"
+      refs: ["S6", "S7"]
+      verifie: "Torres (9 août 2017) : « Be explicit about how you will evaluate the assumption. Define which metric(s) you will use and any relevant thresholds » ; « Decide upfront how you will act on the data you collect » ; « If you don't know how you will use the data, you aren't ready to run your experiment ». Product Talk : « line in the sand », seuil de succès fixé « before you run a test or experiment ». La durée bornée vient du spike, pas de Torres."
+    - affirmation: "Une exploration se décide avant sur trois points : la question, la durée, ce qu'on décidera selon la réponse."
+      kind: "cours"
+      refs: ["S4", "S5", "S6"]
+      verifie: "La question et l'action selon le résultat sont chez Torres, la durée bornée vient du spike. Les réunir est un choix du cours, à ne pas attribuer en bloc à un auteur."
+    - affirmation: "Le PO pose la question, les Developers mènent l'exploration."
+      kind: "cours"
+      refs: ["S3", "S4", "S8"]
+      verifie: "Répartition du cours, cohérente avec Cagan (la faisabilité confiée à l'ingénieur principal), Wells (une paire de développeurs sur le spike) et les responsabilités de Scrum (concept 0). Aucune source ne la dit en ces termes."
+    - affirmation: "Pour tester une idée, choisir la façon la plus rapide et la moins chère : prototype de faisabilité, prototype sur données réelles."
+      kind: "ecole"
+      refs: ["S8"]
+      verifie: "Cagan, « Flavors of Prototypes » (23 février 2014) : « come up with the fastest, cheapest way to test out your ideas » ; prototype de faisabilité « written by engineers in order to address technical risks during product discovery », qui « may be throwaway » ; prototype sur données réelles : « we need the prototype to access our real data sources », sans le travail de mise en production."
+    - affirmation: "Une maquette ne prouve pas qu'on s'en servira ; un prototype sur données réelles, utilisé pour de vrai, sert à prouver qu'une idée marche."
+      kind: "ecole"
+      refs: ["S8"]
+      verifie: "Prototype utilisateur : « it's not good for proving anything – like whether or not your product will actually sell » ; « People say all kinds of things and then go do something different ». Prototype sur données réelles : « The main purpose of a live-data prototype is to actually prove something » ; « real users will use the live-data prototype for real »."
+    - affirmation: "Un « oui » de l'utilisateur ne vérifie pas la valeur ; on observe ce qu'il fait."
+      kind: "cours"
+      refs: ["S8"]
+      verifie: "Même citation (« People say all kinds of things and then go do something different »). La règle « on observe ce qu'il fait » est la reformulation du cours."
+    - affirmation: "Une analyse d'historique répond à une question de faisabilité sur des données déjà collectées."
+      kind: "cours"
+      refs: ["S10"]
+      verifie: "CRISP-DM : phase de compréhension des données (collecter, décrire, explorer, vérifier la qualité) avant la modélisation ; le processus est itératif. Aucune source de gestion de produit consultée ne nomme l'analyse d'historique ainsi : le nom est celui du cours."
+    - affirmation: "Découverte continue (Torres) : contacts au moins hebdomadaires de l'équipe avec les clients, petites activités de recherche au service d'un résultat visé."
+      kind: "ecole"
+      refs: ["S9"]
+      verifie: "Glossaire de Product Talk (mis à jour le 1er septembre 2026) : « weekly touch points with customers by the team building the product ». La date du livre de Torres, *Continuous Discovery Habits* (mai 2021), vient d'une source secondaire ; le livre n'a pas été lu."
+    - affirmation: "MVP au sens de Ries : la version qui permet de recueillir le plus d'apprentissage validé sur les clients pour le moindre effort."
+      kind: "ecole"
+      refs: ["S11"]
+      verifie: "Ries, 3 août 2009 : « that version of a new product which allows a team to collect the maximum amount of validated learning about customers with the least effort »."
+    - affirmation: "La réussite d'une analyse de données se dit par un niveau atteint, distinct des critères du métier."
+      kind: "consensus"
+      refs: ["S10"]
+      verifie: "CRISP-DM : « Define the criteria for a successful outcome to the project in technical terms—for example, a certain level of predictive accuracy » ; « the data mining success criteria are different than the business success criteria » ; « Identify who assesses the success criteria »."
+    - affirmation: "Le niveau se mesure sur des données mises de côté."
+      kind: "consensus"
+      refs: ["S10"]
+      verifie: "« the dataset should be separated into training and test sets. The model is built on the training set and its quality estimated on the test set »."
+    - affirmation: "Le niveau se fixe en pesant le coût d'une fausse alerte et celui d'un cas manqué, qui ne pèsent pas pareil."
+      kind: "consensus"
+      refs: ["S12", "S13", "S14"]
+      verifie: "PAIR (Google) : « Weighing the cost of false positives and false negatives is a critical decision that will shape your users' experiences » ; « It is tempting to weigh both equally by default ». Google ML Crash Course : si les fausses alertes sont très coûteuses, on peut choisir un seuil qui en donne moins ; 0,5 n'est pas un bon seuil si une erreur coûte plus que l'autre."
+    - affirmation: "Le niveau se fait fixer par l'utilisateur concerné ; le PO le fait fixer, il ne le tranche pas."
+      kind: "cours"
+      refs: ["S10", "S12"]
+      verifie: "PAIR : le compromis « should be based on what your users expect » ; « test the balance between precision and recall with your users » ; décision collaborative entre conception, produit et ingénierie. CRISP-DM : identifier qui juge les critères. La règle non fixée que le PO fait fixer est tracée au concept 8 (8a2)."
+    - affirmation: "Le niveau exigé de la fonction se fixe après l'exploration, pas avant."
+      kind: "cours"
+      refs: ["S10", "S13"]
+      verifie: "Aucune source consultée ne le dit en ces termes. CRISP-DM fixe ses critères au départ, tout en prévenant « Beware of setting unattainable goals » et en admettant qu'ils « may have changed during and/or as a result of data mining ». Google choisit le seuil d'un classifieur sur la courbe ROC du modèle, donc après l'avoir mesuré. Choix du cours appuyé sur ces deux sources, pas un consensus."
+    - affirmation: "Deux seuils à ne pas mêler : celui qui juge l'exploration (fixé avant) et le niveau exigé de la fonction livrée (fixé après)."
+      kind: "cours"
+      refs: ["S6", "S7", "S10", "S13"]
+      verifie: "Torres fixe le seuil d'un test avant le test ; CRISP-DM et Google appuient indirectement un niveau fixé après mesure. Aucune source ne fait cette distinction : elle évite que le cours contredise Torres."
+    - affirmation: "Une story qui exige une prévision sûre ne se finit jamais ; le critère porte sur un niveau atteint."
+      kind: "cours"
+      refs: ["S1", "S10"]
+      verifie: "Raisonnement du cours, appuyé sur « what will happen is unknown » et sur le critère de réussite par niveau de précision."
+    - affirmation: "Les exemples du fil rouge (les relevés, la météo non collectée, le seuil « presque vide ») sont des faits inventés."
+      refs: []
+      verifie: "Sans source : le cas de l'opérateur de vélos en libre-service est fictif."
+  references:
+    - id: "S1"
+      texte: "Schwaber, Sutherland, *The Scrum Guide*, novembre 2020"
+      url: "https://scrumguides.org/scrum-guide.html"
+      type: "primaire"
+      consultee: "2026-10-23"
+    - id: "S2"
+      texte: "Scrum Alliance, *CSPO Learning Objectives*, janvier 2022 (mis en forme 2/2024)"
+      url: "https://www.scrumalliance.org/media/certifications/los/cspo_learning_objectives_2022.pdf"
+      type: "primaire"
+      consultee: "2026-10-23"
+    - id: "S3"
+      texte: "Cagan, « The Four Big Risks », SVPG, 4 décembre 2017"
+      url: "https://www.svpg.com/four-big-risks/"
+      type: "primaire (site de l'auteur, qui vend formations et conseil)"
+      consultee: "2026-10-23"
+    - id: "S4"
+      texte: "Wells, « Create a Spike Solution », extremeprogramming.org, © 1999"
+      url: "http://www.extremeprogramming.org/rules/spike.html"
+      type: "primaire (site de règles XP de Don Wells)"
+      consultee: "2026-10-23"
+    - id: "S5"
+      texte: "Mountain Goat Software, « Agile Spikes Deliver Knowledge So Teams Can Deliver Products », mise à jour le 6 août 2024 (sans signature, date d'origine non affichée)"
+      url: "https://www.mountaingoatsoftware.com/blog/spikes"
+      type: "primaire (site de Cohn, qui vend ses formations)"
+      consultee: "2026-10-23"
+    - id: "S6"
+      texte: "Torres, « How to Improve Your Experiment Design (And Build Trust in Your Product Experiments) », Product Talk, 9 août 2017"
+      url: "https://www.producttalk.org/2017/08/experiment-design/"
+      type: "primaire (site de l'auteure, qui vend ses cours)"
+      consultee: "2026-10-23"
+    - id: "S7"
+      texte: "Product Talk, glossaire, « Line in the Sand », mise à jour le 25 octobre 2025 (sans signature)"
+      url: "https://www.producttalk.org/glossary-discovery-line-in-the-sand/"
+      type: "primaire (site de Torres), marketing pour ses cours"
+      consultee: "2026-10-23"
+    - id: "S8"
+      texte: "Cagan, « Flavors of Prototypes », SVPG, 23 février 2014"
+      url: "https://www.svpg.com/flavors-of-prototypes/"
+      type: "primaire (site de l'auteur)"
+      consultee: "2026-10-23"
+    - id: "S9"
+      texte: "Product Talk, glossaire, « Continuous Discovery », mise à jour le 1er septembre 2026 (définition attribuée à Torres, *Continuous Discovery Habits*)"
+      url: "https://www.producttalk.org/glossary-discovery-continuous-discovery/"
+      type: "primaire (site de Torres), marketing pour ses cours"
+      consultee: "2026-10-23"
+    - id: "S10"
+      texte: "Chapman, Clinton, Kerber, Khabaza, Reinartz, Shearer, Wirth, *CRISP-DM 1.0: Step-by-step data mining guide*, SPSS, 2000"
+      url: "https://public.dhe.ibm.com/software/analytics/spss/documentation/modeler/14.2/es/CRISP-DM.pdf"
+      type: "primaire"
+      consultee: "2026-10-23"
+    - id: "S11"
+      texte: "Ries, « Minimum Viable Product: a guide », Startup Lessons Learned, 3 août 2009"
+      url: "http://www.startuplessonslearned.com/2009/08/minimum-viable-product-guide.html"
+      type: "primaire"
+      consultee: "2026-10-23"
+    - id: "S12"
+      texte: "People + AI Research (Google), *People + AI Guidebook*, chapitre « User Needs + Defining Success » (sans date ni auteur nommé)"
+      url: "https://pair.withgoogle.com/chapter/user-needs/"
+      type: "primaire (guide d'un éditeur, pas de vente directe)"
+      consultee: "2026-10-23"
+    - id: "S13"
+      texte: "Google for Developers, *Machine Learning Crash Course*, « Classification: ROC and AUC », mise à jour le 11 mai 2026"
+      url: "https://developers.google.com/machine-learning/crash-course/classification/roc-and-auc"
+      type: "primaire (cours de l'éditeur)"
+      consultee: "2026-10-23"
+    - id: "S14"
+      texte: "Google for Developers, *Machine Learning Crash Course*, « Thresholds and the confusion matrix », mise à jour le 12 janvier 2026"
+      url: "https://developers.google.com/machine-learning/crash-course/classification/thresholding"
+      type: "primaire (cours de l'éditeur)"
+      consultee: "2026-10-23"
+  nonVerifie:
+    - "**Niveau fixé après l'exploration, pas avant.** Aucune source consultée ne le dit en ces termes : c'est un choix du cours, appuyé sur CRISP-DM et Google, présenté comme tel. Torres, elle, fixe le seuil d'un test avant le test : la page distingue les deux seuils pour ne pas la contredire."
+    - "**La donnée dans la faisabilité.** Cagan ne parle pas de données : la page ne la lui attribue pas."
+    - "**Origine XP du spike.** « Venu d'XP » est confirmé par deux sources, mais l'inventeur et la date ne sont pas vérifiés (*Extreme Programming Explained*, de Beck, n'a pas été consulté). La page écrit « venu d'XP » sans auteur ni date."
+    - "**Réunir question, durée et décision.** La question et l'action viennent de Torres, la durée du spike : les réunir est un choix du cours."
+    - "**Le PO pose la question, les Developers explorent.** Répartition du cours, cohérente avec le Scrum Guide et Cagan, non écrite en ces termes dans une source."
+    - "**Découverte continue.** La date du livre de Torres (mai 2021) vient d'une source secondaire ; le livre n'a pas été lu. La page cite le glossaire de Product Talk."
+    - "**Origine du terme MVP.** Attribuée à Frank Robinson (2001) par des sources secondaires, non vérifiée : la page n'attribue que la définition à Ries. *The Lean Startup* (2011) n'a pas été consulté."
+    - "**Analyse d'historique comme technique d'exploration.** Aucune source de gestion de produit consultée ne la nomme ainsi ; CRISP-DM l'appuie côté données. Le nom est celui du cours."
+---
+import Schema17 from '../../../components/schemas/Schema17.astro';
+
+Une **hypothèse** est ce qu'on tient pour vrai sans l'avoir vérifié. Une story peut en cacher deux sortes : sur la **valeur** (l'utilisateur s'en servira-t-il, et cela sert-il l'objectif produit ?) et sur la **faisabilité** (peut-on le construire, avec les données qu'on a ?). Avant d'investir, on vérifie ce qui pèse, au moindre coût : une **exploration bornée** répond à une question dans un temps fixé, elle ne livre pas de fonction. Le PO pose la question et dit ce qu'on décidera selon la réponse ; les Developers explorent. Une prévision n'est jamais sûre : on l'accepte sur un niveau atteint, fixé quand on sait ce qu'on peut atteindre, par l'utilisateur qui en paie les erreurs.
+
+<Figure legende="Une exploration bornée. Le PO pose la question ; la largeur de la boîte est la durée, fixée avant ; les Developers explorent ; la réponse mène à une décision, dite d'avance. En dessous, l'ordre dans le temps des deux seuils : celui qui juge l'exploration est fixé avant, le niveau exigé de la fonction livrée est fixé après.">
+  <Schema17 />
+</Figure>
+
+<Sous id="17a" titre="Savoir ou supposer" promesse="Une story claire peut reposer sur des suppositions que personne n'a vérifiées.">
+
+<h4 id="17a1"><span class="num">17a1</span> Ce qu'on a vérifié, ce qu'on tient pour vrai</h4>
+
+Pour chaque affirmation qui soutient une story, une seule question sépare ce qu'on sait de ce qu'on suppose : qui l'a vérifié, et comment ? Si personne, c'est une hypothèse, même si tout le monde la répète. Une story peut être claire, et même prête au sens de la DoR (<Renvoi n="11b" />), sans être vérifiée. Le Scrum Guide pose l'empirisme (on décide sur ce qu'on observe) mais ne parle pas des hypothèses du produit ; repérer et valider celles-ci fait partie du travail du PO selon les référentiels de PO, et pour Scrum.org l'objectif produit est lui-même une hypothèse (<Renvoi n="2" />).
+
+<h4 id="17a2"><span class="num">17a2</span> Valeur ou faisabilité</h4>
+
+Marty Cagan <Pastille kind="ecole" /> nomme quatre grands risques : valeur, utilisabilité, faisabilité, viabilité, et veut qu'on les traite tôt, avant de construire. Le cours en retient deux <Pastille kind="cours" />. La **valeur** : l'utilisateur s'en servira-t-il, et cela sert-il l'objectif produit ? La **faisabilité** : peut-on le construire, avec des données qui existent, assez bonnes et assez fraîches ? Ce rangement des données dans la faisabilité est un choix du cours, Cagan n'en parle pas.
+
+Pour ranger une supposition, on se demande ce qui se passe si elle est fausse : on ne sait pas le construire (faisabilité), ou on le construit pour rien (valeur). Une même phrase peut cacher les deux : « l'utilisateur ira plus tôt, donc le temps perdu baisse » suppose un comportement, puis un effet sur l'objectif produit. Le PO ne tranche pas une hypothèse, même plausible : il la fait vérifier.
+
+<FilRouge>La météo (la pluie, par heure) est une source envisagée, pas encore collectée. Que la pluie ajuste la prévision des stations à risque y est écrit « à vérifier ».</FilRouge>
+
+</Sous>
+
+<Sous id="17b" titre="Explorer à moindre coût" promesse="Décider l'exploration avant de la lancer, puis choisir la façon d'explorer selon l'hypothèse.">
+
+<h4 id="17b1"><span class="num">17b1</span> Décider l'exploration avant</h4>
+
+Une exploration bornée (spike, venue d'XP) <Pastille kind="ecole" /> répond à une question dans un temps fixé. Elle livre une réponse, pas une fonction, et ce qu'elle produit se jette souvent. Le temps fixé borne le coût ; au terme, on décide, parfois d'explorer encore. Certaines équipes la mettent au backlog produit, où elle s'ordonne comme le reste (facteur « apprentissage », <Renvoi n="13" />), d'autres la gardent dans un autre élément.
+
+Le cours la décide avant sur trois points <Pastille kind="cours" /> : la **question**, la **durée**, et ce qu'on **décidera selon la réponse**, y compris ce qui compte comme « oui ». Teresa Torres <Pastille kind="ecole" /> en donne l'idée : si toutes les réponses mènent à la même décision, inutile d'explorer. Une exploration sans question ni décision n'a pas de fin, et rien ne change à son terme. Le PO pose la question ; les Developers explorent, et disent le temps qu'il leur faut.
+
+Ce qui compte comme « oui » est un seuil, qui juge l'exploration : il se dit avant. Le PO ne le chiffre pas, il le fait dire par les utilisateurs concernés, comme toute règle métier (<Renvoi n="8a2" />). Il ne se confond pas avec le niveau exigé de la fonction livrée, qui se fixe après (17c).
+
+<h4 id="17b2"><span class="num">17b2</span> Choisir la façon d'explorer</h4>
+
+La façon d'explorer se choisit selon l'hypothèse, en pesant ce qu'elle coûte et ce qu'elle apprend (référentiel de PO). Pour une question de **faisabilité** sur des données qu'on a déjà, une analyse d'historique répond sans rien construire. Pour la **valeur**, c'est plus délicat : l'historique montre ce qui s'est passé, pas ce que l'utilisateur ferait avec une fonction qu'il n'a jamais eue. Cagan <Pastille kind="ecole" /> distingue plusieurs prototypes. Une maquette montrée à l'utilisateur ne prouve pas qu'il s'en servira : on dit une chose et on en fait une autre. Un prototype sur données réelles, utilisé pour de vrai par de vrais utilisateurs, montre si l'idée marche.
+
+Demander à l'utilisateur s'il s'en servirait apprend quelque chose, mais un « oui » ne vérifie pas la valeur : on observe ce qu'il fait. Le MVP de Ries (<Renvoi n="16b2" />) est une autre manière d'apprendre au moindre coût. Un prototype se jette ; il n'est pas une story livrée et ne remplit pas la DoD. La découverte continue de Torres, où l'équipe parle aux utilisateurs chaque semaine, est nommée ici sans être enseignée.
+
+</Sous>
+
+<Sous id="17c" titre="Accepter un résultat incertain" promesse="Une prévision se trompe parfois : le critère porte sur un niveau atteint, fixé par celui qui en paie les erreurs.">
+
+<h4 id="17c1"><span class="num">17c1</span> Un niveau atteint, pas une prévision sûre</h4>
+
+Une prévision n'est jamais sûre : dans un environnement complexe, dit le Scrum Guide, ce qui va arriver est inconnu. Une story qui exige une prévision sans erreur ne se finit donc jamais. Le critère d'acceptation porte sur un **niveau atteint**, mesuré sur des données mises de côté (une part de l'historique, par exemple) : c'est une pratique établie en analyse de données <Pastille kind="consensus" />, hors du Scrum Guide.
+
+Ce niveau tient compte des deux erreurs d'une alerte : la fausse alerte, et le cas manqué. Elles ne pèsent presque jamais pareil, et ne compter qu'une sorte d'erreur laisse passer des niveaux qu'on ne voudrait pas. Pour une même précision affichée, deux réglages peuvent donc coûter très différemment à l'utilisateur.
+
+<h4 id="17c2"><span class="num">17c2</span> Qui le fixe, et quand</h4>
+
+Le niveau se fixe **après** l'exploration, qui montre ce qu'on peut atteindre : fixé avant, il peut être inatteignable ou trop modeste <Pastille kind="cours" />. CRISP-DM fixe ses critères au départ mais prévient contre les objectifs inatteignables et admet qu'ils changent ; les guides de Google choisissent le seuil d'un modèle sur ses résultats mesurés. Ces deux appuis ne font pas un consensus sur le moment.
+
+Il se fait fixer par l'**utilisateur concerné**, celui qui paie les erreurs. Le PO apporte le compromis dans les mots de cet utilisateur et le fait fixer ; il ne choisit ni le chiffre ni le réglage (<Renvoi n="8a2" />). « C'est le standard » n'est pas une décision. De même, ce que montre l'historique ne fixe pas une règle métier : il l'éclaire, et l'utilisateur concerné décide de ce qu'on en fait.
+
+Deux seuils sont donc à ne pas mêler : celui qui juge l'exploration, fixé avant, et le niveau exigé de la fonction livrée, fixé après.
+
+</Sous>
+
+<Reflexe note="Formulation du cours, sans équivalent dans les sources.">
+Pour cette story, quelle phrase tient-on pour vraie sans l'avoir vérifiée, et que décidera-t-on si elle est fausse ?
+</Reflexe>
+
+<Erreurs>
+
+- **Prendre une phrase répétée pour un fait** : demander qui l'a vérifié.
+- **Ne voir que la faisabilité** : vérifier que le modèle marche ne dit pas que l'utilisateur s'en servira.
+- **Trancher une hypothèse soi-même**, ou mener l'exploration à la place des Developers : le PO pose la question, il ne fixe pas seul la durée.
+- **Explorer sans question ni décision**, ou attendre une fonction d'une exploration : elle livre une réponse.
+- **Croire qu'un « oui » de l'utilisateur vérifie la valeur** : on observe ce qu'il fait.
+- **Fixer le niveau d'une prévision avant l'exploration**, ou le fixer soi-même.
+- **Exiger qu'une prévision ne se trompe pas**, ou ne compter qu'une sorte d'erreur.
+- **Croire que l'exploration fixe une règle**, ou mêler le seuil qui juge l'exploration et le niveau exigé de la fonction.
+- **Confondre la prévision des stations à risque** (<Renvoi n="9" />) **avec la prévision des Developers** (<Renvoi n="16c" />).
+
+</Erreurs>

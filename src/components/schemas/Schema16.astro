@@ -1,0 +1,97 @@
+---
+// Schéma 16 : la story map. Colonne vertébrale (activités, dans l'ordre du récit),
+// stories dessous (de l'indispensable au moins nécessaire), deux lignes de version.
+// Couleurs : variables CSS --sch-* (clair/sombre) définies dans global.css.
+const X0 = 50, CW = 122, GAP = 8;
+const cols = [0, 1, 2, 3].map((i) => X0 + i * (CW + GAP));
+const rows = [132, 186, 240];
+const CH = 40;
+const acts = ['activité 1', 'activité 2', 'activité 3', 'activité 4'];
+// Pour chaque colonne : classes des cartes par rang (null = pas de carte, "gap" = trou)
+const cards = [
+  ['s1', 's2', 's3'],
+  ['s1', 's2', null],
+  ['gap', 's2', 's3'],
+  ['s1', 's2', null],
+];
+---
+<svg viewBox="0 0 600 410" role="img" aria-labelledby="g16-t g16-d" class="sch">
+  <title id="g16-t">Une story map : le parcours de l'utilisateur en haut, les stories dessous, la première version en travers</title>
+  <desc id="g16-d">
+    Quatre activités de l'utilisateur sont posées côte à côte, de gauche à droite, dans l'ordre où il raconte son parcours : c'est la colonne vertébrale, qui ne s'ordonne pas.
+    Sous chaque activité, des cartes de stories sont empilées, de l'indispensable en haut au moins nécessaire en bas, comme l'indique une flèche verticale.
+    Une première ligne traverse les quatre colonnes : au-dessus, les stories de la première version, une par activité sauf la troisième, qui n'a pas encore de story et porte un cadre en pointillés, trou à explorer.
+    Une seconde ligne traverse aussi les quatre colonnes : entre les deux lignes, la version suivante ; en dessous, ce qui vient plus tard.
+    Une note rappelle qu'à côté de la première version, on écrit son résultat visé et sa mesure de succès, sans cible chiffrée.
+    La carte complète le backlog, qui reste la liste ordonnée par le Product Owner.
+  </desc>
+
+  <!-- Colonne vertébrale -->
+  <text x="50" y="20" class="note strong">colonne vertébrale : l'ordre du récit</text>
+  <path d="M50 30 H566" class="axis" />
+  <path d="M566 30 l-8 -5 v10 z" class="axis-head" />
+  {cols.map((x, i) => (
+    <>
+      <rect x={x} y="42" width={CW} height="46" rx="6" class="act" />
+      <text x={x + CW / 2} y="70" text-anchor="middle" class="act-t">{acts[i]}</text>
+    </>
+  ))}
+
+  <!-- Flèche verticale -->
+  <path d="M26 112 V300" class="axis" />
+  <path d="M26 306 l-5 -9 h10 z" class="axis-head" />
+  <text transform="translate(18 206) rotate(-90)" text-anchor="middle" class="note">de l'indispensable au moins nécessaire</text>
+
+  <!-- Cartes -->
+  {cols.map((x, i) => rows.map((y, r) => {
+    const c = cards[i][r];
+    if (c === null) return null;
+    if (c === 'gap') return (
+      <>
+        <rect x={x} y={y} width={CW} height={CH} rx="5" class="gap" />
+        <text x={x + CW / 2} y={y + 25} text-anchor="middle" class="note soft">trou à explorer</text>
+      </>
+    );
+    return (
+      <>
+        <rect x={x} y={y} width={CW} height={CH} rx="5" class={`mcard ${c}`} />
+        <text x={x + CW / 2} y={y + 25} text-anchor="middle" class={`mcard-t ${c}`}>story</text>
+      </>
+    );
+  }))}
+
+  <!-- Lignes de version -->
+  <path d="M42 177 H574" class="ribbon" />
+  <path d="M42 231 H574" class="ribbon thin" />
+
+  <!-- Légende -->
+  <g class="note">
+    <rect x="50" y="326" width="16" height="16" rx="3" class="mcard s1" />
+    <text x="74" y="340">première version</text>
+    <rect x="220" y="326" width="16" height="16" rx="3" class="mcard s2" />
+    <text x="244" y="340">version suivante</text>
+    <rect x="390" y="326" width="16" height="16" rx="3" class="mcard s3" />
+    <text x="414" y="340">plus tard</text>
+  </g>
+  <text x="50" y="372" class="note">À côté de la première version : son résultat visé</text>
+  <text x="50" y="394" class="note">et sa mesure de succès, sans cible chiffrée.</text>
+</svg>
+
+<style>
+  .sch { font-family: var(--font-ui); }
+  .note { font-size: 15px; fill: var(--sch-text); }
+  .note.strong { font-weight: 650; }
+  .note.soft { fill: var(--sch-text-soft); font-size: 14px; }
+  .axis { stroke: var(--sch-grey-line); stroke-width: 2; fill: none; }
+  .axis-head { fill: var(--sch-grey-line); }
+  .act { fill: var(--sch-band); stroke: var(--sch-band-line); stroke-width: 2; }
+  .act-t { font-size: 16px; font-weight: 650; fill: var(--sch-text); }
+  .mcard.s1 { fill: var(--sch-s1); }
+  .mcard.s2 { fill: var(--sch-s2); }
+  .mcard.s3 { fill: var(--sch-s3); }
+  .mcard-t { font-size: 14px; fill: var(--sch-s-ink); }
+  .mcard-t.s3 { fill: var(--sch-text); }
+  .gap { fill: none; stroke: var(--sch-grey-line); stroke-width: 2.5; stroke-dasharray: 7 5; }
+  .ribbon { stroke: var(--sch-text); stroke-width: 4; stroke-linecap: round; opacity: 0.7; }
+  .ribbon.thin { stroke-width: 3; opacity: 0.45; }
+</style>

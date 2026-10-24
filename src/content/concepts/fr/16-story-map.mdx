@@ -1,0 +1,312 @@
+---
+numero: "16"
+titre: "Story map et première version"
+objectif: "Ranger les stories selon le parcours de l'utilisateur, tracer une première version utile avec son résultat visé et sa mesure, et répondre à « pour quand ? » par une prévision, pas une promesse."
+description: "Comment lire une story map, tracer une première version qui traverse le parcours de l'utilisateur, distinguer les deux sens de MVP et répondre à « pour quand ? » par une fourchette."
+prerequis: ["9", "13", "14", "15"]
+ecoles:
+  consensus:
+    - auteur: "Le Scrum Guide 2020"
+      texte: "Le backlog est une liste ordonnée et émergente, seule source du travail, et le PO répond de l'ordre. Le Guide ne parle ni de story map ni de plan de version. Les Developers qui feront le travail en estiment la taille ; le travail choisi au Sprint Planning est leur prévision. Les engagements sont l'objectif produit, l'objectif de sprint et la DoD. Le Guide cite des pratiques de prévision (burn-down, burn-up, flux cumulé) sans en imposer aucune, et rappelle que dans un environnement complexe, ce qui va arriver est inconnu : seul ce qui s'est déjà passé sert à décider. Il ne dit pas qui prévoit une version."
+      refs: ["S1"]
+    - auteur: "Scrum.org : prévision et promesse"
+      texte: "Le Guide de 2011 a remplacé « commit » par « forecast » pour le travail choisi : un engagement renvoie à des obligations assumées, une prévision à des hypothèses fondées sur des faits. Source secondaire, dont l'auteur n'est pas affiché, cohérente avec le texte du Guide."
+      refs: ["S10"]
+    - auteur: "Pratique établie, hors du Scrum Guide"
+      texte: "Les référentiels de PO (le CSPO de Scrum Alliance) font planifier une version et établir une prévision avec les parties prenantes."
+      refs: ["S7"]
+  ecole:
+    - auteur: "Jeff Patton : la story map"
+      texte: "En haut, les activités de l'utilisateur, de gauche à droite dans l'ordre du récit (la colonne vertébrale, qui ne s'ordonne pas) ; dessous, les stories, de haut en bas, l'indispensable en haut ; des tranches de version qui traversent toute la colonne vertébrale, avec à côté de chacune son résultat visé et une mesure de succès. Patton voit la carte comme une meilleure version du backlog que la liste plate. Il appelle aussi « walking skeleton » la première version utilisable, en citant Alistair Cockburn : un autre usage du mot que celui du cours."
+      refs: ["S2", "S3"]
+    - auteur: "Eric Ries : le MVP"
+      texte: "La version d'un nouveau produit qui permet d'apprendre le plus sur ses clients pour le moindre effort. Ries précise que ce n'est pas faire un produit minimal. Dans l'usage courant, le MVP est la première version, avec juste assez pour servir les premiers utilisateurs ; Patton l'emploie dans ce sens."
+      refs: ["S5", "S6", "S3"]
+    - auteur: "Mike Cohn : la prévision en fourchette"
+      texte: "La prévision se donne en fourchette plutôt qu'en valeur unique, calculée à partir de la vélocité. C'est une pratique de son école ; elle découle aussi de l'empirisme du Scrum Guide."
+      refs: ["S11", "S1"]
+    - auteur: "Story points et vélocité"
+      texte: "Pratiques courantes d'estimation et de prévision, absentes du Scrum Guide : le cours les nomme sans les enseigner. Ron Jeffries juge faible leur usage pour prédire une date de fin."
+      refs: ["S12", "S11", "S1"]
+  cours:
+    - texte: "La carte complète le backlog ordonné, elle ne le remplace pas. C'est compatible avec le Scrum Guide (une seule liste ordonnée, ordonnée par le PO), mais pas avec Patton, pour qui la carte est un meilleur backlog."
+      refs: ["S1", "S2"]
+    - texte: "La prévision d'une version se construit sur la taille et le rythme des Developers. Le PO ne l'invente pas : il la porte aux parties prenantes. Le Guide 2020 ne dit pas qui prévoit une version ; le Guide 2017 confiait au PO le suivi du travail restant vers un but."
+      refs: ["S1", "S9", "S7"]
+    - texte: "Ce qui la fait bouger : l'ordre du backlog et une dépendance non levée. Si une date compte vraiment, on la prend comme échéance et c'est le contenu qui varie ; on ne fixe pas à la fois la date et tout le contenu."
+      refs: []
+    - texte: "Ce qui entre dans l'incrément, même pour un MVP, remplit la DoD. Le MVP de Ries qui n'est pas un incrément est une expérience (concept 17)."
+      refs: ["S1"]
+    - texte: "Une même vue peut apparaître sous plusieurs activités, et une activité sans story se voit comme un trou à explorer avec l'utilisateur ; une première version n'est pas complète tant que ce trou n'est pas exploré. « Trou à explorer » n'est pas une formule de Patton."
+      refs: ["S3"]
+  voisines:
+    - auteur: "Le walking skeleton (Alistair Cockburn)"
+      texte: "Une toute petite implémentation de bout en bout, qui relie les composants de l'architecture. Patton rattache le mot à Cockburn mais l'applique à une première version utilisable. Le cours réserve le terme au sens de Cockburn (concept 9)."
+      refs: ["S2", "S3"]
+    - auteur: "Deux sens du mot « prévision »"
+      texte: "La prévision des Developers (ce qu'ils pensent livrer, et quand) est le sujet de cette page. La prévision des stations à risque est, elle, une fonction du produit pour un régulateur (concepts 9 et 17). Distinction de vocabulaire du cours."
+      refs: []
+sources:
+  affirmations:
+    - affirmation: "La story map est une pratique de Jeff Patton : un choix d'école, pas un texte de consensus."
+      kind: "ecole"
+      refs: ["S1", "S2", "S3", "S4"]
+      verifie: "Patton la décrit sur son site (2008) et dans son mémo « Story Map Concepts » (2013) ; livre avec Peter Economy, O'Reilly, 2014 (fiche éditeur seulement, livre non lu). Le Scrum Guide 2020 ne la nomme pas : le mot « story » n'y apparaît pas."
+    - affirmation: "En haut de la carte, les activités de l'utilisateur, de gauche à droite dans l'ordre où l'on raconte son parcours : la colonne vertébrale."
+      kind: "ecole"
+      refs: ["S2", "S3"]
+      verifie: "Mémo : « The left to right axis in a story map is organized in the order you'd tell the story about your user » ; la colonne vertébrale suit un flux narratif. Article de 2008 : « I don't prioritize the backbone. It just ‹is›. I do prioritize the ribs ». La colonne vertébrale contient les activités et les tâches de haut niveau, pas les activités seules."
+    - affirmation: "On peut partir d'une journée type de l'utilisateur."
+      kind: "ecole"
+      refs: ["S3"]
+      verifie: "Mémo, étape « Map the Big Picture » : imaginer une journée type dans la vie de l'utilisateur avec le produit, et ranger de gauche à droite les étapes qu'il suit."
+    - affirmation: "Sous chaque activité, les stories se rangent de haut en bas : en haut l'indispensable, plus bas ce qui l'est moins."
+      kind: "ecole"
+      refs: ["S2", "S3"]
+      verifie: "Article de 2008 : placer les éléments haut pour dire qu'ils sont absolument nécessaires, plus bas pour dire qu'ils le sont moins. Mémo : les sous-tâches, détails et variantes pendent pour former les « côtes »."
+    - affirmation: "La carte sert à voir le tout ; elle n'a pas la précision d'un modèle de flux."
+      kind: "ecole"
+      refs: ["S3"]
+      verifie: "Mémo : « Story maps are for looking at the big picture » ; pour la précision d'un modèle de flux, d'un organigramme ou d'UML, la carte « isn't your best choice »."
+    - affirmation: "Les lignes de la carte ne sont pas les niveaux epic, feature, story de la hiérarchie du backlog."
+      kind: "cours"
+      refs: ["S3"]
+      verifie: "Les lignes de la carte sont des niveaux d'objectif de l'utilisateur (« Summary », « Functional », « Sub-Functional ») et un axe narratif, pas des niveaux de découpage du travail (mémo, encadré « Goal-Level »). Que des apprenants confondent les deux est un constat du cours, sans source externe."
+    - affirmation: "La carte complète le backlog ordonné, elle ne le remplace pas ; le PO garde l'ordre."
+      kind: "cours"
+      refs: ["S1", "S2"]
+      verifie: "Scrum Guide 2020 : le backlog est « an emergent, ordered list » et « the single source of work » ; le PO répond de l'ordre. Patton va plus loin : la carte est « a better version of a product backlog », et il regrette qu'on la jette au profit d'un backlog plat. « Complète, ne remplace pas » est donc un choix du cours, compatible avec le Guide, pas la position de Patton."
+    - affirmation: "Deux stories de deux colonnes n'ont pas d'ordre entre elles sur la carte : la carte ne donne pas d'ordre unique."
+      kind: "cours"
+      refs: ["S2"]
+      verifie: "Patton ordonne les stories de haut en bas sous chaque activité ; il n'ordonne pas entre colonnes. Que la carte ne donne donc pas d'ordre unique est un choix du cours, à l'appui du choix « la carte complète le backlog »."
+    - affirmation: "Une tranche de version est une ligne tracée en travers de la carte, qui regroupe les stories d'une version."
+      kind: "ecole"
+      refs: ["S2", "S3"]
+      verifie: "Mémo : « Use a tape line to identify slices of tasks ». Article de 2008 : une bande de ruban adhésif crée des couloirs horizontaux, un par version."
+    - affirmation: "La première version utile est le plus petit ensemble de stories qui permet aux utilisateurs visés d'atteindre leur but."
+      kind: "ecole"
+      refs: ["S3"]
+      verifie: "Mémo : « The smallest number of tasks that allow your specific target users to reach their goal compose a viable product release »."
+    - affirmation: "La tranche de version traverse toute la colonne vertébrale : un peu de chaque activité, pas une activité entière."
+      kind: "ecole"
+      refs: ["S2", "S3"]
+      verifie: "Mémo, étape 4 : trancher la carte en versions qui « span the users and use of the product ». Article de 2008 : la colonne vertébrale ne se priorise pas, il faut toutes ses activités pour livrer un produit minimal viable, de sorte qu'on ne livre jamais une voiture sans freins ; on construit non pas une fonction à la fois mais toutes les fonctions majeures un peu à la fois. Aucune source consultée ne présente une première version qui vise une seule activité."
+    - affirmation: "Une version vise un résultat et une mesure de succès, écrits à côté de la tranche ; la mesure se nomme sans cible chiffrée."
+      kind: "ecole"
+      refs: ["S3"]
+      verifie: "Mémo : écrire les résultats visés sur une note à gauche de la tranche ; pour chaque version, se demander « what would we measure to determine if this product was successful? », idéalement des changements précis dans le comportement des utilisateurs. Patton demande quoi mesurer, pas une cible : la cible reste à faire fixer, comme au fil rouge."
+    - affirmation: "La première version est une tranche verticale à l'échelle d'une version, pas une couche."
+      kind: "cours"
+      refs: ["S2", "S3"]
+      verifie: "Article de 2008 : on construit « not a feature at a time, but rather by building up all major features a little at a time ». La tranche verticale est sourcée au concept 9 (Wake, Lawrence). Le rapprochement à l'échelle d'une version est celui du cours."
+    - affirmation: "MVP au sens de Ries : la version d'un nouveau produit qui permet d'apprendre le plus sur les clients pour le moindre effort."
+      kind: "ecole"
+      refs: ["S5"]
+      verifie: "Ries, 3 août 2009 : « that version of a new product which allows a team to collect the maximum amount of validated learning about customers with the least effort ». Source primaire (blog de l'auteur). Le livre *The Lean Startup* (2011) n'a pas été lu."
+    - affirmation: "Chez Ries, le MVP n'est pas un produit au rabais."
+      kind: "ecole"
+      refs: ["S5"]
+      verifie: "Ries : « MVP, despite the name, is not about creating minimal products » ; la définition « requires judgment » selon le contexte."
+    - affirmation: "Dans l'usage courant, le MVP est la première version, avec juste assez pour servir les premiers utilisateurs ; Patton l'emploie dans ce sens."
+      refs: ["S6", "S3"]
+      verifie: "Wikipédia : « a version of a product with just enough features to be usable by early customers who can then provide feedback ». Patton : chaque version de sa carte est « a minimal viable product release » (mémo, étape 4). Source secondaire pour l'usage courant ; l'exemple de Patton est primaire."
+    - affirmation: "Patton emploie « walking skeleton » pour la première version utilisable : un autre usage que celui du cours, qui réserve le terme au sens de Cockburn."
+      kind: "ecole"
+      refs: ["S2", "S3"]
+      verifie: "Article de 2008 : les stories du haut décrivent le plus petit système qu'on puisse construire qui donne une fonctionnalité de bout en bout, ce que Cockburn appelle le « walking skeleton ». Mémo : la phase « Opening Game » construit un « functional walking skeleton ». Patton rattache donc le terme à Cockburn mais l'applique à une version utilisable ; Cockburn le définit comme une implémentation qui relie les composants de l'architecture (vérifié au concept 9)."
+    - affirmation: "La planification d'une version n'est pas dans le Scrum Guide 2020 ; les référentiels de PO la demandent."
+      kind: "consensus"
+      refs: ["S1", "S7"]
+      verifie: "Scrum Guide 2020 : « release » n'apparaît qu'une fois (la revue n'est pas une porte vers la livraison de valeur), sans plan de version. CSPO 2022 : 2.4 « list the components of a product plan or forecast with stakeholders », 2.5 « describe how to plan a product release », 2.6 « explain at least two approaches to identify small, valuable, and usable increments »."
+    - affirmation: "Tout ce qui entre dans l'incrément remplit la DoD, MVP ou pas."
+      kind: "cours"
+      refs: ["S1"]
+      verifie: "Scrum Guide 2020 : le travail ne fait pas partie de l'incrément s'il ne remplit pas la DoD (vérifié aux concepts 0 et 11a). L'application au MVP est un choix du cours."
+    - affirmation: "Le Scrum Guide cite des pratiques de prévision sans en imposer aucune, et dit que seul ce qui s'est déjà passé sert à décider."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "Section « Sprint » : « Various practices exist to forecast progress, like burn-downs, burn-ups, or cumulative flows. While proven useful, these do not replace the importance of empiricism. In complex environments, what will happen is unknown. Only what has already happened may be used for forward-looking decision making. »"
+    - affirmation: "La taille des éléments vient des Developers ; le PO peut les aider à arbitrer."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« The Developers who will be doing the work are responsible for the sizing. The Product Owner may influence the Developers by helping them understand and select trade-offs. »"
+    - affirmation: "Une prévision n'est pas une promesse ; les engagements sont l'objectif produit, l'objectif de sprint et la DoD."
+      kind: "consensus"
+      refs: ["S1", "S10"]
+      verifie: "Scrum Guide 2020 : les engagements des artefacts sont l'objectif produit, l'objectif de sprint et la DoD ; le choix des éléments du sprint est une prévision (« Sprint forecasts »). Scrum.org : le Guide de 2011 a remplacé « commit » par « forecast », car « commitment usually relates to undertaken duties » ; une prévision qui ne se réalise pas fait apprendre. Source secondaire, auteur non affiché."
+    - affirmation: "La prévision d'une version se construit à partir de la taille et du rythme des Developers ; le PO ne l'invente pas, il la porte aux parties prenantes."
+      kind: "cours"
+      refs: ["S1", "S9", "S7"]
+      verifie: "Partiellement vérifié. Le Guide 2020 donne aux Developers la taille et la prévision du sprint, mais ne dit pas qui prévoit une version. Le Guide 2017 confiait au PO le suivi du travail restant vers un but ; ce passage a disparu en 2020. CSPO 2.4 : le PO établit un plan ou une prévision avec les parties prenantes. La formulation retenue est celle du cours, tenable au regard de ces trois textes."
+    - affirmation: "La prévision se donne en fourchette et se resserre à mesure qu'on avance ; elle se revoit à chaque sprint."
+      kind: "ecole"
+      refs: ["S11", "S1"]
+      verifie: "Mountain Goat Software (Cohn) : « Rather than providing a single value forecast, the tool estimates velocity as a range » ; une prévision sur un plus grand nombre de sprints donne une fourchette plus étroite. Source de l'éditeur d'un outil et de formations : une allégation pour la méthode. Que la prévision se revoie à chaque sprint découle de l'empirisme du Guide (inspection et adaptation)."
+    - affirmation: "Ce qui fait bouger la prévision : l'ordre du backlog et une dépendance."
+      kind: "cours"
+      refs: []
+      verifie: "Choix du cours (ce qui passe devant retarde ce qui suit ; une dépendance non levée retarde l'élément, vérifié au concept 10). Aucune source externe consultée ne le formule pour la prévision."
+    - affirmation: "Si une date compte vraiment, on la prend comme échéance et c'est le contenu qui varie."
+      kind: "cours"
+      refs: []
+      verifie: "Choix du cours, sans source externe. Appui indirect : MoSCoW classe ce qui doit être livré pour une échéance (DSDM, vérifié au concept 13c)."
+    - affirmation: "Story points et vélocité sont des pratiques nommées, hors du Scrum Guide."
+      kind: "ecole"
+      refs: ["S1", "S12", "S11"]
+      verifie: "Scrum Guide 2020 : « story point », « velocity » et « estimat » n'y apparaissent pas. Jeffries (2019) rapporte que les points viennent d'XP et juge leur usage pour prédire « when we'll be done » « at best a weak idea ». Mountain Goat (Cohn) en fait un outil de prévision. Ils sont nommés sans être attribués : Jeffries lui-même n'est pas sûr de les avoir inventés."
+    - affirmation: "En flux continu, la prévision passe par le débit et le temps de cycle."
+      refs: ["S1"]
+      verifie: "Le Scrum Guide cite les « cumulative flows ». Le Kanban Guide (débit, temps de cycle) est sourcé à l'annexe A2, pas ici."
+    - affirmation: "Les exemples du fil rouge (la journée d'Étienne) sont des faits inventés."
+      refs: []
+      verifie: "Sans source : le cas de l'opérateur de vélos en libre-service est fictif."
+  references:
+    - id: "S1"
+      texte: "Schwaber, Sutherland, *The Scrum Guide*, novembre 2020"
+      url: "https://scrumguides.org/scrum-guide.html"
+      type: "primaire"
+      consultee: "2026-10-23"
+    - id: "S2"
+      texte: "Patton, « The New User Story Backlog is a Map », jpattonassociates.com, 8 octobre 2008 (mis à jour le 12 avril 2023 ; lu sur une copie archivée, le site bloquant la lecture directe)"
+      url: "https://web.archive.org/web/20240117234818/https://jpattonassociates.com/the-new-backlog/"
+      type: "primaire (site de l'auteur, sans signature sur la page)"
+      consultee: "2026-10-23"
+    - id: "S3"
+      texte: "Patton, « Story Map Concepts » et « Story Map Process », mémo de deux pages, © 2013 Comakers LLC"
+      url: "https://www.jpattonassociates.com/wp-content/uploads/2015/03/story_mapping.pdf"
+      type: "primaire"
+      consultee: "2026-10-23"
+    - id: "S4"
+      texte: "Patton, Economy, *User Story Mapping*, O'Reilly, 2014"
+      url: "https://books.google.com/books/about/User_Story_Mapping.html?id=4YZyBAAAQBAJ"
+      type: "secondaire (fiche éditeur, livre non lu)"
+      consultee: "2026-10-22"
+    - id: "S5"
+      texte: "Ries, « Minimum Viable Product: a guide », Startup Lessons Learned, 3 août 2009"
+      url: "https://www.startuplessonslearned.com/2009/08/minimum-viable-product-guide.html"
+      type: "primaire"
+      consultee: "2026-10-23"
+    - id: "S6"
+      texte: "Wikipédia, « Minimum viable product »"
+      url: "https://en.wikipedia.org/wiki/Minimum_viable_product"
+      type: "secondaire"
+      consultee: "2026-10-23"
+    - id: "S7"
+      texte: "Scrum Alliance, *CSPO Learning Objectives*, janvier 2022 (mis en forme 2/2024)"
+      url: "https://www.scrumalliance.org/media/certifications/los/cspo_learning_objectives_2022.pdf"
+      type: "primaire"
+      consultee: "2026-10-23"
+    - id: "S9"
+      texte: "Schwaber, Sutherland, *The Scrum Guide*, novembre 2017 (section « Monitoring Progress Toward Goals »)"
+      url: "https://scrumguides.org/docs/scrumguide/v2017/2017-Scrum-Guide-US.pdf"
+      type: "primaire"
+      consultee: "2026-10-23"
+    - id: "S10"
+      texte: "Scrum.org, « Commitment vs. Forecast: A Subtle But Important Change to Scrum » (auteur et date non affichés ; lu sur une copie archivée)"
+      url: "https://web.archive.org/web/20231210231606/https://www.scrum.org/resources/commitment-vs-forecast"
+      type: "secondaire"
+      consultee: "2026-10-23"
+    - id: "S11"
+      texte: "Mountain Goat Software (Mike Cohn), « Velocity Range Calculator »"
+      url: "https://www.mountaingoatsoftware.com/tools/velocity-range-calculator"
+      type: "marketing (éditeur de formations ; primaire pour ce que dit l'école de Cohn)"
+      consultee: "2026-10-23"
+    - id: "S12"
+      texte: "Jeffries, « Story Points Revisited », ronjeffries.com, 23 mai 2019"
+      url: "https://ronjeffries.com/articles/019-01ff/story-points/Index.html"
+      type: "primaire"
+      consultee: "2026-10-23"
+  nonVerifie:
+    - "**Première version limitée à une seule activité.** Chez Patton, une tranche de version traverse toute la colonne vertébrale. Aucune source consultée ne présente une première version qui vise une seule activité ; une lecture compatible est de cadrer la carte sur un but plus étroit, le mémo faisant cadrer la carte par un « product or feature brief »."
+    - "**« La carte complète le backlog, elle ne le remplace pas ».** Choix du cours, compatible avec le Scrum Guide mais pas avec Patton, qui voit la carte comme « a better version of a product backlog »."
+    - "**Qui fait la prévision d'une version.** Le Scrum Guide 2020 ne le dit pas ; il donne aux Developers la taille et la prévision du sprint. « La prévision vient des Developers » n'est vérifié que pour le sprint ; la page écrit qu'elle se construit sur leur taille et leur rythme."
+    - "**La prévision en fourchette.** Seule source consultée : l'outil de Mountain Goat Software [S11] (école de Cohn, calcul par la vélocité). Le livre de Cohn, *Agile Estimating and Planning* (2005), n'a pas été lu."
+    - "**L'auteur de l'article de Scrum.org sur « forecast ».** Non affiché sur la page lue, non confirmé par les recherches : la page ne le nomme pas."
+    - "**L'inventeur des story points.** Jeffries écrit qu'il les a « peut-être » inventés [S12] : la page ne les attribue pas. L'origine de la vélocité n'a pas été cherchée."
+    - "**Origine du terme MVP.** Une source secondaire [S6] l'attribue à Frank Robinson (2001), popularisé par Steve Blank et Eric Ries ; non vérifié. La page n'attribue que la définition à Ries."
+    - "**Le livre *User Story Mapping*** [S4] **et *The Lean Startup*.** Non lus : tout ce qui est attribué à Patton vient de [S2] et [S3], la définition du MVP du billet de 2009 [S5]."
+    - "**« Date fixe, contenu variable ».** Choix du cours, sans source externe ; appui indirect par MoSCoW pour une échéance (concept 13c)."
+---
+import Schema16 from '../../../components/schemas/Schema16.astro';
+import Schema16Prevision from '../../../components/schemas/Schema16Prevision.astro';
+
+Une liste plate de stories ne dit pas à quel moment de son parcours l'utilisateur s'en sert. La **story map** <Pastille kind="ecole" /> (Jeff Patton) range les stories sous les activités de l'utilisateur, dans l'ordre où il raconte son parcours : on voit le tout. Une **tranche de version** trace une ligne en travers de la carte : la première version utile prend, sous chaque activité, le moins de stories qui permet à l'utilisateur d'atteindre son but, avec un résultat visé et une mesure. À « pour quand ? », le PO répond par la **prévision**, construite sur la taille et le rythme des Developers : une fourchette, revue à chaque sprint, pas une promesse.
+
+<Figure legende="Une story map. En haut, les activités de l'utilisateur dans l'ordre du récit (la colonne vertébrale) ; dessous, les stories, de l'indispensable au moins nécessaire. Une ligne en travers de la carte délimite la première version : un peu de chaque activité, avec un trou nommé là où une activité n'a pas encore de story. Story map : Patton, choix d'école.">
+  <Schema16 />
+</Figure>
+
+<Sous id="16a" titre="La carte" promesse="Ranger les stories selon le parcours de l'utilisateur plutôt qu'en liste plate.">
+
+<h4 id="16a1"><span class="num">16a1</span> Les activités en haut, les stories dessous</h4>
+
+Une story map se lit comme le parcours de l'utilisateur. En haut, ses activités, de gauche à droite dans l'ordre où il les raconte : c'est la **colonne vertébrale**, et elle ne s'ordonne pas par importance. Sous chaque activité, les stories qui la servent, de haut en bas : en haut l'indispensable, plus bas ce qui l'est moins. L'axe horizontal est donc celui du moment, et l'axe vertical celui de la nécessité. Pour dresser la colonne vertébrale, Patton propose de partir d'une journée type de l'utilisateur.
+
+<FilRouge>Étienne, responsable d'exploitation, raconte sa journée ainsi : point du matin sur l'état du réseau, envoi des régulateurs, suivi des incidents, bilan du soir. Ce sont les quatre activités de sa carte.</FilRouge>
+
+Les colonnes ne sont donc pas des vues, des epics ou des features : la carte n'est pas la hiérarchie du backlog (<Renvoi n="4" />). Pour ranger une story, on demande à l'utilisateur à quel moment il s'en sert, et on ne le décide pas à sa place. La carte montre alors ce que l'arbre de la hiérarchie ne montre pas : une même vue peut apparaître sous plusieurs activités, et une activité sans story se voit comme un trou à explorer avec l'utilisateur <Pastille kind="cours" />. En revanche, la carte sert à voir le tout, pas à décrire un flux avec la précision d'un modèle de processus.
+
+<h4 id="16a2"><span class="num">16a2</span> La carte complète le backlog</h4>
+
+Le Scrum Guide ne parle pas de story map : le backlog y est la liste ordonnée, seule source du travail, et le PO répond de son ordre (<Renvoi n="3" />). Pour Patton, la carte est une meilleure version du backlog que la liste plate <Pastille kind="ecole" />. Le cours garde les deux <Pastille kind="cours" /> : la carte montre le tout, les trous et les versions, mais elle ne donne pas d'ordre unique, puisque deux stories de deux colonnes n'y ont pas d'ordre entre elles. Chaque story de la carte reste un élément du backlog, à sa place dans l'ordre (<Renvoi n="13" />). L'ordre de gauche à droite est celui du récit, pas celui du travail.
+
+</Sous>
+
+<Sous id="16b" titre="La tranche de version" promesse="Une première version qui traverse le parcours, son résultat visé, et le mot MVP.">
+
+<h4 id="16b1"><span class="num">16b1</span> La première version utile</h4>
+
+Une **tranche de version** est une ligne tracée en travers de la carte (chez Patton, un ruban adhésif) : au-dessus, les stories de la version <Pastille kind="ecole" />. La première version utile est le plus petit ensemble de stories qui permet aux utilisateurs visés d'atteindre leur but. Elle traverse toute la colonne vertébrale : un peu de chaque activité, et non une activité entière avant la suivante. Patton le dit par l'image d'une voiture qu'on ne livre pas sans freins. Ce qui est indispensable, c'est l'utilisateur qui le dit : le PO le lui fait dire. Là où une activité n'a pas encore de story, la tranche laisse un trou nommé, qu'on explore avec l'utilisateur ; elle n'est pas complète tant que ce trou n'est pas exploré <Pastille kind="cours" />.
+
+C'est l'idée de la tranche verticale (<Renvoi n="9" />) à l'échelle d'une version : la version sert seule. Mais les deux ne se confondent pas. La carte range les moments du parcours de l'utilisateur, pas les couches du produit : une première version bâtie comme une couche (la collecte seule, sans rien à regarder) ne sert pas seule.
+
+À côté de la tranche, on écrit son **résultat visé** et une **mesure de succès** : ce qu'on mesurera pour dire si la version a réussi, de préférence un changement dans ce que fait l'utilisateur. On nomme la mesure, sans inventer de cible : la cible chiffrée est une règle que le PO fait fixer (<Renvoi n="8a2" />). Cette mesure de version est une autre chose que la mesure de résultat de l'objectif produit, plus lointaine (<Renvoi n="2" />).
+
+Patton emploie aussi « walking skeleton » pour cette première version utilisable, en citant Cockburn. C'est un autre usage du mot : le cours le réserve au sens de Cockburn, une implémentation de bout en bout qui sert l'équipe (<Renvoi n="9" />).
+
+<h4 id="16b2"><span class="num">16b2</span> Les deux sens de MVP</h4>
+
+« MVP » a deux sens, et on dit toujours lequel on emploie <Pastille kind="cours" />. Pour Eric Ries <Pastille kind="ecole" />, c'est la version d'un nouveau produit qui permet d'apprendre le plus sur ses clients pour le moindre effort ; il précise que ce n'est pas faire un produit minimal, et le concept 17 y revient (<Renvoi n="17" />). Dans l'usage courant, c'est la première version, avec juste assez pour servir les premiers utilisateurs : la première tranche de la carte, au sens de 16b1.
+
+Dans les deux cas, ce n'est pas une version au rabais. Tout ce qui entre dans l'incrément remplit la DoD, MVP ou pas (<Renvoi n="0" />, <Renvoi n="11a" />) : pour aller plus vite, on retire des stories, jamais de la qualité.
+
+</Sous>
+
+<Sous id="16c" titre="Pour quand ?" promesse="Répondre par une fourchette fondée sur les Developers, qui se revoit, et que l'on ne promet pas.">
+
+<h4 id="16c1"><span class="num">16c1</span> Une fourchette, pas une date</h4>
+
+À « pour quand ? », le PO n'invente pas de date. La prévision se construit sur la taille des stories, que les Developers estiment, et sur leur rythme des derniers sprints : le Scrum Guide rappelle que seul ce qui s'est déjà passé sert à décider. Le Guide 2020 donne aux Developers la prévision du sprint ; il ne dit pas qui prévoit une version. Le cours retient que la prévision d'une version se construit sur leur taille et leur rythme, et que le PO la porte aux parties prenantes <Pastille kind="cours" />.
+
+Elle se donne en **fourchette**, pratique de l'école de Mike Cohn, qui la calcule à partir de la vélocité <Pastille kind="ecole" />, et elle se revoit à chaque sprint (l'empirisme du Guide l'appelle). Ce n'est pas une promesse : les engagements de Scrum sont l'objectif produit, l'objectif de sprint et la DoD. Story points et vélocité sont des pratiques courantes, absentes du Scrum Guide, que cette page nomme sans les enseigner. En flux continu, la prévision passe par le temps de cycle (<Renvoi n="A2d" />).
+
+<Figure legende="Une prévision en fourchette. Les Developers la fondent sur la taille des stories et leur rythme ; l'ordre du backlog et une dépendance peuvent la déplacer ; elle est redessinée à chaque revue de sprint. Une prévision des Developers, pas une promesse.">
+  <Schema16Prevision />
+</Figure>
+
+<h4 id="16c2"><span class="num">16c2</span> Ce qui la fait bouger</h4>
+
+Une prévision dit aussi ce qui la ferait bouger <Pastille kind="cours" />. L'ordre du backlog d'abord : ce qui passe devant retarde ce qui suit (<Renvoi n="13" />). Une dépendance ensuite : tant qu'elle n'est pas levée, l'élément qui en dépend glisse (<Renvoi n="10" />) ; si l'attente dure, c'est un obstacle à escalader (<Renvoi n="14c" />).
+
+Quand une date compte vraiment, on la prend comme échéance, et c'est le contenu qui varie : on ne fixe pas à la fois la date et tout le contenu. L'ordre dit alors ce qui sera prêt à cette date, et MoSCoW peut aider à dire ce qui doit y être (<Renvoi n="13c" />).
+
+</Sous>
+
+<Reflexe note="Résumé du cours, sans équivalent dans les sources.">
+La carte se lit-elle comme le parcours de l'utilisateur ? La première tranche sert-elle chaque moment de ce parcours (ou laisse-t-elle un trou nommé), avec un résultat visé et une mesure ? La réponse à « pour quand ? » donne-t-elle la fourchette des Developers et ce qui la ferait bouger ?
+</Reflexe>
+
+<Erreurs>
+
+- **Prendre la carte pour la hiérarchie** : en haut, les activités de l'utilisateur, pas des vues, des epics ou des features.
+- **Ordonner la colonne vertébrale par importance** : elle suit l'ordre du récit ; l'importance joue de haut en bas.
+- **Croire que la carte remplace le backlog**, ou que l'ordre de gauche à droite est l'ordre du travail.
+- **Finir une activité avant la suivante**, ou faire de la première version une couche : la tranche traverse la carte et sert seule.
+- **Une version sans résultat visé ni mesure**, ou avec une cible inventée : la mesure se nomme, la cible se fait fixer.
+- **Confondre les deux sens de MVP**, ou le prendre pour une version au rabais.
+- **Prendre le walking skeleton de Patton pour celui de Cockburn.**
+- **Inventer une date**, prendre la prévision pour une promesse, ou estimer à la place des Developers.
+- **Confondre la prévision du travail avec la prévision des stations à risque** (<Renvoi n="9" />, <Renvoi n="17" />) : la seconde est une fonction du produit.
+
+</Erreurs>
