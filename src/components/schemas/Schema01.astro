@@ -1,0 +1,86 @@
+---
+// Schéma 1 : le triangle problème, utilisateurs, valeur autour du produit, avec les deux familles
+// d'utilisateurs ; en dessous, qui tranche quoi (PO, Developers, parties prenantes).
+// Couleurs : variables CSS --sch-* (clair/sombre) définies dans global.css.
+const colonnes = [
+  { x: 30, titre: 'PO', lignes: ['répond de la valeur', 'le quoi, l’ordre,', 'le pourquoi', 'une seule personne'] },
+  { x: 212, titre: 'Developers', lignes: ['le comment, le coût', 'ils choisissent le', 'travail du sprint', 'avec le PO'] },
+  { x: 394, titre: 'Parties prenantes', lignes: ['font valoir leurs', 'besoins et', 'convainquent le PO'] },
+];
+---
+<svg viewBox="0 0 600 660" role="img" aria-labelledby="g1-t g1-d" class="sch">
+  <title id="g1-t">Un produit se décrit par un problème, des utilisateurs et une valeur ; trois acteurs se partagent les décisions</title>
+  <desc id="g1-d">
+    En haut, un triangle : le produit est au centre, relié à trois cases, Problème (ce que le produit retire aux utilisateurs),
+    Valeur (ce que les utilisateurs y gagnent) et Utilisateurs. Sous Utilisateurs, deux familles :
+    ceux qui regardent les vues (Étienne, les régulateurs) et les consommateurs de données (l'équipe appli, la collectivité).
+    En bas, un tableau « qui tranche quoi » en trois colonnes. Le PO répond de la valeur et décide du quoi, de l'ordre et du pourquoi ; c'est une seule personne.
+    Les Developers décident du comment et du coût, et choisissent le travail du sprint avec le PO.
+    Les parties prenantes font valoir leurs besoins et convainquent le PO.
+    Légende : le PO représente les parties prenantes dans le backlog et répond de la valeur.
+  </desc>
+
+  <!-- Les rayons du produit -->
+  <line x1="258" y1="128" x2="200" y2="66" class="spoke" />
+  <line x1="342" y1="128" x2="400" y2="66" class="spoke" />
+  <line x1="300" y1="196" x2="300" y2="236" class="spoke" />
+  <circle cx="300" cy="150" r="46" class="produit" />
+  <text x="300" y="157" text-anchor="middle" class="produit-text">Produit</text>
+
+  <!-- Problème, valeur, utilisateurs -->
+  <rect x="30" y="24" width="170" height="50" rx="8" class="box" />
+  <text x="115" y="56" text-anchor="middle" class="head">Problème</text>
+  <text x="115" y="98" text-anchor="middle" class="soft">ce que le produit</text>
+  <text x="115" y="118" text-anchor="middle" class="soft">retire aux utilisateurs</text>
+
+  <rect x="400" y="24" width="170" height="50" rx="8" class="box" />
+  <text x="485" y="56" text-anchor="middle" class="head">Valeur</text>
+  <text x="485" y="98" text-anchor="middle" class="soft">ce que les utilisateurs</text>
+  <text x="485" y="118" text-anchor="middle" class="soft">y gagnent</text>
+
+  <rect x="215" y="236" width="170" height="50" rx="8" class="box strong" />
+  <text x="300" y="268" text-anchor="middle" class="head">Utilisateurs</text>
+
+  <!-- Deux familles d'utilisateurs -->
+  <line x1="260" y1="286" x2="161" y2="330" class="link" />
+  <line x1="340" y1="286" x2="439" y2="330" class="link" />
+  <rect x="30" y="330" width="262" height="62" rx="8" class="fam" />
+  <text x="161" y="357" text-anchor="middle" class="label">Regardent les vues</text>
+  <text x="161" y="379" text-anchor="middle" class="soft">Étienne, les régulateurs</text>
+  <rect x="308" y="330" width="262" height="62" rx="8" class="fam" />
+  <text x="439" y="357" text-anchor="middle" class="label">Consomment des données</text>
+  <text x="439" y="379" text-anchor="middle" class="soft">équipe appli, collectivité</text>
+
+  <!-- Qui tranche quoi -->
+  <text x="30" y="440" class="head">Qui tranche quoi</text>
+  {colonnes.map((c) => (
+    <>
+      <rect x={c.x} y="456" width="176" height="36" rx="6" class="col-head" />
+      <text x={c.x + 88} y="480" text-anchor="middle" class="col-title">{c.titre}</text>
+      <rect x={c.x} y="492" width="176" height="106" class="col-body" />
+      {c.lignes.map((l, i) => (
+        <text x={c.x + 10} y={518 + i * 22} class="line">{l}</text>
+      ))}
+    </>
+  ))}
+  <text x="30" y="624" class="soft">Le PO représente les parties prenantes dans</text>
+  <text x="30" y="644" class="soft">le backlog et répond de la valeur.</text>
+</svg>
+
+<style>
+  .sch { font-family: var(--font-ui); }
+  .spoke { stroke: var(--sch-grey-line); stroke-width: 2.5; }
+  .link { stroke: var(--sch-grey-line); stroke-width: 2; fill: none; }
+  .produit { fill: var(--sch-s1); }
+  .produit-text { font-size: 19px; font-weight: 700; fill: var(--sch-s-ink); }
+  .box { fill: var(--sch-band); stroke: var(--sch-band-line); stroke-width: 1.5; }
+  .box.strong { stroke: var(--sch-s1); stroke-width: 2.5; }
+  .head { font-size: 19px; font-weight: 650; fill: var(--sch-text); }
+  .soft { font-size: 16px; fill: var(--sch-text-soft); }
+  .label { font-size: 17px; font-weight: 650; fill: var(--sch-text); }
+  .fam { fill: none; stroke: var(--sch-s2); stroke-width: 2; }
+  .col-head { fill: var(--sch-s1); }
+  .col-title { font-size: 18px; font-weight: 700; fill: var(--sch-s-ink); }
+  .col-body { fill: var(--sch-band); stroke: var(--sch-band-line); stroke-width: 1.5; }
+  .line { font-size: 16px; fill: var(--sch-text); }
+</style>

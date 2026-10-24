@@ -1,0 +1,115 @@
+---
+// Schéma 2 : la chaîne livrable, usage, changement de comportement, effet visé.
+// Le livrable est sous le contrôle de l'équipe ; l'usage est un signal, pas une preuve ;
+// le résultat (changement de comportement, effet visé) juge le produit. L'objectif produit vise
+// l'effet visé ; la vision, plus haut, est un choix d'école ; une jauge figure la mesure de résultat.
+// Couleurs : variables CSS --sch-* (clair/sombre) définies dans global.css.
+---
+<svg viewBox="0 0 600 460" role="img" aria-labelledby="g2-t g2-d" class="sch">
+  <title id="g2-t">Du livrable au résultat : ce que l'équipe produit, ce qui change chez l'utilisateur</title>
+  <desc id="g2-d">
+    Une chaîne de gauche à droite. D'abord le livrable, la vue des stations vides, seul sous une accolade : ce que l'équipe maîtrise.
+    Ensuite l'usage, une case grisée, Étienne consulte la vue : un signal, pas une preuve.
+    Puis un grand cadre, le résultat, qui contient deux cases : le changement de comportement, Étienne envoie les régulateurs plus tôt,
+    puis l'effet visé, les stations du centre-ville moins longtemps vides aux heures de pointe.
+    Sous l'usage et le résultat, une accolade : hors du contrôle de l'équipe, ce qui juge le produit.
+    Au-dessus de l'effet visé, un drapeau, l'objectif produit, qui est du consensus (Scrum Guide) ;
+    plus haut, une ligne en pointillés, la vision produit, qui est un choix d'école.
+    Une jauge, la mesure de résultat, est reliée à l'effet visé : elle dit si l'on s'en approche.
+  </desc>
+  <defs>
+    <marker id="g2-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" class="arrow-head" />
+    </marker>
+    <pattern id="g2-hatch" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="9" height="9" class="hatch-bg" />
+      <line x1="0" y1="0" x2="0" y2="9" class="hatch-line" />
+    </pattern>
+  </defs>
+
+  <!-- Vision et objectif produit -->
+  <text x="580" y="22" text-anchor="end" class="soft it">Vision produit : choix d'école</text>
+  <line x1="268" y1="34" x2="580" y2="34" class="horizon" />
+  <rect x="412" y="46" width="170" height="38" rx="6" class="flag" />
+  <text x="497" y="71" text-anchor="middle" class="flag-text">Objectif produit</text>
+  <text x="497" y="104" text-anchor="middle" class="soft">consensus, Scrum Guide</text>
+  <line x1="497" y1="112" x2="497" y2="158" class="link" marker-end="url(#g2-arr)" />
+
+  <!-- Le cadre du résultat -->
+  <rect x="268" y="116" width="312" height="168" rx="10" class="frame" />
+  <text x="282" y="140" class="head">Résultat</text>
+
+  <!-- Les quatre cases -->
+  <rect x="20" y="160" width="100" height="110" rx="8" class="box strong" />
+  <text x="70" y="182" text-anchor="middle" class="label">Livrable</text>
+  <text x="70" y="204" text-anchor="middle" class="line">la vue des</text>
+  <text x="70" y="222" text-anchor="middle" class="line">stations</text>
+  <text x="70" y="240" text-anchor="middle" class="line">vides</text>
+
+  <rect x="144" y="160" width="100" height="110" rx="8" fill="url(#g2-hatch)" class="usage" />
+  <text x="194" y="182" text-anchor="middle" class="label halo">Usage</text>
+  <text x="194" y="202" text-anchor="middle" class="line halo">Étienne la</text>
+  <text x="194" y="220" text-anchor="middle" class="line halo">consulte</text>
+  <text x="194" y="244" text-anchor="middle" class="line halo it">signal,</text>
+  <text x="194" y="262" text-anchor="middle" class="line halo it">pas preuve</text>
+
+  <rect x="274" y="160" width="136" height="110" rx="8" class="box" />
+  <text x="342" y="182" text-anchor="middle" class="label">Changement de</text>
+  <text x="342" y="200" text-anchor="middle" class="label">comportement</text>
+  <text x="342" y="224" text-anchor="middle" class="line">Étienne envoie</text>
+  <text x="342" y="242" text-anchor="middle" class="line">les régulateurs</text>
+  <text x="342" y="260" text-anchor="middle" class="line">plus tôt</text>
+
+  <rect x="426" y="160" width="142" height="110" rx="8" class="box strong" />
+  <text x="497" y="182" text-anchor="middle" class="label">Effet visé</text>
+  <text x="497" y="204" text-anchor="middle" class="line">stations du</text>
+  <text x="497" y="222" text-anchor="middle" class="line">centre-ville</text>
+  <text x="497" y="240" text-anchor="middle" class="line">moins longtemps</text>
+  <text x="497" y="258" text-anchor="middle" class="line">vides</text>
+
+  <!-- Les flèches de la chaîne -->
+  <line x1="122" y1="215" x2="142" y2="215" class="link" marker-end="url(#g2-arr)" />
+  <line x1="246" y1="215" x2="272" y2="215" class="link" marker-end="url(#g2-arr)" />
+  <line x1="412" y1="215" x2="424" y2="215" class="link" marker-end="url(#g2-arr)" />
+
+  <!-- Les deux accolades -->
+  <path d="M20 296 V304 H120 V296" class="brace" />
+  <text x="20" y="328" class="soft">ce que l'équipe</text>
+  <text x="20" y="348" class="soft">maîtrise</text>
+  <path d="M144 296 V304 H580 V296" class="brace" />
+  <text x="340" y="328" text-anchor="middle" class="soft">hors du contrôle de l'équipe :</text>
+  <text x="340" y="348" text-anchor="middle" class="soft">ce qui juge le produit</text>
+
+  <!-- La mesure de résultat -->
+  <line x1="497" y1="272" x2="497" y2="372" class="dotted" />
+  <rect x="412" y="372" width="170" height="18" rx="9" class="jauge" />
+  <rect x="412" y="372" width="108" height="18" rx="9" class="jauge-fill" />
+  <text x="497" y="418" text-anchor="middle" class="label">mesure de résultat</text>
+  <text x="497" y="438" text-anchor="middle" class="soft">dit si on s'approche</text>
+  <text x="497" y="456" text-anchor="middle" class="soft">de l'effet visé</text>
+</svg>
+
+<style>
+  .sch { font-family: var(--font-ui); }
+  .box { fill: var(--sch-band); stroke: var(--sch-band-line); stroke-width: 1.5; }
+  .box.strong { stroke: var(--sch-s1); stroke-width: 2.5; }
+  .frame { fill: none; stroke: var(--sch-s2); stroke-width: 2.5; }
+  .usage { stroke: var(--sch-grey-line); stroke-width: 2.5; stroke-dasharray: 7 5; }
+  .hatch-bg { fill: var(--sch-grey); }
+  .hatch-line { stroke: var(--sch-grey-line); stroke-width: 2; opacity: 0.55; }
+  .halo { paint-order: stroke; stroke: var(--sch-grey); stroke-width: 4px; stroke-linejoin: round; }
+  .head { font-size: 19px; font-weight: 650; fill: var(--sch-text); }
+  .label { font-size: 17px; font-weight: 650; fill: var(--sch-text); }
+  .line { font-size: 16px; fill: var(--sch-text); }
+  .soft { font-size: 16px; fill: var(--sch-text-soft); }
+  .it { font-style: italic; }
+  .link { stroke: var(--sch-grey-line); stroke-width: 2.5; fill: none; }
+  .arrow-head { fill: var(--sch-grey-line); }
+  .horizon { stroke: var(--sch-grey-line); stroke-width: 2; stroke-dasharray: 3 6; stroke-linecap: round; }
+  .flag { fill: var(--sch-s1); }
+  .flag-text { font-size: 17px; font-weight: 700; fill: var(--sch-s-ink); }
+  .brace { fill: none; stroke: var(--sch-grey-line); stroke-width: 2.5; }
+  .dotted { stroke: var(--sch-grey-line); stroke-width: 2; stroke-dasharray: 2 6; stroke-linecap: round; }
+  .jauge { fill: var(--sch-band); stroke: var(--sch-band-line); stroke-width: 1.5; }
+  .jauge-fill { fill: var(--sch-s2); }
+</style>

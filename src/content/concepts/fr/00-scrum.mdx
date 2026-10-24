@@ -1,0 +1,235 @@
+---
+numero: "0"
+titre: "Scrum en bref et l'incrément"
+objectif: "Situer les trois responsabilités de Scrum, le sprint et ses quatre événements, les trois artefacts et leurs engagements, et distinguer le sprint, une durée, de l'incrément, le produit dans un nouvel état utilisable."
+description: "Scrum en bref : qui fait quoi, les quatre événements du sprint, les trois artefacts et leurs engagements, et pourquoi le sprint est une durée alors que l'incrément est un état du produit."
+prerequis: []
+ecoles:
+  consensus:
+    - auteur: "Le Scrum Guide 2020"
+      texte: "Les trois responsabilités (Developers, Product Owner, Scrum Master), le sprint et ses quatre événements, les trois artefacts avec leurs engagements. L'incrément s'ajoute aux précédents ; un sprint peut en produire plusieurs, que l'on peut livrer avant sa fin ; la revue de sprint n'est pas une porte de mise en production."
+      refs: ["S1"]
+    - auteur: "Les limites du Scrum Guide"
+      texte: "« User story », « vision produit » et « Definition of Ready » n'y figurent pas, pas plus que « ticket », terme d'outil : ils viennent d'autres pratiques (concepts 2, 5 et 11)."
+      refs: ["S1"]
+  ecole:
+    - texte: "Aucun choix d'école dans ce concept : tout ce qu'il enseigne vient du Scrum Guide ou du cours."
+      refs: []
+  cours:
+    - texte: "Une équipe Scrum qui travaille en sprints : le cours le suppose. Ce n'est ni du consensus ni un choix d'école. Quatre sous-concepts (11b, 15b, 15c, 16c) renvoient à l'annexe A2 pour le travail sans sprint."
+      refs: []
+    - texte: "Le réflexe : « si on décidait de le livrer maintenant, un utilisateur pourrait-il s'en servir, et la DoD est-elle remplie ? ». Le Guide exige un incrément utilisable et conforme à la DoD ; il n'exige pas qu'il soit livré."
+      refs: ["S1"]
+    - texte: "Une échéance propre à un moment n'a pas sa place dans la DoD, qui vaut pour tout ce qui entre dans l'incrément. Elle relève de l'objectif de sprint si elle dit ce que le sprint vise, du plan des Developers si elle organise le travail."
+      refs: ["S1"]
+    - texte: "Un pipeline fini mais que personne ne peut consulter n'est pas un incrément."
+      refs: ["S1"]
+sources:
+  affirmations:
+    - affirmation: "Scrum est un cadre de travail, décrit par le Scrum Guide de Schwaber et Sutherland (novembre 2020)."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« Scrum is a lightweight framework that helps people, teams and organizations generate value through adaptive solutions for complex problems » ; « © 2020 Ken Schwaber and Jeff Sutherland »."
+    - affirmation: "Trois responsabilités : Developers, Product Owner, Scrum Master."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« Scrum defines three specific accountabilities within the Scrum Team: the Developers, the Product Owner, and the Scrum Master » ; « one Scrum Master, one Product Owner, and Developers »."
+    - affirmation: "Une équipe Scrum est une seule équipe, sans sous-équipe ni hiérarchie, qui s'organise elle-même, en général de dix personnes au plus ; « Developers » remplace depuis 2020 l'équipe de développement."
+      kind: "consensus"
+      refs: ["S1", "S2"]
+      verifie: "« no sub-teams or hierarchies » ; « self-managing, meaning they internally decide who does what, when, and how » ; « typically 10 or fewer people ». Historique des révisions : 2020 supprime le concept d'équipe de développement séparée au sein de l'équipe."
+    - affirmation: "Les Developers réalisent l'incrément, adaptent leur plan chaque jour et respectent la DoD."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« Developers are the people in the Scrum Team that are committed to creating any aspect of a usable Increment each Sprint » ; « Adapting their plan each day toward the Sprint Goal » ; « Instilling quality by adhering to a Definition of Done »."
+    - affirmation: "Le PO répond de la valeur du produit et de la gestion du backlog, dont l'ordre ; il peut en déléguer le travail mais reste responsable ; qui veut changer le backlog doit le convaincre."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« accountable for maximizing the value of the product » ; la gestion du backlog comprend « Developing and explicitly communicating the Product Goal; Creating and clearly communicating Product Backlog items; Ordering Product Backlog items » ; « one person, not a committee » ; « may delegate the responsibility to others. Regardless, the Product Owner remains accountable » ; « Those wanting to change the Product Backlog can do so by trying to convince the Product Owner ». « Ticket » n'est pas un terme du Guide."
+    - affirmation: "Le Scrum Master répond de l'efficacité de l'équipe et aide à lever les obstacles ; l'équipe n'a pas de hiérarchie."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« accountable for the Scrum Team's effectiveness » ; « Causing the removal of impediments » ; « no sub-teams or hierarchies ». « Il n'est pas le chef » est la conséquence tirée par le cours de l'absence de hiérarchie."
+    - affirmation: "Le sprint est une durée fixe d'un mois au plus ; le suivant commence dès la fin du précédent."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« fixed length events of one month or less » ; « A new Sprint starts immediately after the conclusion of the previous Sprint »."
+    - affirmation: "Un sprint de deux semaines est conforme."
+      refs: ["S1"]
+      verifie: "Un mois au plus ; « Shorter Sprints can be employed to generate more learning cycles »."
+    - affirmation: "Le sprint contient quatre événements : Sprint Planning, Daily Scrum, revue de sprint, rétrospective. Le sprint est lui-même un événement."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« Scrum combines four formal events for inspection and adaptation within a containing event, the Sprint »."
+    - affirmation: "Sprint Planning : il ouvre le sprint ; le PO propose comment le sprint peut augmenter la valeur, toute l'équipe fixe l'objectif de sprint, les Developers choisissent les éléments en discutant avec le PO et font leur plan ; 8 heures au plus pour un sprint d'un mois."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« Sprint Planning initiates the Sprint » ; trois sujets « Why », « What », « How » ; « The Product Owner proposes how the product could increase its value and utility in the current Sprint. The whole Scrum Team then collaborates to define a Sprint Goal » ; « Through discussion with the Product Owner, the Developers select items from the Product Backlog » ; « timeboxed to a maximum of eight hours for a one-month Sprint »."
+    - affirmation: "Daily Scrum : 15 minutes, pour les Developers, sur l'avancement vers l'objectif de sprint ; ils en choisissent la structure."
+      kind: "consensus"
+      refs: ["S1", "S2"]
+      verifie: "« a 15-minute event for the Developers » ; « inspect progress toward the Sprint Goal and adapt the Sprint Backlog » ; « The Developers can select whatever structure and techniques they want, as long as their Daily Scrum focuses on progress toward the Sprint Goal ». Les trois questions classiques ont été retirées du Guide en 2020."
+    - affirmation: "Revue de sprint : séance de travail où l'équipe présente ses résultats aux parties prenantes clés, puis ils inspectent ce que le sprint a produit et adaptent le backlog ; elle ne se réduit pas à une présentation ; 4 heures au plus pour un sprint d'un mois."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« The Scrum Team presents the results of their work to key stakeholders » ; « inspect the outcome of the Sprint and determine future adaptations » ; « The Product Backlog may also be adjusted » ; « working session […] avoid limiting it to a presentation » ; « maximum of four hours for a one-month Sprint ». La page écrit « ce que le sprint a produit » pour « outcome », car « résultat » est réservé au sens du concept 2."
+    - affirmation: "Rétrospective : l'équipe inspecte sa façon de travailler, DoD comprise ; elle clôt le sprint ; 3 heures au plus."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« inspects how the last Sprint went with regards to individuals, interactions, processes, tools, and their Definition of Done » ; « concludes the Sprint » ; « maximum of three hours »."
+    - affirmation: "Pendant le sprint, on ne compromet pas l'objectif de sprint."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« No changes are made that would endanger the Sprint Goal »."
+    - affirmation: "Trois artefacts : backlog produit, backlog de sprint, incrément. Ils représentent le travail ou la valeur ; chacun a un engagement qui donne un repère pour juger l'avancement."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« Scrum's artifacts represent work or value » ; « Each artifact contains a commitment to ensure it provides information that enhances transparency and focus against which progress can be measured »."
+    - affirmation: "Les engagements : objectif produit, objectif de sprint, Definition of Done."
+      kind: "consensus"
+      refs: ["S1", "S2"]
+      verifie: "« For the Product Backlog it is the Product Goal. For the Sprint Backlog it is the Sprint Goal. For the Increment it is the Definition of Done. » Les engagements et l'objectif produit sont apparus en 2020."
+    - affirmation: "Backlog produit : liste ordonnée et émergente de ce qu'il faut pour améliorer le produit, seule source du travail de l'équipe. Objectif produit : état futur visé, cible à long terme."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« an emergent, ordered list of what is needed to improve the product. It is the single source of work undertaken by the Scrum Team » ; « The Product Goal describes a future state of the product which can serve as a target for the Scrum Team to plan against » ; « the long-term objective for the Scrum Team »."
+    - affirmation: "Backlog de sprint : objectif de sprint (pourquoi), éléments choisis (quoi), plan (comment) ; il appartient aux Developers. L'objectif de sprint est l'objectif unique du sprint."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« composed of the Sprint Goal (why), the set of Product Backlog items selected for the Sprint (what), as well as an actionable plan for delivering the Increment (how) » ; « a plan by and for the Developers » ; « The Sprint Goal is the single objective for the Sprint »."
+    - affirmation: "Definition of Done : description de l'état que doit atteindre l'incrément."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« The Definition of Done is a formal description of the state of the Increment when it meets the quality measures required for the product » ; « Work cannot be considered part of an Increment unless it meets the Definition of Done »."
+    - affirmation: "Une échéance propre à un moment n'a pas sa place dans la DoD ; elle relève de l'objectif de sprint (le pourquoi) ou du plan des Developers (le comment)."
+      kind: "cours"
+      refs: ["S1"]
+      verifie: "Le Guide fait valoir la DoD pour tout ce qui entre dans l'incrément, et place l'objectif de sprint et le plan dans le backlog de sprint. Que l'échéance soit à ranger dans l'un ou l'autre selon qu'elle dit ce que le sprint vise ou organise le travail est un choix du cours."
+    - affirmation: "L'incrément est une étape concrète vers l'objectif produit ; il doit être utilisable et remplir la DoD ; il naît dès qu'un élément du backlog remplit la DoD."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« An Increment is a concrete stepping stone toward the Product Goal » ; « the Increment must be usable » ; « The moment a Product Backlog item meets the Definition of Done, an Increment is born ». « Le produit dans un nouvel état utilisable » est une reformulation fidèle, pas une citation."
+    - affirmation: "Chaque incrément s'ajoute aux précédents."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« Each Increment is additive to all prior Increments and thoroughly verified »."
+    - affirmation: "Plusieurs incréments peuvent naître dans un sprint, et on peut en livrer un avant la fin du sprint ; la revue de sprint n'est pas une porte de mise en production."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« Multiple Increments may be created within a Sprint » ; « an Increment may be delivered to stakeholders prior to the end of the Sprint. The Sprint Review should never be considered a gate to releasing value »."
+    - affirmation: "Un travail qui ne remplit pas la DoD n'est pas dans l'incrément ; il n'est ni livré ni présenté à la revue, et retourne au backlog produit."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« it cannot be released or even presented at the Sprint Review. Instead, it returns to the Product Backlog »."
+    - affirmation: "On ne livre pas un sprint, on livre des incréments."
+      refs: ["S1"]
+      verifie: "Le sprint est un événement de durée fixe ; ce qui se livre est l'incrément (« an Increment may be delivered »). Que cette confusion soit fréquente en formation vient de l'expérience du cours, sans étude (voir « Non vérifié »)."
+    - affirmation: "Un pipeline fini mais que personne ne peut consulter n'est pas un incrément."
+      kind: "cours"
+      refs: ["S1"]
+      verifie: "Découle de « the Increment must be usable » et de la DoD. L'exemple est propre au cours."
+    - affirmation: "Le réflexe : « si on décidait de le livrer maintenant, un utilisateur pourrait-il s'en servir, et la DoD est-elle remplie ? »"
+      kind: "cours"
+      refs: ["S1"]
+      verifie: "Le Guide exige un incrément utilisable et conforme à la DoD ; il n'exige pas qu'il soit livré (« may be delivered »). La formulation en deux questions est celle du cours."
+    - affirmation: "Une équipe Scrum qui travaille en sprints : parti pris du cours."
+      kind: "cours"
+      refs: []
+      verifie: "Choix du cours, sans source externe. Ni consensus ni choix d'école."
+    - affirmation: "Le Scrum Guide ne contient ni « vision », ni « user story », ni « Definition of Ready »."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "Texte du Guide 2020 cherché : « vision » et « user story », 0 occurrence ; « Definition of Ready » absente."
+    - affirmation: "Les faits de l'équipe vélos (sprints de deux semaines, ses membres, l'objectif produit, la DoD) sont inventés."
+      refs: []
+      verifie: "Sans source : le cas de l'opérateur de vélos en libre-service est fictif."
+  references:
+    - id: "S1"
+      texte: "Schwaber, Sutherland, *The Scrum Guide*, novembre 2020 (version HTML, portage du PDF de 14 pages)"
+      url: "https://scrumguides.org/scrum-guide.html"
+      type: "primaire"
+      consultee: "2026-10-22"
+    - id: "S2"
+      texte: "Scrumguides.org, « Scrum Guide Revision History », section « Changes between 2017 and 2020 Scrum Guides »"
+      url: "https://scrumguides.org/revisions.html"
+      type: "primaire"
+      consultee: "2026-10-22"
+  nonVerifie:
+    - "**Les termes français de la traduction officielle du Guide.** Le texte du PDF français n'a pas pu être extrait ; les termes de cette page suivent le glossaire du cours, sans vérification contre cette traduction."
+    - "**La fréquence de la confusion « on livre un sprint ».** Observée au fil des sessions du cours, sans étude ni source externe : la page ne la donne pas comme un fait mesuré."
+---
+import Schema00 from '../../../components/schemas/Schema00.astro';
+
+Scrum est un cadre de travail léger, défini par le Scrum Guide (Schwaber et Sutherland, 2020). Une équipe y tient trois **responsabilités** (Product Owner, Scrum Master, Developers), travaille en **sprints** d'un mois au plus, qui contiennent quatre **événements**, et s'appuie sur trois **artefacts**, chacun avec son **engagement**. Un point à ne pas rater : le sprint est une **durée** ; l'**incrément** est le produit dans un nouvel état utilisable. Qui les confond « livre un sprint » et attend sa fin pour livrer.
+
+Ce cours suppose une équipe Scrum qui travaille en sprints <Pastille kind="cours" />. Le reste du cours vaut aussi sans sprint ; seuls quatre sous-concepts font exception, avec leur équivalent en flux continu dans l'annexe <Renvoi n="A2" /> : <Renvoi n="11b" />, <Renvoi n="15b" />, <Renvoi n="15c" /> et <Renvoi n="16c" />.
+
+<Figure legende="Le sprint est une durée (la frise, des blocs de même longueur, collés) ; l'incrément est un état du produit (l'escalier, dont chaque marche s'ajoute aux précédentes et peut tomber à n'importe quel moment). Plusieurs marches dans un même sprint sont possibles. En bas, chaque artefact porte son engagement.">
+  <Schema00 />
+</Figure>
+
+<Sous id="0a" titre="Le cadre" promesse="Qui fait quoi, quels rendez-vous, quels supports de travail.">
+
+<h4 id="0a1"><span class="num">0a1</span> Trois responsabilités</h4>
+
+Une équipe Scrum est une seule équipe, sans sous-équipe ni hiérarchie, de dix personnes au plus en général, qui s'organise elle-même. Elle porte trois responsabilités :
+
+- **Le Product Owner (PO)** répond de la valeur du produit et du backlog : l'objectif produit, les éléments, leur ordre. C'est une seule personne, pas un comité. Il peut confier le travail, il en reste responsable ; qui veut changer le backlog doit le convaincre.
+- **Les Developers** réalisent l'incrément : ils font le plan du sprint, l'adaptent chaque jour et respectent la Definition of Done (DoD), les exigences de qualité de l'équipe.
+- **Le Scrum Master** répond de l'efficacité de l'équipe et l'aide notamment à lever les obstacles. Il n'est pas son chef : l'équipe n'a pas de hiérarchie.
+
+<FilRouge>L'équipe vélos compte deux data engineers (Dana, Diego) et une analyste (Anna) : ce sont ses Developers. Scarlette en est la Scrum Master, et l'est aussi de l'équipe appli.</FilRouge>
+
+<h4 id="0a2"><span class="num">0a2</span> Le sprint et ses quatre événements</h4>
+
+Le sprint dure un mois au plus, toujours la même durée, et le suivant commence dès que le précédent se termine, sans pause. Il est lui-même un événement, celui qui en contient quatre autres, chacun avec son but (les durées maximales sont celles d'un sprint d'un mois) :
+
+- **Sprint Planning** (8 heures) : il ouvre le sprint. Le PO propose comment le sprint peut augmenter la valeur du produit, toute l'équipe fixe l'objectif de sprint, les Developers choisissent les éléments avec le PO et font leur plan.
+- **Daily Scrum** (15 minutes) : le point des Developers sur l'avancement vers l'objectif de sprint, où ils adaptent leur plan. Ils en choisissent la structure.
+- **Revue de sprint** (4 heures) : une séance de travail, pas une simple présentation. L'équipe présente ses résultats aux parties prenantes clés ; ensemble, ils inspectent ce que le sprint a produit et adaptent le backlog.
+- **Rétrospective** (3 heures) : l'équipe inspecte sa façon de travailler, DoD comprise. Elle clôt le sprint.
+
+<FilRouge>L'équipe vélos travaille en sprints de deux semaines : c'est conforme, un mois étant un maximum. Des sprints plus courts donnent plus de cycles d'apprentissage.</FilRouge>
+
+<h4 id="0a3"><span class="num">0a3</span> Trois artefacts, trois engagements</h4>
+
+Les artefacts représentent le travail ou la valeur. Chacun porte un engagement, un repère pour juger l'avancement :
+
+- le **backlog produit**, liste ordonnée et émergente de ce qu'il faut pour améliorer le produit, seule source du travail de l'équipe (<Renvoi n="3" />), a pour engagement l'**objectif produit**, l'état futur visé à long terme (<Renvoi n="2" />) ;
+- le **backlog de sprint** (l'objectif de sprint, les éléments choisis, le plan des Developers) a pour engagement l'**objectif de sprint**, l'objectif unique du sprint (<Renvoi n="15" />) ;
+- l'**incrément** a pour engagement la **Definition of Done**, la description de l'état qu'il doit atteindre (<Renvoi n="11" />).
+
+Les engagements n'ont pas la même durée de vie. L'objectif produit et la DoD valent sprint après sprint ; l'objectif de sprint ne vaut que pour un sprint. Une exigence du type « chaque indicateur publié a sa définition écrite » est de la DoD. Une échéance du type « livrer ce chiffre avant le conseil de la collectivité » est propre à un moment : elle relève de l'objectif de sprint, si elle dit ce que le sprint vise, ou du plan des Developers, si elle organise le travail <Pastille kind="cours" />.
+
+<FilRouge>Objectif produit de la plateforme : que les stations du centre-ville restent le moins longtemps possible vides aux heures de pointe, grâce à des données à jour pour l'exploitation. Parmi ses exigences de DoD : chaque vue affiche l'heure de sa dernière mise à jour.</FilRouge>
+
+</Sous>
+
+<Sous id="0b" titre="Sprint et incrément" promesse="Une durée d'un côté, un état du produit de l'autre.">
+
+Le sprint est une durée, qui contient les événements. L'incrément est une étape concrète vers l'objectif produit : le produit dans un nouvel état **utilisable**. Il naît à l'instant où un élément du backlog remplit la DoD, et il s'ajoute à tous les précédents. Trois conséquences :
+
+- plusieurs incréments peuvent naître dans un même sprint ;
+- on peut livrer un incrément avant la fin du sprint : la revue de sprint n'est pas une porte de mise en production, et la seule règle pendant le sprint est de ne rien changer qui mette en danger l'objectif de sprint ;
+- un travail qui ne remplit pas la DoD ne fait pas partie de l'incrément : il n'est ni livré, ni présenté à la revue, et retourne au backlog produit.
+
+On ne « livre » donc pas un sprint : on livre des incréments, au moment où ils existent. Il faut aussi qu'un incrément soit utilisable : un travail fini mais que personne ne peut consulter n'en est pas un <Pastille kind="cours" />.
+
+<FilRouge>Un pipeline qui charge les relevés des stations dans l'entrepôt, sans qu'aucune vue ni aucun export ne permette de les consulter, est un travail terminé, pas un incrément : personne ne peut s'en servir.</FilRouge>
+
+</Sous>
+
+<Reflexe note="Formulation du cours, appuyée sur l'incrément utilisable et la DoD du Scrum Guide.">
+« Si on décidait de le livrer maintenant, un utilisateur pourrait-il s'en servir, et la DoD est-elle remplie ? » Si oui aux deux, c'est un incrément, quel que soit le jour du sprint.
+</Reflexe>
+
+<Erreurs>
+
+- **« Livrer un sprint »** : le sprint est une durée. On livre des incréments, un ou plusieurs, au moment où ils existent.
+- **Compter comme incrément un travail fini mais inutilisable**, ou qui ne remplit pas la DoD.
+- **Faire de la revue de sprint la porte de mise en production**, ou la réduire à une présentation : c'est une séance de travail qui inspecte et adapte le backlog.
+- **Prendre le Scrum Master pour le chef de l'équipe**, ou le Daily Scrum pour un compte rendu fait à quelqu'un : c'est le point des Developers sur leur avancement.
+- **Réduire le PO à celui qui rédige les éléments du backlog** : il répond de la valeur du produit et de l'ordre du backlog.
+- **Mettre le sprint au même rang que ses quatre événements**, ou laisser une pause entre deux sprints.
+
+</Erreurs>
