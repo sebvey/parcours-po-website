@@ -123,6 +123,18 @@ sources:
       kind: "cours"
       refs: ["S1", "S6", "S13"]
       verifie: "Scrum.org veut un objectif « Outcome-driven to reflect a customer want or need » ; Guide : « How this is done is at the sole discretion of the Developers ». Le besoin de fraîcheur est un fait à demander aux utilisateurs (concept 1)."
+    - affirmation: "La satisfaction d'un utilisateur est une perception, utile en complément, qui ne dit pas seule si le résultat visé est obtenu."
+      kind: "ecole"
+      refs: ["S10"]
+      verifie: "HEART : la catégorie Happiness couvre les mesures d'attitude (satisfaction), à côté des catégories de comportement ; l'article recommande de choisir les catégories selon le but."
+    - affirmation: "Accoler deux résultats dans un objectif produit disperse l'équipe et empêche d'argumenter l'ordre du backlog."
+      kind: "cours"
+      refs: ["S1", "S13"]
+      verifie: "Conséquence de « one objective at a time » et de « They must fulfill (or abandon) one objective before taking on the next » ; raisonnement du cours, pas une citation."
+    - affirmation: "Le nombre d'éléments livrés par sprint mesure le livrable, pas le résultat."
+      kind: "cours"
+      refs: ["S2"]
+      verifie: "CSPO 5.1 (outcome et output) ; 5.2 « maximize outcomes and impact while minimizing outputs »."
     - affirmation: "Mesurer la valeur fait partie des objectifs d'apprentissage du PO, sans technique imposée."
       kind: "consensus"
       refs: ["S2"]
@@ -268,6 +280,10 @@ sources:
     - "**Le guide Evidence-Based Management.** Le guide lui-même n'a pas été lu ; les quatre domaines de valeur viennent de la page de Scrum.org. Les catégories diffèrent selon les versions du guide (2018, 2024) d'après des reprises : la page n'en dit rien de plus."
     - "**Le billet de Dave West (S7).** Vu seulement comme lien (titre, auteur, date) ; son contenu n'a pas été lu. L'introduction de l'objectif produit en 2020 repose sur l'historique des révisions."
     - "**Indicateur avancé et indicateur retardé** (*leading*, *lagging*) : non recherché ; la page ne les traite pas."
+alignement:
+  coursVersion: "1.0.0"
+  fiche: "b2fcf560a7b222a257b32134127f4403821c790381443a6b9c1cc0ce3230428e"
+  sources: "ee081006b58b8017d0966484f8991527a1ed301ff085530d52762b7be9cb6946"
 ---
 import Schema02 from '../../../components/schemas/Schema02.astro';
 
@@ -279,7 +295,7 @@ Le PO répond de la valeur du produit, et le Scrum Guide n'impose aucune méthod
 
 <Sous id="2a" titre="Livrable et résultat" promesse="Livrer rend la valeur possible ; seul le résultat dit si elle est là.">
 
-Le **livrable** est ce que l'équipe produit. Le **résultat** est ce qui change chez l'utilisateur grâce à lui. Un livrable terminé rend la valeur possible, il ne la prouve pas. Cette distinction est une pratique établie, absente du Scrum Guide <Pastille kind="consensus" /> ; Josh Seiden définit le résultat comme un changement de comportement de l'utilisateur <Pastille kind="ecole" />.
+Le **livrable** est ce que l'équipe produit. Le **résultat** est ce qui change chez l'utilisateur grâce à lui. Un livrable terminé rend la valeur possible, il ne la prouve pas. Cette distinction est une pratique établie, absente du Scrum Guide <Pastille kind="consensus" /> ; pour Josh Seiden, le résultat est un changement de comportement de l'utilisateur <Pastille kind="ecole" />. La satisfaction d'un utilisateur est une perception, utile en complément : elle ne dit pas seule si le résultat est obtenu.
 
 Un test simple <Pastille kind="cours" /> : si l'équipe peut le faire seule, sans que personne ne change sa façon de travailler, c'est un livrable. Pour un produit data, un **indicateur** que la plateforme calcule est un livrable, même quand on s'en sert ensuite pour juger le produit : c'est le même chiffre, avec deux rôles.
 
@@ -289,7 +305,7 @@ Un test simple <Pastille kind="cours" /> : si l'équipe peut le faire seule, san
 
 <Sous id="2b" titre="L'objectif produit" promesse="Un état futur visé, un seul à la fois, formulé comme un résultat.">
 
-Selon le Scrum Guide, l'objectif produit est un état futur du produit qui sert de cible à l'équipe, son objectif à long terme <Pastille kind="consensus" />. Il figure dans le backlog produit, dont il est l'engagement. L'équipe l'atteint ou l'abandonne avant d'en prendre un autre : **un seul à la fois**. Le PO le développe et le communique, c'est la première de ses tâches sur le backlog. Chaque incrément est un pas vers lui ; le Sprint Planning y rattache les éléments choisis, la revue de sprint discute du progrès. Le Guide n'impose ni format ni horizon, et c'est avec la version 2020 qu'il a introduit l'objectif produit.
+Selon le Scrum Guide, l'objectif produit est un état futur du produit qui sert de cible à l'équipe, son objectif à long terme <Pastille kind="consensus" />. Il figure dans le backlog produit, dont il est l'engagement. L'équipe l'atteint ou l'abandonne avant d'en prendre un autre : **un seul à la fois**. Accoler un second objectif au premier disperse l'équipe et rend l'ordre du backlog impossible à argumenter. Le PO le développe et le communique, c'est la première de ses tâches sur le backlog. Chaque incrément est un pas vers lui ; le Sprint Planning y rattache les éléments choisis, la revue de sprint discute du progrès. Le Guide n'impose ni format ni horizon, et c'est avec la version 2020 qu'il a introduit l'objectif produit.
 
 Un bon objectif vise un **résultat**. Il n'est donc ni une liste de livrables ou une feuille de route datée (on peut tout livrer sans que rien ne change), ni une caractéristique du livrable ou un moyen (adopter telle technique ne dit pas ce qui change pour qui), ni une aspiration si vaste qu'aucune mesure ne dirait si l'équipe s'en approche <Pastille kind="cours" />. Scrum.org propose des critères : aligné sur la vision, clair et concis, orienté résultat, mesurable, transparent. Pour Scrum.org aussi, l'objectif est une **hypothèse** (concept <Renvoi n="17" />) : on peut le reformuler quand on apprend, sans que ce soit un échec <Pastille kind="ecole" />.
 
@@ -326,7 +342,7 @@ Une mesure seule ne suffit pas à conclure : on la croise avec d'autres sources 
 - **Un objectif qui décrit le livrable ou un moyen**, ou qui est si vaste qu'aucune mesure ne dit si l'équipe s'en approche.
 - **Deux objectifs à la fois**, souvent sous la forme « X et Y » : un seul à la fois.
 - **Prendre l'usage du livrable pour le résultat**, ou se contenter d'un comptage brut sans le ramener à une base.
-- **Oublier qu'une mesure qui devient la cible cesse d'être une bonne mesure** (loi de Goodhart), et qu'une mesure mal définie trompe aussi : « vide » se compte-t-il en vélos à quai ou en vélos disponibles ? Croiser la mesure avec d'autres sources.
+- **Oublier qu'une mesure qui devient la cible cesse d'être une bonne mesure** (loi de Goodhart) : un service d'assistance jugé sur le nombre de tickets ouverts pourrait le faire baisser en décourageant les demandes, sans qu'un client soit mieux aidé. Une mesure mal définie trompe aussi, sans que personne le veuille (« client actif » compté avec ou sans achat récent). Croiser la mesure avec d'autres sources.
 - **Inventer la cible chiffrée ou la définition des heures de pointe** à la place des parties prenantes.
 - **Croire l'objectif produit gravé** : pour Scrum.org, c'est une hypothèse qu'on reformule quand on apprend.
 

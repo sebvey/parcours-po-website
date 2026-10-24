@@ -20,7 +20,7 @@ ecoles:
       refs: []
     - texte: "Le réflexe : « si on décidait de le livrer maintenant, un utilisateur pourrait-il s'en servir, et la DoD est-elle remplie ? ». Le Guide exige un incrément utilisable et conforme à la DoD ; il n'exige pas qu'il soit livré."
       refs: ["S1"]
-    - texte: "Une échéance propre à un moment n'a pas sa place dans la DoD, qui vaut pour tout ce qui entre dans l'incrément. Elle relève de l'objectif de sprint si elle dit ce que le sprint vise, du plan des Developers si elle organise le travail."
+    - texte: "Une échéance propre à un sprint n'a pas sa place dans la DoD, qui vaut pour tout ce qui entre dans l'incrément. Elle relève de l'objectif de sprint si elle dit ce que le sprint vise, du plan des Developers si elle organise le travail."
       refs: ["S1"]
     - texte: "Un pipeline fini mais que personne ne peut consulter n'est pas un incrément."
       refs: ["S1"]
@@ -101,7 +101,7 @@ sources:
       kind: "consensus"
       refs: ["S1"]
       verifie: "« The Definition of Done is a formal description of the state of the Increment when it meets the quality measures required for the product » ; « Work cannot be considered part of an Increment unless it meets the Definition of Done »."
-    - affirmation: "Une échéance propre à un moment n'a pas sa place dans la DoD ; elle relève de l'objectif de sprint (le pourquoi) ou du plan des Developers (le comment)."
+    - affirmation: "Une échéance propre à un sprint n'a pas sa place dans la DoD ; elle relève de l'objectif de sprint (le pourquoi) ou du plan des Developers (le comment)."
       kind: "cours"
       refs: ["S1"]
       verifie: "Le Guide fait valoir la DoD pour tout ce qui entre dans l'incrément, et place l'objectif de sprint et le plan dans le backlog de sprint. Que l'échéance soit à ranger dans l'un ou l'autre selon qu'elle dit ce que le sprint vise ou organise le travail est un choix du cours."
@@ -131,7 +131,7 @@ sources:
     - affirmation: "Le réflexe : « si on décidait de le livrer maintenant, un utilisateur pourrait-il s'en servir, et la DoD est-elle remplie ? »"
       kind: "cours"
       refs: ["S1"]
-      verifie: "Le Guide exige un incrément utilisable et conforme à la DoD ; il n'exige pas qu'il soit livré (« may be delivered »). La formulation en deux questions est celle du cours."
+      verifie: "Le Guide exige un incrément utilisable et conforme à la DoD ; il n'exige pas qu'il soit livré (« may be delivered »). Le test mêle « utilisable » et « mis en service »."
     - affirmation: "Une équipe Scrum qui travaille en sprints : parti pris du cours."
       kind: "cours"
       refs: []
@@ -154,9 +154,18 @@ sources:
       url: "https://scrumguides.org/revisions.html"
       type: "primaire"
       consultee: "2026-10-22"
+    - id: "S3"
+      texte: "Schwaber, Sutherland, *Le Guide Scrum*, traduction française, novembre 2020"
+      url: "https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-French.pdf"
+      type: "primaire"
+      consultee: "2026-10-22"
   nonVerifie:
-    - "**Les termes français de la traduction officielle du Guide.** Le texte du PDF français n'a pas pu être extrait ; les termes de cette page suivent le glossaire du cours, sans vérification contre cette traduction."
+    - "**Les termes français de la traduction officielle du Guide [S3].** Le texte du PDF français n'a pas pu être extrait ; les termes de cette page suivent le glossaire du cours, sans vérification contre cette traduction."
     - "**La fréquence de la confusion « on livre un sprint ».** Observée dans l'expérience du cours, sans étude ni source externe : la page ne la donne pas comme un fait mesuré."
+alignement:
+  coursVersion: "1.0.0"
+  fiche: "07672ea527e3164a33a0f44eb0c54492d0af6799f67852949e91592381a26c52"
+  sources: "e37c4886ebee2cd73b09cef919581e69c123ddf2231fa8f701c0907ca1908fa0"
 ---
 import Schema00 from '../../../components/schemas/Schema00.astro';
 
@@ -199,7 +208,7 @@ Les artefacts représentent le travail ou la valeur. Chacun porte un engagement,
 - le **backlog de sprint** (l'objectif de sprint, les éléments choisis, le plan des Developers) a pour engagement l'**objectif de sprint**, l'objectif unique du sprint (<Renvoi n="15" />) ;
 - l'**incrément** a pour engagement la **Definition of Done**, la description de l'état qu'il doit atteindre (<Renvoi n="11" />).
 
-Les engagements n'ont pas la même durée de vie. L'objectif produit et la DoD valent sprint après sprint ; l'objectif de sprint ne vaut que pour un sprint. Une exigence du type « chaque indicateur publié a sa définition écrite » est de la DoD. Une échéance propre à un moment, elle, n'y a pas sa place : elle relève de l'objectif de sprint, si elle dit ce que le sprint vise, ou du plan des Developers, si elle organise le travail <Pastille kind="cours" />.
+Les engagements n'ont pas la même durée de vie. L'objectif produit et la DoD valent sprint après sprint ; l'objectif de sprint ne vaut que pour un sprint. Une exigence du type « chaque indicateur publié a sa définition écrite » est de la DoD. Une échéance propre à un sprint, elle, n'y a pas sa place : elle relève de l'objectif de sprint, si elle dit ce que le sprint vise, ou du plan des Developers, si elle organise le travail <Pastille kind="cours" />.
 
 <FilRouge>Objectif produit de la plateforme : que les stations du centre-ville restent le moins longtemps possible vides aux heures de pointe, grâce à des données à jour pour l'exploitation. Parmi ses exigences de DoD : chaque vue affiche l'heure de sa dernière mise à jour.</FilRouge>
 
@@ -228,8 +237,8 @@ On ne « livre » donc pas un sprint : on livre des incréments, au moment où i
 - **« Livrer un sprint »** : le sprint est une durée. On livre des incréments, un ou plusieurs, au moment où ils existent.
 - **Compter comme incrément un travail fini mais inutilisable**, ou qui ne remplit pas la DoD.
 - **Faire de la revue de sprint la porte de mise en production**, ou la réduire à une présentation : c'est une séance de travail qui inspecte et adapte le backlog.
-- **Prendre le Scrum Master pour le chef de l'équipe**, ou le Daily Scrum pour un compte rendu fait à quelqu'un : c'est le point des Developers sur leur avancement.
-- **Réduire le PO à celui qui rédige les éléments du backlog** : il répond de la valeur du produit et de l'ordre du backlog.
+- **Prendre le Scrum Master pour le chef de l'équipe**, ou le Daily Scrum pour un compte rendu au Scrum Master : c'est le point des Developers sur leur avancement.
+- **Réduire le PO à « celui qui écrit les tickets »** : il répond de la valeur du produit et de l'ordre du backlog.
 - **Mettre le sprint au même rang que ses quatre événements**, ou laisser une pause entre deux sprints.
 
 </Erreurs>

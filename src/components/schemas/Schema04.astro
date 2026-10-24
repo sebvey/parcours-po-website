@@ -1,6 +1,6 @@
 ---
-// Schéma 4 : l'arbre des niveaux, sur un exemple illustratif. Un epic à la racine, une feature et ses deux
-// stories, une story directement sous l'epic, deux tâches grisées sous une story. À droite, le compte de
+// Schéma 4 : l'arbre des niveaux, sur un exemple illustratif (cas de la fiche : prévenir les vols). Un epic à la
+// racine, deux features de deux stories chacune, une story directement sous l'epic, deux tâches grisées sous une story. À droite, le compte de
 // « je veux » qui désigne chaque niveau. En bandeau : le Scrum Guide ne connaît pas de niveaux.
 // Couleurs : variables CSS --sch-* (clair/sombre) définies dans global.css.
 const rows = [
@@ -10,14 +10,14 @@ const rows = [
   { c: 368, name: 'TÂCHE', l1: "aucun : l'utilisateur", l2: 'ne la voit pas', k: 'task' },
 ];
 ---
-<svg viewBox="0 0 600 500" role="img" aria-labelledby="g4-t g4-d" class="sch">
+<svg viewBox="0 0 760 500" role="img" aria-labelledby="g4-t g4-d" class="sch">
   <title id="g4-t">L'arbre des niveaux du backlog : epic, feature, story, tâche</title>
   <desc id="g4-d">
-    Un arbre qui descend, sur un exemple : informer les abonnés avant leur départ.
-    À la racine, un epic : informer les abonnés avant leur départ. Dessous, une feature : disponibilité d'une station,
-    avec deux stories en feuilles : voir s'il reste un vélo, et voir s'il reste une place libre.
-    Une troisième story, être prévenu quand ma station se vide, se rattache directement à l'epic, sans feature.
-    Sous la première story, deux tâches grisées en pointillés, lire les relevés et calculer par station,
+    Un arbre qui descend, sur un exemple inventé : prévenir les vols.
+    À la racine, un epic : prévenir les vols. Dessous, deux features, alerter les agents et retrouver les vélos,
+    chacune avec deux stories en feuilles : détecter un vol probable et alerter un agent, localiser un vélo volé et marquer un vélo retrouvé.
+    Une cinquième story, marquer un vélo volé, se rattache directement à l'epic, sans feature.
+    Sous la première story, deux tâches grisées en pointillés, lire les positions et écrire la règle,
     légendées : plan des Developers, backlog de sprint.
     À droite, en face de chaque niveau, le compte de « je veux » qui le désigne :
     epic, plusieurs groupes ou pas tous écrits ; feature, plusieurs, chacun utile seul ;
@@ -26,61 +26,73 @@ const rows = [
     les noms des niveaux sont un choix d'équipe.
   </desc>
 
-  <text x="456" y="20" class="head">« je veux » à livrer</text>
-  <path d="M446 30 V420" class="sep" />
+  <text x="600" y="20" class="head">« je veux » à livrer</text>
+  <path d="M590 30 V420" class="sep" />
 
   <!-- Liens -->
   <g class="link">
-    <path d="M225 90 V112 H149 V134" />
-    <path d="M225 112 H374 V232" />
-    <path d="M149 188 V210 H76 V232" />
-    <path d="M149 210 H222 V232" />
+    <path d="M290 90 V112 H114 V134" />
+    <path d="M290 112 H338 V134" />
+    <path d="M290 112 H506 V232" />
+    <path d="M114 188 V210 H58 V232" />
+    <path d="M114 210 H170 V232" />
+    <path d="M338 188 V210 H282 V232" />
+    <path d="M338 210 H394 V232" />
     <path d="M20 290 V389" class="task-link" />
     <path d="M20 347 H30" class="task-link" />
     <path d="M20 389 H30" class="task-link" />
   </g>
 
   <!-- Epic -->
-  <rect x="20" y="36" width="410" height="54" rx="6" class="node epic" />
-  <text x="225" y="68" text-anchor="middle" class="node-text">Informer les abonnés avant leur départ</text>
+  <rect x="20" y="36" width="540" height="54" rx="6" class="node epic" />
+  <text x="290" y="68" text-anchor="middle" class="node-text">Prévenir les vols</text>
 
-  <!-- Feature -->
-  <rect x="74" y="134" width="150" height="54" rx="6" class="node feat" />
-  <text x="149" y="158" text-anchor="middle" class="node-text">Disponibilité</text>
-  <text x="149" y="178" text-anchor="middle" class="node-text">d'une station</text>
+  <!-- Features -->
+  <rect x="39" y="134" width="150" height="54" rx="6" class="node feat" />
+  <text x="114" y="158" text-anchor="middle" class="node-text">Alerter</text>
+  <text x="114" y="178" text-anchor="middle" class="node-text">les agents</text>
+  <rect x="263" y="134" width="150" height="54" rx="6" class="node feat" />
+  <text x="338" y="158" text-anchor="middle" class="node-text">Retrouver</text>
+  <text x="338" y="178" text-anchor="middle" class="node-text">les vélos</text>
 
   <!-- Stories -->
-  <rect x="6" y="232" width="140" height="58" rx="6" class="node story" />
-  <text x="76" y="257" text-anchor="middle" class="node-text">Voir s'il reste</text>
-  <text x="76" y="277" text-anchor="middle" class="node-text">un vélo</text>
-  <rect x="152" y="232" width="140" height="58" rx="6" class="node story" />
-  <text x="222" y="257" text-anchor="middle" class="node-text">Voir s'il reste</text>
-  <text x="222" y="277" text-anchor="middle" class="node-text">une place libre</text>
-  <rect x="304" y="232" width="140" height="58" rx="6" class="node story" />
-  <text x="374" y="257" text-anchor="middle" class="node-text">Être alerté des</text>
-  <text x="374" y="277" text-anchor="middle" class="node-text">stations vides</text>
+  <rect x="6" y="232" width="104" height="58" rx="6" class="node story" />
+  <text x="58" y="257" text-anchor="middle" class="story-text">Détecter un</text>
+  <text x="58" y="277" text-anchor="middle" class="story-text">vol probable</text>
+  <rect x="118" y="232" width="104" height="58" rx="6" class="node story" />
+  <text x="170" y="257" text-anchor="middle" class="story-text">Alerter</text>
+  <text x="170" y="277" text-anchor="middle" class="story-text">un agent</text>
+  <rect x="230" y="232" width="104" height="58" rx="6" class="node story" />
+  <text x="282" y="257" text-anchor="middle" class="story-text">Localiser un</text>
+  <text x="282" y="277" text-anchor="middle" class="story-text">vélo volé</text>
+  <rect x="342" y="232" width="104" height="58" rx="6" class="node story" />
+  <text x="394" y="257" text-anchor="middle" class="story-text">Marquer un</text>
+  <text x="394" y="277" text-anchor="middle" class="story-text">vélo retrouvé</text>
+  <rect x="454" y="232" width="104" height="58" rx="6" class="node story" />
+  <text x="506" y="257" text-anchor="middle" class="story-text">Marquer un</text>
+  <text x="506" y="277" text-anchor="middle" class="story-text">vélo volé</text>
 
   <!-- Tâches -->
   <rect x="30" y="330" width="150" height="34" rx="5" class="node task" />
-  <text x="105" y="353" text-anchor="middle" class="task-text">Lire les relevés</text>
+  <text x="105" y="353" text-anchor="middle" class="task-text">Lire les positions</text>
   <rect x="30" y="372" width="150" height="34" rx="5" class="node task" />
-  <text x="105" y="395" text-anchor="middle" class="task-text">Calculer par station</text>
+  <text x="105" y="395" text-anchor="middle" class="task-text">Écrire la règle</text>
   <text x="194" y="361" class="note">plan des Developers,</text>
   <text x="194" y="381" class="note">backlog de sprint</text>
 
   <!-- Compte de « je veux » par niveau -->
   {rows.map((r) => (
     <>
-      <text x="456" y={r.c - 12} class={`lvl ${r.k}`}>{r.name}</text>
-      <text x="456" y={r.c + 7} class="count">{r.l1}</text>
-      <text x="456" y={r.c + 26} class="count">{r.l2}</text>
+      <text x="600" y={r.c - 12} class={`lvl ${r.k}`}>{r.name}</text>
+      <text x="600" y={r.c + 7} class="count">{r.l1}</text>
+      <text x="600" y={r.c + 26} class="count">{r.l2}</text>
     </>
   ))}
 
   <!-- Bandeau -->
-  <rect x="6" y="436" width="588" height="58" rx="6" class="banner" />
-  <text x="300" y="462" text-anchor="middle" class="banner-text"><tspan class="strong">Scrum Guide</tspan> : des éléments du backlog, sans niveau.</text>
-  <text x="300" y="484" text-anchor="middle" class="banner-text">Les noms des niveaux sont un choix d'équipe.</text>
+  <rect x="6" y="436" width="748" height="58" rx="6" class="banner" />
+  <text x="380" y="462" text-anchor="middle" class="banner-text"><tspan class="strong">Scrum Guide</tspan> : des éléments du backlog, sans niveau.</text>
+  <text x="380" y="484" text-anchor="middle" class="banner-text">Les noms des niveaux sont un choix d'équipe.</text>
 </svg>
 
 <style>
@@ -95,6 +107,7 @@ const rows = [
   .node.story { stroke: var(--sch-s3); }
   .node.task { fill: none; stroke: var(--sch-grey-line); stroke-width: 2.2; stroke-dasharray: 6 4; }
   .node-text { font-size: 17px; font-weight: 600; fill: var(--sch-text); }
+  .story-text { font-size: 15px; font-weight: 600; fill: var(--sch-text); }
   .task-text { font-size: 16px; fill: var(--sch-text-soft); }
   .note { font-size: 16px; font-style: italic; fill: var(--sch-text-soft); }
   .lvl { font-size: 16px; font-weight: 800; letter-spacing: 0.04em; }

@@ -34,6 +34,44 @@ src/pages/                            accueil, parcours, lectures, fil rouge, gl
 Ajouter un concept : copier `09-decoupage-vertical.mdx` sous `src/content/concepts/fr/`. Le parcours
 le rend cliquable dès que le fichier existe. Les renvois internes s'écrivent `<Renvoi n="8" />`.
 
+## Le site et le cours
+
+Le site est la projection du cours (`course/` du dépôt `parcours-po`). Il n'invente pas de fond.
+
+- **Le fond suit le cours** : même texte, mêmes exemples, mêmes attributions et mêmes sources que
+  les fiches `course/concepts/` et `course/sources/`. La banque d'exemples n'est pas reprise.
+- **La forme est au site** : schémas, composants, mise en page, onglets, parcours de lecture et
+  pages d'orientation. Un schéma ou une mise en page ne contredit pas la fiche.
+- **Tout contenu d'enseignement nouveau passe d'abord par le cours**, puis par le site. Une page
+  qui dit autre chose que sa fiche a tort, sauf si la fiche est corrigée en même temps.
+
+Chaque page de concept porte, dans son frontmatter (`alignement`), la version du cours et les
+empreintes sha256 de la fiche `course/concepts` et de la fiche `course/sources` dont elle dérive.
+
+```sh
+npm run check-alignment                          # liste les pages dont une fiche a changé
+npm run check-alignment -- --course <dossier>    # autre chemin du cours (défaut : ../parcours-po/course, ou COURS_DIR)
+npm run check-alignment -- --stamp 09            # inscrit les empreintes, après avoir réaligné la page
+```
+
+Réaligner : lire la fiche, reporter le fond sur la page (corps MDX et frontmatter), puis inscrire
+les empreintes. Le script signale aussi une fiche du cours sans page.
+
+## Versions
+
+Le site est versionné `MAJOR.MINOR.PATCH` (`package.json`, journal dans `CHANGELOG.md`) et affiche,
+dans le pied de page et dans À propos, sa version et celle du cours sur laquelle il est aligné
+(`parcoursPo.coursVersion` dans `package.json`).
+
+- **MAJOR** : égal au MAJOR du cours. Il change quand le cours casse un identifiant (numéro de
+  concept, sous-concept, adresse) ou un objectif.
+- **MINOR** : libre de chaque côté. Côté site : une page, un schéma ou une fonction nouvelle, ou
+  un réalignement de fond sur une nouvelle version du cours.
+- **PATCH** : une correction qui ne change ni le fond ni la structure (faute, style, lien).
+
+Passer sur une nouvelle version du cours : mettre `parcoursPo.coursVersion` à jour, réaligner les
+pages que `check-alignment` signale, inscrire les empreintes, noter le changement dans `CHANGELOG.md`.
+
 ## Déploiement
 
 `.github/workflows/deploy.yml` construit et publie sur GitHub Pages (lancement manuel seulement).

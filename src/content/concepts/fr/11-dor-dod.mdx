@@ -88,7 +88,7 @@ sources:
       kind: "cours"
       refs: []
       verifie: "Glossaire du cours : règle métier « vérité du domaine, valable hors de la story » ; DoD « exigences de qualité ». Distinction formulée par le cours, sans source externe."
-    - affirmation: "Une exigence de la DoD peut viser une sorte de travail (toute story qui publie des données) et rester la même pour toutes."
+    - affirmation: "Une exigence de la DoD peut viser une sorte de travail (toute story qui publie des relevés) et rester la même pour toutes."
       kind: "cours"
       refs: ["S3", "S7"]
       verifie: "Cohn : la DoD s'applique à tout élément du produit ; l'exemple d'Ambler contient des exigences propres aux données. La formulation « viser une sorte de travail » est celle du cours."
@@ -169,12 +169,16 @@ sources:
     - "**Sur un projet data, l'accès aux données figure souvent dans la DoR.** Aucune source sur la fréquence ; seul Cohn [S6] donne une dépendance externe comme exemple de condition. La page ne le dit pas."
     - "**« Mini cahier des charges ».** Image du cours ; Cohn parle de « stage-gate » et de cascade."
     - "**Livres non lus.** Sutherland, *Scrum: The Art of Doing Twice the Work in Half the Time* (2014), chapitre « Be Ready to be Done », cité par [S5] : rien de la page ne s'y appuie."
+alignement:
+  coursVersion: "1.0.0"
+  fiche: "e39e0363fcae2f1704738542e5e402df8846104f9e9c4fb0b7f1fcd12c959532"
+  sources: "7b8ab8b9a8ac82d8b9520ba6e324ab91924f6704fdc642788e50be7b8934fe2a"
 ---
 import Schema11 from '../../../components/schemas/Schema11.astro';
 
 La **DoD** (Definition of Done) est l'engagement de l'incrément : les exigences de qualité que tout élément remplit pour en faire partie. Il n'y a **qu'une DoD, pour toute story**. Le critère d'acceptation dit ce que fait une story donnée (<Renvoi n="8" />) ; la DoD, comment toutes sont faites. La **DoR** (Definition of Ready) liste les conditions qu'une story remplit avant d'entrer dans un sprint : la DoD dit quand elle est terminée, la DoR quand elle peut commencer. La DoD est dans le Scrum Guide, la DoR non.
 
-<Figure legende="Le sprint comme une pièce à deux portes. À l'entrée, la DoR (choix d'école) : une story bloquée y reste au backlog. À la sortie, la DoD : une seule, la même pour toutes les cartes ; une carte qui ne la remplit pas retourne au backlog. Chaque carte garde ses propres critères d'acceptation.">
+<Figure legende="Le sprint comme une pièce à deux portes. À l'entrée, la DoR (choix d'école) : une story bloquée (« critères à écrire », cas inventé) y reste au backlog. À la sortie, la DoD : une seule, la même pour toutes les cartes ; une carte qui ne la remplit pas retourne au backlog. Chaque carte garde ses propres critères d'acceptation.">
   <Schema11 />
 </Figure>
 
@@ -184,7 +188,7 @@ La **DoD** (Definition of Done) est l'engagement de l'incrément : les exigences
 
 La DoD dit quand un élément entre dans l'incrément (<Renvoi n="0a3" />) <Pastille kind="consensus" />. Un élément qui la remplit en fait partie. Sinon, il n'est ni livré ni présenté à la revue de sprint : il retourne au backlog (<Renvoi n="0b" />). Les équipes d'un même produit partagent la même DoD : si l'organisation a un standard, l'équipe le suit au minimum, sinon elle écrit la sienne. Les Developers la respectent, et la rétrospective l'inspecte : c'est là qu'on peut la faire évoluer, pour toutes les stories à venir, et non d'un sprint à l'autre selon le contenu.
 
-Le Scrum Guide ne fixe pas le contenu de la DoD : il est propre au produit <Pastille kind="ecole" />. En data, Scott Ambler cite, pour une équipe d'entrepôt de données, la détection des erreurs de données et une documentation à jour. Une DoD qu'on lèverait pour une story pressée ne serait plus commune : la story qui ne la remplit pas n'est pas terminée.
+Le Scrum Guide ne fixe pas le contenu de la DoD : il est propre au produit ou à l’organisation <Pastille kind="ecole" />. En data, Scott Ambler cite, pour une équipe d'entrepôt de données, la détection des erreurs de données et une documentation à jour. Une DoD qu'on lèverait pour une story pressée ne serait plus commune : la story qui ne la remplit pas n'est pas terminée.
 
 <h4 id="11a2"><span class="num">11a2</span> DoD, critère ou règle métier</h4>
 
@@ -198,7 +202,7 @@ Un test du cours <Pastille kind="cours" /> aide à ranger une exigence : « vaut
 
 <h4 id="11b1"><span class="num">11b1</span> Ce que dit le Guide, et ce que la DoR ajoute</h4>
 
-Le Scrum Guide ne parle pas de DoR. Il dit seulement qu'un élément que l'équipe peut finir en un sprint est **prêt à être choisi** au Sprint Planning, et qu'il le devient en général après avoir été précisé (<Renvoi n="15" />). La DoR est une liste écrite par l'équipe pour cela <Pastille kind="ecole" /> : une pratique née chez des praticiens vers 2008-2009, dont le premier auteur est discuté. Mike Cohn en cite des conditions typiques : critères d'acceptation identifiés, taille qui tient dans un sprint, dépendances externes levées.
+Le Scrum Guide ne parle pas de DoR. Il dit seulement qu'un élément que l'équipe peut finir en un sprint est **prêt à être choisi** au Sprint Planning, et qu'il le devient en général après avoir été précisé, et l’équipe peut encore le préciser pendant le Sprint Planning (<Renvoi n="15" />). La DoR est une liste écrite par l'équipe pour cela <Pastille kind="ecole" /> : une pratique née chez des praticiens vers 2008-2009, dont le premier auteur est discuté. Mike Cohn en cite des conditions typiques : critères d'acceptation identifiés, taille qui tient dans un sprint, dépendances externes levées.
 
 <FilRouge>La DoR de l'équipe vélos exige des critères d'acceptation écrits, des règles métier fixées, des dépendances identifiées et un accès aux données obtenu.</FilRouge>
 
@@ -206,7 +210,7 @@ La DoR suppose des sprints : sans sprint, voir <Renvoi n="A2" />.
 
 <h4 id="11b2"><span class="num">11b2</span> Prête ou pas, et le risque de la barrière</h4>
 
-Au Sprint Planning, le PO propose et les Developers choisissent. Une story dont une condition d'entrée manque n'est pas prête : on ne la prend pas sur la simple confiance qu'elle le deviendra en cours de sprint. Le PO propose à la place une story prête, et il fait avancer ce qui bloque, par exemple une dépendance envers une autre équipe (<Renvoi n="10b" />). Si cela bloque sprint après sprint, c'est une escalade (<Renvoi n="14" />).
+Au Sprint Planning, le PO propose et les Developers choisissent (<Renvoi n="15b" />). Une story dont une condition d'entrée manque n'est pas prête : on ne la prend pas sur la simple confiance qu'elle le deviendra en cours de sprint. Le PO propose à la place une story prête, et il fait avancer ce qui bloque, par exemple une dépendance envers une autre équipe (<Renvoi n="10b" />). Si cela bloque sprint après sprint, c'est une escalade (<Renvoi n="14" />).
 
 Mais une DoR trop stricte devient une barrière à franchir avant chaque sprint : pour Cohn, un retour au cycle en cascade, d'où son conseil de préférer des repères à des règles. Il admet une exception : certaines dépendances envers une autre équipe ou un fournisseur. Le cours <Pastille kind="cours" /> parle d'un « mini cahier des charges » quand tout doit être spécifié avant le sprint, alors que la conversation continue pendant. La DoR se décide en équipe (Cohn parle de critères établis par l'équipe) : le PO la propose, il ne la fixe pas seul, lecture du cours.
 
@@ -227,7 +231,7 @@ Mais une DoR trop stricte devient une barrière à franchir avant chaque sprint 
 - **Lever la DoD pour une story pressée** : la story n'est pas terminée et retourne au backlog.
 - **Présenter la DoR comme du Scrum** : le Guide parle d'éléments prêts à être choisis, pas de DoR.
 - **Prendre une story sur la confiance qu'une condition sera remplie en cours de sprint** : une dépendance externe non levée la laisse au backlog.
-- **Faire de la DoR un mini cahier des charges** : les stories attendent d'être entièrement spécifiées.
-- **Fixer en douce une règle non fixée pour rendre une story prête** : le PO la fait fixer (<Renvoi n="8a2" />).
+- **Faire de la DoR un mini cahier des charges** : les stories attendent d’être entièrement spécifiées, et la conversation s’arrête avant le sprint.
+- **Fixer en douce une règle non fixée pour rendre une story prête** (par exemple un seuil ou une durée maximale) : le PO la fait fixer (<Renvoi n="8a2" />).
 
 </Erreurs>

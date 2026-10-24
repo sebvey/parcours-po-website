@@ -60,7 +60,7 @@ sources:
       verifie: "*Kanban Guide* : les membres du système « should start work on an item (pull or select) only when there is a clear signal that there is capacity to do so. When WIP drops below the control set in the DoW, that can be a signal to select new work. » *Guide for Scrum Teams* : l'équipe commence un élément « only when it is clear that it has the capacity to do so »."
     - affirmation: "Le travail en cours est le nombre d'éléments commencés et pas finis ; l'équipe le contrôle explicitement."
       refs: ["S1", "S2"]
-      verifie: "« WIP: The number of work items started but not finished » ; « Kanban system members must explicitly control the number of work items in a workflow from started to finished ». Le mot « limite » vient du *Guide for Scrum Teams* (« must explicitly limit »). Le *Kanban Guide* 2025 dit « contrôler » ; ses adaptations de 2025 parlent d'un contrôle « less explicit (and hence more flexible) »."
+      verifie: "« WIP: The number of work items started but not finished » ; « Kanban system members must explicitly control the number of work items in a workflow from started to finished ». Le mot « limite » vient du *Guide for Scrum Teams* (« must explicitly limit ») ; dire « limite » pour le *Kanban Guide* est un raccourci que le cours assume. Le *Kanban Guide* 2025 dit « contrôler » ; ses adaptations de 2025 parlent d'un contrôle « less explicit (and hence more flexible) »."
     - affirmation: "La Definition of Workflow fixe au minimum : ce qu'est un élément, quand il commence et finit, ses états, le contrôle du travail en cours, des règles de passage explicites, une attente de niveau de service."
       refs: ["S1"]
       verifie: "« At a minimum, Kanban system members must create their DoW using all of the following elements » : unités de valeur, définition du début et de la fin, un ou plusieurs états, contrôle du travail en cours, règles explicites de passage, attente de niveau de service."
@@ -114,7 +114,7 @@ sources:
       refs: ["S1"]
       verifie: "Définitions du temps de cycle et de la SLE vérifiées ci-dessus. Que la prévision vienne des Developers est le renvoi au concept 16c (le *Kanban Guide* parle des « Kanban system members »)."
     - affirmation: "Le débit aide le PO à parler des dates de livraison probables, dans Kanban dans Scrum."
-      refs: ["S2"]
+      refs: ["S2", "S3"]
       verifie: "« Reviewing Throughput can provide additional information when the Product Owner discusses likely delivery dates » : c'est le *Guide for Scrum Teams*, dans des sprints. Ne pas l'attribuer au *Kanban Guide*. Le Scrum Guide cite aussi « cumulative flows » parmi les pratiques de prévision, sans les imposer."
       kind: "ecole"
     - affirmation: "La page n'affirme pas que les équipes data travaillent surtout en flux."
@@ -179,6 +179,10 @@ sources:
     - "**Prévision du nombre d'éléments livrés à une date par le débit** (simulation de Monte Carlo ou autre) : absente des deux guides Kanban ; la page ne l'affirme pas."
     - "**Part des équipes data qui travaillent en flux** : aucune enquête trouvée (ce qui ne prouve pas qu'il n'en existe pas). La page ne l'affirme pas."
     - "**Dates des pages de Kanban University** : non datées ; l'ajout de la « Risk Review » en 2014 est dit par Anderson, sans autre source."
+alignement:
+  coursVersion: "1.0.0"
+  fiche: "72220ffa34219f78e5d6465898e8726857a382808f4b8109a7a62df16281805b"
+  sources: "5418ff737353c85eec28f7cc1adc1712435c433f0545b418d666a93404b6688f"
 ---
 import SchemaA2 from '../../../components/schemas/SchemaA2.astro';
 
@@ -202,7 +206,7 @@ Pour une équipe qui avait une DoR, c'est là qu'elle sert : la DoR devient la r
 
 Sans sprint, plus d'objectif de sprint : aucun pourquoi commun ne relie un lot d'éléments choisi pour deux semaines. La direction ne disparaît pas pour autant <Pastille kind="cours" />. Elle vient de l'objectif produit et de l'ordre du backlog, que le PO tient. Quand une place se libère, elle va à l'élément prêt le plus haut.
 
-C'est donc le PO qui ordonne, et qui veut changer l'ordre le convainc (<Renvoi n="1b" />) : la dernière relance ne décide pas de l'élément tiré. Une équipe peut aussi se donner un moment régulier pour le revoir : c'est le réapprovisionnement de la méthode Kanban <Pastille kind="ecole" />, dont ni la fréquence ni les participants ne sont fixés ici.
+C'est donc le PO qui ordonne, et qui veut changer l'ordre le convainc (<Renvoi n="1b" />) : la pression des demandeurs ne décide pas de l'élément tiré. Le PO tient le haut du backlog à jour à mesure que les places se libèrent. Une équipe peut aussi se donner un moment régulier pour le revoir : c'est le réapprovisionnement de la méthode Kanban <Pastille kind="ecole" />, dont ni la fréquence ni les participants ne sont fixés ici.
 
 </Sous>
 
@@ -216,7 +220,7 @@ Ce qui reste nécessaire : inspecter ce qui est livré avec les parties prenante
 
 <Sous id="A2d" titre="Prévoir en flux" promesse="Sans prévision par sprint, le temps de cycle donne une durée et une probabilité, pas une promesse.">
 
-Parmi les quatre mesures que le *Kanban Guide* fait suivre (travail en cours, débit, âge d'un élément, temps de cycle), le temps de cycle va du début d'un élément à sa fin. Sur son historique, l'équipe en tire une prévision en deux parties, une durée et une probabilité : c'est son attente de niveau de service. Le guide donne cet exemple : « 85 % des éléments sont finis en huit jours ou moins ».
+Parmi les quatre mesures que le *Kanban Guide* fait suivre (travail en cours, débit, âge d'un élément, temps de cycle), le temps de cycle va du début d'un élément à sa fin. Sur son historique, l'équipe en tire une prévision en deux parties, une durée et une probabilité : c'est son attente de niveau de service. Le débit est l'une des mesures suivies, pas la base de cette prévision. Le guide donne cet exemple : « 85 % des éléments sont finis en huit jours ou moins ».
 
 Deux précisions. La durée se compte à partir du début d'un élément, pas de la demande ni d'aujourd'hui : un élément qui n'a pas commencé n'a pas encore de temps de cycle. Et la probabilité dit qu'une part des éléments prend plus longtemps : ce n'est pas une promesse. La prévision vient des Developers et de leurs mesures, pas d'une date que le PO invente <Pastille kind="cours" /> ; elle se revoit à mesure qu'on avance (<Renvoi n="16c" />).
 
@@ -232,7 +236,7 @@ Pour chaque pièce du sprint, qu'est-ce qui la remplace, et qui la tient ?
 - **Présenter la méthode Kanban ou le *Kanban Guide* comme le consensus** : deux écoles, aucun texte ne fait consensus pour travailler sans sprint.
 - **Croire que sans sprint tout s'en va** : le backlog ordonné par le PO, la DoD, l'incrément et l'objectif produit restent.
 - **Commencer un élément qui n'est pas prêt « pour qu'il soit en route »** : il prend une place sous la limite sans avancer.
-- **Laisser la dernière relance décider de l'élément tiré** : c'est l'ordre du backlog.
+- **Laisser la pression des demandeurs décider de l'élément tiré** : c'est l'ordre du backlog, que le PO tient à jour à mesure que les places se libèrent.
 - **Supprimer l'inspection avec les parties prenantes** parce qu'il n'y a plus de revue de sprint, ou la confondre avec la revue de la livraison du service.
 - **Prendre l'attente de niveau de service pour une promesse**, ou la compter depuis aujourd'hui : c'est une durée avec une probabilité, à partir du début d'un élément.
 

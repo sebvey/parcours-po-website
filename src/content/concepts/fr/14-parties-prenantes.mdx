@@ -82,7 +82,7 @@ sources:
     - affirmation: "La grille pouvoir et intérêt : attribution discordante."
       kind: "ecole"
       refs: ["S7", "S8", "S9", "S10"]
-      verifie: "Mendelow (ICIS 1981, résumé) relie l'effort de veille au dynamisme de l'environnement et au pouvoir de la partie prenante : ses axes sont le pouvoir et le dynamisme, pas l'intérêt. Trois sources secondaires concordantes situent l'axe « intérêt » chez Johnson et Scholes ; elles discordent sur l'édition (2e ou 3e, 1993 ; une figure cite 1999) et sur l'origine des noms des quadrants. La page ne date pas la grille et n'attribue pas les quadrants."
+      verifie: "Mendelow (ICIS 1981, résumé) relie l'effort de veille au dynamisme de l'environnement et au pouvoir de la partie prenante : ses axes sont le pouvoir et le dynamisme, pas l'intérêt. Trois sources secondaires concordantes situent l’axe « intérêt » chez Johnson et Scholes, qui ont aussi daté l’article de Mendelow de 1991 au lieu de 1981 (l’erreur s’est propagée) ; elles discordent sur l'édition (2e ou 3e, 1993 ; une figure cite 1999) et sur l'origine des noms des quadrants. La page ne date pas la grille et n'attribue pas les quadrants."
     - affirmation: "Dire non fait partie du rôle ; écouter d'abord, ramener à l'objectif produit, ne pas trancher dans la précipitation, chercher un terrain commun sans couper la poire en deux."
       kind: "ecole"
       refs: ["S4"]
@@ -110,7 +110,7 @@ sources:
     - affirmation: "Le sponsor sert de voie d'escalade pour ce qui dépasse le responsable."
       kind: "ecole"
       refs: ["S11"]
-      verifie: "Article de la bibliothèque PMI citant le *PMBOK Guide* (4e éd., 2008, p. 25) : « For issues that are beyond the control of the project manager, the sponsor serves as an escalation path. » Le sponsor y est aussi « the person or group that provides the financial resources ». Cadre de gestion de projet, pas Scrum. PMBOK lui-même non lu."
+      verifie: "Article de la bibliothèque PMI citant le *PMBOK Guide* (4e éd., 2008, p. 25) : « For issues that are beyond the control of the project manager, the sponsor serves as an escalation path. » Le sponsor y est aussi « the person or group that provides the financial resources ». Cadre de gestion de projet, pas Scrum : la transposition au PO et au produit est celle du cours (le glossaire définit le sponsor comme le « responsable qui porte le budget du produit et porte plus haut les obstacles qui dépassent le PO, sans ordonner le backlog »). PMBOK lui-même non lu."
     - affirmation: "D'abord la personne concernée, puis le Scrum Master, puis le sponsor ; et quand passer à la marche suivante."
       kind: "cours"
       refs: ["S1", "S11"]
@@ -127,9 +127,9 @@ sources:
       kind: "cours"
       refs: []
       verifie: "Choix du cours, sans source."
-    - affirmation: "Les situations du fil rouge (la DSI, les relevés des stations) sont inventées."
+    - affirmation: "Les faits du fil rouge vélos (acteurs, comité de direction, sources de données, accès bloqué depuis trois sprints) sont inventés."
       refs: []
-      verifie: "Sans source : le cas de l'opérateur de vélos en libre-service est fictif."
+      verifie: "Sans source : le cas de l’opérateur de vélos en libre-service est fictif, de même que la source météo envisagée en 14a."
   references:
     - id: "S1"
       texte: "Schwaber, Sutherland, *The Scrum Guide*, novembre 2020"
@@ -185,6 +185,12 @@ sources:
     - "**La définition de Freeman.** Citée par une source secondaire dont Freeman est coauteur ; le livre de 1984 n'a pas été lu."
     - "**Le PMBOK.** La phrase sur le sponsor est lue dans un article de la bibliothèque PMI qui le cite (4e éd., 2008) ; les éditions récentes n'ont pas été consultées."
     - "**Une équipe sans Scrum Master.** Choix du cours, sans source."
+    - "**Les pièges « escalader d’emblée » et « attendre sans rien dire ».** Pratique du cours, sans source ; le second se rattache au pilier de transparence du Scrum Guide."
+    - "**Le PSPO (domaine « Stakeholders & Customers »).** Repris d’un cadrage antérieur, non relu ici."
+alignement:
+  coursVersion: "1.0.0"
+  fiche: "7b3d160647b7887fed560f63b39be0eb35aebe44a22b5cc9514883719b10c367"
+  sources: "020c723a9fa126e4daac2bd52a70822f0b673324690617ac65ec343a2fee3124"
 ---
 import Schema14 from '../../../components/schemas/Schema14.astro';
 
@@ -249,7 +255,7 @@ L'escalade porte sur l'obstacle, jamais sur l'ordre. Un **désaccord sur l'ordre
 </Sous>
 
 <Reflexe note="Formulation du cours : le Scrum Guide ne donne ni test, ni ordre d'escalade.">
-« Quelque chose bloque-t-il l'équipe, qu'elle ne lève pas seule ? » Si oui, c'est un obstacle : la personne concernée d'abord, puis le Scrum Master, avant le sponsor. Si non, c'est un désaccord sur l'ordre : je le tranche, et ma réponse dit « pas maintenant », pourquoi, et où est la demande.
+« Quelque chose bloque-t-il l'équipe, qu'elle ne lève pas seule ? » Si oui, c’est un obstacle, y compris une dépendance bloquée dans le backlog d’un autre PO : la personne concernée d’abord, puis le Scrum Master, avant le sponsor. Si non, c'est un désaccord sur l'ordre : je le tranche, et ma réponse dit « pas maintenant », pourquoi, et où est la demande.
 </Reflexe>
 
 <Erreurs>
@@ -257,10 +263,10 @@ L'escalade porte sur l'obstacle, jamais sur l'ordre. Un **désaccord sur l'ordre
 - **Oublier les fournisseurs de données** : ils ne demandent rien, mais peuvent bloquer ou dégrader le produit.
 - **Confondre équipe Scrum et parties prenantes** : l'équipe fait le travail ; les parties prenantes le reçoivent ou le rendent possible.
 - **Dire oui à tout**, ou couper le sprint en deux pour contenter chacun : personne n'est servi.
-- **Dire non sans la suite**, ou s'abriter derrière son autorité : « non » sans pourquoi ni place de la demande ressemble à un rejet.
+- **Dire non sans la suite**, ou s'abriter derrière son autorité : « non » sans pourquoi ni place de la demande ressemble à un rejet. Le PO tranche seul, mais il doit le pourquoi.
 - **Laisser le sponsor ordonner le backlog** parce qu'il porte le budget : il convainc comme les autres.
-- **Escalader d'emblée**, par-dessus la personne concernée : on ne sait même pas ce qui bloque. Ou **attendre sans rien dire** : un obstacle qui dure sans démarche nouvelle reste invisible.
-- **Escalader un désaccord sur l'ordre de son propre backlog** : le PO le tranche.
-- **Trancher un fait d'une partie prenante** (une date, les colonnes de données autorisées) : cela se demande à qui le détient.
+- **Escalader d'emblée**, par-dessus la personne concernée : on ne sait même pas ce qui bloque. Ou **attendre sans rien dire** : un obstacle qui dure sprint après sprint sans démarche nouvelle reste invisible.
+- **Escalader un désaccord sur l’ordre de son propre backlog** : ce n’est pas un obstacle, le PO le tranche. Une dépendance bloquée dans le backlog d’une autre équipe, elle, s’escalade, sans retirer son ordre à l’autre PO.
+- **Trancher un fait d'une partie prenante** (la date d’une échéance, une règle, une autorisation d’accès) : cela se demande à qui le détient.
 
 </Erreurs>

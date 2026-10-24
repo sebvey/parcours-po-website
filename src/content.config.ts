@@ -28,6 +28,13 @@ const concepts = defineCollection({
     prerequis: z.array(z.string()).default([]),
     /** Une phrase pour les moteurs de recherche et les aperçus. */
     description: z.string(),
+    /** Fiches du cours dont la page dérive : version du cours et empreintes sha256.
+     *  Écrit par `npm run check-alignment -- --stamp`, lu par `npm run check-alignment`. */
+    alignement: z.object({
+      coursVersion: z.string(),
+      fiche: z.string().length(64),
+      sources: z.string().length(64),
+    }),
     ecoles: z.object({
       consensus: z.array(item),
       ecole: z.array(item),

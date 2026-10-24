@@ -48,15 +48,15 @@ sources:
     - affirmation: "Le PO répond de l'ordre du backlog ; le Scrum Guide ne dit pas comment ordonner."
       kind: "consensus"
       refs: ["S1"]
-      verifie: "« Ordering Product Backlog items » figure parmi les points de la gestion du backlog dont le PO répond. Le texte a été cherché (« order », « risk », « dependenc », « size ») : aucune phrase ne donne de critère pour ordonner."
+      verifie: "« Ordering Product Backlog items » figure parmi les points de la gestion du backlog dont le PO répond. Le texte a été cherché (« order », « risk », « dependenc », « size ») : aucune phrase ne donne de critère pour ordonner. Seules mentions : l’ordre est un attribut que le travail de préparation ajoute (« a description, order, and size »), et au Sprint Planning le PO prépare « the most important Product Backlog items and how they map to the Product Goal »."
     - affirmation: "Les versions antérieures du Scrum Guide nommaient des critères, retirés depuis."
       kind: "consensus"
-      refs: ["S2", "S3", "S4"]
-      verifie: "Guide d'octobre 2011 : « The Product Backlog is often ordered by value, risk, priority, and necessity » (« often » : une pratique courante, pas une règle). Un extrait de recherche d'une copie tierce du Guide de 2010 va dans le même sens. Les Guides de 2013, 2016 et 2017 n'ont plus la phrase ; celui de 2020 non plus."
-    - affirmation: "Qui veut changer l'ordre convainc le PO ; l'organisation respecte ses décisions ; pas de vote."
+      refs: ["S2", "S3", "S4", "S5"]
+      verifie: "Guide d'octobre 2011 : « The Product Backlog is often ordered by value, risk, priority, and necessity » (« often » : une pratique courante, pas une règle). Un extrait de recherche d’une copie tierce du Guide de 2010 va dans le même sens : « Priority is driven by risk, value, and necessity. » Les Guides de 2013, 2016 et 2017 n’ont plus la phrase ; il reste les attributs « description, order, estimate and value ». Celui de 2020 ne donne aucun critère. Le passage de « prioritized » à « ordered » date de 2011."
+    - affirmation: "Qui veut changer l'ordre convainc le PO ; l’organisation respecte ses décisions ; pas de vote."
       kind: "consensus"
       refs: ["S1"]
-      verifie: "« Those wanting to change the Product Backlog can do so by trying to convince the Product Owner » ; « the entire organization must respect their decisions ». Que l'ordre d'arrivée ou la voix la plus forte ne soient pas des critères est un choix du cours, tiré de ces phrases."
+      verifie: "« Those wanting to change the Product Backlog can do so by trying to convince the Product Owner » ; « the entire organization must respect their decisions », décisions visibles dans le contenu et l’ordre du backlog. Que l'ordre d'arrivée ou la voix la plus forte ne soient pas des critères est un choix du cours, tiré de ces phrases."
     - affirmation: "Le PO peut porter dans le backlog les besoins de plusieurs parties prenantes."
       kind: "consensus"
       refs: ["S1"]
@@ -67,8 +67,8 @@ sources:
       verifie: "Scrum Guide 2020 : « The Developers who will be doing the work are responsible for the sizing » ; le PO peut les influencer en les aidant à comprendre et choisir des compromis. Les Guides de 2011 à 2017 disaient « estimates ». Rubin : le PO se sert des estimations pour décider de la place d'un élément."
     - affirmation: "Valeur, coût, risque, dépendances : une pratique établie, pas un texte du Scrum Guide."
       kind: "consensus"
-      refs: ["S6", "S19", "S2", "S8"]
-      verifie: "Cohn (site de Mountain Goat) donne cinq facteurs : valeur, coût, apprentissage, risque, dépendances. Pichler pèse valeur, risque et incertitude, « releasability » et dépendances, et note que les dépendances influencent les estimations d'effort ; il ne traite pas le coût en tant que tel. Le Guide de 2011 nommait déjà valeur et risque. Rubin relie l'estimation à la place de l'élément mais ne donne pas de liste de critères. La liste à quatre est le choix du cours."
+      refs: ["S6", "S19", "S7", "S2", "S8"]
+      verifie: "Cohn (site de Mountain Goat) donne cinq facteurs : valeur, coût, apprentissage, risque, dépendances. Pichler pèse valeur, risque et incertitude, « releasability » et dépendances, et note que les dépendances influencent les estimations d'effort ; il ne traite pas le coût en tant que tel. Le Guide de 2011 nommait déjà valeur et risque. Rubin relie l'estimation à la place de l'élément mais ne donne pas de liste de critères. Pratique établie (Cohn, Pichler, reprises sur le site de Cohn et sur le forum Scrum.org) : aucun texte de consensus ne l’impose. La liste à quatre est le choix du cours."
     - affirmation: "La valeur se rapporte à l'objectif produit."
       kind: "cours"
       refs: ["S6", "S1"]
@@ -84,7 +84,7 @@ sources:
     - affirmation: "Un risque de sécurité peut passer devant l'objectif produit, sans que le PO juge seul de sa gravité."
       kind: "cours"
       refs: ["S9"]
-      verifie: "Aucune source ne le dit pour un backlog Scrum. Appui indirect : DSDM range en Must Have ce sans quoi la livraison serait « Unsafe » ou « Not legal ». Que la gravité se fasse qualifier par ceux qui en répondent est un choix du cours : le PO ne tranche pas un fait métier."
+      verifie: "Aucune source ne le dit pour un backlog Scrum. Appui indirect : DSDM range en Must Have ce sans quoi la livraison serait « Unsafe without it » ou « Not legal without it », dans un autre cadre (MoSCoW pour une échéance). Que la gravité soit un fait métier que le PO fait qualifier par Maud (responsable de la maintenance) et Odile (sponsor, qui encadre la maintenance) est un choix du cours : le PO ne tranche pas un fait métier."
     - affirmation: "Ce qui n'est pas prêt ne peut pas être choisi pour le sprint ; cela pèse sur l'ordre."
       kind: "cours"
       refs: ["S1"]
@@ -100,11 +100,11 @@ sources:
     - affirmation: "Arnold propose de commencer sans chiffres, et décrit des profils d'urgence dont l'échéance externe."
       kind: "ecole"
       refs: ["S12"]
-      verifie: "Black Swan Farming : bandes de valeur (« Killer », « Bonus », « Meh ») et d'urgence (« ASAP », « Soon », « Whenever »), avec la mise en garde qu'une approche qualitative perd beaucoup des avantages du chiffrage. Quatre profils d'urgence, dont « Impact of external deadline ». La page note que la plupart des éléments liés à une date ont d'abord un coût du retard nul, qui monte à l'approche."
+      verifie: "Black Swan Farming : bandes de valeur (« Killer », « Bonus », « Meh ») et d'urgence (« ASAP », « Soon », « Whenever »), avec la mise en garde qu’une approche qualitative perd beaucoup des avantages du chiffrage : c’est un point de départ. Arnold ne s’y arrête pas : voir CD3, ligne WSJF. Quatre profils d'urgence, dont « Impact of external deadline ». La page note que la plupart des éléments liés à une date ont d'abord un coût du retard nul, qui monte à l'approche."
     - affirmation: "Deux formes d'urgence : un coût qui grandit dès aujourd'hui, ou un coût lié à une échéance qui monte à son approche puis dont la valeur tombe après elle."
       kind: "cours"
       refs: ["S12"]
-      verifie: "L'application à ces deux formes est celle du cours, appuyée sur les profils d'urgence d'Arnold. Que la valeur tombe après l'échéance jusqu'à la suivante est la lecture du cours."
+      verifie: "L'application à ces deux formes est celle du cours, appuyée sur les profils d'urgence d'Arnold. Que la valeur tombe après l’échéance jusqu’à la suivante est la lecture du cours. Les exemples sont du fil rouge : le blocage, coûteux chaque jour qu’un vélo signalé reste louable ; la comparaison à l’an dernier, qui perd sa valeur après le bilan annuel au conseil (date non fixée). Les faits (vélo signalé louable, bilan annuel au conseil, date non fixée) sont inventés."
     - affirmation: "WSJF : le coût du retard divisé par la durée ; repris par SAFe ; proche du CD3 d'Arnold."
       kind: "ecole"
       refs: ["S14", "S12"]
@@ -120,11 +120,11 @@ sources:
     - affirmation: "Pas plus d'environ 60 % de l'effort en Must ; tout classer en Must vide la méthode."
       kind: "ecole"
       refs: ["S9"]
-      verifie: "« typically no more than 60% Must Have effort » ; croire que tout est Must est souvent le symptôme d'une décomposition insuffisante, et si tout l'était, la souplesse de MoSCoW ne fonctionnerait plus."
+      verifie: "« typically no more than 60% Must Have effort » ; au-delà, risque, sauf conditions (estimations fiables, approche bien connue). Croire que tout est Must est souvent le symptôme d'une décomposition insuffisante, et si tout l'était, la souplesse de MoSCoW ne fonctionnerait plus."
     - affirmation: "Le représentant de l'activité concernée dit ce qui est Must ; le PO aide à classer."
       kind: "cours"
       refs: ["S9"]
-      verifie: "Chez DSDM, le Business Visionary (ou l'ambassadeur qu'il mandate) explique pourquoi un besoin est un Must Have. Transposé au PO et à l'utilisateur ou au financeur concerné : choix du cours."
+      verifie: "Chez DSDM, le Business Visionary (ou l'ambassadeur qu'il mandate) explique pourquoi un besoin est un Must Have. L’équipe répartit les priorités du timebox. Transposé à Charlotte (financeur, qui présente le bilan au conseil) : choix du cours, cohérente avec la règle du fil rouge (le PO ne tranche pas un fait métier)."
     - affirmation: "MoSCoW ne remplace pas l'ordre du backlog."
       kind: "cours"
       refs: ["S9", "S1"]
@@ -132,9 +132,9 @@ sources:
     - affirmation: "MoSCoW est attribué à Dai Clegg (1994), puis repris par DSDM."
       refs: ["S17", "S18"]
       verifie: "Le livre existe (Clegg et Barker, *CASE Method Fast-Track: A RAD Approach*, 1994, coédité par Oracle). L'attribution repose sur des sources secondaires concordantes ; le livre n'a pas été lu."
-    - affirmation: "Les situations du fil rouge (objectif produit, DoR de l'équipe vélos) sont inventées."
+    - affirmation: "Les faits du fil rouge (Maud, Étienne, Charlotte, Pia, la DSI, le bilan au conseil, le fait F-a, l’objectif produit, la DoR de l’équipe vélos) sont inventés."
       refs: []
-      verifie: "Sans source : le cas de l'opérateur de vélos en libre-service est fictif."
+      verifie: "Sans source : le cas de l’opérateur de vélos en libre-service est fictif."
   references:
     - id: "S1"
       texte: "Schwaber, Sutherland, *The Scrum Guide*, novembre 2020"
@@ -165,6 +165,11 @@ sources:
       texte: "Mountain Goat Software (Cohn), « 5 Key Factors for Effective Product Backlog Prioritization » (mise à jour le 15 octobre 2024, sans signature ; site et voix de Cohn)"
       url: "https://www.mountaingoatsoftware.com/agile/5-key-factors-for-effective-product-backlog-prioritization"
       type: "primaire (site de l'auteur, qui vend ses formations)"
+      consultee: "2026-10-22"
+    - id: "S7"
+      texte: "Reprises de ces critères : Mountain Goat Software, « Product Backlog Guide » (valeur, urgence, risque, apprentissage, dépendances, coût du retard) ; forum Scrum.org (« priority, cost of delay, risk, value, dependencies »)"
+      url: "https://www.mountaingoatsoftware.com/agile/product-backlog"
+      type: "secondaire (extraits de recherche ; forum : avis de praticiens)"
       consultee: "2026-10-22"
     - id: "S8"
       texte: "Rubin, *Essential Scrum*, Addison-Wesley, 2012, chapitre 6 « Product Backlog » (extraits publiés par l'auteur)"
@@ -222,9 +227,13 @@ sources:
     - "**La date d'adoption de MoSCoW par DSDM.** Une source secondaire dit « 2002 » ; aucune source primaire ne la confirme. La page ne la date pas."
     - "**Que Black Swan Farming soit le site de Joshua Arnold.** Les pages ne portent pas de nom d'auteur ; l'attribution vient du programme d'Agile 2013 et de reprises [S13]. Le rapport d'expérience n'a pas été lu."
     - "**Le Scrum Guide de 2010.** Seul un extrait de recherche d'une copie tierce a été lu [S3] ; la version d'octobre 2011 [S2], lue, suffit pour dire que le Guide a nommé ces critères avant de les retirer."
-    - "**Qu'un risque de sécurité puisse passer devant l'objectif produit, et que sa gravité se fasse qualifier par ceux qui en répondent.** Aucune source ne le dit pour un backlog Scrum ; DSDM [S9] en donne un appui indirect, dans un autre cadre. C'est un raisonnement du cours, pas une règle d'un texte."
+    - "**Qu'un risque de sécurité puisse passer devant l'objectif produit, et que sa gravité se fasse qualifier par Maud (responsable de la maintenance) et Odile (sponsor, qui encadre la maintenance).** Aucune source ne le dit pour un backlog Scrum ; DSDM [S9] range en Must Have ce qui rendrait la livraison « Unsafe » ou « Not legal », un appui indirect dans un autre cadre. Le reste est un choix du cours (le PO ne tranche pas un fait métier). C’est un raisonnement du PO, pas une règle d’un texte."
     - "**Que « ce qui est prêt » pèse sur l'ordre.** Choix du cours à partir du « ready for selection » du Guide [S1] ; aucune source consultée ne le pose comme critère pour ordonner."
-    - "**Les quatre critères comme liste.** Cohn en donne cinq, le Guide de 2011 en donnait quatre autres. Aucun texte ne fait de « valeur, coût, risque, dépendances » une liste canonique."
+    - "**Les quatre critères comme liste.** Cohn en donne cinq, le Guide de 2011 en donnait quatre autres (valeur, risque, priorité, nécessité). La liste « valeur, coût, risque, dépendances » est le choix du cours, appuyé sur Cohn [S6] et, pour valeur, risque et dépendances, sur Pichler [S19] ; aucun texte n’en fait une liste canonique, à dire comme une pratique établie."
+alignement:
+  coursVersion: "1.0.0"
+  fiche: "f51f3389fd1e6fb566529cd0c15d4b959a359a15e3287d3af3c8c8d814853d40"
+  sources: "a578adcd7b1e692f0a23c0cab482cff3c31e2f0b0d6ef99c235b1b428781b67b"
 ---
 import Schema13 from '../../../components/schemas/Schema13.astro';
 

@@ -26,6 +26,8 @@ export const ui = {
     'search.placeholder': 'Rechercher',
     'footer.licence': '© Sébastien Vey, CC BY 4.0',
     'footer.licenceLink': 'https://creativecommons.org/licenses/by/4.0/deed.fr',
+    'footer.site': 'site',
+    'footer.cours': 'cours',
     'pastille.consensus': 'consensus',
     'pastille.ecole': "choix d’école",
     'pastille.cours': 'choix du cours',
