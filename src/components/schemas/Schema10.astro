@@ -18,7 +18,7 @@ const demandes = [
     Panneau du bas, les dépendances. À gauche, un seul backlog avec deux éléments, A au-dessus de B, et une flèche : B dépend de A.
     Légende : même équipe, le PO ordonne, l'élément dont l'autre dépend passe avant.
     À droite, deux backlogs côte à côte, celui de la plateforme et celui de l'équipe appli. Un élément de chacun est relié à l'autre par un trait pointillé.
-    Sous les deux backlogs, le PO de la plateforme et le PO de l'équipe appli, et entre eux une bulle : on s'accorde sur l'ordre.
+    Sous les deux backlogs, le PO de la plateforme et le PO de l'équipe appli, et entre eux une bulle : chacun ordonne le sien, on s’accorde sur l’ordre. Les cas sont inventés pour l’illustration.
     En dessous, en pointillé : si ça bloque, escalade, vue au concept 14.
   </desc>
   <defs>
@@ -87,9 +87,9 @@ const demandes = [
   <rect x="472" y="606" width="106" height="30" rx="15" class="po" />
   <text x="525" y="627" text-anchor="middle" class="small">PO appli</text>
   <path d="M410 621 H470" class="arrow" marker-start="url(#g10-arr)" marker-end="url(#g10-arr)" />
-  <rect x="352" y="652" width="176" height="52" rx="14" class="bubble" />
-  <text x="440" y="675" text-anchor="middle" class="txt">on s'accorde</text>
-  <text x="440" y="696" text-anchor="middle" class="txt">sur l'ordre</text>
+  <rect x="300" y="652" width="280" height="52" rx="14" class="bubble" />
+  <text x="440" y="675" text-anchor="middle" class="txt">chacun ordonne le sien ;</text>
+  <text x="440" y="696" text-anchor="middle" class="txt">on s’accorde sur l’ordre</text>
   <path d="M440 652 V637" class="link" />
 
   <rect x="290" y="730" width="300" height="48" rx="8" class="esc" />

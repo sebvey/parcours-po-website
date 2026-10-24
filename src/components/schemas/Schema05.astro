@@ -1,18 +1,17 @@
 ---
 // Schéma 5 : la phrase en trois blocs (le troisième mis en avant), l'échelle des « pourquoi ? » au-dessus
 // du « afin de », et la carte avec sa bulle (conversation) et sa coche (confirmation).
-// Exemple : la vue des stations vides d'Étienne (fil rouge). Couleurs : variables CSS --sch-*.
+// Exemple : cas inventé pour l’illustration (fiche du concept 5). Couleurs : variables CSS --sch-*.
 ---
 <svg viewBox="0 0 600 470" role="img" aria-labelledby="g5-t g5-d" class="sch">
   <title id="g5-t">La phrase d'une story en trois blocs, et l'échelle des « pourquoi ? »</title>
   <desc id="g5-d">
     En bas, la phrase d'une story en trois blocs côte à côte : « En tant que » (qui), « je veux » (quoi, sans solution),
-    « afin de » (pourquoi), le troisième mis en avant. Un exemple suit : en tant que responsable d'exploitation,
-    je veux voir les stations vides, afin de choisir où envoyer les régulateurs plus tôt.
-    Au-dessus du « afin de », une échelle de « pourquoi ? » qui monte. Premier barreau, barré : suivre les stations vides,
-    circulaire, il répète le « je veux ». Deuxième barreau : savoir où il manque des vélos. Troisième barreau, encadré :
-    choisir où envoyer les régulateurs plus tôt, on s'arrête ici, c'est la décision d'Étienne. Quatrième barreau, en pointillés et grisé :
-    que les stations restent moins longtemps vides, trop haut, c'est l'objectif produit.
+    « afin de » (pourquoi), le troisième mis en avant. L’échelle est un cas inventé pour l’illustration.
+    Au-dessus du « afin de », une échelle de « pourquoi ? » qui monte. Premier barreau, barré : suivre les locations,
+    circulaire, il répète le « je veux ». Deuxième barreau : savoir combien de vélos sont sortis. Troisième barreau, encadré :
+    décider combien de vélos redistribuer, on s’arrête ici, c’est la décision de l’utilisateur. Quatrième barreau, en pointillés et grisé :
+    que le réseau serve mieux la ville, trop haut, c’est l’objectif produit.
     À gauche, la carte de la story, avec une bulle de dialogue, la conversation, et une coche, la confirmation :
     les 3C de Jeffries, issus d'Extreme Programming.
   </desc>
@@ -39,30 +38,31 @@
 
   <!-- L'échelle des « pourquoi ? » -->
   <rect x="300" y="6" width="290" height="74" rx="8" class="rung high" />
-  <text x="445" y="32" text-anchor="middle" class="rung-text soft-text">que les stations restent</text>
-  <text x="445" y="52" text-anchor="middle" class="rung-text soft-text">moins longtemps vides</text>
-  <text x="445" y="71" text-anchor="middle" class="tag">trop haut : l'objectif produit</text>
+  <text x="445" y="32" text-anchor="middle" class="rung-text soft-text">que le réseau serve</text>
+  <text x="445" y="52" text-anchor="middle" class="rung-text soft-text">mieux la ville</text>
+  <text x="445" y="71" text-anchor="middle" class="tag">trop haut : l’objectif produit</text>
 
   <path d="M320 108 V84" class="line" marker-end="url(#g5-arr)" />
   <text x="332" y="101" class="why">pourquoi ?</text>
 
   <rect x="300" y="110" width="290" height="62" rx="8" class="rung stop" />
-  <text x="445" y="132" text-anchor="middle" class="rung-text strong">choisir où envoyer les</text>
-  <text x="445" y="152" text-anchor="middle" class="rung-text strong">régulateurs, plus tôt</text>
-  <text x="596" y="189" text-anchor="end" class="tag-stop">on s'arrête ici : la décision d'Étienne</text>
+  <text x="445" y="132" text-anchor="middle" class="rung-text strong">décider combien de vélos</text>
+  <text x="445" y="152" text-anchor="middle" class="rung-text strong">redistribuer</text>
+  <text x="596" y="186" text-anchor="end" class="tag-stop">on s’arrête ici :</text>
+  <text x="596" y="204" text-anchor="end" class="tag-stop">la décision de l’utilisateur</text>
 
   <path d="M320 238 V214" class="line" marker-end="url(#g5-arr)" />
   <text x="332" y="231" class="why">pourquoi ?</text>
 
   <rect x="300" y="244" width="290" height="40" rx="8" class="rung" />
-  <text x="445" y="270" text-anchor="middle" class="rung-text">savoir où il manque des vélos</text>
+  <text x="445" y="270" text-anchor="middle" class="rung-text" textLength="262" lengthAdjust="spacingAndGlyphs">savoir combien de vélos sont sortis</text>
 
   <path d="M320 308 V288" class="line" marker-end="url(#g5-arr)" />
   <text x="332" y="303" class="why">pourquoi ?</text>
 
   <rect x="300" y="314" width="290" height="40" rx="8" class="rung weak" />
-  <text x="445" y="340" text-anchor="middle" class="rung-text soft-text">suivre les stations vides</text>
-  <path d="M356 334 H534" class="strike" />
+  <text x="445" y="340" text-anchor="middle" class="rung-text soft-text">suivre les locations</text>
+  <path d="M380 334 H510" class="strike" />
   <text x="596" y="373" text-anchor="end" class="tag">circulaire : répète le « je veux »</text>
 
   <!-- Les trois blocs -->
@@ -76,7 +76,7 @@
   <text x="445" y="411" text-anchor="middle" class="block-text main-text">afin de</text>
   <text x="445" y="433" text-anchor="middle" class="block-hint main-hint">pourquoi</text>
 
-  <text x="300" y="464" text-anchor="middle" class="soft">exemple : la vue des stations vides d'Étienne</text>
+  <text x="300" y="464" text-anchor="middle" class="soft">exemple inventé pour l’illustration</text>
 </svg>
 
 <style>

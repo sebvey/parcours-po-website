@@ -42,7 +42,7 @@ sources:
       kind: "consensus"
       refs: ["S2"]
       verifie: "Texte du Guide cherché le 2026-10-22 : « INVEST » n'apparaît que dans « Investments » (biographie des auteurs) ; « story » : aucune occurrence."
-    - affirmation: "La grille est très répandue et reprise par Cohn."
+    - affirmation: "La grille est reprise par d'autres praticiens, dont Cohn."
       kind: "consensus"
       refs: ["S3", "S1", "S6"]
       verifie: "L'Agile Alliance parle de « a widely accepted set of criteria » (allégation, sans donnée d'usage) et rapporte que Cohn recommande INVEST au chapitre 2 de *User Stories Applied* (2004, livre non lu). Microsoft (2013) cite Wake et INVEST ; Wake écrit en 2011 que l'acronyme est « popular enough »."
@@ -80,8 +80,8 @@ sources:
       verifie: "Wake : « Stories typically represent at most a few person-weeks worth of work. » Au-delà, « it seems to be too hard to know what's in the story's scope »."
     - affirmation: "« Quelques jours » est une pratique de certaines équipes, pas la définition de Wake."
       kind: "ecole"
-      refs: ["S1"]
-      verifie: "Wake lui-même : « (Some teams restrict them to a few person-days of work.) ». La fréquence de cette pratique n'est pas mesurée : la page écrit « certaines équipes », pas « la plupart »."
+      refs: ["S1", "S7"]
+      verifie: "Wake lui-même : « (Some teams restrict them to a few person-days of work.) ». Des pages secondaires (recherche web du 2026-10-22) disent « a few days » sans source. La fréquence de cette pratique n'est pas mesurée : la page écrit « certaines équipes », pas « la plupart »."
     - affirmation: "Au-delà d'une certaine taille, on ne sait plus ce que la story contient ; des stories plus petites s'estiment souvent mieux."
       kind: "ecole"
       refs: ["S1"]
@@ -163,6 +163,10 @@ sources:
       url: "https://learn.microsoft.com/en-us/previous-versions/visualstudio/visual-studio-2010/ee518933(v=vs.100)"
       type: "primaire (documentation de l'éditeur, guide de processus)"
       consultee: "2026-10-22"
+    - id: "S7"
+      texte: "Recherche web « user story size a few days » (pages de blogs et de formation, sans auteur de référence)"
+      type: "secondaire, en partie marketing"
+      consultee: "2026-10-22"
   nonVerifie:
     - "**« Quelques jours » comme pratique courante.** Wake dit « some teams », sans fréquence. La page écrit « certaines équipes visent quelques jours », pas « la plupart »."
     - "**Cohn, *User Stories Applied* (2004), chapitre 2 sur INVEST.** Rapporté par l'Agile Alliance, livre non lu : la page n'en retient que « Cohn reprend la grille »."
@@ -172,6 +176,10 @@ sources:
     - "**« INVEST juge la story entière (phrase, critères, conversation) ».** Wake ne l'écrit pas ; déduit de son ouverture sur les 3C. La page ne le dit pas."
     - "**Gherkin et Specification by Example.** Relèvent du concept 8."
     - "**Mot flou dont dépendent plusieurs lettres** et **« négociable ne veut pas dire tout ouvert ».** Règles pratiques du cours, sans source externe : base faible."
+alignement:
+  coursVersion: "1.0.0"
+  fiche: "bb008b62c0abbf28605248443348195156c29f91902691341f4b1d512676e62d"
+  sources: "e38c1d0c3d790b7193316741c00982d2bd70ebdecf547a2e11ccb5946e180fbd"
 ---
 import Schema07 from '../../../components/schemas/Schema07.astro';
 

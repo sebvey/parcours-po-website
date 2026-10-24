@@ -3,10 +3,10 @@
 // Couleurs : variables CSS --sch-* (clair/sombre) définies dans global.css.
 const niveaux = ['Epic', 'Feature', 'User Story', 'Task'];
 const etats = [
-  { nom: 'Nouveau', cls: 'plain' },
-  { nom: 'Prêt', cls: 'repere' },
-  { nom: 'En cours', cls: 'plain' },
-  { nom: 'Fait', cls: 'fait' },
+  { nom: 'Idée', cls: 'plain' },
+  { nom: 'Cadrée', cls: 'repere' },
+  { nom: 'Réalisation', cls: 'plain' },
+  { nom: 'Terminée', cls: 'fait' },
 ];
 ---
 <svg viewBox="0 0 600 640" role="img" aria-labelledby="ga1-t ga1-d" class="sch">
@@ -17,8 +17,8 @@ const etats = [
     Deuxième bande, liens : deux colonnes, l'équipe A et l'équipe B, chacune avec son backlog.
     Une story de l'équipe A est reliée par une flèche « is blocked by » à un élément de l'équipe B.
     Au-dessus, une bulle entre les deux PO : on s'accorde d'abord.
-    Troisième bande, états : quatre colonnes de tableau, Nouveau, Prêt, En cours, Fait.
-    Prêt est en pointillés et légendé repère : la DoR. Fait est encadré et légendé DoD remplie.
+    Troisième bande, états : quatre colonnes de tableau, Idée, Cadrée, Réalisation, Terminée.
+    Cadrée est en pointillés et légendée repère : la DoR. Terminée est encadrée et légendé DoD remplie.
     En bandeau : le Scrum Guide ne dit rien des niveaux, des liens ni des états ; l'outil propose, l'équipe choisit.
   </desc>
   <defs>

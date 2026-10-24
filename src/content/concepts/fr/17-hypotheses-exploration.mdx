@@ -45,7 +45,7 @@ ecoles:
       refs: ["S6", "S7", "S10", "S13"]
   voisines:
     - auteur: "Deux sens du mot « prévision »"
-      texte: "La prévision des stations à risque est une fonction du produit pour un régulateur (concept 9). La prévision au sens du glossaire, ce que les Developers pensent livrer et quand, est celle du concept 16. Distinction de vocabulaire du cours."
+      texte: "La prévision des stations à risque est une fonction du produit pour Régis (concept 9). La prévision au sens du glossaire, ce que les Developers pensent livrer et quand, est celle du concept 16. Distinction de vocabulaire du cours."
       refs: []
 sources:
   affirmations:
@@ -125,6 +125,10 @@ sources:
       kind: "cours"
       refs: ["S8"]
       verifie: "Même citation (« People say all kinds of things and then go do something different »). La règle « on observe ce qu'il fait » est la reformulation du cours."
+    - affirmation: "Le prototype de 17b2 n’est pas le morceau c de 9b : il ne remplit pas la DoD, se jette, et sert à savoir si le morceau c vaut d’être construit."
+      kind: "cours"
+      refs: ["S8"]
+      verifie: "Choix du cours, appuyé sur la distinction de Cagan entre prototype et produit livré ; pas une citation."
     - affirmation: "Une analyse d'historique répond à une question de faisabilité sur des données déjà collectées."
       kind: "cours"
       refs: ["S10"]
@@ -156,18 +160,26 @@ sources:
     - affirmation: "Le niveau exigé de la fonction se fixe après l'exploration, pas avant."
       kind: "cours"
       refs: ["S10", "S13"]
-      verifie: "Aucune source consultée ne le dit en ces termes. CRISP-DM fixe ses critères au départ, tout en prévenant « Beware of setting unattainable goals » et en admettant qu'ils « may have changed during and/or as a result of data mining ». Google choisit le seuil d'un classifieur sur la courbe ROC du modèle, donc après l'avoir mesuré. Choix du cours appuyé sur ces deux sources, pas un consensus."
+      verifie: "Aucune source consultée ne le dit en ces termes. CRISP-DM fixe ses critères au départ, tout en prévenant « Beware of setting unattainable goals » et en admettant qu'ils « may have changed during and/or as a result of data mining ». Google choisit le seuil d'un classifieur sur la courbe ROC du modèle, donc après l'avoir mesuré : « The points on a ROC curve closest to (0,1) represent a range of the best-performing thresholds for the given model ». Choix du cours appuyé sur ces deux sources, pas un consensus."
     - affirmation: "Deux seuils à ne pas mêler : celui qui juge l'exploration (fixé avant) et le niveau exigé de la fonction livrée (fixé après)."
       kind: "cours"
       refs: ["S6", "S7", "S10", "S13"]
-      verifie: "Torres fixe le seuil d'un test avant le test ; CRISP-DM et Google appuient indirectement un niveau fixé après mesure. Aucune source ne fait cette distinction : elle évite que le cours contredise Torres."
+      verifie: "Torres fixe le seuil d'un test avant le test ; CRISP-DM et Google appuient indirectement un niveau fixé après mesure. Aucune source ne fait cette distinction : elle évite que le cours contredise Torres. Que l'utilisateur concerné dise ce qui compte comme « oui » est l'application de la règle du cours (8a2, le PO fait fixer une règle métier), pas un fait de source."
     - affirmation: "Une story qui exige une prévision sûre ne se finit jamais ; le critère porte sur un niveau atteint."
       kind: "cours"
       refs: ["S1", "S10"]
       verifie: "Raisonnement du cours, appuyé sur « what will happen is unknown » et sur le critère de réussite par niveau de précision."
-    - affirmation: "Les exemples du fil rouge et les illustrations inventées de la page sont des faits inventés."
+    - affirmation: "« Prévision » a deux sens dans le cours : la prévision des stations à risque (fonction du produit pour Régis) et la prévision des Developers du glossaire (concept 16c)."
+      kind: "cours"
       refs: []
-      verifie: "Sans source : le cas de l'opérateur de vélos en libre-service est fictif."
+      verifie: "Note de vocabulaire du cours, pas un fait de source."
+    - affirmation: "Le lien non établi d’une demande avec l’objectif produit est une hypothèse (renvoi 5b, 13a)."
+      kind: "cours"
+      refs: []
+      verifie: "Raisonnement du cours, déjà posé en 5b et 13a ; pas un fait de source."
+    - affirmation: "Les faits du fil rouge (Régis, Anna, Étienne, l’historique d’environ un an, la météo non collectée, le seuil « presque vide ») sont inventés ; restent non fixés : station vide, heures de pointe, cible et calcul de la mesure de résultat, seuil « presque vide »."
+      refs: []
+      verifie: "Sans source : le cas de l'opérateur de vélos en libre-service est fictif. Météo : « source envisagée, pas encore collectée » ; seuil « presque vide » : 3 vélos cité comme exemple, pas décidé. Les répliques, la durée de l’exploration, les résultats chiffrés d’Anna et le prototype de 17b2 sont des situations d’exercice."
   references:
     - id: "S1"
       texte: "Schwaber, Sutherland, *The Scrum Guide*, novembre 2020"
@@ -248,6 +260,10 @@ sources:
     - "**Découverte continue.** La date du livre de Torres (mai 2021) vient d'une source secondaire ; le livre n'a pas été lu. La page cite le glossaire de Product Talk."
     - "**Origine du terme MVP.** Attribuée à Frank Robinson (2001) par des sources secondaires, non vérifiée : la page n'attribue que la définition à Ries. *The Lean Startup* (2011) n'a pas été consulté."
     - "**Analyse d'historique comme technique d'exploration.** Aucune source de gestion de produit consultée ne la nomme ainsi ; CRISP-DM l'appuie côté données. Le nom est celui du cours."
+alignement:
+  coursVersion: "1.0.0"
+  fiche: "dfefdbf84a7ea4aa209a1bb319e8c8800ed3516011b141f46d628dec8f9de500"
+  sources: "b01302fc21f4d4ba12f11759424810bae1f8b5844ef5ebffafe43a6f651ab693"
 ---
 import Schema17 from '../../../components/schemas/Schema17.astro';
 

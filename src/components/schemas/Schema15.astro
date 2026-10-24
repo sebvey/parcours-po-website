@@ -2,12 +2,12 @@
 // Schéma 15 : la frise du sprint. En haut, le refinement comme bande continue (activité, pas événement)
 // où une story au mot flou se précise avec l'utilisateur concerné. Au début du sprint, le Sprint Planning
 // et ses trois questions empilées. À la fin, la revue : l'incrément inspecté, une carte repart au backlog.
-// En marge, grisés, les états de l'outil. Aucun nom de personne ni de fait propre à un apprenant.
+// En marge, grisés, les états de l'outil.
 // Couleurs : variables CSS --sch-* (clair/sombre) définies dans global.css.
 const topics = [
   { head: 'Pourquoi', sub: 'l’objectif de sprint', y: 176, flag: true },
   { head: 'Quoi', sub: 'les stories choisies', y: 232, flag: false },
-  { head: 'Comment', sub: 'le plan des Developers', y: 288, flag: false },
+  { head: 'Comment', sub: 'les tâches des Developers', y: 288, flag: false },
 ];
 const columns = [
   { x: 20, label: 'à faire' },
@@ -20,7 +20,7 @@ const columns = [
   <desc id="g15-d">
     Une frise du sprint, de gauche à droite. Tout en haut, une bande continue sur toute la largeur : le refinement, une activité continue et non un événement.
     Sous la bande, une story du haut du backlog porte un mot flou ; une flèche la relie à l’utilisateur concerné, qui précise le sens du mot.
-    Au début du sprint, le Sprint Planning pose trois questions empilées : pourquoi (l’objectif de sprint, marqué d’un drapeau), quoi (les stories choisies), comment (le plan des Developers).
+    Au début du sprint, le Sprint Planning pose trois questions empilées : pourquoi (l’objectif de sprint, marqué d’un drapeau), quoi (les stories choisies), comment (les tâches des Developers).
     Au milieu, une flèche : pendant le sprint, les Developers construisent l’incrément.
     À la fin, la revue de sprint : l’équipe et les parties prenantes inspectent l’incrément. Une flèche remonte de la revue vers le backlog, avec une nouvelle carte que le PO ordonne.
     En marge, grisés, trois colonnes d’outil, à faire, en cours, fait, légendées : états de l’outil, pas la vie de la story.
@@ -40,7 +40,7 @@ const columns = [
   <!-- Le mot flou se précise avec l’utilisateur concerné -->
   <rect x="20" y="84" width="112" height="52" rx="8" class="kd" />
   <text x="76" y="107" text-anchor="middle" class="name">Une story</text>
-  <text x="76" y="126" text-anchor="middle" class="sub">un mot flou ?</text>
+  <text x="76" y="126" text-anchor="middle" class="sub">« rapide » ?</text>
   <path d="M136 110 H160" class="line" marker-end="url(#g15-ar)" fill="none" />
   <rect x="164" y="84" width="212" height="52" rx="8" class="kd user" />
   <text x="270" y="107" text-anchor="middle" class="name small-n">L’utilisateur concerné</text>
@@ -48,7 +48,7 @@ const columns = [
 
   <!-- La nouvelle carte, née de la revue -->
   <rect x="404" y="84" width="176" height="52" rx="8" class="kd newcard" />
-  <text x="492" y="107" text-anchor="middle" class="name">Nouvelle carte</text>
+  <text x="492" y="107" text-anchor="middle" class="name">Nouvelle demande</text>
   <text x="492" y="126" text-anchor="middle" class="sub">le PO l’ordonne</text>
 
   <!-- Sprint Planning -->

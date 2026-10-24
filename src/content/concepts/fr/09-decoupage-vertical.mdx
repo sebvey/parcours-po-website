@@ -60,7 +60,7 @@ sources:
     - affirmation: "Découper par valeur plutôt que par couche technique est une pratique établie chez les auteurs de stories (Wake, Lawrence, Lawrence et Green)."
       kind: "consensus"
       refs: ["S2", "S3", "S4", "S7"]
-      verifie: "Wake : la meilleure façon est de trancher « vertically through the layers ». Lawrence (2009) : un découpage par couche peut satisfaire « small », mais échoue sur « independent » et « valuable ». Humanizing Work : beaucoup d'équipes débutantes découpent par couche d'architecture. Trois sources du même milieu (XP, Scrum), concordantes : c'est une pratique partagée, pas un texte de consensus. Le site de Cohn [S7] dit la même chose, mais il n'est pas signé, et [S5], signé Cohn, ne le dit pas : on n'attribue pas ce principe à Cohn."
+      verifie: "Wake : la meilleure façon est de trancher « vertically through the layers ». Lawrence (2009) : un découpage par couche peut satisfaire « small », mais échoue sur « independent » et « valuable ». Humanizing Work : beaucoup d'équipes débutantes découpent par couche d'architecture. Mountain Goat [S7] : « The most common mistake teams make is splitting stories by technical layer ». Quatre sources du même milieu (XP, Scrum), concordantes : c'est une pratique partagée, pas un texte de consensus. Le site de Cohn [S7] dit la même chose, mais il n'est pas signé, et [S5], signé Cohn, ne le dit pas : on n'attribue pas ce principe à Cohn. [S5] admet une première version qu'on ne peut pas livrer (« You probably can't release the simpler version but you can still build it in that order ») : Cohn est retiré de la phrase, à remettre si une source signée de lui est trouvée (*User Stories Applied*, non lu)."
     - affirmation: "On trouve la métaphore du gâteau en couches chez Wake (2003), dans INVEST, au critère V."
       refs: ["S2"]
       verifie: "Sous le titre « Valuable » : une story vue comme un gâteau à plusieurs couches (réseau, persistance, logique, présentation), dont on veut donner au client l'essentiel en tranchant verticalement. Que Wake en soit l'inventeur n'est pas vérifié (voir « Non vérifié »)."
@@ -72,8 +72,8 @@ sources:
       verifie: "Wake : une couche de base de données complète a peu de valeur pour le client sans couche de présentation. Humanizing Work : la tranche horizontale doit être combinée à d'autres. Mountain Goat : le travail est divisé, pas la valeur. « Ne sert à personne » durcirait « peu de valeur » : la page écrit « ne sert pas seule »."
     - affirmation: "Traverser les couches ne suffit pas : la tranche doit servir seule."
       kind: "cours"
-      refs: ["S2", "S3", "S4", "S7"]
-      verifie: "Wake : rendre chaque tranche utile au client. Lawrence : les stories obtenues après découpage doivent encore suivre INVEST, dont le V. Humanizing Work : la tranche verticale livre un changement de comportement ayant de la valeur. Nuance d'école : le site de Cohn [S7] admet qu'une petite story peut créer de la valeur en réduisant un risque ou en validant une hypothèse, et que toutes les petites stories n'ont pas assez de valeur pour être livrées aussitôt. Le cours retient « sert seule à l'utilisateur »."
+      refs: ["S2", "S3", "S4"]
+      verifie: "Wake : rendre chaque tranche utile au client. Lawrence : les stories obtenues après découpage doivent encore suivre INVEST, dont le V. Humanizing Work : la tranche verticale livre un changement de comportement ayant de la valeur. Nuance d'école : le site de Cohn [S7] admet qu'une petite story peut créer de la valeur en réduisant un risque ou en validant une hypothèse, et que toutes les petites stories n'ont pas assez de valeur pour être livrées aussitôt. Le cours retient « sert seule à l'utilisateur ». La nuance de [S7] n'est pas reprise dans la page : page non signée, elle ne s'attribue pas à Cohn."
     - affirmation: "Le principe vaut à plusieurs niveaux ; au niveau du sprint, une tranche est une story."
       kind: "cours"
       refs: ["S5"]
@@ -221,6 +221,10 @@ sources:
     - "**Date du walking skeleton.** Cockburn donne « vers 1994 » pour la découverte et deux fourchettes pour le nom (entre 1994 et 1997, ou la fin des années 1990) [S8] ; *Crystal Clear* (2004) n'a pas été lu. La page écrit « années 1990 »."
     - "**Le découpage par couches serait « l'erreur la plus courante ».** Affirmation de [S7], sans donnée à l'appui : la page ne la reprend pas comme un fait."
     - "**Couches d'un produit data.** Aucune source data consultée : les quatre couches sont un exemple du cours."
+alignement:
+  coursVersion: "1.0.0"
+  fiche: "fe5359701942495c82b3ecdd955ed54e5959418a216620e7fedd6af4f212d810"
+  sources: "96f8d0cc418ce64c25ac91553e22a3eca95e748e95d25b3b96538ee6b881f495"
 ---
 import Gateau from '../../../components/schemas/Gateau.astro';
 import PartRecoupee from '../../../components/schemas/PartRecoupee.astro';
@@ -261,7 +265,7 @@ Une story que les Developers estiment trop grosse pour un sprint se découpe (<R
   <PartRecoupee />
 </Figure>
 
-Les vélos signalés des stations du centre-ville seulement (a) et les vélos signalés, confirmés ou non par un technicien (c), traversent les couches et livrent à Étienne une vue qu'il peut consulter. Une table des signalements prête, sans vue (b), est une couche : rien pour Étienne tant qu'elle n'est pas raccrochée à un usage. Que la liste non confirmée suffise à Étienne n'est pas tranché : c'est une hypothèse, à vérifier avant de s'engager (exploration bornée, <Renvoi n="17" />).
+Les stations du centre-ville seulement (a) et les vélos signalés, confirmés ou non par un technicien (c), traversent les couches et livrent à Étienne une vue qu'il peut consulter. Une table des signalements prête, sans vue (b), est une couche : rien pour Étienne tant qu'elle n'est pas raccrochée à un usage. Que la liste non confirmée suffise à Étienne n'est pas tranché : c'est une hypothèse, à vérifier avant de s'engager (exploration bornée, <Renvoi n="17" />).
 
 <h4 id="9b2"><span class="num">9b2</span> Les patrons et leur catalogue</h4>
 
@@ -283,8 +287,10 @@ Les deux catalogues se recoupent en partie, sans se confondre : on attribue chaq
 - **Découper par couche** (collecter, transformer, restituer) : rien pour l'utilisateur avant la fin. C'est le réflexe probable d'un profil technique.
 - **Croire que traverser les couches suffit** : la tranche doit servir seule. Un walking skeleton sert l'équipe, pas l'utilisateur.
 - **Appliquer le vertical aux tâches** : il s'arrête à la story. Les tâches sont horizontales et appartiennent aux Developers.
-- **Nommer la forme dans la tranche** (« carte », « liste ») : la story dit ce que l'utilisateur obtient, la forme reste aux Developers (<Renvoi n="5" />).
-- **Trancher en découpant ce qui n'est pas fixé ou vérifié** (« station vide », « presque vide », « la liste non confirmée suffira ») : le PO fait fixer la règle (<Renvoi n="8" />), et l'hypothèse se vérifie avant (<Renvoi n="17" />).
+- **Nommer la forme dans la tranche** (un écran, un export) : la story dit ce que l'utilisateur obtient, la forme reste aux Developers (<Renvoi n="5" />).
+- **Fixer une règle en découpant** (« presque vide », « heures de pointe ») : une règle non fixée, le PO la fait fixer (<Renvoi n="8" />).
+- **Trancher une hypothèse dans le découpage** (« la liste non confirmée suffira ») : on la vérifie avant (<Renvoi n="17" />).
+- **Légender une part « story »** : une tranche est une façon de découper ; elle n’est une story qu’au niveau du sprint.
 - **Préparer une couche « pour plus tard »** (une source de plus, une table sans usage) : c'est une couche. Il faut la raccrocher à un usage.
 - **Mélanger les catalogues** : attribuer un patron de Lawrence à SPIDR, ou l'inverse.
 

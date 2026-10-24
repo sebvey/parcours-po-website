@@ -187,10 +187,14 @@ sources:
     - "**Date de naissance de Given/When/Then.** L'article de North ne date pas son travail avec Chris Matts ; seul l'article (mars 2006) est daté. D'autres sources avancent 2004, non consultées. La page écrit « dans les années 2000 »."
     - "**Créateur de Gherkin et de Cucumber.** Non vérifié : la page ne nomme que l'outil."
     - "**Contenu du livre d'Adzic.** Seules les fiches de l'éditeur et de l'auteur ont été lues. La page n'affirme rien au-delà du titre, de l'auteur, de l'année et de la définition générale."
-    - "**Séparation critère / règle métier comme pratique répandue.** Aucune source ne sépare les deux comme le cours : Wynne met « acceptance criteria, or rules » sur la même carte, et les exemples dessous. La distinction « vraie hors de la story » est un choix du cours."
+    - "**Séparation critère / règle métier comme pratique répandue.** Aucune source ne sépare les deux comme le cours : Wynne met « acceptance criteria, or rules » sur la même carte, et les exemples dessous. Cohn range les règles parmi les formes de détail d'une story (extrait d'une autre page, non lue en entier). La distinction « vraie hors de la story » est un choix du cours."
     - "**« Une variable à la fois ».** Heuristique du cours, aucune source externe trouvée."
     - "**Une story porte des critères d'acceptation, comme consensus.** Non confirmé par le Scrum Guide : la page la présente comme une pratique établie (XP, Wake, Cohn), pas comme un consensus."
     - "**Cohn, *User Stories Applied* (2004).** Livre non lu : rien de la page ne s'y appuie."
+alignement:
+  coursVersion: "1.0.0"
+  fiche: "98e589e14183d860532126da01116bc38083439cc6bc652754436f68f32163b9"
+  sources: "fbbde243dbe16f6bbbe1b93068332d35adc49f6401eddbb90a96509c7b91cc28"
 ---
 import Schema08 from '../../../components/schemas/Schema08.astro';
 
@@ -226,13 +230,13 @@ Pour le repérer, on se demande, critère par critère : **quelle règle ce cas 
 
 **Given** décrit le contexte de départ, **When** l'événement ou l'action, **Then** le résultat attendu, observable : ce que le testeur vérifie. En français : étant donné, quand, alors. C'est un choix d'école <Pastille kind="ecole" /> de Dan North et Chris Matts, issu du BDD ; Cucumber et son langage Gherkin l'outillent, mais la forme s'écrit sans outil. Elle n'est pas obligatoire : un critère écrit autrement convient s'il reste tranchable.
 
-Un critère devient vite flou par quatre défauts. Un **When absent** : on ne sait pas quel événement déclenche le résultat. Un **Then vague** (« l'utilisateur est informé ») : on ne sait pas quoi vérifier ; on écrit ce que le testeur regarde, un nombre, un âge. Un **mot flou** (« rapidement », « à jour ») : le testeur doit encore poser une question ; on écrit la valeur fixée. Et **le moyen au lieu du résultat** : le Then vérifie ce que l'utilisateur obtient ou observe, pas un choix de l'équipe qu'elle pouvait changer <Pastille kind="cours" />. « La page est servie depuis un cache » est un moyen ; « la vue affiche le nombre de vélos disponibles » est un résultat. Un Then qui nomme une solution fige ce que l'équipe pouvait négocier (<Renvoi n="7b" />).
+Un critère devient vite flou par quatre défauts. Un **When absent** : on ne sait pas quel événement déclenche le résultat. Un **Then vague** (« l'utilisateur est informé ») : on ne sait pas quoi vérifier ; on écrit ce que le testeur regarde, un nombre, un âge. Un **mot flou** (« récent », « rapidement ») : le testeur doit encore poser une question ; on écrit la valeur fixée (cas inventé : « chargée en moins de 3 secondes »). Et **le moyen au lieu du résultat** : le Then vérifie ce que l'utilisateur obtient ou observe, pas un choix de l'équipe qu'elle pouvait changer <Pastille kind="cours" />. « La page est servie depuis un cache » est un moyen ; « la vue affiche le nombre de vélos disponibles » est un résultat. Un Then qui nomme une solution fige ce que l'équipe pouvait négocier (<Renvoi n="7b" />).
 
 <h4 id="8b2"><span class="num">8b2</span> Une variable à la fois</h4>
 
 D'un exemple à l'autre, **ne changer qu'un fait du Given** <Pastille kind="cours" /> : si le Then change, on sait quelle règle joue ; si un test échoue, on sait quoi corriger. Deux exemples qui diffèrent par deux faits à la fois ne disent plus lequel est en cause. Sur le schéma, les deux exemples ne diffèrent que par la location en cours.
 
-Il faut aussi que chaque Then reste fidèle aux règles fixées : un Then qui exclut un cas que la règle admet invente une règle en douce. On relit donc chaque Then contre les règles du domaine, comme on le fait pour un critère qui s'appuie sur une règle non fixée.
+Il faut aussi que chaque Then reste fidèle aux règles fixées : un Then qui exclut un cas que la règle admet invente une règle en douce. Exemple inventé : « l'abonné suspendu ne peut pas louer », alors qu'aucune règle ne le dit. On relit donc chaque Then contre les règles du domaine, comme on le fait pour un critère qui s'appuie sur une règle non fixée.
 
 </Sous>
 
@@ -242,16 +246,16 @@ Règle : « est-ce encore vrai si cette story n'existe pas ? » Critère : « un
 
 <Erreurs>
 
-- **Confondre règle et critère** : recopier une règle dans les critères de chaque story, ou ériger un cas précis en règle.
-- **Fixer une règle non fixée dans un critère** : le critère décide en douce. Le PO la fait fixer avant que la story parte.
-- **Inventer une règle dans le Then** : relire chaque Then contre les règles fixées.
-- **Un mot flou** (« à jour », « rapidement ») : écrire la valeur fixée.
+- **Confondre règle et critère** : recopier la même règle (cas inventé : « un abonné loue un seul vélo à la fois ») dans les critères de chaque story, ou ériger un cas précis en règle.
+- **Fixer une règle non fixée dans un critère** (cas inventé : une durée maximale de location, non fixée) : le critère décide en douce. Le PO la fait fixer avant que la story parte.
+- **Inventer une règle dans le Then** (cas inventé : « l'abonné suspendu ne peut pas louer », si aucune règle ne le dit) : relire chaque Then contre les règles fixées.
+- **Un mot flou** (« récent », « rapidement ») : écrire la valeur fixée (cas inventé : « chargée en moins de 3 secondes »).
 - **Un Then vague ou un When absent ou mal placé** : sans événement ni résultat observable, on ne sait pas quoi vérifier ni quand.
-- **Le moyen au lieu du résultat** : le Then vérifie ce que l'utilisateur observe.
-- **La solution dans le critère** : on fige ce que l'équipe pouvait négocier.
-- **Reformuler une contrainte plus large qu'elle n'est** : la reprendre telle qu'elle est posée.
+- **Le moyen au lieu du résultat** (« la page est servie depuis un cache ») : le Then vérifie l'âge des données que l'utilisateur lit, pas la fréquence de rafraîchissement.
+- **La solution dans le critère** (« il reçoit un export CSV ») : on fige ce que l'équipe pouvait négocier.
+- **Reformuler une contrainte plus large qu'elle n'est** (« hors ligne » pour « sans réseau pendant le trajet », exemple inventé) : la reprendre telle qu'elle est posée.
 - **Changer plusieurs variables à la fois** : on ne sait plus quelle règle on teste.
-- **Répéter dans chaque story ce qui vaut pour toutes** : c'est la DoD.
+- **Répéter dans chaque story ce qui vaut pour toutes** (le même bandeau de version dans chaque vue) : c'est la DoD (concept 11).
 - **Croire Given/When/Then obligatoire ou lié à un outil** : c'est un choix d'école.
 
 </Erreurs>

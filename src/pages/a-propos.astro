@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Pastille from '../components/Pastille.astro';
+import { siteVersion, coursVersion } from '../data/version';
 ---
 <Base title="À propos" nav="about" description="Pour qui est ce cours, comment il est fait, comment lire les pastilles, et sous quelle licence il est publié.">
   <div class="container">
@@ -22,6 +23,9 @@ import Pastille from '../components/Pastille.astro';
 
       <h2 id="fabrication">Comment ce site est fait</h2>
       <p>Les pages ont été rédigées par des agents d’IA à partir du cours, puis contrôlées par des audits. <a href="https://github.com/sebvey/parcours-po-website/blob/main/docs/construction.md" rel="noopener">La méthode, les agents et ce qui n’a pas été vérifié</a> sont décrits dans le dépôt du site.</p>
+
+      <h2 id="versions">Versions</h2>
+      <p>Ce site est en version <strong>{siteVersion}</strong>. Il reprend le fond du cours dans sa version <strong>{coursVersion}</strong>. Les deux numéros partagent le même premier chiffre : il change quand le cours renumérote ses concepts, retire un concept ou change un objectif, et alors les adresses des pages changent aussi. Le journal du site est <a href="https://github.com/sebvey/parcours-po-website/blob/main/CHANGELOG.md" rel="noopener">CHANGELOG.md</a>, dans le dépôt.</p>
 
       <h2 id="licence">Licence</h2>
       <p>© Sébastien Vey. Les textes et les schémas sont publiés sous licence <a href="https://creativecommons.org/licenses/by/4.0/deed.fr" rel="license noopener">Creative Commons Attribution 4.0 (CC BY 4.0)</a> : vous pouvez les réutiliser, y compris à des fins commerciales, en citant l’auteur.</p>

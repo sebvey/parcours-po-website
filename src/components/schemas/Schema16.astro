@@ -6,7 +6,7 @@ const X0 = 50, CW = 122, GAP = 8;
 const cols = [0, 1, 2, 3].map((i) => X0 + i * (CW + GAP));
 const rows = [132, 186, 240];
 const CH = 40;
-const acts = ['activité 1', 'activité 2', 'activité 3', 'activité 4'];
+const acts = [['préparer', 'la tournée'], ['se rendre', 'sur place'], ['confirmer', 'la panne'], ['réparer ou', 'retirer le vélo']];
 // Pour chaque colonne : classes des cartes par rang (null = pas de carte, "gap" = trou)
 const cards = [
   ['s1', 's2', 's3'],
@@ -18,9 +18,9 @@ const cards = [
 <svg viewBox="0 0 600 410" role="img" aria-labelledby="g16-t g16-d" class="sch">
   <title id="g16-t">Une story map : le parcours de l'utilisateur en haut, les stories dessous, la première version en travers</title>
   <desc id="g16-d">
-    Quatre activités de l'utilisateur sont posées côte à côte, de gauche à droite, dans l'ordre où il raconte son parcours : c'est la colonne vertébrale, qui ne s'ordonne pas.
+    Quatre activités de la journée d'un technicien de maintenance (préparer la tournée, se rendre sur place, confirmer la panne, réparer ou retirer le vélo) sont posées côte à côte, de gauche à droite, dans l'ordre où il raconte son parcours : c'est la colonne vertébrale, qui ne s'ordonne pas.
     Sous chaque activité, des cartes de stories sont empilées, de l'indispensable en haut au moins nécessaire en bas, comme l'indique une flèche verticale.
-    Une première ligne traverse les quatre colonnes : au-dessus, les stories de la première version, une par activité sauf la troisième, qui n'a pas encore de story et porte un cadre en pointillés, trou à explorer.
+    Une première ligne traverse les quatre colonnes : au-dessus, les stories de la première version, une par activité sauf la troisième ; la première story de la première colonne est marquée livrée, qui n'a pas encore de story et porte un cadre en pointillés, trou à explorer.
     Une seconde ligne traverse aussi les quatre colonnes : entre les deux lignes, la version suivante ; en dessous, ce qui vient plus tard.
     Une note rappelle qu'à côté de la première version, on écrit son résultat visé et sa mesure de succès, sans cible chiffrée.
     La carte complète le backlog, qui reste la liste ordonnée par le Product Owner.
@@ -33,7 +33,7 @@ const cards = [
   {cols.map((x, i) => (
     <>
       <rect x={x} y="42" width={CW} height="46" rx="6" class="act" />
-      <text x={x + CW / 2} y="70" text-anchor="middle" class="act-t">{acts[i]}</text>
+      <text x={x + CW / 2} y="62" text-anchor="middle" class="act-t"><tspan x={x + CW / 2}>{acts[i][0]}</tspan><tspan x={x + CW / 2} dy="17">{acts[i][1]}</tspan></text>
     </>
   ))}
 
@@ -55,7 +55,7 @@ const cards = [
     return (
       <>
         <rect x={x} y={y} width={CW} height={CH} rx="5" class={`mcard ${c}`} />
-        <text x={x + CW / 2} y={y + 25} text-anchor="middle" class={`mcard-t ${c}`}>story</text>
+        <text x={x + CW / 2} y={y + 25} text-anchor="middle" class={`mcard-t ${c}`}>{(i === 0 && r === 0) ? 'livrée' : 'story'}</text>
       </>
     );
   }))}
@@ -85,7 +85,7 @@ const cards = [
   .axis { stroke: var(--sch-grey-line); stroke-width: 2; fill: none; }
   .axis-head { fill: var(--sch-grey-line); }
   .act { fill: var(--sch-band); stroke: var(--sch-band-line); stroke-width: 2; }
-  .act-t { font-size: 16px; font-weight: 650; fill: var(--sch-text); }
+  .act-t { font-size: 14.5px; font-weight: 650; fill: var(--sch-text); }
   .mcard.s1 { fill: var(--sch-s1); }
   .mcard.s2 { fill: var(--sch-s2); }
   .mcard.s3 { fill: var(--sch-s3); }

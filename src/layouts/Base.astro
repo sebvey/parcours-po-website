@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import { useT, url, defaultLang, type Lang } from '../i18n/ui';
+import { siteVersion, coursVersion } from '../data/version';
 
 interface Props {
   title?: string;
@@ -89,7 +90,7 @@ const items = [
     <footer class="site-footer">
       <div class="container-wide row">
         <p><a href={t('footer.licenceLink')} rel="license noopener">{t('footer.licence')}</a></p>
-        <p>{t('site.name')}</p>
+        <p>{t('site.name')} · {t('footer.site')} {siteVersion} · {t('footer.cours')} {coursVersion}</p>
       </div>
     </footer>
   </body>

@@ -44,7 +44,7 @@ ecoles:
       texte: "Une toute petite implémentation de bout en bout, qui relie les composants de l'architecture. Patton rattache le mot à Cockburn mais l'applique à une première version utilisable. Le cours réserve le terme au sens de Cockburn (concept 9)."
       refs: ["S2", "S3"]
     - auteur: "Deux sens du mot « prévision »"
-      texte: "La prévision des Developers (ce qu'ils pensent livrer, et quand) est le sujet de cette page. La prévision des stations à risque est, elle, une fonction du produit pour un régulateur (concepts 9 et 17). Distinction de vocabulaire du cours."
+      texte: "La prévision des Developers (ce qu'ils pensent livrer, et quand) est le sujet de cette page. La prévision des stations à risque est, elle, une fonction du produit pour Régis (concepts 9 et 17). Distinction de vocabulaire du cours."
       refs: []
 sources:
   affirmations:
@@ -117,8 +117,8 @@ sources:
       verifie: "Article de 2008 : les stories du haut décrivent le plus petit système qu'on puisse construire qui donne une fonctionnalité de bout en bout, ce que Cockburn appelle le « walking skeleton ». Mémo : la phase « Opening Game » construit un « functional walking skeleton ». Patton rattache donc le terme à Cockburn mais l'applique à une version utilisable ; Cockburn le définit comme une implémentation qui relie les composants de l'architecture (vérifié au concept 9)."
     - affirmation: "La planification d'une version n'est pas dans le Scrum Guide 2020 ; les référentiels de PO la demandent."
       kind: "consensus"
-      refs: ["S1", "S7"]
-      verifie: "Scrum Guide 2020 : « release » n'apparaît qu'une fois (la revue n'est pas une porte vers la livraison de valeur), sans plan de version. CSPO 2022 : 2.4 « list the components of a product plan or forecast with stakeholders », 2.5 « describe how to plan a product release », 2.6 « explain at least two approaches to identify small, valuable, and usable increments »."
+      refs: ["S1", "S7", "S8"]
+      verifie: "Scrum Guide 2020 : « release » n'apparaît qu'une fois (la revue n'est pas une porte vers la livraison de valeur), sans plan de version. CSPO 2022 : 2.4 « list the components of a product plan or forecast with stakeholders », 2.5 « describe how to plan a product release », 2.6 « explain at least two approaches to identify small, valuable, and usable increments ». PSPO : domaine « Forecasting & Release Planning » (non relu)."
     - affirmation: "Tout ce qui entre dans l'incrément remplit la DoD, MVP ou pas."
       kind: "cours"
       refs: ["S1"]
@@ -155,10 +155,13 @@ sources:
       kind: "ecole"
       refs: ["S1", "S12", "S11"]
       verifie: "Scrum Guide 2020 : « story point », « velocity » et « estimat » n'y apparaissent pas. Jeffries (2019) rapporte que les points viennent d'XP et juge leur usage pour prédire « when we'll be done » « at best a weak idea ». Mountain Goat (Cohn) en fait un outil de prévision. Ils sont nommés sans être attribués : Jeffries lui-même n'est pas sûr de les avoir inventés."
-    - affirmation: "En flux continu, la prévision passe par le débit et le temps de cycle."
+    - affirmation: "En flux continu, la prévision passe par le temps de cycle."
       refs: ["S1"]
       verifie: "Le Scrum Guide cite les « cumulative flows ». Le Kanban Guide (débit, temps de cycle) est sourcé à l'annexe A2, pas ici."
-    - affirmation: "Les exemples du fil rouge et les illustrations inventées de la page (la journée de Théo) sont des faits inventés."
+    - affirmation: "L’échéance du bilan au conseil n’est pas fixée ; une prévision chiffrée se pose en situation d’exercice."
+      refs: []
+      verifie: "Fil rouge : le conseil examine la subvention une fois par an (F5), sans date. Pas de source."
+    - affirmation: "Les exemples du fil rouge et les illustrations inventées de la page (la journée d’un technicien de maintenance) sont des faits inventés."
       refs: []
       verifie: "Sans source : le cas de l'opérateur de vélos en libre-service est fictif."
   references:
@@ -197,6 +200,11 @@ sources:
       url: "https://www.scrumalliance.org/media/certifications/los/cspo_learning_objectives_2022.pdf"
       type: "primaire"
       consultee: "2026-10-23"
+    - id: "S8"
+      texte: "Scrum.org, PSPO I"
+      url: "https://www.scrum.org/assessments/professional-scrum-product-owner-i-certification"
+      type: "primaire (et marketing pour la certification)"
+      consultee: "2026-10-22"
     - id: "S9"
       texte: "Schwaber, Sutherland, *The Scrum Guide*, novembre 2017 (section « Monitoring Progress Toward Goals »)"
       url: "https://scrumguides.org/docs/scrumguide/v2017/2017-Scrum-Guide-US.pdf"
@@ -227,6 +235,10 @@ sources:
     - "**Origine du terme MVP.** Une source secondaire [S6] l'attribue à Frank Robinson (2001), popularisé par Steve Blank et Eric Ries ; non vérifié. La page n'attribue que la définition à Ries."
     - "**Le livre *User Story Mapping*** [S4] **et *The Lean Startup*.** Non lus : tout ce qui est attribué à Patton vient de [S2] et [S3], la définition du MVP du billet de 2009 [S5]."
     - "**« Date fixe, contenu variable ».** Choix du cours, sans source externe ; appui indirect par MoSCoW pour une échéance (concept 13c)."
+alignement:
+  coursVersion: "1.0.0"
+  fiche: "7f233a40481ad81b4be6131c766ec9e3a439b5cd859e97666ad5eb4df2e4e340"
+  sources: "4e4549e9f5a682b030165c0dc0ee45cd281fdd0108c97106af0edb75b247510f"
 ---
 import Schema16 from '../../../components/schemas/Schema16.astro';
 import Schema16Prevision from '../../../components/schemas/Schema16Prevision.astro';
@@ -243,7 +255,7 @@ Une liste plate de stories ne dit pas à quel moment de son parcours l'utilisate
 
 Une story map se lit comme le parcours de l'utilisateur. En haut, ses activités, de gauche à droite dans l'ordre où il les raconte : c'est la **colonne vertébrale**, et elle ne s'ordonne pas par importance. Sous chaque activité, les stories qui la servent, de haut en bas : en haut l'indispensable, plus bas ce qui l'est moins. L'axe horizontal est donc celui du moment, et l'axe vertical celui de la nécessité. Pour dresser la colonne vertébrale, Patton propose de partir d'une journée type de l'utilisateur.
 
-<FilRouge>Exemple inventé pour l'illustration : Théo, technicien de maintenance, raconterait sa journée ainsi : préparer sa tournée, se rendre sur place, confirmer ou infirmer la panne, réparer le vélo ou le retirer du service. Quatre moments, dans cet ordre : ce seraient les activités de sa carte.</FilRouge>
+<FilRouge>Exemple inventé pour l’illustration : un technicien de maintenance raconterait sa journée ainsi : préparer la tournée, se rendre sur place, confirmer la panne, réparer ou retirer le vélo. Quatre moments, dans cet ordre : ce seraient les activités de sa carte.</FilRouge>
 
 Les colonnes ne sont donc pas des vues, des epics ou des features : la carte n'est pas la hiérarchie du backlog (<Renvoi n="4" />). Pour ranger une story, on demande à l'utilisateur à quel moment il s'en sert, et on ne le décide pas à sa place. La carte montre alors ce que l'arbre de la hiérarchie ne montre pas : une même vue peut apparaître sous plusieurs activités, et une activité sans story se voit comme un trou à explorer avec l'utilisateur <Pastille kind="cours" />. En revanche, la carte sert à voir le tout, pas à décrire un flux avec la précision d'un modèle de processus <Pastille kind="ecole" />.
 
@@ -279,7 +291,7 @@ Dans les deux cas, ce n'est pas une version au rabais. Tout ce qui entre dans l'
 
 À « pour quand ? », le PO n'invente pas de date. La prévision se construit sur la taille des stories, que les Developers estiment, et sur leur rythme des derniers sprints : le Scrum Guide rappelle que seul ce qui s'est déjà passé sert à décider. Le Guide 2020 donne aux Developers la prévision du sprint ; il ne dit pas qui prévoit une version. Le cours retient que la prévision d'une version se construit sur leur taille et leur rythme, et que le PO la porte aux parties prenantes <Pastille kind="cours" />.
 
-Elle se donne en **fourchette**, pratique de l'école de Mike Cohn, qui la calcule à partir de la vélocité <Pastille kind="ecole" />, et elle se revoit à chaque sprint (l'empirisme du Guide l'appelle). Ce n'est pas une promesse : les engagements de Scrum sont l'objectif produit, l'objectif de sprint et la DoD. Story points et vélocité sont des pratiques courantes, absentes du Scrum Guide, que cette page nomme sans les enseigner. En flux continu, la prévision passe par le temps de cycle (<Renvoi n="A2d" />).
+Elle se donne en **fourchette**, pratique de l'école de Mike Cohn, qui la calcule à partir de la vélocité <Pastille kind="ecole" />, et elle se revoit à chaque sprint (l'empirisme du Guide l'appelle). Ce n'est pas une promesse : les engagements de Scrum sont l'objectif produit, l'objectif de sprint et la DoD. Story points et vélocité sont des pratiques courantes, absentes du Scrum Guide, que cette page nomme sans les enseigner ; Ron Jeffries juge faible leur usage pour prédire une date de fin <Pastille kind="ecole" />. En flux continu, la prévision passe par le temps de cycle (<Renvoi n="A2d" />).
 
 <Figure legende="Une prévision en fourchette. Les Developers la fondent sur la taille des stories et leur rythme ; l'ordre du backlog et une dépendance peuvent la déplacer ; elle est redessinée à chaque revue de sprint. Une prévision des Developers, pas une promesse.">
   <Schema16Prevision />
@@ -307,6 +319,7 @@ La carte se lit-elle comme le parcours de l'utilisateur ? La première tranche s
 - **Confondre les deux sens de MVP**, ou le prendre pour une version au rabais.
 - **Prendre le walking skeleton de Patton pour celui de Cockburn.**
 - **Inventer une date**, prendre la prévision pour une promesse, ou estimer à la place des Developers.
-- **Confondre la prévision du travail avec la prévision des stations à risque** (<Renvoi n="9" />, <Renvoi n="17" />) : la seconde est une fonction du produit.
+- **Viser le bilan au conseil sans date** : sa date n’est pas fixée ; si une prévision doit le viser, la date se demande à Charlotte.
+- **Confondre la prévision du travail avec la prévision des stations à risque** (<Renvoi n="9" />, <Renvoi n="17" />) : la seconde est une fonction du produit, pour Régis.
 
 </Erreurs>

@@ -15,7 +15,7 @@ ecoles:
   ecole:
     - auteur: "La liste des dimensions de qualité"
       texte: "Six chez DAMA UK : exactitude, complétude, unicité, cohérence, fraîcheur, validité. D'autres listes existent ailleurs, parfois bien plus longues."
-      refs: ["S2", "S4"]
+      refs: ["S2", "S3", "S4"]
     - auteur: "Le grain (Kimball Group)"
       texte: "Terme de la modélisation dimensionnelle : ce que représente une ligne d'une table de faits. Le cours l'étend à un indicateur : ce que représente une valeur de l'indicateur (par station, par quartier)."
       refs: ["S1"]
@@ -44,10 +44,10 @@ sources:
       kind: "consensus"
       refs: ["S2", "S3", "S4"]
       verifie: "Cadre de qualité des données du gouvernement britannique : « There are six core data quality dimensions, as defined by DAMA UK » ; chaque dimension s'y mesure (« Uniqueness measures the number of duplicates »). DAMA NL recense les dimensions de nombreuses sources : toutes passent par des dimensions. Consensus entre ces sources, pas un texte unique."
-    - affirmation: "La liste des dimensions est un choix d'école : six chez DAMA UK, davantage dans d'autres listes."
+    - affirmation: "La liste des dimensions est un choix d’école : six chez DAMA UK, d’autres listes ailleurs, parfois bien plus longues."
       kind: "ecole"
       refs: ["S2", "S3", "S4"]
-      verifie: "Six dimensions de DAMA UK (2013) reprises par le gouvernement britannique ; DAMA NL (2020) recense les dimensions par source. La date 2013 vient de la reprise britannique ; le livre blanc d'origine n'a pas été relu. Le DMBOK 2, payant, n'a pas été consulté : la page n'en cite pas le nombre de dimensions."
+      verifie: "Six dimensions de DAMA UK reprises par le gouvernement britannique ; DAMA NL : recensement par source, dont DAMA-DMBOK 2. Date 2013 de DAMA UK : d’après sa reprise par le gouvernement britannique (voir « Non vérifié »). Date 2017 du DMBOK 2 : d’après le recensement de DAMA NL. Le DMBOK 2, payant, n’a pas été lu."
     - affirmation: "Les six dimensions de DAMA UK : exactitude, complétude, unicité, cohérence, fraîcheur, validité."
       kind: "ecole"
       refs: ["S2"]
@@ -56,14 +56,14 @@ sources:
       kind: "consensus"
       refs: ["S2", "S3"]
       verifie: "« data quality can be thought of as 'fitness for purpose' » ; « The level of quality required will vary depending on the purpose » ; « Timeliness means different things for different uses »."
-    - affirmation: "Mesurer une dimension, c'est poser une règle chiffrable (un taux de doublons, un âge maximal)."
+    - affirmation: "Mesurer une dimension, c’est poser une règle chiffrable (un taux, une date)."
       kind: "consensus"
       refs: ["S2"]
-      verifie: "Chaque dimension y est définie comme mesurable (« measures the number of duplicates » ; format, type et plage pour la validité). Les exemples chiffrés de la page sont des illustrations du cours."
-    - affirmation: "Un doublon relève de l'unicité."
+      verifie: "Chaque dimension y est définie comme mesurable (« measures the number of duplicates » ; format, type et plage pour la validité). Les exemples chiffrés sont des propositions du cours, sans fixer de fait du fil rouge."
+    - affirmation: "Les relevés en double relèvent de l’unicité."
       kind: "ecole"
       refs: ["S2"]
-      verifie: "« Uniqueness measures the number of duplicates » ; la page précise qu'un enregistrement peut être un doublon même si certains champs diffèrent."
+      verifie: "« Uniqueness measures the number of duplicates » ; la page précise qu'un enregistrement peut être un doublon même si certains champs diffèrent. Relevés en double : défaut connu du fil rouge, inventé."
     - affirmation: "Un indicateur est une valeur calculée par le produit pour ses utilisateurs ; c'est un livrable, pas une mesure de résultat."
       kind: "cours"
       refs: []
@@ -84,7 +84,11 @@ sources:
       kind: "cours"
       refs: []
       verifie: "Critère propre à une story : Cohn, « conditions of satisfaction are specific to a given product backlog item » (vu aux concepts 8 et 11). « Vaut partout où il est publié » : formulation du cours, sans source externe."
-    - affirmation: "Où écrire une exigence de qualité : la DoD si elle vaut pour toute story, un critère si elle est propre à une story, la définition de l'indicateur si elle le concerne."
+    - affirmation: "La DoD de l’équipe vélos exige que chaque indicateur publié ait sa définition écrite ; la DoD exige la définition, elle n’en fixe pas les règles."
+      kind: "cours"
+      refs: []
+      verifie: "Fait fixé du fil rouge, inventé (ajouté en rétrospective, situation de 11a). Documentation dans une DoD data : exemple d’Ambler, vu au concept 11."
+    - affirmation: "Où écrire une exigence de qualité : la DoD si elle vaut pour toute story (le test des relevés en double), un critère si elle est propre à une story, la définition de l’indicateur si elle le concerne (par exemple sa fraîcheur)."
       kind: "cours"
       refs: []
       verifie: "DoD ou critère : test de Cohn, vu au concept 11. Le troisième lieu (la définition de l'indicateur) est un choix du cours, sans source externe."
@@ -99,7 +103,7 @@ sources:
     - affirmation: "Une donnée pseudonymisée qu'on peut rattacher à une personne reste personnelle."
       kind: "consensus"
       refs: ["S5", "S6", "S11"]
-      verifie: "Considérant 26 : les données pseudonymisées « qui pourraient être attribuées à une personne physique par le recours à des informations supplémentaires devraient être considérées comme des informations concernant une personne physique identifiable ». Art. 4, 5 : la pseudonymisation empêche l'attribution à une personne sauf à utiliser des informations supplémentaires conservées séparément ; l'EDPB : les données pseudonymisées « restent donc des données à caractère personnel ». Nuance : selon des commentaires d'un arrêt de 2025 (voir « Non vérifié »), ce n'est pas vrai pour tout destinataire. La page écrit « pour qui peut la rattacher à une personne »."
+      verifie: "Considérant 26 : les données pseudonymisées « qui pourraient être attribuées à une personne physique par le recours à des informations supplémentaires devraient être considérées comme des informations concernant une personne physique identifiable ». Art. 4, 5 : la pseudonymisation empêche l'attribution à une personne sauf à utiliser des informations supplémentaires conservées séparément ; l'EDPB : les données pseudonymisées « restent donc des données à caractère personnel ». Ici l’opérateur connaît le nom et les coordonnées de ses abonnés (source Abonnés du fil rouge) : il sait à qui correspond un identifiant, l’identifiant reste rattachable. Nuance : selon des commentaires d'un arrêt de 2025 (voir « Non vérifié »), ce n'est pas vrai pour tout destinataire. La page écrit « pour qui peut la rattacher à une personne »."
     - affirmation: "Limitation des finalités : données collectées pour des finalités déterminées, explicites et légitimes."
       kind: "consensus"
       refs: ["S5"]
@@ -189,11 +193,15 @@ sources:
       consultee: "2026-10-22"
   nonVerifie:
     - "**Contenu d'une définition d'indicateur.** Aucune source établie (norme, texte de consensus) ne fixe la liste « règle de calcul, grain, période, source, fraîcheur ». Elle recoupe la pratique (dbt [S7], Klipfolio [S8], tous deux marketing ; le grain chez Kimball [S1]) : la page la présente comme le choix du cours."
-    - "**Pseudonymisation, arrêt de 2025.** Selon des commentaires de cabinets [S11], la Cour de justice a jugé le 4 septembre 2025 (C-413/23 P) qu'une donnée pseudonymisée n'est pas une donnée personnelle pour tout destinataire : seulement pour celui qui peut raisonnablement réidentifier la personne. L'arrêt n'a pas été lu. La page écrit « pour qui peut la rattacher à une personne », pas « toujours et pour tous »."
+    - "**Pseudonymisation, arrêt de 2025.** Selon des commentaires de cabinets [S11], la Cour de justice a jugé le 4 septembre 2025 (C-413/23 P) qu'une donnée pseudonymisée n'est pas une donnée personnelle pour tout destinataire : seulement pour celui qui peut raisonnablement réidentifier la personne. L’arrêt n’a pas été lu. Sans effet sur l’exemple : la plateforme appartient à l’opérateur, qui détient le fichier des abonnés. La page écrit « pour qui peut la rattacher à une personne », pas « toujours et pour tous »."
     - "**« Fraîcheur » pour *timeliness*.** Traduction du cours ; DAMA UK définit *timeliness* comme une donnée disponible quand on l'attend, pas comme un âge maximal. Sens voisin."
     - "**DAMA UK, 2013.** Le livre blanc d'origine n'a pas été relu, seule sa reprise par le gouvernement britannique [S2], [S3]."
     - "**DMBOK 2.** Payant, non consulté ; la page ne cite pas son nombre de dimensions."
     - "**Obligation de désigner un délégué à la protection des données (art. 37).** Non vérifiée pour un opérateur de ce type ; la page ne l'affirme pas."
+alignement:
+  coursVersion: "1.0.0"
+  fiche: "42f39ca7fafc875cdb2cace1299ad11d306fd8ad91588723cca1da2850e050ae"
+  sources: "430657e5ca158ad63818c4c342d637802da177aecf88f888433591554dd57a75"
 ---
 import Schema12 from '../../../components/schemas/Schema12.astro';
 
@@ -217,7 +225,7 @@ Un indicateur est une valeur calculée par le produit pour ses utilisateurs, com
 
 Cette liste est un choix du cours <Pastille kind="cours" />, qui recoupe la pratique des outils d'indicateurs ; le grain vient de la modélisation dimensionnelle de Kimball <Pastille kind="ecole" />. Période et fraîcheur ne se confondent pas : la première dit à quel moment le nombre est vrai, la seconde de combien ce moment peut dater quand on le lit.
 
-La définition dit **ce qu'on compte, sur quoi, quand**, jamais comment : une requête ou une jointure est le comment des Developers. Une équipe peut exiger dans sa DoD (<Renvoi n="11a" />) que chaque indicateur publié ait sa définition écrite. La mesure de résultat de l'objectif produit (<Renvoi n="2" />) est un indicateur comme les autres et demande la même définition.
+La définition dit **ce qu'on compte, sur quoi, quand**, jamais comment : une requête ou une jointure est le comment des Developers. La DoD de l’équipe vélos exige que chaque indicateur publié ait sa définition écrite (<Renvoi n="11a" />) : le PO la fait écrire et fixer, les Developers font le calcul. La DoD exige la définition, elle n’en fixe pas les règles. La mesure de résultat de l'objectif produit (<Renvoi n="2" />) est un indicateur comme les autres et demande la même définition.
 
 <h4 id="12a2"><span class="num">12a2</span> Ce qui manque, et qui le fixe</h4>
 
@@ -231,13 +239,13 @@ Le PO ne la tranche pas : il la fait fixer par celui qui utilise l'indicateur, o
 
 <h4 id="12b1"><span class="num">12b1</span> Des règles mesurables, par dimension</h4>
 
-La qualité des données s'exprime en règles mesurables sur des **dimensions** <Pastille kind="consensus" />, et le niveau exigé dépend de l'usage. La liste des dimensions est un choix d'école <Pastille kind="ecole" /> : six chez DAMA UK, reprises par le gouvernement britannique (exactitude, complétude, unicité, cohérence, fraîcheur, validité), d'autres listes ailleurs, parfois bien plus longues. Un doublon relève de l'unicité : on le mesure par un taux de doublons.
+La qualité des données s'exprime en règles mesurables sur des **dimensions** <Pastille kind="consensus" />, et le niveau exigé dépend de l'usage. La liste des dimensions est un choix d'école <Pastille kind="ecole" /> : six chez DAMA UK, reprises par le gouvernement britannique (exactitude, complétude, unicité, cohérence, fraîcheur, validité), d'autres listes ailleurs, parfois bien plus longues. Un relevé en double relève de l’unicité : on le mesure par un taux de relevés en double.
 
-« Fiable » ou « propre » sont des mots flous (<Renvoi n="7a2" />). Pour les rendre testables, on demande à l'utilisateur ce qui le ferait douter d'un chiffre, puis on écrit une règle par dimension. Le niveau (un taux, un âge maximal) est à faire dire par celui qui utilise le chiffre : le PO ne le fixe pas.
+« Fiable » ou « propre » sont des mots flous (<Renvoi n="7a2" />). Pour les rendre testables, on demande à l'utilisateur ce qui le ferait douter d'un chiffre, puis on écrit une règle par dimension. Le niveau (un taux, une date) est à faire dire par celui qui utilise le chiffre : le PO ne le fixe pas.
 
 <h4 id="12b2"><span class="num">12b2</span> Où l'écrire, et la limite de la source</h4>
 
-Le cours <Pastille kind="cours" /> range une exigence de qualité selon sa portée : dans la **DoD** si elle vaut pour toute story (<Renvoi n="11a" />), dans un **critère** si elle est propre à une story (<Renvoi n="8" />), dans la **définition de l'indicateur** si elle le concerne.
+Le cours <Pastille kind="cours" /> range une exigence de qualité selon sa portée : dans la **DoD** si elle vaut pour toute story (le test des relevés en double, <Renvoi n="11a" />), dans un **critère** si elle est propre à une story (<Renvoi n="8" />), dans la **définition de l’indicateur** si elle le concerne (par exemple sa fraîcheur).
 
 Reste à distinguer ce que la plateforme reçoit mal de ce qu'elle ne reçoit jamais. Un doublon dans ce qu'elle reçoit se corrige. Une donnée que la source n'envoie pas est une **limite de la source** : aucun traitement ne la fera apparaître. La limite s'écrit dans la définition de l'indicateur et se montre à ceux qui lisent le chiffre, là où ils le lisent. Si leur usage exige plus, la question va au propriétaire de la source : c'est une dépendance envers une autre équipe (<Renvoi n="10b2" />).
 

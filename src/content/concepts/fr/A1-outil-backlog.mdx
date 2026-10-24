@@ -44,6 +44,10 @@ sources:
       kind: "consensus"
       refs: ["S1"]
       verifie: "« Various processes, techniques and methods can be employed within the framework ». L'outil n'y est pas nommé : « laisse le choix de l'outil » est une lecture du cours, cohérente avec cette phrase."
+    - affirmation: "La rétrospective inspecte aussi les outils de l’équipe : c’est là qu’elle change ses réglages."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« The Scrum Team inspects how the last Sprint went with regards to individuals, interactions, processes, tools, and their Definition of Done ». « Changer les réglages de l’outil en rétrospective » est un choix du cours."
     - affirmation: "Le PO veille à ce que le backlog soit transparent, visible et compris."
       kind: "consensus"
       refs: ["S1"]
@@ -97,6 +101,9 @@ sources:
       kind: "ecole"
       refs: ["S13", "S1"]
       verifie: "Cohn : une DoR stricte « becomes a huge step towards a sequential, stage-gate approach » ; « Favor guidelines rather than rules on your Definition of Ready ». Appliquer cet avis à un état « prêt » de l'outil est le choix du cours. Les outils vérifiés n'ont pas d'état « Ready » par défaut pour une story. Le Scrum Guide dit seulement qu'un élément faisable en un sprint est « ready for selection »."
+    - affirmation: "Un lien rend visibles les dépendances qui restent, des deux côtés."
+      refs: ["S6b"]
+      verifie: "Déjà sourcé au concept 10 : Nexus, « dependencies are transparent, identified across teams, and removed or minimized » ; Jira Cloud présente le lien comme un moyen de « surface, understand, and manage dependencies » (allégation de l’éditeur)."
     - affirmation: "Chaque état se tient à jour : en ajouter un par étape coûte, et les états ne racontent pas la vie d'une story."
       kind: "cours"
       refs: ["S9"]
@@ -112,7 +119,7 @@ sources:
     - affirmation: "« Ticket » est un terme d'outil, absent du Scrum Guide : la page dit « élément du backlog »."
       refs: ["S1"]
       verifie: "« Ticket » n'apparaît pas dans le Scrum Guide. Atlassian et Microsoft disent « work item », Linear « issue »."
-    - affirmation: "Les exemples du fil rouge (la DSI, le système de location) et les illustrations inventées de la page sont des faits inventés."
+    - affirmation: "Les faits du fil rouge (équipe vélos, Abba, Pia, équipe appli, vues d’Étienne) et les illustrations inventées de la page sont des faits inventés."
       refs: []
       verifie: "Sans source : le cas de l'opérateur de vélos en libre-service est fictif. Le fil rouge ne dit pas quel outil emploie l'équipe vélos : la page n'en suppose aucun."
   references:
@@ -202,12 +209,16 @@ sources:
     - "**Dates des pages Atlassian et Linear** : aucune date de mise à jour affichée, seulement « © 2026 » chez Atlassian. Les noms changent (« work item », ex-« issue » ; « space », ex-« project ») : la page ne cite aucun intitulé de menu."
     - "**Le niveau de trop** : règle pratique du cours, non vérifiée hors du cours."
     - "**« Le PO propose, l'administrateur règle » et « le lien ne remplace pas la conversation »** : choix du cours. Les pages d'éditeurs disent qui a les droits, pas le rôle du PO."
+alignement:
+  coursVersion: "1.0.0"
+  fiche: "94ea698949144531f661508888e11a58095d7eecb553bd94aa8b08145b16d139"
+  sources: "d49114c4187aadddef5c57ed1671079ad071c73010f42eb0e47948cf799292bd"
 ---
 import SchemaA1 from '../../../components/schemas/SchemaA1.astro';
 
 Le Scrum Guide ne dit rien des outils de suivi : ni niveau, ni lien, ni état d'un élément. Il demande un backlog transparent, visible et compris. L'outil propose des **réglages par défaut** (niveaux, types de liens, états) ; l'équipe les change, et aucun n'est une règle de Scrum. Le PO dit ce qu'il veut voir dans l'outil et pourquoi ; l'administrateur de l'outil fait le réglage, qui peut toucher d'autres équipes. Cette page ne dit pas où cliquer : les écrans changent d'un outil et d'une version à l'autre.
 
-<Figure legende="Un écran d'outil stylisé, en trois bandes (exemple inventé pour l'illustration). Niveaux : la ligne Epic est grisée, c'est le niveau de trop. Liens : une story est bloquée par un élément de l'autre équipe, et les deux PO s'accordent d'abord. États : « Prêt » est un repère, « Fait » veut dire DoD remplie.">
+<Figure legende="Un écran d'outil stylisé, en trois bandes (exemple inventé pour l'illustration). Niveaux : la ligne Epic est grisée, c'est le niveau de trop. Liens : une story est bloquée par un élément de l'autre équipe, et les deux PO s'accordent d'abord. États (cas inventé) : « Cadrée » est un repère, « Terminée » veut dire DoD remplie.">
   <SchemaA1 />
 </Figure>
 
@@ -225,7 +236,7 @@ Ces réglages touchent plus que l'équipe. La hiérarchie de Jira vaut pour tous
 
 Une dépendance (<Renvoi n="10b" />) se note par un lien entre deux éléments. Aucun des trois outils vérifiés n'a de lien nommé « dépend de » : Jira dit « blocks / is blocked by », Azure DevOps « Predecessor / Successor », Linear « blocked / blocking ». Le lien peut relier des éléments de deux équipes, dans deux espaces (Jira) ou deux projets (Azure DevOps). Il rend la dépendance visible des deux côtés.
 
-<FilRouge>La story qui bloque à la location un vélo signalé en panne dépend de la DSI, qui gère le système de location : c'est une dépendance envers une autre équipe, du genre que le lien note.</FilRouge>
+<FilRouge>La story d’Abba, abonnée sans l’appli (un tiers des abonnés n’a qu’un téléphone basique), dépend de l’équipe appli : la disponibilité par station vient de la plateforme, mais le canal pour la livrer relève de l’équipe appli, dont Pia est la PO. C’est une dépendance envers une autre équipe, du genre que le lien note.</FilRouge>
 
 Un lien n'est pas un accord. Chaque PO inscrit et ordonne dans son propre backlog, et on le convainc plutôt que de le contourner (<Renvoi n="10b2" />). Le lien ne remplace donc pas la conversation avec l'autre PO <Pastille kind="cours" /> : on parle d'abord, le lien suit la dépendance ensuite.
 
@@ -251,7 +262,7 @@ Ce réglage sert-il l'équipe ou l'utilisateur ? L'autre PO connaît-il la dépe
 - **Se croire coincé par un niveau que l'outil ne retire pas** : l'équipe peut cesser de l'employer et ne pas l'afficher.
 - **Chercher un lien « dépend de »** : il s'appelle « blocks / is blocked by », « Predecessor / Successor » ou « blocked / blocking ».
 - **Prendre le lien pour l'accord**, ou créer soi-même l'élément dans le backlog d'une autre équipe : chaque PO inscrit et ordonne dans le sien.
-- **Un « fait » qui ne veut pas dire DoD remplie** : l'outil juge terminé d'après sa propre règle, pas d'après la DoD.
+- **Un « fait » qui ne veut pas dire DoD remplie** : l'outil juge terminé d'après sa propre règle (sa colonne la plus à droite, sa catégorie d'état), pas d'après la DoD.
 - **Confondre la « Definition of Done » d'une colonne d'Azure DevOps avec la DoD de Scrum** : même nom, autre objet.
 - **Un état « prêt » en barrière**, ou **multiplier les états** : la DoR tourne au mini cahier des charges, et chaque état se tient à jour.
 - **Décrire les clics, ou régler seul** : le PO dit quoi et pourquoi ; certains réglages touchent d'autres équipes.
