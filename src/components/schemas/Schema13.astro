@@ -1,0 +1,216 @@
+---
+// Schéma 13 : trois panneaux, un par sous-concept, chacun posé à côté de son texte.
+//   p="a" : ordonner (une colonne de cartes, quatre critères, un cadenas)
+//   p="b" : le coût du retard (deux formes, sans graduation)
+//   p="c" : MoSCoW pour une échéance (quatre bacs, Must au plus aux trois cinquièmes) et le backlog qui reste ordonné
+// Couleurs : variables CSS --sch-* (clair/sombre) définies dans global.css.
+interface Props { p: 'a' | 'b' | 'c'; }
+const { p } = Astro.props;
+
+const cards = [0, 1, 2, 3].map((i) => ({ i, y: 92 + i * 62, locked: i === 1 }));
+const cols = [
+  { x: 345, label: 'Valeur' },
+  { x: 412, label: 'Coût' },
+  { x: 479, label: 'Risque' },
+  { x: 548, label: 'Dépend.' },
+];
+const backlog = [1, 2, 3, 4, 5].map((n) => ({ n, y: 62 + (n - 1) * 52 }));
+const bins = [
+  { name: 'Must', note: 'le minimum utilisable', y: 56 },
+  { name: 'Should', note: 'important, pas vital', y: 126 },
+  { name: 'Could', note: 'souhaitable, lâché en premier', y: 196 },
+  { name: 'Won’t', note: 'pas cette fois', y: 266 },
+];
+---
+{p === 'a' && (
+  <svg viewBox="0 0 600 490" role="img" aria-labelledby="g13a-t g13a-d" class="sch">
+    <title id="g13a-t">Ordonner : une place par demande, un pourquoi par place</title>
+    <desc id="g13a-d">
+      En haut, un drapeau : l’objectif produit, le cap face auquel on pèse la valeur.
+      En dessous, une colonne de quatre cartes, une par place, de la place 1 à la place 4. Aucune carte n’est côte à côte avec une autre.
+      À droite de chaque carte, quatre pastilles, une par critère : valeur, coût, risque, dépendances.
+      La pastille de risque est coupée en deux moitiés : risque pour le produit et risque pour les utilisateurs.
+      La carte de la place 2 porte un cadenas et un contour pointillé : elle n’est pas prête.
+      Une note explique le cadenas : ce qui la rend prête (règle fixée, accès obtenu, accord avec l’autre équipe) remonte dans l’ordre.
+      Légende : le coût est estimé par les Developers ; la gravité d’un risque pour les utilisateurs est qualifiée par ceux qui en répondent.
+    </desc>
+    <defs>
+      <pattern id="g13a-hatch" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+        <rect width="9" height="9" class="hatch-bg" />
+        <line x1="0" y1="0" x2="0" y2="9" class="hatch-line" />
+      </pattern>
+    </defs>
+
+    <!-- Le cap -->
+    <path d="M24 14 V46" class="pole" />
+    <path d="M24 14 H58 L48 24 L58 34 H24 Z" class="flag" />
+    <text x="72" y="30" class="head">Objectif produit : le cap de la valeur</text>
+
+    <!-- En-têtes de critères -->
+    {cols.map((c) => (<text x={c.x} y="82" text-anchor="middle" class="colhead">{c.label}</text>))}
+
+    <!-- Les quatre cartes -->
+    {cards.map((c) => (
+      <>
+        <rect x="20" y={c.y} width="285" height="50" rx="8" class="kd" />
+        {c.locked && <rect x="20" y={c.y} width="285" height="50" rx="8" fill="url(#g13a-hatch)" opacity="0.5" />}
+        {c.locked && <rect x="20" y={c.y} width="285" height="50" rx="8" class="lock-outline" />}
+        <circle cx="48" cy={c.y + 25} r="16" class="rank" />
+        <text x="48" y={c.y + 31} text-anchor="middle" class="rank-n">{c.i + 1}</text>
+        <text x="78" y={c.y + 31} class="kdname">place {c.i + 1}</text>
+        {c.locked && (
+          <g transform={`translate(${268} ${c.y + 12})`}>
+            <path d="M5 11 V7 a6 6 0 0 1 12 0 V11" class="lock-shackle" />
+            <rect x="1" y="11" width="20" height="15" rx="3" class="lock-body" />
+          </g>
+        )}
+        <circle cx={cols[0].x} cy={c.y + 25} r="11" class="dot v" />
+        <circle cx={cols[1].x} cy={c.y + 25} r="11" class="dot c" />
+        <path d={`M${cols[2].x} ${c.y + 14} a11 11 0 0 0 0 22 Z`} class="dot r1" />
+        <path d={`M${cols[2].x} ${c.y + 14} a11 11 0 0 1 0 22 Z`} class="dot r2" />
+        <circle cx={cols[3].x} cy={c.y + 25} r="11" class="dot d" />
+      </>
+    ))}
+
+    <!-- Flèche vers la note -->
+    <path d="M280 306 C 290 332, 290 340, 270 358" class="arrow" fill="none" />
+    <path d="M270 358 l-1 -9 M270 358 l9 -3" class="arrow" fill="none" />
+
+    <!-- Notes -->
+    <g class="note">
+      <text x="24" y="382"><tspan class="strong">Cadenas</tspan> : pas prête. Ce qui la rend prête remonte :</text>
+      <text x="24" y="404">règle fixée, accès obtenu, accord avec l’autre équipe.</text>
+      <text x="24" y="432"><tspan class="strong">Coût</tspan> : estimé par les Developers.</text>
+      <text x="24" y="454"><tspan class="strong">Risque</tspan> : produit (gauche), utilisateurs (droite) ; gravité qualifiée par qui en répond.</text>
+      <text x="24" y="480" class="soft">Une place par carte, un pourquoi par place.</text>
+    </g>
+  </svg>
+)}
+
+{p === 'b' && (
+  <svg viewBox="0 0 600 360" role="img" aria-labelledby="g13b-t g13b-d" class="sch">
+    <title id="g13b-t">Deux formes de coût du retard dans le temps</title>
+    <desc id="g13b-d">
+      Un graphique à main levée sans graduation : le temps en abscisse, le coût du retard en ordonnée.
+      Première courbe : un coût qui grandit dès aujourd’hui, qui monte régulièrement du départ jusqu’à la fin.
+      Seconde courbe : un coût lié à une échéance, presque nul et plat au début, qui monte de plus en plus vite à l’approche de l’échéance, repérée par un trait vertical pointillé.
+      Après l’échéance, la courbe retombe au plus bas : la valeur est perdue jusqu’à l’échéance suivante.
+      Légende : la forme, pas les chiffres.
+    </desc>
+    <!-- Axes -->
+    <path d="M50 310 V30" class="axis" />
+    <path d="M50 30 l-5 10 M50 30 l5 10" class="axis" />
+    <path d="M50 310 H578" class="axis" />
+    <path d="M578 310 l-10 -5 M578 310 l-10 5" class="axis" />
+    <text x="60" y="28" class="axis-label">coût du retard</text>
+    <text x="578" y="338" text-anchor="end" class="axis-label">temps</text>
+
+    <!-- Légende dans le graphique -->
+    <g class="note">
+      <path d="M70 56 h30" class="curve-a" />
+      <text x="110" y="62">coût qui grandit dès aujourd’hui</text>
+      <path d="M70 84 h30" class="curve-b" />
+      <text x="110" y="90">coût lié à une échéance</text>
+    </g>
+
+    <!-- Échéance -->
+    <path d="M410 44 V310" class="deadline" />
+    <text x="410" y="36" text-anchor="middle" class="deadline-label">échéance</text>
+
+    <!-- Courbes -->
+    <path d="M60 262 C 200 248, 380 160, 568 70" class="curve-a" fill="none" />
+    <path d="M60 296 L200 294 C 280 290, 350 235, 410 120 L410 298 L568 298" class="curve-b" fill="none" />
+
+    <g class="note">
+      <text x="424" y="262">après l’échéance,</text>
+      <text x="424" y="282">valeur perdue</text>
+    </g>
+    <text x="50" y="352" class="soft small">La forme, pas les chiffres.</text>
+  </svg>
+)}
+
+{p === 'c' && (
+  <svg viewBox="0 0 600 420" role="img" aria-labelledby="g13c-t g13c-d" class="sch">
+    <title id="g13c-t">MoSCoW pour une échéance, et le backlog qui reste ordonné</title>
+    <desc id="g13c-d">
+      À gauche, une boîte « une échéance » contenant quatre bacs empilés : Must (le minimum utilisable), Should (important, pas vital), Could (souhaitable, lâché en premier) et Won’t (pas cette fois).
+      Le bac Must est rempli aux trois cinquièmes au plus, repéré par un trait : environ 60 % de l’effort au plus, recommandation de DSDM.
+      À droite, la colonne ordonnée du backlog, cinq cartes numérotées de 1 à 5 : elle continue d’exister. Une flèche pointillée part du bac Won’t vers le backlog : ce qui n’est pas pour cette échéance y reste, à sa place.
+      Légende : MoSCoW pour une échéance ; l’ordre, toujours.
+    </desc>
+
+    <rect x="20" y="40" width="340" height="304" rx="10" class="pb" />
+    <text x="190" y="30" text-anchor="middle" class="head">une échéance</text>
+
+    {bins.map((b, i) => (
+      <>
+        <rect x="34" y={b.y} width="312" height="62" rx="6" class="bin" />
+        {i === 0 && <rect x="34" y={b.y} width="187" height="62" rx="6" class="fill-must" />}
+        <text x="48" y={b.y + 27} class={i === 0 ? 'binname must-ink' : 'binname'}>{b.name}</text>
+        <text x="48" y={b.y + 49} class={i === 0 ? 'binnote must-ink' : 'binnote'}>{b.note}</text>
+      </>
+    ))}
+    <path d="M221 50 V336" class="mark" />
+    <text x="190" y="368" text-anchor="middle" class="note-t"><tspan class="strong">Must</tspan> : environ 60 % de l’effort</text>
+    <text x="190" y="388" text-anchor="middle" class="note-t">au plus (DSDM)</text>
+
+    <!-- Won't -> backlog -->
+    <path d="M346 297 H430" class="arrow dashed" fill="none" />
+    <path d="M430 297 l-9 -5 M430 297 l-9 5" class="arrow" fill="none" />
+
+    <!-- Le backlog ordonné -->
+    <text x="510" y="30" text-anchor="middle" class="head">backlog ordonné</text>
+    {backlog.map((c) => (
+      <>
+        <rect x="440" y={c.y} width="140" height="40" rx="6" class="kd" />
+        <circle cx="466" cy={c.y + 20} r="13" class="rank" />
+        <text x="466" y={c.y + 26} text-anchor="middle" class="rank-n">{c.n}</text>
+        <text x="490" y={c.y + 26} class="kdname small">place {c.n}</text>
+      </>
+    ))}
+    <text x="510" y="336" text-anchor="middle" class="note-t soft">Won’t y reste, à sa place</text>
+    <text x="300" y="414" text-anchor="middle" class="legend">MoSCoW pour une échéance ; l’ordre, toujours.</text>
+  </svg>
+)}
+
+<style>
+  .sch { font-family: var(--font-ui); }
+  .hatch-bg { fill: var(--sch-grey); }
+  .hatch-line { stroke: var(--sch-grey-line); stroke-width: 2; opacity: 0.55; }
+  .pole { stroke: var(--sch-grey-line); stroke-width: 2.5; }
+  .flag { fill: var(--sch-s1); }
+  .head { font-size: 18px; font-weight: 650; fill: var(--sch-text); }
+  .colhead { font-size: 15px; font-weight: 650; fill: var(--sch-text-soft); }
+  .kd { fill: var(--sch-band); stroke: var(--sch-band-line); stroke-width: 1.5; }
+  .lock-outline { fill: none; stroke: var(--sch-grey-line); stroke-width: 2.5; stroke-dasharray: 7 5; }
+  .rank { fill: var(--sch-s1); }
+  .rank-n { font-size: 17px; font-weight: 700; fill: var(--sch-s-ink); }
+  .kdname { font-size: 18px; font-weight: 600; fill: var(--sch-text); }
+  .kdname.small { font-size: 16px; }
+  .lock-body { fill: var(--sch-grey-line); }
+  .lock-shackle { fill: none; stroke: var(--sch-grey-line); stroke-width: 3.5; }
+  .dot.v, .dot.c, .dot.d { fill: var(--sch-s2); }
+  .dot.r1 { fill: var(--sch-s1); }
+  .dot.r2 { fill: var(--sch-s3); }
+  .arrow { stroke: var(--sch-grey-line); stroke-width: 2; }
+  .arrow.dashed { stroke-dasharray: 5 4; }
+  .note { font-size: 15.5px; fill: var(--sch-text); }
+  .note .strong, .note-t .strong { font-weight: 700; }
+  .note-t { font-size: 15.5px; fill: var(--sch-text); }
+  .soft { fill: var(--sch-text-soft); }
+  .small { font-size: 15px; }
+  .axis { stroke: var(--sch-grey-line); stroke-width: 2.5; fill: none; }
+  .axis-label { font-size: 16px; font-weight: 600; fill: var(--sch-text-soft); }
+  .curve-a { stroke: var(--sch-s1); stroke-width: 4; }
+  .curve-b { stroke: var(--sch-text); stroke-width: 3.5; stroke-dasharray: 11 6; }
+  .deadline { stroke: var(--sch-grey-line); stroke-width: 2; stroke-dasharray: 6 5; }
+  .deadline-label { font-size: 16px; font-weight: 650; fill: var(--sch-text); }
+  .pb { fill: none; stroke: var(--sch-grey-line); stroke-width: 2.5; stroke-dasharray: 7 5; }
+  .bin { fill: var(--sch-band); stroke: var(--sch-band-line); stroke-width: 1.5; }
+  .fill-must { fill: var(--sch-s1); }
+  .binname { font-size: 19px; font-weight: 700; fill: var(--sch-text); }
+  .binnote { font-size: 15px; fill: var(--sch-text-soft); }
+  .must-ink { fill: var(--sch-s-ink); }
+  .mark { stroke: var(--sch-text); stroke-width: 2; stroke-dasharray: 5 4; }
+  .legend { font-size: 17px; font-weight: 600; fill: var(--sch-text-soft); }
+</style>

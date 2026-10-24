@@ -1,0 +1,191 @@
+---
+// Schéma 14 : trois panneaux, un par sous-concept, chacun posé à côté de son texte.
+//   p="a" : qui sont-elles (le produit comme un tuyau, amont et aval, ceux qui paient, l'équipe voisine)
+//   p="b" : dire non (le backlog visible, la demande à sa place, la réponse en trois cases)
+//   p="c" : escalader (un escalier à trois marches et un palier, une porte barrée)
+// Aucun nom de personne : le schéma montre des catégories, pas un classement d'acteurs.
+// Couleurs : variables CSS --sch-* (clair/sombre) définies dans global.css.
+interface Props { p: 'a' | 'b' | 'c'; }
+const { p } = Astro.props;
+
+const backlog = [1, 2, 3, 4].map((n) => ({ n, y: 56 + (n - 1) * 62, target: n === 3 }));
+const cells = [
+  { head: 'Pas maintenant', sub: 'pas « jamais »', y: 70 },
+  { head: 'Pourquoi', sub: 'l’objectif produit, ce qui est prêt', y: 158 },
+  { head: 'Ce qui la ferait monter', sub: 'un fait nouveau, une échéance', y: 246 },
+];
+const BASE = 340;
+const steps = [
+  { x: 12, h: 160, n: '1', a: 'La personne', b: 'concernée', c: 'pas encore', d: 'une escalade' },
+  { x: 124, h: 200, n: '2', a: 'Le Scrum', b: 'Master', c: 'fait lever', d: 'les obstacles' },
+  { x: 236, h: 240, n: '3', a: 'Le sponsor', b: '', c: 'porte l’obstacle', d: 'plus haut' },
+  { x: 348, h: 280, n: '', a: 'Instance qui', b: 'tranche', c: 'les désaccords', d: 'entre services' },
+];
+---
+{p === 'a' && (
+  <svg viewBox="0 0 600 450" role="img" aria-labelledby="g14a-t g14a-d" class="sch">
+    <title id="g14a-t">Les parties prenantes d’un produit data, en cinq familles</title>
+    <desc id="g14a-d">
+      Le produit est un tuyau qui va de la gauche vers la droite. À gauche, en amont : les fournisseurs de données, propriétaires des sources, entourés d’un pointillé et légendés « en amont, ceux qu’on oublie ». Une flèche de données entre dans le produit.
+      À droite, en aval : les utilisateurs, ceux qui se servent des vues, des alertes et des indicateurs. Une flèche de données sort du produit vers eux.
+      Au-dessus, deux boîtes reliées au produit : le financeur, qui paie le service, et le sponsor, qui porte le budget.
+      Sous le produit, l’équipe voisine, qui travaille à côté. Deux pointillés la relient aux fournisseurs et aux utilisateurs : un même acteur peut apparaître à plusieurs endroits, avec plusieurs casquettes.
+    </desc>
+    <defs>
+      <marker id="g14a-ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0 0 L10 5 L0 10 Z" class="ar-head" />
+      </marker>
+    </defs>
+
+    <!-- Ceux qui paient -->
+    <rect x="110" y="14" width="170" height="60" rx="8" class="pb" />
+    <text x="195" y="40" text-anchor="middle" class="name">Financeur</text>
+    <text x="195" y="60" text-anchor="middle" class="sub">paie le service</text>
+    <rect x="320" y="14" width="170" height="60" rx="8" class="pb" />
+    <text x="405" y="40" text-anchor="middle" class="name">Sponsor</text>
+    <text x="405" y="60" text-anchor="middle" class="sub">porte le budget</text>
+    <path d="M195 76 L262 164" class="line" marker-end="url(#g14a-ar)" fill="none" />
+    <path d="M405 76 L338 164" class="line" marker-end="url(#g14a-ar)" fill="none" />
+
+    <!-- Amont -->
+    <rect x="10" y="144" width="156" height="124" rx="8" class="pb" />
+    <rect x="4" y="138" width="168" height="136" rx="12" class="forget" />
+    <text x="88" y="172" text-anchor="middle" class="name">Fournisseurs</text>
+    <text x="88" y="192" text-anchor="middle" class="name">de données</text>
+    <text x="88" y="220" text-anchor="middle" class="sub">propriétaires</text>
+    <text x="88" y="238" text-anchor="middle" class="sub">des sources</text>
+
+    <!-- Le produit -->
+    <rect x="200" y="166" width="200" height="80" rx="40" class="product" />
+    <text x="300" y="214" text-anchor="middle" class="name product-ink">Le produit</text>
+
+    <!-- Aval -->
+    <rect x="434" y="144" width="156" height="124" rx="8" class="pb" />
+    <text x="512" y="172" text-anchor="middle" class="name">Utilisateurs</text>
+    <text x="512" y="200" text-anchor="middle" class="sub">ceux qui se servent</text>
+    <text x="512" y="218" text-anchor="middle" class="sub">des vues, alertes,</text>
+    <text x="512" y="236" text-anchor="middle" class="sub">indicateurs</text>
+
+    <path d="M172 206 H196" class="line data" marker-end="url(#g14a-ar)" fill="none" />
+    <path d="M404 206 H430" class="line data" marker-end="url(#g14a-ar)" fill="none" />
+
+    <!-- L'équipe voisine -->
+    <path d="M300 250 V312" class="line" marker-start="url(#g14a-ar)" marker-end="url(#g14a-ar)" fill="none" />
+    <rect x="200" y="316" width="200" height="60" rx="8" class="pb" />
+    <text x="300" y="342" text-anchor="middle" class="name">Équipe voisine</text>
+    <text x="300" y="362" text-anchor="middle" class="sub">travaille à côté</text>
+
+    <!-- Même acteur, plusieurs casquettes -->
+    <path d="M200 346 C 120 346, 88 318, 88 278" class="dotted" fill="none" />
+    <path d="M400 346 C 480 346, 512 318, 512 278" class="dotted" fill="none" />
+    <text x="300" y="404" text-anchor="middle" class="note soft">pointillés : un même acteur, plusieurs casquettes</text>
+    <text x="300" y="434" text-anchor="middle" class="legend">En amont, ceux qu’on oublie.</text>
+  </svg>
+)}
+
+{p === 'b' && (
+  <svg viewBox="0 0 600 358" role="img" aria-labelledby="g14b-t g14b-d" class="sch">
+    <title id="g14b-t">Dire non : pas maintenant, pourquoi, ce qui ferait monter la demande</title>
+    <desc id="g14b-d">
+      À gauche, le backlog en colonne, visible de tous : quatre cartes, de la place 1 à la place 4. La demande d’une partie prenante occupe la place 3, mise en évidence.
+      Une flèche part de cette carte vers une bulle « la réponse » à droite, qui contient trois cases empilées : « Pas maintenant », pas « jamais » ; « Pourquoi », l’objectif produit et ce qui est prêt ; « Ce qui la ferait monter », un fait nouveau ou une échéance.
+      Légende : la demande reste visible, à sa place.
+    </desc>
+    <defs>
+      <marker id="g14b-ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+        <path d="M0 0 L10 5 L0 10 Z" class="ar-head" />
+      </marker>
+    </defs>
+    <text x="115" y="34" text-anchor="middle" class="head">le backlog, visible</text>
+    {backlog.map((c) => (
+      <>
+        <rect x="20" y={c.y} width="190" height="46" rx="8" class={c.target ? 'kd target' : 'kd'} />
+        <circle cx="46" cy={c.y + 23} r="14" class={c.target ? 'rank rank-t' : 'rank'} />
+        <text x="46" y={c.y + 29} text-anchor="middle" class={c.target ? 'rank-n rank-n-t' : 'rank-n'}>{c.n}</text>
+        <text x="70" y={c.y + 29} class={c.target ? 'kdname target-ink' : 'kdname'}>{c.target ? 'la demande' : `place ${c.n}`}</text>
+      </>
+    ))}
+    <path d="M214 241 C 240 241, 250 210, 276 200" class="line" marker-end="url(#g14b-ar)" fill="none" />
+
+    <text x="436" y="34" text-anchor="middle" class="head">la réponse</text>
+    <rect x="280" y="46" width="308" height="272" rx="14" class="bubble" />
+    {cells.map((c) => (
+      <>
+        <rect x="296" y={c.y - 14} width="276" height="74" rx="8" class="kd" />
+        <text x="310" y={c.y + 16} class="cell-head">{c.head}</text>
+        <text x="310" y={c.y + 42} class="sub">{c.sub}</text>
+      </>
+    ))}
+    <text x="300" y="344" text-anchor="middle" class="legend">La demande reste visible, à sa place.</text>
+  </svg>
+)}
+
+{p === 'c' && (
+  <svg viewBox="0 40 600 380" role="img" aria-labelledby="g14c-t g14c-d" class="sch">
+    <title id="g14c-t">L’escalade d’un obstacle, en trois marches et un palier</title>
+    <desc id="g14c-d">
+      Un escalier qui monte de la gauche vers la droite. Première marche : la personne concernée, avec la mention « pas encore une escalade ». Deuxième marche : le Scrum Master, qui fait lever les obstacles. Troisième marche : le sponsor, qui porte l’obstacle plus haut. Au sommet, un palier : l’instance qui tranche les désaccords entre services.
+      Légende : on passe à la marche suivante quand la démarche a eu lieu et que rien n’a changé à la fin du sprint.
+      À droite, à part de l’escalier, une porte barrée d’une croix : un désaccord sur l’ordre de son propre backlog. Le PO tranche, on ne monte pas.
+    </desc>
+    {steps.map((s, i) => (
+      <>
+        <rect x={s.x} y={BASE - s.h} width="112" height={s.h} class={i === 3 ? 'step landing' : 'step'} />
+        {s.n && <text x={s.x + 56} y={BASE - s.h + 34} text-anchor="middle" class="step-n">{s.n}</text>}
+        <text x={s.x + 56} y={BASE - s.h + 62} text-anchor="middle" class="name small-name">{s.a}</text>
+        {s.b && <text x={s.x + 56} y={BASE - s.h + 82} text-anchor="middle" class="name small-name">{s.b}</text>}
+        <text x={s.x + 56} y={BASE - s.h + (s.b ? 110 : 90)} text-anchor="middle" class="sub">{s.c}</text>
+        {s.d && <text x={s.x + 56} y={BASE - s.h + (s.b ? 128 : 108)} text-anchor="middle" class="sub">{s.d}</text>}
+      </>
+    ))}
+
+    <!-- La porte barrée -->
+    <text x="534" y="112" text-anchor="middle" class="note">Désaccord sur</text>
+    <text x="534" y="134" text-anchor="middle" class="note">l’ordre de mon</text>
+    <text x="534" y="156" text-anchor="middle" class="note">backlog :</text>
+    <text x="534" y="178" text-anchor="middle" class="note strong">le PO tranche</text>
+    <rect x="486" y="200" width="96" height="140" rx="6" class="door" />
+    <circle cx="568" cy="276" r="4" class="knob" />
+    <path d="M490 204 L578 336 M578 204 L490 336" class="bar" />
+
+    <text x="12" y="376" class="note">Marche suivante : la démarche a eu lieu et rien n’a changé</text>
+    <text x="12" y="398" class="note">à la fin du sprint. L’escalade porte sur l’obstacle, jamais sur l’ordre.</text>
+  </svg>
+)}
+
+<style>
+  .sch { font-family: var(--font-ui); }
+  .pb { fill: var(--sch-band); stroke: var(--sch-band-line); stroke-width: 1.5; }
+  .forget { fill: none; stroke: var(--sch-s1); stroke-width: 2.5; stroke-dasharray: 7 5; }
+  .product { fill: var(--sch-s1); }
+  .product-ink { fill: var(--sch-s-ink); }
+  .name { font-size: 18px; font-weight: 650; fill: var(--sch-text); }
+  .small-name { font-size: 15.5px; }
+  .sub { font-size: 15px; fill: var(--sch-text-soft); }
+  .sub.strong { font-weight: 650; fill: var(--sch-text); }
+  .line { stroke: var(--sch-grey-line); stroke-width: 2.5; }
+  .line.data { stroke: var(--sch-s1); stroke-width: 3.5; }
+  .ar-head { fill: var(--sch-grey-line); }
+  .dotted { stroke: var(--sch-grey-line); stroke-width: 2.5; stroke-dasharray: 3 6; stroke-linecap: round; }
+  .note { font-size: 15.5px; fill: var(--sch-text); }
+  .note.soft { fill: var(--sch-text-soft); }
+  .note.strong { font-weight: 700; }
+  .legend { font-size: 17px; font-weight: 650; fill: var(--sch-text-soft); }
+  .head { font-size: 18px; font-weight: 650; fill: var(--sch-text); }
+  .kd { fill: var(--sch-band); stroke: var(--sch-band-line); stroke-width: 1.5; }
+  .kd.target { fill: var(--sch-s1); stroke: var(--sch-s1); }
+  .rank { fill: var(--sch-s2); }
+  .rank-t { fill: var(--sch-s-ink); }
+  .rank-n { font-size: 16px; font-weight: 700; fill: var(--sch-s-ink); }
+  .rank-n-t { fill: var(--sch-s1); }
+  .kdname { font-size: 17px; font-weight: 600; fill: var(--sch-text); }
+  .target-ink { fill: var(--sch-s-ink); }
+  .bubble { fill: none; stroke: var(--sch-grey-line); stroke-width: 2.5; stroke-dasharray: 7 5; }
+  .cell-head { font-size: 18px; font-weight: 650; fill: var(--sch-text); }
+  .step { fill: var(--sch-band); stroke: var(--sch-band-line); stroke-width: 1.5; }
+  .step.landing { fill: var(--sch-grey); stroke: var(--sch-grey-line); stroke-dasharray: 7 5; stroke-width: 2.5; }
+  .step-n { font-size: 26px; font-weight: 700; fill: var(--sch-s1); }
+  .door { fill: var(--sch-band); stroke: var(--sch-grey-line); stroke-width: 3; }
+  .knob { fill: var(--sch-grey-line); }
+  .bar { stroke: var(--sch-grey-line); stroke-width: 5; stroke-linecap: round; opacity: 0.75; }
+</style>
