@@ -1,0 +1,104 @@
+---
+// Schéma A2 : un tableau de flux. Le backlog ordonné par le PO, la ligne « début du flux : DoR »,
+// la colonne « En cours » (trois places, la limite), puis « Fini (DoD) » qui mène à l'incrément.
+// Couleurs : variables CSS --sch-* (clair/sombre) définies dans global.css.
+const rows = [60, 112, 164];
+---
+<svg viewBox="0 0 600 448" role="img" aria-labelledby="ga2-t ga2-d" class="sch">
+  <title id="ga2-t">Un tableau de flux : on tire un élément quand une place se libère</title>
+  <desc id="ga2-d">
+    Un tableau de flux, de gauche à droite. Colonne de gauche, le backlog ordonné par le PO : trois cartes, la première grisée et marquée pas prête, les deux autres prêtes.
+    Une ligne verticale en pointillés, début du flux : DoR, sépare le backlog de la colonne En cours.
+    La colonne En cours a trois places, c'est la limite du travail en cours : deux sont occupées, la troisième est libre.
+    Une flèche tire la première carte prête du backlog vers la place libre, en franchissant la ligne ; la carte pas prête reste avant la ligne.
+    Colonne de droite, Fini (DoD), avec deux cartes finies ; une flèche mène à l'incrément livré.
+    Sous le tableau, une flèche du début du flux jusqu'à la colonne Fini : temps de cycle. Sous la colonne Fini : débit, nombre d'éléments finis par unité de temps.
+    Légende : on tire quand une place se libère ; la DoR garde le début du flux, la DoD la fin.
+  </desc>
+  <defs>
+    <pattern id="ga2-hatch" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="9" height="9" class="hatch-bg" />
+      <line x1="0" y1="0" x2="0" y2="9" class="hatch-line" />
+    </pattern>
+    <marker id="ga2-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" class="arrow-head" />
+    </marker>
+    <marker id="ga2-arr-s" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" class="arrow-head" />
+    </marker>
+  </defs>
+
+  <!-- Colonnes -->
+  <rect x="14" y="44" width="152" height="196" rx="8" class="band" />
+  <rect x="204" y="44" width="200" height="196" rx="8" class="band" />
+  <rect x="424" y="44" width="162" height="196" rx="8" class="band" />
+  <text x="90" y="30" text-anchor="middle" class="head">Backlog</text>
+  <text x="304" y="30" text-anchor="middle" class="head">En cours</text>
+  <text x="505" y="30" text-anchor="middle" class="head">Fini</text>
+
+  <!-- Backlog : trois cartes -->
+  <rect x="26" y="60" width="128" height="42" rx="5" fill="url(#ga2-hatch)" />
+  <rect x="26" y="60" width="128" height="42" rx="5" class="grey-outline" />
+  <text x="90" y="86" text-anchor="middle" class="label">pas prêt</text>
+  <rect x="26" y="112" width="128" height="42" rx="5" class="node" />
+  <text x="90" y="138" text-anchor="middle" class="label">prêt</text>
+  <rect x="26" y="164" width="128" height="42" rx="5" class="node" />
+  <text x="90" y="190" text-anchor="middle" class="label">prêt</text>
+  <text x="90" y="230" text-anchor="middle" class="note">ordre : le PO</text>
+
+  <!-- En cours : trois places -->
+  <rect x="216" y="60" width="176" height="42" rx="5" class="node" />
+  <text x="304" y="86" text-anchor="middle" class="label">en cours</text>
+  <rect x="216" y="112" width="176" height="42" rx="5" class="node" />
+  <text x="304" y="138" text-anchor="middle" class="label">en cours</text>
+  <rect x="216" y="164" width="176" height="42" rx="5" class="slot" />
+  <text x="304" y="190" text-anchor="middle" class="note">place libre</text>
+  <text x="304" y="230" text-anchor="middle" class="note">limite : 3 places</text>
+
+  <!-- Fini -->
+  <rect x="436" y="60" width="138" height="42" rx="5" class="done" />
+  <text x="505" y="86" text-anchor="middle" class="label on-dark">fini</text>
+  <rect x="436" y="112" width="138" height="42" rx="5" class="done" />
+  <text x="505" y="138" text-anchor="middle" class="label on-dark">fini</text>
+  <text x="505" y="230" text-anchor="middle" class="note">DoD remplie</text>
+
+  <!-- Ligne du début du flux et tirage -->
+  <path d="M185 40 V248" class="startline" />
+  <text x="185" y="272" text-anchor="middle" class="note"><tspan class="strong">début du flux : DoR</tspan></text>
+  <path d="M158 133 H210" class="link" marker-end="url(#ga2-arr)" />
+  <path d="M505 244 V282" class="link" marker-end="url(#ga2-arr)" />
+  <text x="505" y="304" text-anchor="middle" class="note"><tspan class="strong">incrément livré</tspan></text>
+
+  <!-- Temps de cycle et débit -->
+  <path d="M185 332 H436" class="link" marker-start="url(#ga2-arr-s)" marker-end="url(#ga2-arr)" />
+  <text x="310" y="322" text-anchor="middle" class="note"><tspan class="strong">temps de cycle</tspan></text>
+  <text x="310" y="356" text-anchor="middle" class="note">du début à la fin d'un élément</text>
+  <text x="505" y="344" text-anchor="middle" class="note"><tspan class="strong">débit</tspan> :</text>
+  <text x="505" y="366" text-anchor="middle" class="note">finis par unité</text>
+  <text x="505" y="388" text-anchor="middle" class="note">de temps</text>
+
+  <!-- Légende -->
+  <text x="14" y="414" class="legend">on tire quand une place se libère ;</text>
+  <text x="14" y="438" class="legend">la <tspan class="term">DoR</tspan> garde le début du flux, la <tspan class="term">DoD</tspan> la fin</text>
+</svg>
+
+<style>
+  .sch { font-family: var(--font-ui); }
+  .band { fill: var(--sch-band); stroke: var(--sch-band-line); stroke-width: 1.5; }
+  .hatch-bg { fill: var(--sch-grey); }
+  .hatch-line { stroke: var(--sch-grey-line); stroke-width: 2; opacity: 0.55; }
+  .grey-outline { fill: none; stroke: var(--sch-grey-line); stroke-width: 2.5; stroke-dasharray: 7 5; }
+  .node { fill: var(--sch-s3); stroke: var(--sch-s1); stroke-width: 1.5; }
+  .slot { fill: none; stroke: var(--sch-s1); stroke-width: 2.5; stroke-dasharray: 7 5; }
+  .done { fill: var(--sch-s1); stroke: var(--sch-text); stroke-width: 2; }
+  .startline { stroke: var(--sch-text); stroke-width: 3; stroke-dasharray: 9 6; }
+  .link { fill: none; stroke: var(--sch-s1); stroke-width: 2.5; }
+  .arrow-head { fill: var(--sch-s1); }
+  .head { font-size: 20px; font-weight: 700; fill: var(--sch-text); }
+  .label { font-size: 18px; font-weight: 600; fill: var(--sch-text); }
+  .label.on-dark { fill: var(--sch-s-ink); }
+  .note { font-size: 17px; fill: var(--sch-text-soft); }
+  .strong { font-weight: 650; fill: var(--sch-text); }
+  .legend { font-size: 18.5px; fill: var(--sch-text-soft); }
+  .legend .term { font-weight: 650; fill: var(--sch-text); }
+</style>
