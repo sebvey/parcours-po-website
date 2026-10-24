@@ -1,0 +1,257 @@
+---
+numero: "5"
+titre: "La user story"
+objectif: "Écrire une story qui dit qui a le besoin, ce qu'il veut faire et pourquoi, sans imposer de solution, en sachant que la phrase seule ne suffit pas."
+description: "Ce qu'est une user story (qui, quoi, pourquoi), pourquoi la phrase ne suffit pas (les 3C) et comment faire remonter un « afin de » faible jusqu'à la raison de l'utilisateur."
+prerequis: ["4"]
+ecoles:
+  consensus:
+    - auteur: "Le Scrum Guide 2020"
+      texte: "Ne parle pas de story et n'impose aucun format aux éléments du backlog. Il cite des attributs (description, ordre, taille) qui varient selon le domaine. Rien de ce concept n'est donc dans le Scrum Guide."
+      refs: ["S1"]
+    - auteur: "Pratique établie, hors du Scrum Guide"
+      texte: "La story vient d'Extreme Programming (XP), où Kent Beck a introduit le terme. Les 3C (carte, conversation, confirmation) sont de Ron Jeffries (XP), en 2001."
+      refs: ["S3", "S4", "S5"]
+  ecole:
+    - auteur: "Rachel Davies, chez Connextra : le format « en tant que / je veux / afin de »"
+      texte: "Un modèle né à Londres, au début des années 2000, devenu le plus courant sans être obligatoire. Mike Cohn, qui le recommande, dit lui-même qu'il n'y a pas de formule magique."
+      refs: ["S2", "S5", "S6"]
+    - auteur: "Ron Jeffries : la confirmation"
+      texte: "Jeffries parle de tests d'acceptation, des exemples définis par le client. Rapprocher la confirmation des critères d'acceptation est la lecture courante, et celle du cours."
+      refs: ["S3"]
+  cours:
+    - texte: "Poser des « pourquoi ? » successifs sur le « afin de » est un choix du cours. Il s'inspire des « cinq pourquoi » venus de Toyota, conçus pour remonter à la cause d'un problème ; le nombre de « pourquoi ? » varie selon le problème."
+      refs: ["S7"]
+    - texte: "S'arrêter à une décision que l'utilisateur prend ou à un gain qu'il reconnaît. Au-delà, la raison devient l'objectif produit ou un enjeu général, commun à beaucoup de stories, et n'aide plus à ordonner."
+      refs: ["S2"]
+    - texte: "Le PO n'invente pas la raison : il la demande à l'utilisateur."
+      refs: ["S3"]
+    - texte: "Une story, un seul « je veux » : s'il y en a plusieurs, ce n'est plus une story (feature ou epic, concept 4 ; un parcours, concept 16)."
+      refs: []
+    - texte: "Le test du « afin de » lu à la personne qui a fait la demande est une formulation du cours."
+      refs: []
+  voisines:
+    - auteur: "Le parcours de l'utilisateur"
+      texte: "Une story exprime un besoin, pas tout ce que fait l'utilisateur. Le parcours organise les stories en story map, une carte des stories rangées sous les étapes du parcours (Jeff Patton, concept 16)."
+      refs: ["S8"]
+sources:
+  affirmations:
+    - affirmation: "Le Scrum Guide ne parle pas de user story."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "Texte du guide cherché le 22 octobre 2026 : « story », « stories », « user story » : 0 occurrence."
+    - affirmation: "Le Scrum Guide n'impose aucun format aux éléments du backlog : il cite seulement des attributs."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "Refinement : « adding details, such as a description, order, and size. Attributes often vary with the domain of work »."
+    - affirmation: "La user story vient d'Extreme Programming (XP), où Kent Beck a introduit le terme."
+      kind: "consensus"
+      refs: ["S4", "S5"]
+      verifie: "Fowler : « Kent Beck first introduced the term as part of Extreme Programming ». Wikipédia date l'introduction de 1997 (projet C3 de Chrysler) et le livre de Beck, *Extreme Programming Explained*, de 1999 ; ces dates n'ont pas été vérifiées à une source primaire (voir « Non vérifié »). La page n'en donne pas."
+    - affirmation: "Une story exprime un besoin vu de l'utilisateur, dans un style de recueil informel et conversationnel plutôt qu'une longue spécification."
+      refs: ["S4", "S5"]
+      verifie: "Fowler : « a more informal and conversational style of requirements elicitation » ; Wikipédia : « an informal, natural language description of features of a software system », écrite du point de vue de l'utilisateur final."
+    - affirmation: "Le format « en tant que / je veux / afin de » vient de Rachel Davies, chez Connextra (Londres), au début des années 2000."
+      kind: "ecole"
+      refs: ["S2", "S5", "S6"]
+      verifie: "Cohn : « originated with agile coach Rachel Davies at a UK company, Connextra, in the early 2000s ». Wikipédia : équipe XP de Connextra à Londres, 2001. Scrum Alliance (Schiel) : modèle de Rachel Davies, 2002, sans nommer Connextra. Les dates divergent : la page écrit « au début des années 2000 »."
+    - affirmation: "Ce format est un choix d'école devenu courant, pas une obligation."
+      kind: "ecole"
+      refs: ["S2", "S4", "S6"]
+      verifie: "Cohn : « the most popular way of writing user stories », « a recognized standard », mais « There is no magic formula » et il ne le juge pas « mandatory ». Fowler : « A common way to formulate stories is ». Schiel : « there is NO REQUIRED STRUCTURE »."
+    - affirmation: "Les trois parties : qui (le rôle), quoi (ce qu'il veut faire), pourquoi (la raison)."
+      kind: "ecole"
+      refs: ["S2", "S6"]
+      verifie: "Cohn détaille qui, quoi, pourquoi ; Schiel : « Who is the user? », « What do they want to do? », « Why do they want to do it? »."
+    - affirmation: "Le « afin de » aide le PO à ordonner."
+      kind: "ecole"
+      refs: ["S2"]
+      verifie: "Cohn : « The structure of good user stories actually helps the product owner prioritize » ; la raison rend visibles le bénéficiaire et la valeur. Comment ordonner reste au concept 13."
+    - affirmation: "Le « afin de » laisse l'équipe choisir la solution qui sert le même but, parfois plus simple."
+      kind: "ecole"
+      refs: ["S2"]
+      verifie: "Cohn : connaître la raison « helps the team decide how best to implement the functionality ». « Plus simple » est un choix du cours, pas une citation. Que les Developers décident du comment est vu au concept 1."
+    - affirmation: "Les 3C : Card, Conversation, Confirmation, de Ron Jeffries, 2001."
+      kind: "consensus"
+      refs: ["S3"]
+      verifie: "Jeffries, « Essential XP: Card, Conversation, Confirmation », 30 août 2001. Pratique établie attribuée à Jeffries, reprise par Scrum Alliance [S6] ; pas du Scrum Guide."
+    - affirmation: "La carte est la phrase écrite : elle représente le besoin et ne le contient pas en entier."
+      kind: "consensus"
+      refs: ["S3"]
+      verifie: "« The card is a token representing the requirement » ; « The card does not contain all the information that makes up the requirement »."
+    - affirmation: "La conversation précise la story."
+      kind: "consensus"
+      refs: ["S3", "S6"]
+      verifie: "Jeffries : « The requirement itself is communicated from customer to programmers through conversation » ; Schiel : « a placeholder for a conversation about the work to be done »."
+    - affirmation: "La confirmation permet de vérifier que la story est faite ; on la rapproche des critères d'acceptation."
+      kind: "ecole"
+      refs: ["S3"]
+      verifie: "Jeffries : « This component is the acceptance test » : des exemples, de préférence automatisés, définis par le client. Rapprocher la confirmation des critères d'acceptation (concept 8) est la lecture courante et celle du cours ; Jeffries dit « acceptance test »."
+    - affirmation: "La phrase seule ne suffit pas ; elle reste courte, le détail va dans la conversation et la confirmation."
+      kind: "cours"
+      refs: ["S3"]
+      verifie: "Conséquence de « The card does not contain all the information that makes up the requirement » ; la formulation est celle du cours."
+    - affirmation: "Une story, un seul « je veux » : plusieurs, ce n'est plus une story."
+      kind: "cours"
+      refs: []
+      verifie: "Renvoi au concept 4 (un « je veux » : story ; plusieurs : feature ; plusieurs groupes : epic). Le test « compter les je veux » est un choix du cours, sans source externe."
+    - affirmation: "Cohn recommande ce modèle tout en disant qu'il n'est pas obligatoire."
+      kind: "ecole"
+      refs: ["S2"]
+      verifie: "Article consacré à expliquer pourquoi le modèle « works so well » ; « There is no magic formula », modèle non « mandatory »."
+    - affirmation: "Demander « pourquoi ? » plusieurs fois de suite fait remonter d'une demande au besoin qui la fonde."
+      kind: "cours"
+      refs: ["S7"]
+      verifie: "Technique des « cinq pourquoi », attribuée par des sources secondaires à Taiichi Ohno (Toyota), conçue pour remonter à la cause d'un problème. L'appliquer au « afin de » d'une story est un choix du cours. Le nombre varie : « The number of whys may be higher or lower depending on the complexity of the analysis and problem » (mention « citation needed », relue le 22 octobre 2026). La page dit seulement « venus de Toyota »."
+    - affirmation: "Un « afin de » circulaire (qui répète le « je veux ») ou de confort n'aide ni à ordonner ni à choisir une solution."
+      kind: "cours"
+      refs: ["S2"]
+      verifie: "Découle du rôle que Cohn donne à la raison (ordonner, choisir comment faire). Les deux formes de « afin de » faible sont des constats du cours."
+    - affirmation: "S'arrêter à une décision que l'utilisateur prend ou à un gain qu'il reconnaît ; au-delà, la raison devient l'objectif produit ou un enjeu général qui n'aide plus à ordonner."
+      kind: "cours"
+      refs: ["S2"]
+      verifie: "Choix du cours, sans source ; « n'aide plus à ordonner » découle du rôle que Cohn donne à la raison."
+    - affirmation: "Le PO n'invente pas le « afin de » : il le demande à l'utilisateur."
+      kind: "cours"
+      refs: ["S3"]
+      verifie: "Choix du cours, cohérent avec le concept 1 (le PO demande la valeur à l'utilisateur, il ne l'invente pas) et avec la conversation des 3C."
+    - affirmation: "Une story exprime un besoin, pas le parcours entier de l'utilisateur ; le parcours organise le backlog en story map."
+      refs: ["S8"]
+      verifie: "Patton : la story map organise les stories sous les étapes du parcours de l'utilisateur (sources du concept 16). Le piège lui-même est un constat du cours."
+    - affirmation: "Pas de solution dans le « je veux » : la raison laisse l'équipe choisir comment faire."
+      kind: "cours"
+      refs: ["S2"]
+      verifie: "Cohn : la raison laisse l'équipe choisir comment faire ; « sans solution » est la ligne du plan du cours. Le concept 7 y revient."
+    - affirmation: "Acteur technique : l'acteur est celui qui agit et y gagne, pas celui qui construit."
+      kind: "cours"
+      refs: ["S2"]
+      verifie: "Renvoi au concept 6. Cohn propose d'autres formats quand un système a peu d'utilisateurs visibles [S2]. Au concept 1, les consommateurs de données sont des utilisateurs."
+    - affirmation: "Un chiffre précis va dans un critère d'acceptation, pas dans la phrase."
+      kind: "cours"
+      refs: []
+      verifie: "Pratique du cours ; le concept 8 en porte la source."
+    - affirmation: "Les exemples du fil rouge (Étienne, Régis, Abba, leurs besoins) sont des faits inventés."
+      refs: []
+      verifie: "Sans source : le cas de l'opérateur de vélos en libre-service est fictif. Les phrases de story données en exemple sont des illustrations."
+  references:
+    - id: "S1"
+      texte: "Schwaber, Sutherland, *The Scrum Guide*, novembre 2020"
+      url: "https://scrumguides.org/scrum-guide.html"
+      type: "primaire"
+      consultee: "2026-10-22"
+    - id: "S2"
+      texte: "Cohn, « Why the Three-Part User Story Template Works So Well », Mountain Goat Software (date de publication non affichée ; mise à jour du 22 avril 2026)"
+      url: "https://www.mountaingoatsoftware.com/agile/why-the-three-part-user-story-template-works-so-well"
+      type: "primaire (site de l'auteur, qui vend aussi ses formations)"
+      consultee: "2026-10-22"
+    - id: "S3"
+      texte: "Jeffries, « Essential XP: Card, Conversation, Confirmation », 30 août 2001"
+      url: "https://ronjeffries.com/xprog/articles/expcardconversationconfirmation/"
+      type: "primaire"
+      consultee: "2026-10-22"
+    - id: "S4"
+      texte: "Fowler, « User Story », bliki, 22 avril 2013"
+      url: "https://martinfowler.com/bliki/UserStory.html"
+      type: "secondaire"
+      consultee: "2026-10-22"
+    - id: "S5"
+      texte: "Wikipédia, « User story »"
+      url: "https://en.wikipedia.org/wiki/User_story"
+      type: "secondaire"
+      consultee: "2026-10-22"
+    - id: "S6"
+      texte: "Schiel, « The Anatomy of a User Story », Scrum Alliance (date non affichée)"
+      url: "https://resources.scrumalliance.org/Article/anatomy-user-story"
+      type: "secondaire (Scrum Alliance vend des certifications)"
+      consultee: "2026-10-22"
+    - id: "S7"
+      texte: "Wikipédia, « Five whys »"
+      url: "https://en.wikipedia.org/wiki/Five_whys"
+      type: "secondaire"
+      consultee: "2026-10-22"
+    - id: "S8"
+      texte: "Patton, « Story Map Concepts »"
+      url: "https://www.jpattonassociates.com/wp-content/uploads/2015/03/story_mapping.pdf"
+      type: "primaire"
+      consultee: "2026-10-22"
+  nonVerifie:
+    - "**Date de Connextra.** 2001 (Wikipédia), 2002 (Schiel, Scrum Alliance), « early 2000s » (Cohn). Aucune source primaire de Rachel Davies ou de Connextra consultée : la page écrit « au début des années 2000 », sans année."
+    - "**Libellé exact du modèle d'origine.** Cohn écrit « As a …, I … so that … », Schiel « As a <role>, I want <action>, so that <value> », Wikipédia « As a <role> I can <capability>, so that <receive benefit> ». Le cours emploie la forme française courante « en tant que / je veux / afin de » sans la donner comme la carte d'origine."
+    - "**Kent Beck, 1997, projet C3, et *Extreme Programming Explained* (1999).** Rapportés par Wikipédia seulement ; le livre n'a pas été consulté. La page dit que la story vient d'XP (Fowler), sans année."
+    - "**« A user story is a promise for a conversation » (Alistair Cockburn, 1998).** Rapporté par Wikipédia, non retrouvé chez Fowler : la page ne le cite ni ne l'attribue."
+    - "**Rachel Davies, « inventrice » de la user story.** Wikipédia dit que Cohn la nomme ainsi et qu'elle en crédite toute l'équipe (mention « citation needed ») ; Cohn [S2] ne lui attribue que le modèle. La page ne lui attribue que le modèle."
+    - "**Les cinq pourquoi.** Origine (Ohno ou Sakichi Toyoda, Toyota) rapportée par des sources secondaires discordantes, sans texte de Toyota ni d'Ohno consulté. La page écrit « venus de Toyota », sans date, auteur ni citation."
+    - "***User Stories Applied* de Cohn (2004).** Livre non lu : rien de la page ne s'y appuie."
+---
+import Schema05 from '../../../components/schemas/Schema05.astro';
+
+Une **user story** (story) exprime **un besoin précis** d'un utilisateur, vu de lui : ni son parcours entier, ni une spécification. Elle s'écrit souvent **en tant que** (qui), **je veux** (quoi, sans solution imposée), **afin de** (sa raison). La raison aide le PO à ordonner et laisse l'équipe choisir comment répondre, parfois plus simplement. La phrase écrite, la **carte**, ne suffit pas : la **conversation** la précise, et la **confirmation** dit comment vérifier qu'elle est faite (les 3C).
+
+<Figure legende="Une story sur l'exemple de la vue des stations vides. En bas, la phrase en trois blocs ; le « afin de » est mis en avant. Au-dessus, l'échelle des « pourquoi ? » : on monte jusqu'à une décision que l'utilisateur prend, et pas plus haut. À gauche, la carte, avec sa conversation (bulle) et sa confirmation (coche) : les 3C.">
+  <Schema05 />
+</Figure>
+
+<Sous id="5a" titre="Les trois parties et les 3C" promesse="Qui, quoi, pourquoi : la phrase est une carte, elle ne contient pas toute la story.">
+
+<h4 id="5a1"><span class="num">5a1</span> Les trois parties</h4>
+
+Une story dit **qui** a le besoin (l'utilisateur, désigné par son rôle, c'est-à-dire sa catégorie d'utilisateurs ; le choix de l'acteur est au <Renvoi n="6" />), **quoi** (ce qu'il veut faire ou savoir) et **pourquoi** (sa raison). Le « je veux » décrit ce que l'utilisateur veut, pas la façon dont l'équipe le construit : une table, un traitement de nuit ou un graphique sont des solutions, c'est-à-dire le comment des Developers.
+
+Une story porte un seul « je veux ». S'il y en a plusieurs, ce n'est plus une story : c'est une feature ou un epic (<Renvoi n="4" />), ou un parcours, que le <Renvoi n="16" /> range en story map.
+
+Le Scrum Guide ne parle pas de story et n'impose aucun format. L'idée vient d'Extreme Programming (XP), où Kent Beck a introduit le terme. Le format « en tant que / je veux / afin de » est un choix d'école <Pastille kind="ecole" /> : un modèle de Rachel Davies, chez Connextra à Londres, au début des années 2000. Il est devenu le plus courant, sans être obligatoire ; Mike Cohn, qui le recommande, le dit lui-même.
+
+<FilRouge>Régis, régulateur, veut savoir quelles stations vont se vider, pour y aller avant : qui (le régulateur), quoi (connaître les stations qui vont se vider), pourquoi (y aller avant).</FilRouge>
+
+<h4 id="5a2"><span class="num">5a2</span> Les 3C</h4>
+
+Les 3C sont une pratique établie, de Ron Jeffries (XP, 2001), hors du Scrum Guide <Pastille kind="consensus" /> :
+
+- la **carte** est la phrase écrite. Elle représente le besoin sans le contenir en entier ;
+- la **conversation** le précise, entre l'utilisateur, le PO et ceux qui réalisent ;
+- la **confirmation** dit comment vérifier que la story est faite. On la rapproche couramment des critères d'acceptation (<Renvoi n="8" />) ; Jeffries, lui, parle de tests d'acceptation <Pastille kind="ecole" />.
+
+La carte n'est donc pas à allonger : elle reste courte, et le détail va dans la conversation et la confirmation.
+
+<FilRouge>Abba veut savoir avant de partir s'il reste un vélo à sa station. La phrase tient en une ligne ; ce qu'est « sa station » (celle qu'elle a choisie comme favorite) et la fraîcheur visée (moins de 15 minutes) se précisent à côté, en conversation puis en critères.</FilRouge>
+
+</Sous>
+
+<Sous id="5b" titre="Le « afin de » et les « pourquoi ? » successifs" promesse="La raison se demande à l'utilisateur, jusqu'à une décision qu'il prend ou un gain qu'il reconnaît.">
+
+<h4 id="5b1"><span class="num">5b1</span> Un « afin de » qui sert</h4>
+
+Le « afin de » donne la raison du besoin. Il aide le PO à ordonner les stories, et il laisse l'équipe choisir comment répondre : connaître la raison permet parfois une réponse plus simple <Pastille kind="ecole" />. Deux formes le rendent inutile :
+
+- le « afin de » **circulaire**, qui répète le « je veux » (« voir les stations vides, afin de suivre les stations vides ») ;
+- le « afin de » **de confort** (« afin d'avoir une vue claire »), qui ne dit pas ce que la clarté change pour l'utilisateur.
+
+Le PO n'invente pas la raison : il la demande à l'utilisateur <Pastille kind="cours" />.
+
+<h4 id="5b2"><span class="num">5b2</span> Remonter par les « pourquoi ? »</h4>
+
+Quand le « afin de » est faible, le PO demande « pourquoi ? » à l'utilisateur, plusieurs fois, jusqu'à **une décision qu'il prend ou un gain qu'il reconnaît**. La technique rappelle les « cinq pourquoi » venus de Toyota, conçus pour remonter à la cause d'un problème ; ici, le nombre importe peu <Pastille kind="cours" />.
+
+Il faut aussi savoir s'arrêter. Trop haut, la raison devient l'objectif produit (<Renvoi n="2" />) ou un enjeu général, que partagent beaucoup de stories : elle n'aide plus à les ordonner entre elles. Le bon point d'arrêt est celui que l'utilisateur reconnaît comme sa raison.
+
+<FilRouge>La vue des stations vides doit servir à Étienne à envoyer les régulateurs plus tôt vers les stations qui se vident : une décision qu'il prend chaque jour, donc un bon point d'arrêt. « Que les stations restent moins longtemps vides » est l'objectif produit, trop haut pour distinguer cette story des autres.</FilRouge>
+
+</Sous>
+
+<Reflexe note="Formulation du cours, sans source.">
+Lis le seul « afin de » à la personne qui a fait la demande : reconnaît-elle une décision qu'elle prend ou un gain qu'elle attend (« oui, c'est pour ça ») ? Et le « je veux » nomme-t-il un besoin, sans table, vue ni traitement ?
+</Reflexe>
+
+<Erreurs>
+
+- **Prendre la story pour le parcours de l'utilisateur** : une story est un besoin, pas une suite d'actions. Si la phrase enchaîne plusieurs actions, c'est un parcours.
+- **Mettre une solution dans le « je veux »** (« je veux une table de… », « un graphique dans la vue ») : écrire le besoin, l'équipe proposera la solution.
+- **Un « afin de » circulaire ou de confort** : demander « pourquoi ? » à l'utilisateur, jusqu'à une décision ou un gain qu'il reconnaît.
+- **Un « afin de » trop haut** (l'objectif produit, « améliorer le service ») : il vaut pour toutes les stories et n'aide plus à ordonner.
+- **Inventer la raison** au lieu de la demander.
+- **Un acteur technique** (« en tant que data engineer, je veux un traitement qui calcule… ») : l'acteur est celui qui agit et y gagne, pas celui qui construit (<Renvoi n="6" />).
+- **Un chiffre précis dans la phrase** (« … à jour de moins de 15 minutes ») : il va dans un critère d'acceptation (<Renvoi n="8" />).
+- **Une contradiction dans la phrase** (« en temps réel, par semaine ») : la conversation tranche lequel des deux est le besoin.
+- **Croire que le format est obligatoire** : c'est un choix d'école, devenu courant.
+
+</Erreurs>
