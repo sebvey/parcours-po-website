@@ -112,7 +112,7 @@ sources:
     - affirmation: "« Ticket » est un terme d'outil, absent du Scrum Guide : la page dit « élément du backlog »."
       refs: ["S1"]
       verifie: "« Ticket » n'apparaît pas dans le Scrum Guide. Atlassian et Microsoft disent « work item », Linear « issue »."
-    - affirmation: "Les exemples du fil rouge (équipe vélos, DSI, équipe appli, vues d'Étienne) sont des faits inventés."
+    - affirmation: "Les exemples du fil rouge (la DSI, le système de location) et les illustrations inventées de la page sont des faits inventés."
       refs: []
       verifie: "Sans source : le cas de l'opérateur de vélos en libre-service est fictif. Le fil rouge ne dit pas quel outil emploie l'équipe vélos : la page n'en suppose aucun."
   references:
@@ -207,7 +207,7 @@ import SchemaA1 from '../../../components/schemas/SchemaA1.astro';
 
 Le Scrum Guide ne dit rien des outils de suivi : ni niveau, ni lien, ni état d'un élément. Il demande un backlog transparent, visible et compris. L'outil propose des **réglages par défaut** (niveaux, types de liens, états) ; l'équipe les change, et aucun n'est une règle de Scrum. Le PO dit ce qu'il veut voir dans l'outil et pourquoi ; l'administrateur de l'outil fait le réglage, qui peut toucher d'autres équipes. Cette page ne dit pas où cliquer : les écrans changent d'un outil et d'une version à l'autre.
 
-<Figure legende="Un écran d'outil stylisé, en trois bandes. Niveaux : la ligne Feature est grisée, c'est le niveau de trop. Liens : une story est bloquée par un élément de l'autre équipe, et les deux PO s'accordent d'abord. États : « Prêt » est un repère, « Fait » veut dire DoD remplie.">
+<Figure legende="Un écran d'outil stylisé, en trois bandes (exemple inventé pour l'illustration). Niveaux : la ligne Epic est grisée, c'est le niveau de trop. Liens : une story est bloquée par un élément de l'autre équipe, et les deux PO s'accordent d'abord. États : « Prêt » est un repère, « Fait » veut dire DoD remplie.">
   <SchemaA1 />
 </Figure>
 
@@ -237,7 +237,7 @@ Les états d'un élément (Jira dit « statuts ») disent où il en est : à fai
 
 Deux règles du cours <Pastille kind="cours" /> s'y ajoutent. D'abord, « fait » veut dire DoD remplie (<Renvoi n="11a" />) : un élément qui ne la remplit pas ne fait pas partie de l'incrément, selon le Scrum Guide. Or l'outil ne connaît pas la DoD ; il juge « terminé » d'après sa propre règle. Dans les tableaux Scrum de Jira, c'est ce qui se trouve dans la colonne la plus à droite. À l'équipe de faire coïncider le dernier état avec la DoD.
 
-Ensuite, un état « prêt » reste un repère, pas une barrière (<Renvoi n="11b" />) : il suit la DoR de l'équipe, mais la conversation continue pendant le sprint. Et chaque état se tient à jour : en ajouter un par étape coûte, d'autant que les états ne racontent pas la vie d'une story (<Renvoi n="15" />). Le PO propose, l'équipe décide, par exemple en rétrospective, l'administrateur règle.
+Ensuite, un état « prêt » reste un repère, pas une barrière (<Renvoi n="11b" />) : il suit la DoR de l'équipe. Et chaque état se tient à jour : en ajouter un par étape coûte, d'autant que les états ne racontent pas la vie d'une story (<Renvoi n="15" />). Le PO propose, l'équipe décide, par exemple en rétrospective, l'administrateur règle.
 
 </Sous>
 

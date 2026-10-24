@@ -3,7 +3,7 @@
 // Couleurs : variables CSS --sch-* (clair/sombre) définies dans global.css.
 const niveaux = ['Epic', 'Feature', 'User Story', 'Task'];
 const etats = [
-  { nom: 'À faire', cls: 'plain' },
+  { nom: 'Nouveau', cls: 'plain' },
   { nom: 'Prêt', cls: 'repere' },
   { nom: 'En cours', cls: 'plain' },
   { nom: 'Fait', cls: 'fait' },
@@ -13,11 +13,11 @@ const etats = [
   <title id="ga1-t">Un écran d'outil de backlog : niveaux, liens et états, que l'équipe choisit</title>
   <desc id="ga1-d">
     Trois bandes empilées et un bandeau. Première bande, niveaux : un arbre à quatre lignes, Epic, Feature, User Story, Task.
-    La ligne Feature est grisée et légendée : pas affichée pour l'équipe, le niveau de trop.
-    Deuxième bande, liens : deux colonnes, l'équipe vélos et l'équipe appli, chacune avec son backlog.
-    Une story de l'équipe vélos est reliée par une flèche « is blocked by » à un élément de l'équipe appli.
+    La ligne Epic est grisée et légendée : pas affichée pour l'équipe, le niveau de trop (exemple inventé pour l'illustration).
+    Deuxième bande, liens : deux colonnes, l'équipe A et l'équipe B, chacune avec son backlog.
+    Une story de l'équipe A est reliée par une flèche « is blocked by » à un élément de l'équipe B.
     Au-dessus, une bulle entre les deux PO : on s'accorde d'abord.
-    Troisième bande, états : quatre colonnes de tableau, À faire, Prêt, En cours, Fait.
+    Troisième bande, états : quatre colonnes de tableau, Nouveau, Prêt, En cours, Fait.
     Prêt est en pointillés et légendé repère : la DoR. Fait est encadré et légendé DoD remplie.
     En bandeau : le Scrum Guide ne dit rien des niveaux, des liens ni des états ; l'outil propose, l'équipe choisit.
   </desc>
@@ -36,7 +36,7 @@ const etats = [
   <text x="26" y="34" class="head">Niveaux</text>
   {niveaux.map((n, i) => (
     <>
-      {i === 1
+      {i === 0
         ? <>
             <rect x={30 + i * 24} y={48 + i * 34} width="210" height="28" rx="5" fill="url(#ga1-hatch)" />
             <rect x={30 + i * 24} y={48 + i * 34} width="210" height="28" rx="5" class="grey-outline" />
@@ -45,9 +45,9 @@ const etats = [
       <text x={42 + i * 24} y={68 + i * 34} class="label">{n}</text>
     </>
   ))}
-  <path d="M268 96 H318" class="link" marker-end="url(#ga1-arr)" />
-  <text x="326" y="92" class="note">pas affiché pour l'équipe :</text>
-  <text x="326" y="114" class="note"><tspan class="strong">le niveau de trop</tspan></text>
+  <path d="M244 62 H318" class="link" marker-end="url(#ga1-arr)" />
+  <text x="326" y="58" class="note">pas affiché pour l'équipe :</text>
+  <text x="326" y="80" class="note"><tspan class="strong">le niveau de trop</tspan></text>
 
   <!-- Bande 2 : liens -->
   <rect x="10" y="202" width="580" height="196" rx="8" class="band" />
@@ -57,14 +57,14 @@ const etats = [
   <path d="M214 270 L130 288 M386 270 L470 288" class="link dash" />
 
   <rect x="30" y="288" width="200" height="98" rx="6" class="col" />
-  <text x="130" y="312" text-anchor="middle" class="sub">Équipe vélos</text>
+  <text x="130" y="312" text-anchor="middle" class="sub">Équipe A</text>
   <rect x="48" y="326" width="164" height="42" rx="5" class="node" />
-  <text x="130" y="353" text-anchor="middle" class="label">Ma story</text>
+  <text x="130" y="353" text-anchor="middle" class="label">Une story</text>
 
   <rect x="370" y="288" width="200" height="98" rx="6" class="col" />
-  <text x="470" y="312" text-anchor="middle" class="sub">Équipe appli</text>
+  <text x="470" y="312" text-anchor="middle" class="sub">Équipe B</text>
   <rect x="388" y="326" width="164" height="42" rx="5" class="node" />
-  <text x="470" y="353" text-anchor="middle" class="label">Son élément</text>
+  <text x="470" y="353" text-anchor="middle" class="label">Un élément</text>
 
   <path d="M212 347 H386" class="link" marker-end="url(#ga1-arr)" />
   <text x="300" y="336" text-anchor="middle" class="note">is blocked by</text>

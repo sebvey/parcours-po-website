@@ -145,7 +145,7 @@ sources:
       kind: "consensus"
       refs: ["S10"]
       verifie: "« the dataset should be separated into training and test sets. The model is built on the training set and its quality estimated on the test set »."
-    - affirmation: "Le niveau se fixe en pesant le coût d'une fausse alerte et celui d'un cas manqué, qui ne pèsent pas pareil."
+    - affirmation: "Le niveau se fixe en pesant le coût d'une fausse alerte et celui d'un cas manqué, qui ne pèsent pas forcément pareil."
       kind: "consensus"
       refs: ["S12", "S13", "S14"]
       verifie: "PAIR (Google) : « Weighing the cost of false positives and false negatives is a critical decision that will shape your users' experiences » ; « It is tempting to weigh both equally by default ». Google ML Crash Course : si les fausses alertes sont très coûteuses, on peut choisir un seuil qui en donne moins ; 0,5 n'est pas un bon seuil si une erreur coûte plus que l'autre."
@@ -165,7 +165,7 @@ sources:
       kind: "cours"
       refs: ["S1", "S10"]
       verifie: "Raisonnement du cours, appuyé sur « what will happen is unknown » et sur le critère de réussite par niveau de précision."
-    - affirmation: "Les exemples du fil rouge (les relevés, la météo non collectée, le seuil « presque vide ») sont des faits inventés."
+    - affirmation: "Les exemples du fil rouge et les illustrations inventées de la page sont des faits inventés."
       refs: []
       verifie: "Sans source : le cas de l'opérateur de vélos en libre-service est fictif."
   references:
@@ -261,15 +261,15 @@ Une **hypothèse** est ce qu'on tient pour vrai sans l'avoir vérifié. Une stor
 
 <h4 id="17a1"><span class="num">17a1</span> Ce qu'on a vérifié, ce qu'on tient pour vrai</h4>
 
-Pour chaque affirmation qui soutient une story, une seule question sépare ce qu'on sait de ce qu'on suppose : qui l'a vérifié, et comment ? Si personne, c'est une hypothèse, même si tout le monde la répète. Une story peut être claire, et même prête au sens de la DoR (<Renvoi n="11b" />), sans être vérifiée. Le Scrum Guide pose l'empirisme (on décide sur ce qu'on observe) mais ne parle pas des hypothèses du produit ; repérer et valider celles-ci fait partie du travail du PO selon les référentiels de PO, et pour Scrum.org l'objectif produit est lui-même une hypothèse (<Renvoi n="2" />).
+Pour chaque affirmation qui soutient une story, une seule question sépare ce qu'on sait de ce qu'on suppose : qui l'a vérifié, et comment ? Si personne, c'est une hypothèse, même si tout le monde la répète. Une story peut être claire, et même prête au sens de la DoR (<Renvoi n="11b" />), sans être vérifiée. Le Scrum Guide pose l'empirisme (on décide sur ce qu'on observe) mais ne parle pas des hypothèses du produit ; repérer et valider celles-ci fait partie du travail du PO selon les référentiels de PO, et pour Scrum.org l'objectif produit est lui-même une hypothèse (choix d'école, <Renvoi n="2" />).
 
 <h4 id="17a2"><span class="num">17a2</span> Valeur ou faisabilité</h4>
 
 Marty Cagan <Pastille kind="ecole" /> nomme quatre grands risques : valeur, utilisabilité, faisabilité, viabilité, et veut qu'on les traite tôt, avant de construire. Le cours en retient deux <Pastille kind="cours" />. La **valeur** : l'utilisateur s'en servira-t-il, et cela sert-il l'objectif produit ? La **faisabilité** : peut-on le construire, avec des données qui existent, assez bonnes et assez fraîches ? Ce rangement des données dans la faisabilité est un choix du cours, Cagan n'en parle pas.
 
-Pour ranger une supposition, on se demande ce qui se passe si elle est fausse : on ne sait pas le construire (faisabilité), ou on le construit pour rien (valeur). Une même phrase peut cacher les deux : « l'utilisateur ira plus tôt, donc le temps perdu baisse » suppose un comportement, puis un effet sur l'objectif produit. Le PO ne tranche pas une hypothèse, même plausible : il la fait vérifier.
+Pour ranger une supposition, on se demande ce qui se passe si elle est fausse : on ne sait pas le construire (faisabilité), ou on le construit pour rien (valeur). Une même phrase peut cacher les deux. Exemple inventé pour l'illustration : « on enverra un SMS de disponibilité, et les abonnés sans l'appli iront à une station où il reste des vélos » suppose qu'on sait calculer la disponibilité à temps (faisabilité), puis que les abonnés changeront d'itinéraire (valeur). Le PO ne tranche pas une hypothèse, même plausible : il la fait vérifier.
 
-<FilRouge>La météo (la pluie, par heure) est une source envisagée, pas encore collectée. Que la pluie ajuste la prévision des stations à risque y est écrit « à vérifier ».</FilRouge>
+<FilRouge>Dans le fil rouge, la disponibilité par station vient de la plateforme (règle fixée : un vélo à quai et louable) ; la livrer à Abba par SMS, serveur vocal ou appli dépend de l'équipe appli.</FilRouge>
 
 </Sous>
 
@@ -285,9 +285,9 @@ Ce qui compte comme « oui » est un seuil, qui juge l'exploration : il se dit a
 
 <h4 id="17b2"><span class="num">17b2</span> Choisir la façon d'explorer</h4>
 
-La façon d'explorer se choisit selon l'hypothèse, en pesant ce qu'elle coûte et ce qu'elle apprend (référentiel de PO). Pour une question de **faisabilité** sur des données qu'on a déjà, une analyse d'historique répond sans rien construire. Pour la **valeur**, c'est plus délicat : l'historique montre ce qui s'est passé, pas ce que l'utilisateur ferait avec une fonction qu'il n'a jamais eue. Cagan <Pastille kind="ecole" /> distingue plusieurs prototypes. Une maquette montrée à l'utilisateur ne prouve pas qu'il s'en servira : on dit une chose et on en fait une autre. Un prototype sur données réelles, utilisé pour de vrai par de vrais utilisateurs, montre si l'idée marche.
+La façon d'explorer se choisit selon l'hypothèse, en pesant ce qu'elle coûte et ce qu'elle apprend (référentiel de PO). Pour une question de **faisabilité** sur des données qu'on a déjà, une analyse d'historique répond sans rien construire <Pastille kind="cours" />. Pour la **valeur**, Cagan <Pastille kind="ecole" /> distingue plusieurs prototypes. Une maquette montrée à l'utilisateur ne prouve pas qu'il s'en servira : on dit une chose et on en fait une autre. Un prototype sur données réelles, utilisé pour de vrai par de vrais utilisateurs, montre si l'idée marche.
 
-Demander à l'utilisateur s'il s'en servirait apprend quelque chose, mais un « oui » ne vérifie pas la valeur : on observe ce qu'il fait. Le MVP de Ries (<Renvoi n="16b2" />) est une autre manière d'apprendre au moindre coût. Un prototype se jette ; il n'est pas une story livrée et ne remplit pas la DoD. La découverte continue de Torres, où l'équipe parle aux utilisateurs chaque semaine, est nommée ici sans être enseignée.
+Un « oui » de l'utilisateur ne vérifie pas la valeur : on observe ce qu'il fait. Le MVP de Ries (<Renvoi n="16b2" />) est une autre manière d'apprendre au moindre coût. Un prototype se jette ; le cours en tire qu'il n'est pas une story livrée et ne remplit pas la DoD <Pastille kind="cours" />. La découverte continue de Torres, où l'équipe parle aux utilisateurs chaque semaine, est nommée ici sans être enseignée.
 
 </Sous>
 
@@ -297,13 +297,13 @@ Demander à l'utilisateur s'il s'en servirait apprend quelque chose, mais un « 
 
 Une prévision n'est jamais sûre : dans un environnement complexe, dit le Scrum Guide, ce qui va arriver est inconnu. Une story qui exige une prévision sans erreur ne se finit donc jamais. Le critère d'acceptation porte sur un **niveau atteint**, mesuré sur des données mises de côté (une part de l'historique, par exemple) : c'est une pratique établie en analyse de données <Pastille kind="consensus" />, hors du Scrum Guide.
 
-Ce niveau tient compte des deux erreurs d'une alerte : la fausse alerte, et le cas manqué. Elles ne pèsent presque jamais pareil, et ne compter qu'une sorte d'erreur laisse passer des niveaux qu'on ne voudrait pas. Pour une même précision affichée, deux réglages peuvent donc coûter très différemment à l'utilisateur.
+Ce niveau tient compte des deux erreurs d'une alerte : la fausse alerte, et le cas manqué. Elles ne pèsent pas forcément pareil, et ne compter qu'une sorte d'erreur laisse passer des niveaux qu'on ne voudrait pas. Pour une même précision affichée, deux réglages peuvent donc coûter très différemment à l'utilisateur.
 
 <h4 id="17c2"><span class="num">17c2</span> Qui le fixe, et quand</h4>
 
 Le niveau se fixe **après** l'exploration, qui montre ce qu'on peut atteindre : fixé avant, il peut être inatteignable ou trop modeste <Pastille kind="cours" />. CRISP-DM fixe ses critères au départ mais prévient contre les objectifs inatteignables et admet qu'ils changent ; les guides de Google choisissent le seuil d'un modèle sur ses résultats mesurés. Ces deux appuis ne font pas un consensus sur le moment.
 
-Il se fait fixer par l'**utilisateur concerné**, celui qui paie les erreurs. Le PO apporte le compromis dans les mots de cet utilisateur et le fait fixer ; il ne choisit ni le chiffre ni le réglage (<Renvoi n="8a2" />). « C'est le standard » n'est pas une décision. De même, ce que montre l'historique ne fixe pas une règle métier : il l'éclaire, et l'utilisateur concerné décide de ce qu'on en fait.
+Il se fait fixer par l'**utilisateur concerné**, celui qui paie les erreurs <Pastille kind="cours" />. Le PO apporte le compromis dans les mots de cet utilisateur et le fait fixer ; il ne choisit ni le chiffre ni le réglage (<Renvoi n="8a2" />). De même, ce que montre l'historique ne fixe pas une règle métier : il l'éclaire, et l'utilisateur concerné décide de ce qu'on en fait.
 
 Deux seuils sont donc à ne pas mêler : celui qui juge l'exploration, fixé avant, et le niveau exigé de la fonction livrée, fixé après.
 
