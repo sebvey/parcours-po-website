@@ -6,7 +6,7 @@ import { conceptUrl } from '../lib/concepts';
 import { tousLesConcepts } from '../data/parcours';
 import { termes, aEviter } from '../data/glossaire';
 
-const sansAccent = (s: string) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+const sansAccent = (s: string) => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
 const titreDe = (n: string) => tousLesConcepts.find((c) => c.n === n)?.titre ?? '';
 const lettreDe = (s: string) => {
   const l = sansAccent(s).replace(/[^a-z0-9]/g, '').charAt(0).toUpperCase();
@@ -103,7 +103,7 @@ const concepts = tousLesConcepts.filter((c) => termes.some((t) => t.concepts.inc
       ui.hidden = false;
       var items = Array.prototype.slice.call(document.querySelectorAll('.gl-terme'));
       var groupes = Array.prototype.slice.call(document.querySelectorAll('[data-groupe]'));
-      function norm(s) { return s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase(); }
+      function norm(s) { return s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase(); }
       function filtrer() {
         var mots = norm(q.value).split(/\s+/).filter(Boolean);
         var c = sel.value;
