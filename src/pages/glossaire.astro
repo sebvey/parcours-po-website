@@ -1,0 +1,139 @@
+---
+import Base from '../layouts/Base.astro';
+import '../styles/transversal.css';
+import { inline } from '../lib/inline';
+import { conceptUrl } from '../lib/concepts';
+import { tousLesConcepts } from '../data/parcours';
+import { termes, aEviter } from '../data/glossaire';
+
+const sansAccent = (s: string) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+const titreDe = (n: string) => tousLesConcepts.find((c) => c.n === n)?.titre ?? '';
+const lettreDe = (s: string) => {
+  const l = sansAccent(s).replace(/[^a-z0-9]/g, '').charAt(0).toUpperCase();
+  return /[0-9]/.test(l) ? '0-9' : l;
+};
+
+const tries = [...termes].sort((a, b) => sansAccent(a.terme).localeCompare(sansAccent(b.terme), 'fr'));
+const groupes: { lettre: string; items: typeof termes }[] = [];
+for (const t of tries) {
+  const l = lettreDe(t.terme);
+  const g = groupes.find((x) => x.lettre === l);
+  if (g) g.items.push(t); else groupes.push({ lettre: l, items: [t] });
+}
+groupes.sort((a, b) => (a.lettre === '0-9' ? -1 : b.lettre === '0-9' ? 1 : a.lettre.localeCompare(b.lettre)));
+const idLettre = (l: string) => `lettre-${l.toLowerCase()}`;
+const plain = (s: string) => s.replace(/\*+/g, '');
+const concepts = tousLesConcepts.filter((c) => termes.some((t) => t.concepts.includes(c.n)));
+---
+<Base title="Glossaire" nav="glossaire" description="Les termes du cours, avec leur traduction anglaise, leur définition et le concept qui les introduit, et les termes à éviter.">
+  <div class="container-wide">
+    <section class="page tr">
+      <p class="eyebrow">Les mots du cours</p>
+      <h1>Glossaire</h1>
+      <p class="lead">Un seul terme par notion : le cours emploie le même mot partout, en français, ou en anglais quand c’est l’usage. Chaque terme renvoie au concept qui l’introduit. La fin de la page liste les <a href="#termes-a-eviter">termes à éviter</a>.</p>
+
+      <div class="gl-filtre" data-pagefind-ignore hidden>
+        <form role="search" aria-label="Filtrer le glossaire" onsubmit="return false">
+          <div class="champ">
+            <label for="gl-q">Chercher un terme</label>
+            <input id="gl-q" type="search" autocomplete="off" placeholder="Valeur, backlog, sprint…" />
+          </div>
+          <div class="champ">
+            <label for="gl-c">Concept</label>
+            <select id="gl-c" autocomplete="off">
+              <option value="">Tous les concepts</option>
+              {concepts.map((c) => <option value={c.n}>{c.n}. {c.titre}</option>)}
+            </select>
+          </div>
+        </form>
+        <p class="gl-statut" role="status" aria-live="polite" id="gl-statut"></p>
+      </div>
+
+      <nav class="gl-lettres" aria-label="Aller à une lettre" id="gl-lettres">
+        <ul>
+          {groupes.map((g) => <li><a href={`#${idLettre(g.lettre)}`}>{g.lettre}</a></li>)}
+        </ul>
+      </nav>
+
+      <div id="gl-liste">
+        {groupes.map((g) => (
+          <section class="gl-groupe" data-groupe aria-labelledby={idLettre(g.lettre)}>
+            <h2 class="gl-lettre" id={idLettre(g.lettre)}>{g.lettre}</h2>
+            <ul class="gl-termes">
+              {g.items.map((t) => (
+                <li class="gl-terme" id={t.id} data-s={sansAccent(`${t.terme} ${t.en} ${plain(t.def)}`)} data-c={` ${t.concepts.join(' ')} `}>
+                  <h3><a href={`#${t.id}`} class="gl-nom"><span set:html={inline(t.terme)} /></a></h3>
+                  <p class="gl-en"><span class="gl-etq">En anglais</span> <span lang="en">{t.en}</span></p>
+                  <p class="gl-def" set:html={inline(t.def)} />
+                  <p class="gl-orig">
+                    {t.concepts.length > 1 ? 'Concepts' : 'Concept'} :
+                    {t.concepts.map((n, i) => <>{i > 0 ? ', ' : ' '}<a href={conceptUrl(n)} title={titreDe(n)}>{n}</a></>)}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))}
+      </div>
+      <p class="gl-vide" id="gl-vide" hidden>Aucun terme ne correspond. Essayez un mot plus court, ou choisissez « Tous les concepts ».</p>
+
+      <h2 id="termes-a-eviter">Termes à éviter</h2>
+      <p class="tr-text-p">Des mots courants qui brouillent une notion. Le cours leur préfère un terme plus précis.</p>
+      <ul class="eviter">
+        {aEviter.map((a) => (
+          <li>
+            <p class="ev"><span class="etq">À éviter</span> <span set:html={inline(a.evite)} /></p>
+            <p class="pl"><span class="etq">Dire plutôt</span> <span set:html={inline(a.plutot)} /></p>
+            <p class="pq"><span class="etq">Pourquoi</span> <span set:html={inline(a.pourquoi)} /></p>
+          </li>
+        ))}
+      </ul>
+    </section>
+  </div>
+
+  <script is:inline>
+    (function () {
+      var ui = document.querySelector('.gl-filtre');
+      var q = document.getElementById('gl-q');
+      var sel = document.getElementById('gl-c');
+      var statut = document.getElementById('gl-statut');
+      var vide = document.getElementById('gl-vide');
+      var lettres = document.getElementById('gl-lettres');
+      if (!ui || !q || !sel) return;
+      ui.hidden = false;
+      var items = Array.prototype.slice.call(document.querySelectorAll('.gl-terme'));
+      var groupes = Array.prototype.slice.call(document.querySelectorAll('[data-groupe]'));
+      function norm(s) { return s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase(); }
+      function filtrer() {
+        var mots = norm(q.value).split(/\s+/).filter(Boolean);
+        var c = sel.value;
+        var n = 0;
+        items.forEach(function (el) {
+          var ok = mots.every(function (m) { return el.dataset.s.indexOf(m) !== -1; }) &&
+                   (!c || el.dataset.c.indexOf(' ' + c + ' ') !== -1);
+          el.hidden = !ok;
+          if (ok) n++;
+        });
+        groupes.forEach(function (g) { g.hidden = !g.querySelector('.gl-terme:not([hidden])'); });
+        var actif = mots.length > 0 || c !== '';
+        lettres.hidden = actif;
+        vide.hidden = n !== 0;
+        statut.textContent = actif ? (n === 0 ? 'Aucun terme' : n + (n === 1 ? ' terme' : ' termes') + ' sur ' + items.length) : '';
+      }
+      q.addEventListener('input', filtrer);
+      sel.addEventListener('change', filtrer);
+      var params = new URLSearchParams(location.search);
+      if (params.get('q')) { q.value = params.get('q'); }
+      if (params.get('concept')) { sel.value = params.get('concept'); }
+      filtrer();
+      // Une ancre (#valeur) doit toujours mener à son terme : on lève le filtre qui le cacherait.
+      function versAncre() {
+        var id = decodeURIComponent(location.hash.replace(/^#/, ''));
+        var el = id && document.getElementById(id);
+        if (el && el.hidden) { q.value = ''; sel.value = ''; filtrer(); el.scrollIntoView(); }
+      }
+      window.addEventListener('hashchange', versAncre);
+      versAncre();
+    })();
+  </script>
+</Base>

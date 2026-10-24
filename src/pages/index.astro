@@ -1,7 +1,9 @@
 ---
 import Base from '../layouts/Base.astro';
 import Pastille from '../components/Pastille.astro';
+import '../styles/transversal.css';
 import { url } from '../i18n/ui';
+import { lectures } from '../data/lectures';
 import { disponibles, conceptUrl } from '../lib/concepts';
 const dispo = await disponibles();
 const first = dispo.get('9');
@@ -27,6 +29,15 @@ const first = dispo.get('9');
         <div><Pastille kind="ecole" /><p>Une position défendable, attribuée à son auteur. D'autres écoles pensent autrement.</p></div>
         <div><Pastille kind="cours" /><p>Une décision de ce cours, sans source externe : à prendre comme telle.</p></div>
       </div>
+    </section>
+
+    <section class="page" style="padding-top:1rem" aria-labelledby="situations">
+      <h2 id="situations" style="margin-top:0">Par où commencer</h2>
+      <p>Pas besoin de tout lire dans l’ordre. Les <a href={url('lectures/')}>parcours de lecture</a> partent d’une situation et enchaînent les sections qui y répondent :</p>
+      <ul class="home-situations">
+        {lectures.map((l) => <li><a href={url(`lectures/#${l.id}`)}>{l.titre}</a></li>)}
+      </ul>
+      <p style="margin-top:1.25rem">Pour les exemples, le <a href={url('fil-rouge/')}>fil rouge</a> présente le cas inventé sur lequel ils s’appuient ; le <a href={url('glossaire/')}>glossaire</a> donne le sens exact des termes.</p>
     </section>
   </div>
 </Base>

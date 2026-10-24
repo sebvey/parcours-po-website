@@ -417,3 +417,19 @@ a.card .st { color: var(--accent); font-weight: 650; }
 .sous .ancre { opacity: 0; }
 @media (hover: none) { .sous .ancre { opacity: 0.6; } }
 .sources { max-width: 50rem; margin-inline: auto; }
+
+/* Menu replié sur écran étroit (sans JavaScript, la navigation reste visible sur deux lignes) */
+.nav-toggle { display: none; }
+@media (max-width: 51.99rem) {
+  .nav-js .nav-toggle {
+    display: inline-block; font: inherit; font-size: 0.95rem; font-weight: 600; min-height: 44px; padding: 0.4rem 1rem;
+    background: transparent; color: var(--ink); border: 1px solid var(--ink-soft); border-radius: 6px; cursor: pointer;
+  }
+  .nav-js .nav-toggle[aria-expanded='true'] { background: var(--surface); }
+  .nav-js .site-nav { display: none; flex-basis: 100%; order: 3; }
+  .nav-js .site-nav.is-open { display: block; }
+  .nav-js .site-nav ul { flex-direction: column; gap: 0; border-top: 1px solid var(--rule); }
+  .nav-js .site-nav li + li { border-top: 1px solid var(--rule); }
+  .nav-js .site-nav a { display: block; padding: 0.7rem 0; font-size: 1rem; }
+  .nav-js .site-nav a[aria-current='page'] { border-bottom-color: transparent; font-weight: 650; }
+}

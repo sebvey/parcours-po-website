@@ -1,0 +1,83 @@
+---
+import Base from '../layouts/Base.astro';
+import '../styles/transversal.css';
+import { inline } from '../lib/inline';
+import { avecRenvois } from '../lib/renvois';
+import { conceptUrl } from '../lib/concepts';
+import { tousLesConcepts } from '../data/parcours';
+import { entreprise, produit, objectifProduit, mesureResultat, equipe, frontieres, frontieresNote, acteursNote, acteurs, sources } from '../data/fil-rouge';
+
+const titreDe = (n: string) => tousLesConcepts.find((c) => c.n === n)?.titre ?? '';
+---
+<Base title="Fil rouge" nav="filrouge" description="L’opérateur de vélos en libre-service, cas fictif des exemples du cours : l’entreprise, le produit, l’équipe, les acteurs et les sources de données.">
+  <div class="container-wide">
+    <section class="page tr">
+      <p class="eyebrow">Le cas des exemples</p>
+      <h1>Fil rouge : un opérateur de vélos en libre-service</h1>
+      <p class="lead">Les exemples du cours s’appuient tous sur un même cas, <strong>inventé</strong> : un opérateur de vélos, sa plateforme de données et son équipe. Les personnes, les chiffres et les faits de ce cas sont fictifs. Ils servent à illustrer, pas à documenter.</p>
+      <ul class="tr-jump" aria-label="Dans cette page">
+        <li><a href="#entreprise">L’entreprise</a></li>
+        <li><a href="#produit">Le produit et l’équipe</a></li>
+        <li><a href="#acteurs">Les acteurs</a></li>
+        <li><a href="#sources">Les sources de données</a></li>
+      </ul>
+
+      <h2 id="entreprise">L’entreprise</h2>
+      <ul class="tr-text">{entreprise.map((p) => <li set:html={inline(p)} />)}</ul>
+
+      <h2 id="produit">Le produit et l’équipe</h2>
+      <div class="tr-text">{produit.map((p) => <p set:html={inline(p)} />)}</div>
+      <div class="objectif">
+        <span class="tag">Objectif produit</span>
+        <p class="q" set:html={inline(`« ${objectifProduit} »`)} />
+        <p class="m" set:html={inline(mesureResultat)} />
+      </div>
+      <p class="tr-text-p" set:html={avecRenvois('L’objectif produit et sa mesure sont expliqués au concept [[2:2]] ; l’équipe et ses rôles, au concept [[0:0]].')} />
+      <div class="tr-text">{equipe.map((p) => <p set:html={inline(p)} />)}</div>
+      <p class="tr-sub">Ce que la plateforme ne fait pas</p>
+      <ul class="tr-text">{frontieres.map((p) => <li set:html={inline(p)} />)}</ul>
+      <p class="tr-text-p" set:html={avecRenvois(frontieresNote)} />
+
+      <h2 id="acteurs">Les acteurs</h2>
+      <p class="tr-text-p" set:html={inline(acteursNote)} />
+      <ul class="acteurs">
+        {acteurs.map((a) => (
+          <li>
+            <article class="acteur" id={a.id} aria-labelledby={`${a.id}-nom`}>
+              <h3 id={`${a.id}-nom`}>{a.nom}<span>{a.titre}</span></h3>
+              <dl>
+                <dt>Rôle</dt>
+                <dd set:html={inline(a.role)} />
+                <dt>Besoin principal</dt>
+                <dd set:html={inline(a.besoin)} />
+              </dl>
+              <p class="sert">Central aux concepts :
+                {a.concepts.map((n, i) => <>{i > 0 ? ', ' : ' '}<a href={conceptUrl(n)} title={titreDe(n)}>{n}</a></>)}
+              </p>
+            </article>
+          </li>
+        ))}
+      </ul>
+
+      <h2 id="sources">Les sources de données</h2>
+      <p class="tr-text-p">Ce que la plateforme peut lire, à qui cela appartient, et ce qu’on sait de sa fraîcheur.</p>
+      <div class="table-wrap" role="region" aria-label="Sources de données" tabindex="0">
+        <table class="tr-table">
+          <thead>
+            <tr><th scope="col">Source</th><th scope="col">Contenu</th><th scope="col">Propriétaire</th><th scope="col">Fraîcheur, défauts connus</th></tr>
+          </thead>
+          <tbody>
+            {sources.map((s) => (
+              <tr id={s.id}>
+                <th scope="row" data-label="Source">{s.source}</th>
+                <td data-label="Contenu" set:html={inline(s.contenu)} />
+                <td data-label="Propriétaire" set:html={inline(s.proprietaire)} />
+                <td data-label="Fraîcheur, défauts connus" set:html={s.fraicheur ? avecRenvois(s.fraicheur) : '<span class="vide">Non précisée</span>'} />
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</Base>
