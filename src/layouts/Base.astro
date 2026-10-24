@@ -5,7 +5,7 @@ import { useT, url, defaultLang, type Lang } from '../i18n/ui';
 interface Props {
   title?: string;
   description?: string;
-  /** Entrée de navigation active : 'home' | 'path' | 'about' | 'search' */
+  /** Entrée de navigation active : 'home' | 'path' | 'ecoles' | 'sources' | 'about' | 'search' */
   nav?: string;
   lang?: Lang;
   /** Exclure la page de l'index de recherche. */
@@ -19,6 +19,10 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 const items = [
   { key: 'home', href: url(''), label: t('nav.home') },
   { key: 'path', href: url('parcours/'), label: t('nav.path') },
+  // --- Pages transversales : index (début)
+  { key: 'ecoles', href: url('ecoles/'), label: t('nav.ecoles') },
+  { key: 'sources', href: url('sources/'), label: t('nav.sources') },
+  // --- Pages transversales : index (fin)
   { key: 'about', href: url('a-propos/'), label: t('nav.about') },
 ];
 ---

@@ -10,6 +10,10 @@ export const ui = {
     'site.tagline': 'Un cours de gestion de produit, en clair et sourcé',
     'nav.home': 'Accueil',
     'nav.path': 'Parcours',
+    // --- Pages transversales : index (début)
+    'nav.ecoles': 'Consensus ou école',
+    'nav.sources': 'Sources',
+    // --- Pages transversales : index (fin)
     'nav.about': 'À propos',
     'nav.search': 'Recherche',
     'nav.main': 'Navigation principale',

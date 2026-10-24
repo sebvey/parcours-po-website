@@ -14,6 +14,7 @@ import { useT, url } from '../../i18n/ui';
 import { typoFr } from '../../lib/typo-fr';
 import { slugOf, tousLesConcepts } from '../../data/parcours';
 import { disponibles, conceptUrl } from '../../lib/concepts';
+import { objectifsDe } from '../../data/objectifs';
 
 export async function getStaticPaths() {
   const entries = (await getCollection('concepts')).filter((e) => e.id.startsWith('fr/'));
@@ -41,6 +42,8 @@ const prereqs = d.prerequis.map((n) => {
   return { n, titre: c?.titre ?? '', href: dispo.has(n) ? conceptUrl(n) : undefined };
 });
 
+const objs = objectifsDe(d.numero);
+
 const tabs = [
   { id: 'comprendre', label: t('tab.comprendre') },
   { id: 'ecoles', label: t('tab.ecoles') },
@@ -61,6 +64,16 @@ const tabs = [
           : <span>{p.n}. {p.titre}<span class="soon">{t('concept.soon')}</span></span>}</>
       ))}
     </div>
+    {objs.length > 0 && (
+      <div class="concept-meta objs" data-pagefind-ignore>
+        <span class="objs-label" id="objs-label">Objectifs du cours servis :</span>
+        <ul aria-labelledby="objs-label">
+          {objs.map((o) => (
+            <li><a class="obj-chip" href={url(`parcours/#objectif-${o.n}`)}><span class="obj-n">Objectif {o.n}</span> {o.titre}</a></li>
+          ))}
+        </ul>
+      </div>
+    )}
     {!isAnnexe && (
       <nav class="pn" aria-label="Concepts voisins" data-pagefind-ignore>
         <div>

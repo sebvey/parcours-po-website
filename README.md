@@ -22,8 +22,10 @@ src/content/concepts/fr/NN-slug.mdx   un fichier par concept : en-tête, onglets
 src/components/                       pastilles, sous-concepts, « Le réflexe », erreurs, onglets
 src/components/schemas/               un schéma SVG par concept, en variables CSS (clair et sombre)
 src/data/parcours.ts                  la carte du cours (blocs et concepts)
+src/data/objectifs.ts                 les sept objectifs du cours et les concepts qui les servent
+src/lib/transversal.ts                index Consensus ou école et bibliographie, générés depuis les concepts
 src/i18n/ui.ts                        textes de l'interface (le français est la langue par défaut)
-src/pages/                            accueil, parcours, à propos, recherche, concepts/[num]
+src/pages/                            accueil, parcours, consensus ou école, sources, à propos, recherche, concepts/[num]
 ```
 
 Ajouter un concept : copier `09-decoupage-vertical.mdx` sous `src/content/concepts/fr/`. Le parcours

@@ -376,6 +376,107 @@ a.card .st { color: var(--accent); font-weight: 650; }
 .card.off { border-style: dashed; color: var(--ink-soft); }
 .card.off .st { color: var(--ink-soft); }
 
+/* ===== Pages transversales : index (Consensus ou école, Sources) et objectifs du cours — début ===== */
+[hidden] { display: none !important; }
+.index-page .sec-intro, .objectifs-cours .sec-intro { font-family: var(--font-ui); font-size: 0.92rem; color: var(--ink-soft); max-width: 46rem; margin: 0 0 1.25rem; line-height: 1.55; }
+.index-page h2 { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.9rem; scroll-margin-top: 1rem; }
+.index-page h3 { font-size: 1.15rem; margin: 2rem 0 0.4rem; scroll-margin-top: 1rem; }
+.index-page .nb { font-family: var(--font-ui); font-size: 0.8rem; font-weight: 600; color: var(--ink-soft); letter-spacing: 0; }
+.index-page h3 .nb { margin-left: 0.3rem; }
+
+.legende { margin: 0 0 1.5rem; display: grid; gap: 0.75rem; max-width: 46rem; }
+.legende > div { display: grid; grid-template-columns: 8.5rem 1fr; gap: 0.25rem 1rem; align-items: baseline; }
+.legende dt { margin: 0; }
+.legende dd { margin: 0; font-family: var(--font-ui); font-size: 0.92rem; line-height: 1.5; color: var(--ink-soft); }
+@media (max-width: 30rem) { .legende > div { grid-template-columns: 1fr; } }
+
+.saut { margin: 0 0 1.5rem; font-family: var(--font-ui); }
+.saut ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem 0.6rem; }
+.saut a {
+  display: inline-block; padding: 0.3rem 0.7rem; border: 1px solid var(--rule); border-radius: 999px;
+  font-size: 0.88rem; text-decoration: none; color: var(--ink); background: var(--surface);
+}
+.saut a:hover { background: var(--surface-2); color: var(--ink); }
+.saut.auteurs, .saut.lettres { margin-bottom: 0.5rem; }
+.saut.lettres a { min-width: 2rem; text-align: center; padding-inline: 0.45rem; }
+
+.index-sec { padding-top: 0.5rem; margin-top: 3rem; border-top: 4px solid var(--rule); }
+.index-sec.consensus { border-top-color: var(--p-consensus-line); }
+.index-sec.ecole { border-top-color: var(--p-ecole-line); }
+.index-sec.cours { border-top-color: var(--p-cours-line); }
+.groupe { border-top: 1px solid var(--rule); margin-top: 1.5rem; }
+.groupe h3 { margin-top: 1.1rem; }
+.pos-liste { list-style: none; margin: 0; padding: 0; max-width: 52rem; }
+.pos { padding: 0.8rem 0; border-top: 1px solid var(--rule); font-size: 0.98rem; line-height: 1.55; }
+.pos:first-child { border-top: 0; padding-top: 0.2rem; }
+.pos p { margin: 0; }
+.pos-tete { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.1rem 0.8rem; font-family: var(--font-ui); font-size: 0.84rem; margin-bottom: 0.2rem !important; }
+.pos-sujet { font-weight: 650; font-size: 0.9rem; }
+.pos-lien { color: var(--accent); }
+.pos-titre { color: var(--ink-soft); }
+.pos-suite { margin-top: 0.35rem; }
+.pos-suite summary { cursor: pointer; font-family: var(--font-ui); font-size: 0.82rem; color: var(--accent); width: fit-content; }
+.pos-suite p { margin-top: 0.4rem; color: var(--ink-soft); }
+
+.filtre-sources { margin: 0 0 1rem; font-family: var(--font-ui); max-width: 36rem; }
+.filtre-sources label { display: block; font-size: 0.85rem; font-weight: 650; margin-bottom: 0.3rem; }
+.filtre-sources input {
+  width: 100%; font: inherit; font-size: 0.97rem; padding: 0.55rem 0.8rem;
+  border: 1px solid var(--rule); border-radius: 6px; background: var(--surface); color: var(--ink);
+}
+.filtre-sources input::placeholder { color: var(--ink-soft); }
+.etat { font-family: var(--font-ui); font-size: 0.85rem; color: var(--ink-soft); margin: 0.4rem 0 0; min-height: 1.2em; }
+.biblio { list-style: none; margin: 0; padding: 0; max-width: 52rem; }
+.bib { padding: 0.9rem 0; border-top: 1px solid var(--rule); scroll-margin-top: 1rem; overflow-wrap: anywhere; }
+.bib p { margin: 0; }
+.bib-texte { font-size: 1rem; line-height: 1.5; }
+.bib-meta { font-family: var(--font-ui); font-size: 0.78rem; color: var(--ink-soft); margin-top: 0.15rem !important; }
+.bib-cites, .obj-concepts { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.3rem 0.6rem; margin-top: 0.45rem !important; font-family: var(--font-ui); font-size: 0.82rem; }
+.lib { color: var(--ink-soft); }
+.chips { display: inline-flex; flex-wrap: wrap; gap: 0.3rem; }
+.chip {
+  display: inline-block; padding: 0.1rem 0.5rem; border: 1px solid var(--rule); border-radius: 4px;
+  text-decoration: none; font-weight: 650; background: var(--surface); line-height: 1.5;
+}
+.chip:hover { background: var(--surface-2); }
+.chip-ref { font-weight: 400; color: var(--ink-soft); }
+.nv-concept { margin-top: 1.5rem; max-width: 46rem; }
+.nv-concept h3 { margin-top: 1.5rem; }
+.nv-lien { font-family: var(--font-ui); font-size: 0.85rem; margin: 0.3rem 0 0; }
+
+/* Objectifs du cours : pastilles de l'en-tête de concept */
+.concept-meta.objs { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.35rem 0.6rem; margin: 0.6rem 0 0.2rem; }
+.concept-meta.objs ul { display: flex; flex-wrap: wrap; gap: 0.35rem; list-style: none; margin: 0; padding: 0; }
+.concept-meta.objs li { display: block; }
+.concept-meta.objs li + li::before { content: none; }
+.obj-chip {
+  display: inline-block; padding: 0.2rem 0.65rem; border: 1px solid var(--rule); border-radius: 999px;
+  background: var(--surface); color: var(--ink); text-decoration: none; font-size: 0.84rem; line-height: 1.4;
+}
+.obj-chip:hover { background: var(--surface-2); color: var(--ink); }
+.obj-n { font-weight: 700; color: var(--accent); }
+
+/* Parcours : filtre par objectif (JS) et liste des objectifs */
+.filtre-obj { margin: 0 0 1.5rem; padding: 1rem 1.1rem; background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; font-family: var(--font-ui); }
+.filtre-titre { margin: 0 0 0.6rem; font-size: 0.85rem; font-weight: 650; }
+.filtre-boutons { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.filtre-boutons button {
+  font: inherit; font-size: 0.88rem; padding: 0.35rem 0.8rem; border: 1px solid var(--rule); border-radius: 999px;
+  background: var(--bg); color: var(--ink); cursor: pointer; min-height: 2.25rem;
+}
+.filtre-boutons button:hover { background: var(--surface-2); }
+.filtre-boutons button[aria-pressed='true'] { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+.filtre-obj .filtre-etat { margin: 0.6rem 0 0; font-size: 0.88rem; color: var(--ink-soft); min-height: 1.3em; }
+.objectifs-cours { margin-top: 3.5rem; padding-top: 0.5rem; border-top: 1px solid var(--rule); }
+.obj-liste { list-style: none; margin: 0; padding: 0; max-width: 52rem; }
+.obj-liste > li { padding: 1rem 0; border-top: 1px solid var(--rule); scroll-margin-top: 1rem; }
+.obj-liste > li:target { background: var(--surface); }
+.obj-liste h3 { font-size: 1.1rem; margin: 0 0 0.3rem; }
+.obj-liste p { margin: 0; font-size: 0.98rem; line-height: 1.55; }
+.obj-liste .obj-concepts { margin-top: 0.5rem; }
+.col li:target { background: var(--surface); outline: 2px solid var(--rule); outline-offset: 4px; }
+/* ===== Pages transversales : index — fin ===== */
+
 /* ---------- Accueil ---------- */
 .hero { padding-block: 4rem 2rem; }
 .hero h1 { font-size: clamp(2.25rem, 6.5vw, 3.6rem); line-height: 1.08; margin: 0 0 1.25rem; letter-spacing: -0.02em; }
