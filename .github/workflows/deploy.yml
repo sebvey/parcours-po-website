@@ -1,0 +1,51 @@
+# Déploiement sur GitHub Pages.
+# Désactivé tant que le dépôt n'existe pas : seul le lancement manuel est prévu.
+# Pour déployer à chaque push sur main, décommenter le bloc `push`.
+# Réglage requis côté dépôt : Settings > Pages > Source = « GitHub Actions ».
+name: Déploiement
+
+on:
+  workflow_dispatch:
+  # push:
+  #   branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Construire le site (Astro, puis index Pagefind)
+        env:
+          # Site de projet : https://<compte>.github.io/<dépôt>/
+          # Pour un domaine propre ou un site <compte>.github.io, mettre SITE_URL
+          # à ce domaine et BASE_PATH à « / ».
+          SITE_URL: https://${{ github.repository_owner }}.github.io
+          BASE_PATH: /${{ github.event.repository.name }}
+        run: npm run build
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
