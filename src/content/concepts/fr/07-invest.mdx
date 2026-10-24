@@ -1,0 +1,236 @@
+---
+numero: "7"
+titre: "INVEST"
+objectif: "Juger une story avec les six critères d'INVEST, trouver le mot flou dont dépendent plusieurs lettres, et distinguer la solution (négociable) de la contrainte (qui va dans un critère)."
+description: "Les six critères INVEST pour juger une user story, le réflexe du mot flou quand plusieurs lettres restent douteuses, et la différence entre solution négociable et contrainte."
+prerequis: ["5", "6"]
+ecoles:
+  consensus:
+    - auteur: "Le Scrum Guide 2020"
+      texte: "Ne parle ni d'INVEST ni de story. Dit qu'un élément du backlog que l'équipe peut terminer en un sprint est prêt à être choisi au Sprint Planning, et que les Developers qui feront le travail en estiment la taille."
+      refs: ["S2"]
+    - auteur: "Pratique établie, hors du Scrum Guide"
+      texte: "INVEST est une grille de Bill Wake (2003, milieu XP), reprise par d'autres praticiens, dont Mike Cohn. Wake la présente comme un aide-mémoire, pas comme une règle. Il l'ouvre sur les 3C de Ron Jeffries (concept 5) : la carte n'est pas toute la story."
+      refs: ["S1", "S3"]
+  ecole:
+    - auteur: "Bill Wake : la taille d'une story (S)"
+      texte: "Chez Wake, une story représente au plus quelques semaines-personnes de travail. Certaines équipes visent quelques jours-personnes, et Wake le signale lui-même. Ce sont deux repères à ne pas mêler."
+      refs: ["S1"]
+    - auteur: "XP : l'exploration bornée (spike)"
+      texte: "Venue d'XP, pour une question technique ou de conception et pour fiabiliser une estimation. L'usage varie selon les écoles : le guide de Microsoft (Visual Studio 2010) l'emploie aussi pour une question métier. Elle se traite au concept 17."
+      refs: ["S1", "S4", "S6"]
+  cours:
+    - texte: "Le repère de taille du cours : une story tient dans un sprint (concept 4). Ce sont les Developers qui en jugent."
+      refs: ["S2", "S3"]
+    - texte: "Quand plusieurs lettres (E, S, T) restent douteuses ensemble, chercher le mot flou dont elles dépendent plutôt que de les cocher. Règle pratique du cours, sans source externe ; Wake lie seulement E à la compréhension, S au périmètre connu et T à la clarté."
+      refs: ["S1"]
+    - texte: "Le PO fait préciser le mot flou par l'utilisateur concerné, avant le sprint ; ni lui ni les Developers ne le fixent. Parti pris du cours (concept 4)."
+      refs: ["S2"]
+    - texte: "« Négociable » ne veut pas dire « tout est ouvert » : une contrainte réelle d'usage ne se négocie pas, et elle s'écrit dans un critère d'acceptation, sans nommer de solution. Règle pratique du cours, sans source externe."
+      refs: ["S1"]
+sources:
+  affirmations:
+    - affirmation: "INVEST : six critères d'une bonne story, proposés par Bill Wake en 2003, dans le milieu XP."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "Article du 17 août 2003 sur xp123.com : « I developed the INVEST acronym, and wrote this article in April and August, 2003 ». Wake remercie Mike Cohn pour ses retours. Article relu en entier le 2026-10-22."
+    - affirmation: "Les six lettres : Independent, Negotiable, Valuable, Estimable, Small, Testable."
+      kind: "consensus"
+      refs: ["S1", "S3"]
+      verifie: "Wake : « I – Independent N – Negotiable V – Valuable E – Estimable S – Small T – Testable ». L'Agile Alliance concorde."
+    - affirmation: "Le Scrum Guide ne parle pas d'INVEST."
+      kind: "consensus"
+      refs: ["S2"]
+      verifie: "Texte du Guide cherché le 2026-10-22 : « INVEST » n'apparaît que dans « Investments » (biographie des auteurs) ; « story » : aucune occurrence."
+    - affirmation: "La grille est très répandue et reprise par Cohn."
+      kind: "consensus"
+      refs: ["S3", "S1", "S6"]
+      verifie: "L'Agile Alliance parle de « a widely accepted set of criteria » (allégation, sans donnée d'usage) et rapporte que Cohn recommande INVEST au chapitre 2 de *User Stories Applied* (2004, livre non lu). Microsoft (2013) cite Wake et INVEST ; Wake écrit en 2011 que l'acronyme est « popular enough »."
+    - affirmation: "INVEST est une aide à la réflexion, pas une règle imposée."
+      kind: "consensus"
+      refs: ["S1", "S3"]
+      verifie: "Wake : « The INVEST and SMART acronyms can remind teams » ; en conclusion, « the INVEST acronym can help remind you of characteristics of good stories ». L'Agile Alliance parle de « checklist » ; si une story échoue à un critère, l'équipe peut la reformuler."
+    - affirmation: "Wake ouvre INVEST sur les 3C de Jeffries : la carte n'est pas toute la story."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "Wake : « It would be easy to mistake the story card for the \"whole story,\" but Ron Jeffries points out that stories in XP have three components: Cards […], Conversation […], and Confirmation (tests that verify them) »."
+    - affirmation: "E et S se jugent avec les Developers : ce sont eux qui estiment la taille."
+      kind: "consensus"
+      refs: ["S2", "S1"]
+      verifie: "Scrum Guide : « The Developers who will be doing the work are responsible for the sizing. The Product Owner may influence the Developers by helping them understand and select trade-offs. » Wake, E : « it's a function of the team »."
+    - affirmation: "I (Independent) : les stories ne se chevauchent pas et peuvent se planifier et se réaliser dans n'importe quel ordre ; on n'y arrive pas toujours."
+      kind: "ecole"
+      refs: ["S1"]
+      verifie: "Wake : « we'd like them to not overlap in concept, and we'd like to be able to schedule and implement them in any order. We can't always achieve this »."
+    - affirmation: "V (Valuable) : la story a de la valeur pour l'utilisateur."
+      kind: "ecole"
+      refs: ["S1", "S3"]
+      verifie: "Wake : « it needs to be valuable to the customer » ; les soucis des Developers se reformulent pour que le client en voie l'importance. Wake dit « customer » (rôle XP) ; « utilisateur » est la lecture du cours, cohérente avec le concept 1. L'Agile Alliance glose V par « Valuable (or vertical) » : le découpage vertical vient au concept 9."
+    - affirmation: "E (Estimable) : l'équipe peut estimer assez pour que la story soit ordonnée et planifiée ; une estimation exacte n'est pas nécessaire."
+      kind: "ecole"
+      refs: ["S1"]
+      verifie: "Wake : « We don't need an exact estimate, but just enough to help the customer rank and schedule the story's implementation »."
+    - affirmation: "E dépend de la compréhension, de la taille et de l'équipe : on estime mal une story qu'on ne comprend pas."
+      kind: "ecole"
+      refs: ["S1"]
+      verifie: "Wake : « Being estimable is partly a function of being negotiated, as it's hard to estimate a story we don't understand. It is also a function of size […] Finally, it's a function of the team »."
+    - affirmation: "S (Small) : chez Wake, une story représente au plus quelques semaines-personnes de travail."
+      kind: "ecole"
+      refs: ["S1"]
+      verifie: "Wake : « Stories typically represent at most a few person-weeks worth of work. » Au-delà, « it seems to be too hard to know what's in the story's scope »."
+    - affirmation: "« Quelques jours » est une pratique de certaines équipes, pas la définition de Wake."
+      kind: "ecole"
+      refs: ["S1"]
+      verifie: "Wake lui-même : « (Some teams restrict them to a few person-days of work.) ». La fréquence de cette pratique n'est pas mesurée : la page écrit « certaines équipes », pas « la plupart »."
+    - affirmation: "Au-delà d'une certaine taille, on ne sait plus ce que la story contient ; des stories plus petites s'estiment souvent mieux."
+      kind: "ecole"
+      refs: ["S1"]
+      verifie: "Wake : « Saying, \"it would take me more than a month\" often implicitly adds, \"as I don't understand what-all it would entail.\" Smaller stories tend to get more accurate estimates »."
+    - affirmation: "Le repère du cours : une story tient dans un sprint."
+      kind: "cours"
+      refs: ["S2", "S3"]
+      verifie: "Scrum Guide : « Product Backlog items that can be Done by the Scrum Team within one Sprint are deemed ready for selection in a Sprint Planning event ». L'Agile Alliance glose S par « so as to fit within an iteration ». Wake ne parle pas de sprint."
+    - affirmation: "T (Testable) : écrire la story promet qu'on saurait écrire un test ; si le client ne sait pas la tester, elle n'est peut-être pas assez claire."
+      kind: "ecole"
+      refs: ["S1"]
+      verifie: "Wake : « \"I understand what I want well enough that I could write a test for it.\" » ; « If a customer doesn't know how to test something, this may indicate that the story isn't clear enough, or that it doesn't reflect something valuable to them, or that the customer just needs help in testing »."
+    - affirmation: "Les exigences non fonctionnelles (performance, ergonomie) se testent aussi."
+      kind: "ecole"
+      refs: ["S1"]
+      verifie: "Wake : « A team can treat non-functional requirements (such as performance and usability) as things that need to be tested »."
+    - affirmation: "Quand plusieurs lettres (E, S, T) restent douteuses ensemble, chercher le mot flou dont elles dépendent."
+      kind: "cours"
+      refs: ["S1"]
+      verifie: "Wake lie E à la compréhension, S au périmètre connu, T à la clarté (lignes ci-dessus). Le « mot flou dont dépendent plusieurs lettres » est la formulation du cours : règle pratique, sans source qui la formule. Base faible."
+    - affirmation: "Le PO fait préciser le mot flou par l'utilisateur concerné avant le sprint ; ni lui ni les Developers ne le fixent."
+      kind: "cours"
+      refs: ["S2"]
+      verifie: "Scrum Guide : le refinement précise les éléments (« breaking down and further defining Product Backlog items into smaller more precise items »), et un élément est prêt à être choisi s'il tient dans un sprint. Que l'utilisateur concerné fixe la règle, et pas le PO seul, est un parti pris du cours (concept 4). Le terme « refinement » s'enseigne au concept 15."
+    - affirmation: "N (Negotiable) : la story n'est pas un contrat de fonctions ; elle porte l'essentiel, pas les détails, qui se construisent ensemble."
+      kind: "ecole"
+      refs: ["S1", "S3"]
+      verifie: "Wake : « It is not an explicit contract for features; rather, details will be co-created by the customer and programmer during development. A good story captures the essence, not the details. » L'Agile Alliance : « not a specific contract for features »."
+    - affirmation: "La story fixe le besoin ; la solution se discute avec l'équipe."
+      kind: "cours"
+      refs: ["S1"]
+      verifie: "Lecture du cours de « essence, not the details » : Wake ne parle ni de « besoin » ni de « solution », et place la co-construction « during development », pas « jusqu'au sprint ». Le principe « pas de solution dans le je veux » s'enseigne au concept 5."
+    - affirmation: "Négociable ne veut pas dire « tout est ouvert » : une contrainte réelle ne se négocie pas."
+      kind: "cours"
+      refs: []
+      verifie: "Sans source externe : règle pratique du cours."
+    - affirmation: "Une contrainte s'écrit dans un critère d'acceptation, sans nommer de solution ; l'écriture des critères vient au concept 8."
+      kind: "cours"
+      refs: ["S1"]
+      verifie: "Wake, T : les exigences non fonctionnelles se traitent comme des tests ; 3C : la confirmation, ce sont les tests. Que la contrainte d'usage aille dans un critère est la lecture du cours, sans source qui l'écrive."
+    - affirmation: "Écrire la solution dans la story ou dans un critère empêche l'équipe de proposer mieux."
+      kind: "cours"
+      refs: ["S1"]
+      verifie: "Découle de « details will be co-created by the customer and programmer » ; formulation du cours."
+    - affirmation: "Exploration bornée (spike) : venue d'XP, pour une question technique ou de conception et pour fiabiliser une estimation ; l'usage varie."
+      kind: "ecole"
+      refs: ["S4", "S1", "S6"]
+      verifie: "Don Wells (extremeprogramming.org, 1999) : « Create spike solutions to figure out answers to tough technical or design problems » ; « The goal is reducing the risk of a technical problem or increase the reliability of a user story's estimate ». Wake range le spike sous E. Microsoft (guide Visual Studio 2010, archivé) l'emploie aussi pour une question métier : réserver le spike aux questions techniques est donc un choix, pas un consensus."
+    - affirmation: "Un testeur qui ne connaît que la story et ses critères peut-il dire « fait » ou « pas fait » sans poser de question ?"
+      kind: "cours"
+      refs: ["S1"]
+      verifie: "Formulation du cours, appuyée sur T de Wake (« I could write a test for it » ; un client qui ne sait pas tester signale une story pas assez claire)."
+    - affirmation: "Les exemples du fil rouge (la plateforme, les équipes, les abonnés) sont des faits inventés."
+      refs: []
+      verifie: "Sans source : le cas de l'opérateur de vélos en libre-service est fictif."
+  references:
+    - id: "S1"
+      texte: "Wake, « INVEST in Good Stories, and SMART Tasks », xp123.com, 17 août 2003 (postscript du 16 février 2011)"
+      url: "https://xp123.com/invest-in-good-stories-and-smart-tasks/"
+      type: "primaire"
+      consultee: "2026-10-22"
+    - id: "S2"
+      texte: "Schwaber, Sutherland, *The Scrum Guide*, novembre 2020"
+      url: "https://scrumguides.org/scrum-guide.html"
+      type: "primaire"
+      consultee: "2026-10-22"
+    - id: "S3"
+      texte: "Agile Alliance, Agile Glossary, « INVEST » (sans date affichée, © 2026)"
+      url: "https://www.agilealliance.org/glossary/invest/"
+      type: "secondaire (association ; vend adhésions et conférences)"
+      consultee: "2026-10-22"
+    - id: "S4"
+      texte: "Wells, « Create a Spike Solution », extremeprogramming.org, © 1999"
+      url: "http://www.extremeprogramming.org/rules/spike.html"
+      type: "primaire (site de règles XP de Don Wells)"
+      consultee: "2026-10-22"
+    - id: "S6"
+      texte: "Microsoft, « Creating a Great Product Backlog », Visual Studio 2010 (archivé, ms.date 4 février 2013)"
+      url: "https://learn.microsoft.com/en-us/previous-versions/visualstudio/visual-studio-2010/ee518933(v=vs.100)"
+      type: "primaire (documentation de l'éditeur, guide de processus)"
+      consultee: "2026-10-22"
+  nonVerifie:
+    - "**« Quelques jours » comme pratique courante.** Wake dit « some teams », sans fréquence. La page écrit « certaines équipes visent quelques jours », pas « la plupart »."
+    - "**Cohn, *User Stories Applied* (2004), chapitre 2 sur INVEST.** Rapporté par l'Agile Alliance, livre non lu : la page n'en retient que « Cohn reprend la grille »."
+    - "**« Grille très répandue ».** Allégation de l'Agile Alliance (« widely accepted »), sans enquête d'usage ; concordante avec Microsoft et le postscript de Wake, base faible."
+    - "**Origine XP du spike au-delà de Wells.** Le site de Wells (1999) est un site de règles XP, pas une source datée de l'invention ; *Extreme Programming Explained* (Beck) n'a pas été consulté. La page écrit « venue d'XP », sans auteur ni date d'invention."
+    - "**Cockburn, la carte comme promesse de conversation.** Attribution rapportée par Wake, texte de Cockburn non lu. La page ne la reprend pas."
+    - "**« INVEST juge la story entière (phrase, critères, conversation) ».** Wake ne l'écrit pas ; déduit de son ouverture sur les 3C. La page ne le dit pas."
+    - "**Gherkin et Specification by Example.** Relèvent du concept 8."
+    - "**Mot flou dont dépendent plusieurs lettres** et **« négociable ne veut pas dire tout ouvert ».** Règles pratiques du cours, sans source externe : base faible."
+---
+import Schema07 from '../../../components/schemas/Schema07.astro';
+
+INVEST donne six critères pour juger une story : **I**ndependent, **N**egotiable, **V**aluable, **E**stimable, **S**mall, **T**estable. C'est une grille de Bill Wake (2003, milieu XP), un aide-mémoire plutôt qu'une règle de Scrum. Elle sert à repérer ce qui cloche dans une story, pas à la noter. Quand E, S et T restent douteux ensemble, c'est souvent **un même mot flou** : on le fait préciser, on ne coche pas.
+
+<Figure legende="Les six lettres d'INVEST. Une coche : la lettre se tient. Un point d'interrogation : elle est douteuse. Trois lettres douteuses à la fois (E, S, T) pointent souvent vers un seul mot non fixé dans la story ; une fois ce mot précisé par l'utilisateur concerné, avant le sprint, elles se tranchent.">
+  <Schema07 />
+</Figure>
+
+<Sous id="7a" titre="Les six lettres et le mot flou" promesse="Six questions pour juger une story, et un réflexe quand plusieurs réponses restent floues.">
+
+<h4 id="7a1"><span class="num">7a1</span> Les six lettres</h4>
+
+- **I, Independent.** La story ne chevauche pas les autres et peut se planifier dans n'importe quel ordre, autant que possible. Wake reconnaît qu'on n'y arrive pas toujours : une dépendance ne condamne pas la story, elle s'écrit et se traite (<Renvoi n="10" />).
+- **N, Negotiable.** Elle porte le besoin, pas les détails de la solution (voir <Renvoi n="7b" />).
+- **V, Valuable.** Elle a de la valeur pour l'utilisateur. Wake dit « le client » ; l'utilisateur est la lecture du cours. L'Agile Alliance glose ce V par « valuable (or vertical) » : le découpage vertical s'étudie au <Renvoi n="9" />.
+- **E, Estimable.** Les Developers peuvent l'estimer assez pour que le PO l'ordonne et la planifie. Pas besoin d'une estimation exacte : on estime mal ce qu'on ne comprend pas.
+- **S, Small.** Elle est petite. Trois repères, à ne pas mêler : chez Wake, au plus quelques semaines-personnes <Pastille kind="ecole" /> ; certaines équipes visent quelques jours-personnes, et Wake le signale lui-même ; le repère du cours est qu'elle **tient dans un sprint** <Pastille kind="cours" /> (<Renvoi n="4" />). « Quelques jours » est donc la règle de certaines équipes, pas celle d'INVEST.
+- **T, Testable.** On saurait écrire un test qui dit si elle est faite. Si le client ne sait pas comment la tester, la story n'est peut-être pas assez claire (ses critères s'écrivent au <Renvoi n="8" />).
+
+E et S ne se cochent pas seul : le Scrum Guide confie l'estimation de la taille aux Developers, le PO peut les aider à comprendre les compromis.
+
+<FilRouge>L'équipe vélos travaille en sprints de deux semaines : pour elle, la question de S est « cette story tient-elle dans le sprint ? », et ce sont ses Developers qui y répondent.</FilRouge>
+
+<h4 id="7a2"><span class="num">7a2</span> Le mot flou</h4>
+
+Quand E, S et T restent douteux **ensemble**, ils dépendent souvent d'un même mot que personne n'a fixé : « rapidement », « récent », « important ». Wake lie E à la compréhension (on estime mal ce qu'on ne comprend pas), S au périmètre connu et T à la clarté (si on ne sait pas tester, la story n'est pas assez claire). Un seul mot flou peut donc faire douter des trois.
+
+Cocher « OK » ne règle rien : on **cherche le mot**, puis on le fait préciser. Ce réflexe est une règle pratique du cours <Pastille kind="cours" />, pas un texte de Wake. Qui précise ? Ni le PO, qui ne l'invente pas, ni les Developers, qui estiment sans fixer le besoin : c'est **l'utilisateur concerné**, que le PO interroge avant le sprint (<Renvoi n="15" />). En attendant, la story attend (<Renvoi n="4" />).
+
+Une même question aide à le repérer : un testeur qui ne connaît que la story peut-il dire « fait » ou « pas fait » sans rien demander ? Si un mot l'oblige à poser une question, c'est lui.
+
+</Sous>
+
+<Sous id="7b" titre="N : le besoin, pas la solution" promesse="La story fixe le besoin ; une contrainte réelle ne se négocie pas, et elle s'écrit dans un critère.">
+
+N veut dire que la story n'est pas un contrat de fonctions : elle porte l'essentiel, et les détails se construisent avec l'équipe, jusque pendant la réalisation (Wake). Ce qui relève de la **solution** (le canal, la forme, l'outil) reste donc ouvert à la discussion. Écrire la solution dans la story, ou dans un critère, empêche l'équipe de proposer mieux.
+
+<FilRouge>Le canal par lequel un abonné reçoit une information (SMS, serveur vocal, appli) relève de l'équipe appli, pas de l'équipe vélos.</FilRouge>
+
+Mais **négociable ne veut pas dire tout ouvert** <Pastille kind="cours" />. Une **contrainte** est une exigence réelle de l'usage, qui ne se négocie pas : par exemple, une catégorie d'utilisateurs qui ne peut consulter l'information que par un moyen précis. Elle n'est pas une solution : plusieurs solutions peuvent la respecter. Elle s'écrit dans un **critère d'acceptation**, sans nommer de solution, pour que le testeur la lise (<Renvoi n="8" />). La phrase de la story, elle, ne change pas : elle reste le besoin.
+
+Une façon de distinguer les deux : face à un détail, demander « une autre solution le respecterait-elle ? ». Si oui, c'est une solution, donc négociable. Si non, c'est une contrainte.
+
+</Sous>
+
+<Reflexe note="Formulation du cours, appuyée sur le T de Wake (« je pourrais écrire un test »).">
+Un testeur qui ne connaît que la story et ses critères peut-il dire « fait » ou « pas fait » sans poser de question ? Les Developers peuvent-ils dire si elle tient dans un sprint ? Si l'une des réponses est non, cherche le mot dont elles dépendent.
+</Reflexe>
+
+<Erreurs>
+
+- **Cocher E et S « OK » sans pouvoir le vérifier** : si plusieurs lettres dépendent d'un même mot flou, c'est ce mot qu'il faut creuser.
+- **Fixer soi-même le mot flou**, ou le laisser fixer par les Developers : l'utilisateur concerné le précise, avant le sprint.
+- **Juger E et S à la place des Developers** : ce sont eux qui estiment la taille.
+- **Donner S en jours** comme si c'était la grille : chez Wake, c'est au plus quelques semaines-personnes ; le repère du cours est le sprint.
+- **Écrire la solution dans la story ou dans le critère** (« recevoir un SMS »).
+- **Croire que négociable veut dire tout ouvert** : la contrainte d'usage ne se négocie pas.
+- **Rejeter une story parce qu'elle dépend d'une autre équipe** : I se tient autant que possible ; la dépendance s'écrit et se traite.
+- **Prendre INVEST pour une règle de Scrum** : c'est un aide-mémoire de Wake, absent du Scrum Guide.
+
+</Erreurs>

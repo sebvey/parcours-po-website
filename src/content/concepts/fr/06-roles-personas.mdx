@@ -1,0 +1,206 @@
+---
+numero: "6"
+titre: "Rôles et personas"
+objectif: "Choisir l'acteur d'une story, le rôle qui fait l'action du « je veux » et y gagne lui-même ce que dit le « afin de », et savoir ce qu'un persona apporte."
+description: "Comment choisir l'acteur d'une user story, pourquoi le vérifier auprès des utilisateurs, et ce qu'un persona apporte (ou pas)."
+prerequis: ["5"]
+ecoles:
+  consensus:
+    - auteur: "Le Scrum Guide 2020"
+      texte: "Ne parle ni de rôle utilisateur, ni de persona, ni d'acteur. Dit seulement qu'un produit a des utilisateurs ou des clients bien définis. Rien de ce concept n'est donc du consensus Scrum."
+      refs: ["S1"]
+  ecole:
+    - auteur: "Mike Cohn : écrire pour des rôles précis"
+      texte: "Recommandation de Cohn, d'après l'usage-centered design de Constantine et Lockwood : supposer un seul type d'utilisateur fait manquer des stories. Cohn admet que « utilisateur » suffit quand tous ont besoin du même comportement pour la même raison. Il conseille un rôle plus précis quand celui-ci change la conversation : règles, données, moment, droits ou résultat différents. Ce n'est ni le Scrum Guide ni un consensus démontré."
+      refs: ["S2", "S3"]
+    - auteur: "Alan Cooper : les personas"
+      texte: "Venus du design d'interaction : un portrait fictif construit à partir d'utilisateurs réels. Pas obligatoires, discutés entre praticiens. Cohn les rattache à Cooper, dans le même chapitre que les rôles."
+      refs: ["S2", "S6", "S7"]
+  cours:
+    - texte: "« L'acteur agit et y gagne » : le rôle qui fait l'action du « je veux » est celui qui gagne ce que dit le « afin de ». Le critère réunit deux repères de Cohn, l'initiateur de l'action et celui qui en profite. Cohn écrit pourtant parfois une story pour un rôle qui y gagne sans agir : c'est une règle pratique, pas une règle sans exception."
+      refs: ["S3", "S5"]
+    - texte: "Celui qui construit n'est pas l'acteur : pas de story « en tant que développeur ». Un consommateur de données, lui, reste un utilisateur (concept 1) : le piège vise celui qui construit, pas celui qui consomme."
+      refs: ["S5"]
+    - texte: "Le PO vérifie l'acteur auprès des utilisateurs plutôt que de le deviner."
+      refs: []
+    - texte: "La story garde le rôle (« en tant qu'abonné ») même quand l'équipe a un persona, qui sert à la conversation et aux exemples. Certaines équipes écrivent leurs stories au nom d'un persona : c'est possible, à condition que le persona vienne d'utilisateurs réels."
+      refs: []
+  voisines:
+    - auteur: "Le proto-persona"
+      texte: "Un portrait fait des hypothèses de l'équipe, sans entretiens. On le confond souvent avec un persona ; ce n'en est pas un au sens du portrait construit à partir d'utilisateurs réels."
+      refs: ["S7"]
+sources:
+  affirmations:
+    - affirmation: "Le Scrum Guide ne parle ni de rôle utilisateur, ni de persona, ni d'acteur."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "Texte du Guide cherché le 2026-10-22 : « persona », « user role », « actor » : aucune occurrence. « users » apparaît une fois, dans la définition du produit (« known stakeholders, well-defined users or customers »)."
+    - affirmation: "Un rôle est une catégorie d'utilisateurs aux besoins communs."
+      kind: "cours"
+      refs: ["S2", "S3", "S4"]
+      verifie: "Cohn : « many products serve people with different goals » ; on choisit un rôle plus précis quand il « changes the conversation ». Il parle aussi de rôles « décorés » d'un adjectif (« first-time visitor »). La définition « catégorie d'utilisateurs aux besoins communs » est la formulation du cours : la définition de Cohn dans son livre n'a pas été lue (voir « Non vérifié »)."
+    - affirmation: "Écrire pour plusieurs rôles précis plutôt que pour un seul « utilisateur » : supposer un seul type d'utilisateur fait manquer des stories."
+      kind: "ecole"
+      refs: ["S2"]
+      verifie: "Cohn, chapitre 3 « User Role Modeling », premier paragraphe : écrire comme s'il n'y avait qu'un type d'utilisateur « is a fallacy and can lead a team to miss stories for users who do not fit the general mold ». C'est une recommandation de Cohn, pas un consensus : la page ne l'appelle ni consensus ni pratique établie."
+    - affirmation: "« Utilisateur » suffit parfois ; un rôle plus précis vaut la peine quand il change la conversation."
+      kind: "ecole"
+      refs: ["S3"]
+      verifie: "Cohn : « Sometimes \"user\" is specific enough. If everyone who uses the product needs the same behavior for the same reason, a more detailed role may not add much. » Il conseille de se demander si le rôle change la conversation : règles, données, moment, droits ou résultat différents."
+    - affirmation: "Les rôles utilisateurs viennent du usage-centered design (Constantine et Lockwood) ; les personas, du design d'interaction (Cooper)."
+      kind: "ecole"
+      refs: ["S2"]
+      verifie: "Cohn, chapitre 3 : « The disciplines of usage-centered design (Constantine and Lockwood 1999) and interaction design (Cooper 1999) teach us the benefits of identifying user roles and personas prior to writing stories. » Les livres de Constantine, Lockwood et Cooper n'ont pas été consultés."
+    - affirmation: "L'acteur est celui qui agit et y gagne."
+      kind: "cours"
+      refs: ["S3", "S5"]
+      verifie: "Cohn [S5] préfère le rôle « initiator of the action » quand deux formulations se valent ; Cohn [S3] : la story « names the person or role who benefits ». « Agit et y gagne » réunit les deux critères : c'est la formulation du cours. Nuance : Cohn écrit parfois pour celui qui gagne sans agir (« As the company owner, I want ads on the site so that I make money », [S5]), donc ce n'est pas une règle sans exception de Cohn."
+    - affirmation: "Celui qui construit n'est pas l'acteur : pas de story « en tant que développeur »."
+      kind: "cours"
+      refs: ["S5"]
+      verifie: "Cohn : « I don't necessarily mean we want a bunch of \"programmer stories.\" Those are generally best avoided. » Un consommateur de données reste un utilisateur (concept 1, d'après Dehghani) : le piège vise celui qui construit, pas celui qui consomme."
+    - affirmation: "Le « afin de » dit le gain de l'acteur, pas celui d'un autre rôle."
+      kind: "cours"
+      refs: ["S3"]
+      verifie: "Cohn : la story nomme « the person or role who benefits » et donne « a reason ». Qu'y mettre la valeur d'un autre rôle soit une erreur est une heuristique du cours, qu'aucune source ne formule."
+    - affirmation: "Le plus souvent l'acteur est évident ; sinon on compare les options."
+      refs: ["S5"]
+      verifie: "Cohn : « most of the time the user is quite obvious. When it's not, spend a little time thinking about the options and choose the one that feels most natural and best conveys the desired action. »"
+    - affirmation: "Le PO vérifie l'acteur auprès des utilisateurs plutôt que de le deviner."
+      kind: "cours"
+      refs: []
+      verifie: "Sans source : choix du cours, cohérent avec le concept 1 (le PO obtient les faits du domaine des utilisateurs) et le concept 5. Cohn dit seulement de réfléchir aux options."
+    - affirmation: "Un mauvais acteur donne une mauvaise raison, donc un mauvais ordre."
+      kind: "cours"
+      refs: []
+      verifie: "Déduction du cours : le « afin de » aide le PO à ordonner (concept 5) ; écrit pour le mauvais acteur, il porte une raison qui n'est pas la sienne. Aucune source ne le formule."
+    - affirmation: "Celui qui demande n'est pas toujours l'acteur ; l'acteur se désigne par son rôle, pas par le prénom d'une personne."
+      kind: "cours"
+      refs: ["S3", "S4"]
+      verifie: "Choix du cours, cohérent avec la notion de rôle (catégorie d'utilisateurs) et avec le concept 5. Aucune source consultée ne traite le cas d'une story écrite au nom d'une personne réelle."
+    - affirmation: "Le persona est un choix d'école, d'Alan Cooper, venu du design d'interaction ; il est absent du Scrum Guide."
+      kind: "ecole"
+      refs: ["S1", "S2", "S6", "S7"]
+      verifie: "Cooper : « you've probably been introduced to the idea of \"personas\" — hypothetical archetypes — as a practical interaction design tool. Whether you hate or love this idea as a development tool, you can thank me. » Cohn le rattache à « interaction design (Cooper 1999) ». Wikipédia crédite Cooper. La page attribue les personas à Cooper sans dire qu'il les a inventés seul (voir « Non vérifié »)."
+    - affirmation: "Un persona est un portrait fictif et réaliste d'un rôle : un prénom, des objectifs, des comportements."
+      kind: "ecole"
+      refs: ["S6", "S7", "S2"]
+      verifie: "Cooper : « hypothetical archetypes ». Wikipédia : « a semi-fictional characterization or representation of a typical customer segment or end user » ; « a representation of the goals and behavior of a hypothesized group of users ». Le prénom : Cooper, d'après une source secondaire [S8], a nommé son premier persona « Kathy », du nom d'une personne interrogée. « D'un rôle » est un rapprochement du cours, appuyé sur Cohn qui traite rôles et personas dans le même chapitre."
+    - affirmation: "Un persona se construit à partir d'utilisateurs réels interrogés, pas de l'imagination de l'équipe. Il est fictif par son identité, pas par ses traits."
+      kind: "ecole"
+      refs: ["S6", "S7", "S8"]
+      verifie: "Wikipédia : construit à partir d'entretiens ou d'enquêtes ; il distingue le « proto-persona » fait d'hypothèses de l'équipe. Cooper, d'après des sources secondaires : entretiens avec sept ou huit utilisateurs probables avant ses premiers personas ; son récit original n'a pas pu être lu. La conséquence (prêter à un persona un besoin qu'aucun utilisateur n'a exprimé, c'est inventer un utilisateur) est une déduction du cours."
+    - affirmation: "Les personas sont discutés entre praticiens et ne sont pas obligatoires."
+      kind: "ecole"
+      refs: ["S1", "S6", "S7"]
+      verifie: "Absents du Scrum Guide. Cooper écrit lui-même « whether you hate or love this idea ». Wikipédia, section « Criticism », signale des critiques : source secondaire, utilisée seulement pour dire que le choix est discuté."
+    - affirmation: "La story garde le rôle (« en tant qu'abonné ») même quand l'équipe a un persona."
+      kind: "cours"
+      refs: []
+      verifie: "Sans source : choix du cours. Écrire la story au nom d'un persona est une pratique répandue que Cohn décrirait dans son livre (non lu) : la page la donne comme possibilité, sans attribution."
+    - affirmation: "Les exemples du fil rouge (Régis, Étienne, Abba, le tiers des abonnés avec un téléphone basique) sont des faits inventés."
+      refs: []
+      verifie: "Sans source : le cas de l'opérateur de vélos en libre-service est fictif."
+  references:
+    - id: "S1"
+      texte: "Schwaber, Sutherland, *The Scrum Guide*, novembre 2020"
+      url: "https://scrumguides.org/scrum-guide.html"
+      type: "primaire"
+      consultee: "2026-10-22"
+    - id: "S2"
+      texte: "Cohn, *User Stories Applied*, Addison-Wesley, mars 2004, chapitre 3 « User Role Modeling » (aperçu de l'éditeur : premier paragraphe seulement)"
+      url: "https://www.oreilly.com/library/view/user-stories-applied/0321205685/ch03.html"
+      type: "primaire (extrait)"
+      consultee: "2026-10-22"
+    - id: "S3"
+      texte: "Cohn, « Writing User Stories », Mountain Goat Software (date non affichée)"
+      url: "https://www.mountaingoatsoftware.com/agile/user-stories/writing-user-stories"
+      type: "primaire (site de l'auteur, qui vend aussi ses formations)"
+      consultee: "2026-10-22"
+    - id: "S4"
+      texte: "Cohn, « Adding Decorated User Roles to Your User Stories », Mountain Goat Software (date non affichée)"
+      url: "https://www.mountaingoatsoftware.com/agile/adding-decorated-user-roles-to-your-user-stories"
+      type: "primaire (site de l'auteur)"
+      consultee: "2026-10-22"
+    - id: "S5"
+      texte: "Cohn, « Selecting the Right User Role », Mountain Goat Software (date non affichée)"
+      url: "https://www.mountaingoatsoftware.com/agile/selecting-the-right-user-role"
+      type: "primaire (site de l'auteur)"
+      consultee: "2026-10-22"
+    - id: "S6"
+      texte: "Cooper, « The Long Road to Inventing Design Personas », OneZero (Medium) (date non affichée ; extrait seulement)"
+      url: "https://onezero.medium.com/in-1983-i-created-secret-weapons-for-interactive-design-d154eb8cfd58"
+      type: "primaire (extrait)"
+      consultee: "2026-10-22"
+    - id: "S7"
+      texte: "Wikipédia, « Persona (user experience) »"
+      url: "https://en.wikipedia.org/wiki/Persona_(user_experience)"
+      type: "secondaire"
+      consultee: "2026-10-22"
+    - id: "S8"
+      texte: "Reprises du récit de Cooper : Rysen, « How to create user personas » ; whichframework.org, « User Personas: Cooper's Method » (https://whichframework.org/frameworks/user-personas.html)"
+      url: "https://www.rysen.com.au/user-experience/how-to-create-user-personas-with-examples"
+      type: "secondaire (Rysen : agence qui vend du conseil UX, marketing)"
+      consultee: "2026-10-22"
+  nonVerifie:
+    - "**Date des premiers personas (1983) et récit de « Kathy ».** Rapportés par Wikipédia et des sources secondaires d'après un essai de Cooper (« The Origin of Personas ») qui n'a pas pu être lu ; une source secondaire dit 1985. La page ne date pas les premiers personas."
+    - "**Année de *The Inmates Are Running the Asylum*.** 1998 selon Cooper [S6], 1999 selon Cohn [S2] et Wikipédia [S7]. La page ne donne pas d'année."
+    - "**Priorité de Cooper.** Un billet de 2003 attribue une technique voisine à Tognazzini (1992) et à Vertelney (1989) ; non vérifié. La page attribue les personas à Cooper, comme Cohn et Wikipédia, sans dire qu'il les a inventés seul."
+    - "**Définition du rôle utilisateur chez Cohn ou chez Constantine et Lockwood.** Le chapitre 3 de *User Stories Applied* n'a été lu que dans son premier paragraphe ; la démarche (lister, regrouper, affiner les rôles) n'est pas vérifiée. « Catégorie d'utilisateurs aux besoins communs » est la formulation du cours."
+    - "**« Frustrations » comme composant d'un persona.** Aucune source consultée ne le cite ; Wikipédia et Cooper parlent d'objectifs et de comportements. La page dit « objectifs »."
+    - "**Écrire une story au nom d'un persona.** Pratique répandue, que Cohn décrirait dans son livre ; non vérifiée."
+    - "**Écrire pour des rôles précis comme consensus.** Aucune source ne permet de parler de consensus (Scrum Guide muet) ; Cohn le recommande et admet que « utilisateur » suffit parfois. La page le présente comme une recommandation de Cohn."
+---
+import Schema06 from '../../../components/schemas/Schema06.astro';
+
+Une story a besoin d'un **acteur**, désigné par son **rôle** : une catégorie d'utilisateurs aux besoins communs (technicien de maintenance, abonné). Le bon acteur **agit et y gagne** : il fait ce que dit le « je veux » et reconnaît son propre gain dans le « afin de ». Un mauvais acteur donne une mauvaise raison, donc un mauvais ordre. Le PO ne le devine pas : il le vérifie auprès des utilisateurs. Un **persona**, portrait fictif d'un rôle, aide à se le représenter, sans le remplacer.
+
+<Figure legende="L'acteur d'une story. La case « En tant que » est vide ; du « je veux » part une flèche vers celui qui agit, du « afin de » une flèche vers celui qui y gagne. Les deux arrivent sur le même rôle, qui s'écrit dans la case. Celui qui construit ou qui demande n'est pas acteur de ce seul fait.">
+  <Schema06 />
+</Figure>
+
+<Sous id="6a" titre="L'acteur de la story" promesse="L'acteur est un rôle, pas un prénom, et il se vérifie auprès des utilisateurs.">
+
+Le test tient en deux questions : **qui fait l'action du « je veux » ? qui gagne ce que dit le « afin de » ?** Si les deux réponses désignent le même rôle, c'est l'acteur. Sinon, l'acteur est à revoir. C'est un choix du cours <Pastille kind="cours" />, qui réunit deux repères de Mike Cohn (celui qui lance l'action, celui qui en profite). Cohn écrit pourtant parfois une story pour un rôle qui gagne sans agir : c'est une règle pratique, pas une règle sans exception. Le Scrum Guide, lui, ne parle ni de rôle ni d'acteur.
+
+<FilRouge>Étienne, responsable d'exploitation, envoie les régulateurs vers les stations ; Régis, régulateur, conduit la camionnette et redistribue les vélos. Deux rôles, deux actions : ils ne prendront pas forcément la même place dans une même story.</FilRouge>
+
+Quatre confusions reviennent.
+
+- **L'acteur technique.** Celui qui construit n'est pas l'acteur du seul fait de construire : le « afin de » d'une story « en tant que data engineer » décrit une étape technique, pas le gain d'un utilisateur. En revanche, un consommateur de données, quel que soit son métier, reste un utilisateur légitime (<Renvoi n="1" />) : ce qui compte, c'est qu'il se serve du résultat pour son propre besoin.
+- **La valeur d'un autre rôle.** Un « afin de » qui dit le gain d'un autre rôle que l'acteur est le signe d'un mauvais acteur : on change d'acteur, ou on cherche la raison propre à celui qu'on a nommé (<Renvoi n="5" />).
+- **Celui qui demande.** La demande vient souvent d'un responsable, alors que le besoin est parfois celui de son équipe.
+- **« Utilisateur » par défaut.** Il suffit quand tous ont besoin du même comportement pour la même raison. Sinon il fait manquer des stories : Cohn conseille un rôle plus précis quand celui-ci change la conversation <Pastille kind="ecole" />, par exemple parce que les règles, les données, le moment ou le résultat attendus ne sont pas les mêmes.
+
+Dans la phrase, on écrit le rôle, jamais le prénom d'une personne : la story sert tous les utilisateurs de ce rôle, et la personne nommée est seulement celle qu'on interroge. C'est justement ce que fait le PO : il **vérifie l'acteur auprès des utilisateurs** (qui fait l'action, qui y gagne) au lieu de le choisir sur le papier. C'est un choix du cours <Pastille kind="cours" />, sans source externe. Quand une même vue sert deux rôles qui n'ont pas la même raison de s'en servir, ce sont probablement deux besoins, donc deux stories (un « je veux » par story, <Renvoi n="4" />).
+
+</Sous>
+
+<Sous id="6b" titre="Le persona (choix d'école)" promesse="Un persona aide à se représenter un rôle, à condition de venir d'utilisateurs réels.">
+
+Un persona est un **portrait fictif et réaliste d'un rôle** : un prénom, des objectifs, des comportements. C'est un choix d'école <Pastille kind="ecole" /> d'Alan Cooper, venu du design d'interaction, absent du Scrum Guide et discuté entre praticiens. Aucune équipe n'est obligée d'en avoir.
+
+Il se construit **à partir d'utilisateurs réels** interrogés, pas de l'imagination de l'équipe : le persona est fictif par son prénom, pas par ses traits. Chaque trait doit pouvoir répondre à la question « d'où vient-il ? ». Un portrait tiré des seules hypothèses de l'équipe (un proto-persona) n'en est pas un. C'est ce qui sépare un persona d'un utilisateur réel : on interroge un technicien en chair et en os ; un persona, lui, résume des utilisateurs réels.
+
+<FilRouge>Un tiers des abonnés n'a pas l'appli, seulement un téléphone basique. L'équipe en parle à travers Abba, persona des abonnés sans l'appli, construit à partir d'abonnés interrogés.</FilRouge>
+
+Le persona sert à la **conversation** et aux **exemples** : il rend le rôle concret quand l'équipe en parle. Il ne remplace ni le rôle dans la phrase de la story ni les entretiens avec les utilisateurs. Dans ce cours, la story garde le rôle (« en tant qu'abonné ») <Pastille kind="cours" /> ; certaines équipes écrivent leurs stories au nom d'un persona, ce qui reste possible si le persona vient d'utilisateurs réels. Les critères d'une story, eux, se rédigent au <Renvoi n="8" />.
+
+</Sous>
+
+<Reflexe note="Choix du cours, pas règle absolue.">
+Qui fait l'action du « je veux », et qui gagne ce que dit le « afin de » ? Si ce n'est pas le même rôle, ou si c'est celui qui construit, l'acteur est probablement à revoir. Dans tous les cas, on le vérifie auprès de l'utilisateur.
+</Reflexe>
+
+<Erreurs>
+
+- **L'acteur technique** (« en tant que data engineer, je veux une table… ») : l'acteur agit et y gagne, il ne se contente pas de construire.
+- **La valeur d'un autre rôle dans le « afin de »** : le « afin de » dit le gain de l'acteur.
+- **Deviner l'acteur** : le PO le vérifie auprès des utilisateurs.
+- **Prendre celui qui demande pour l'acteur** : la demande vient souvent d'un responsable, le besoin est parfois celui de son équipe.
+- **« En tant qu'utilisateur » par défaut** : il fait manquer des stories quand les rôles ont des raisons différentes.
+- **Un prénom à la place du rôle** (« en tant que Théo ») : la story sert un rôle.
+- **Un persona inventé** : sans utilisateurs interrogés, il fait parler un utilisateur qui n'existe pas.
+- **Croire le persona obligatoire** : c'est un choix d'école.
+
+</Erreurs>

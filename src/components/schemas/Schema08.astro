@@ -1,0 +1,93 @@
+---
+// Schéma 8 : règles et exemples, à la manière de l'Example Mapping (Matt Wynne).
+// À gauche, une règle métier (carte « Règle ») ; à droite, deux exemples Given/When/Then reliés
+// à la règle, où un seul fait change (surligné) ; en bas, une carte « Question » : une règle
+// non fixée, sans exemple dessous. Les cartes portent leur nom en toutes lettres : la couleur
+// n'est pas le seul signal. Cas d'illustration inventé pour la page, pas un fait du fil rouge.
+---
+<svg viewBox="0 0 600 530" role="img" aria-labelledby="g8-t g8-d" class="sch">
+  <title id="g8-t">Une règle métier, deux exemples où un seul fait change, une règle non fixée</title>
+  <desc id="g8-d">
+    Schéma en deux colonnes, sur un cas d'illustration. À gauche, une carte « Règle » : un abonné loue un seul vélo à la fois.
+    À droite, deux cartes « Exemple » en Given, When, Then, reliées à la règle. Premier exemple : Given un abonné sans location en cours, When il loue un vélo, Then la location est acceptée.
+    Second exemple : Given un abonné avec une location en cours, When il loue un vélo, Then la location est refusée.
+    D'un exemple à l'autre, un seul fait change, surligné : sans location en cours, avec une location en cours.
+    En bas, une carte « Question » en pointillés : durée maximale d'une location, règle non fixée, à faire fixer avant le sprint, sans exemple dessous.
+    Légende : règles, exemples et questions, comme dans l'Example Mapping de Matt Wynne.
+  </desc>
+
+  <!-- Règle -->
+  <rect x="8" y="60" width="200" height="130" rx="8" class="s8-card s8-rule" />
+  <text x="22" y="86" class="s8-tag">Règle</text>
+  <text x="22" y="120" class="s8-ctext">Un abonné loue</text>
+  <text x="22" y="143" class="s8-ctext">un seul vélo</text>
+  <text x="22" y="166" class="s8-ctext">à la fois.</text>
+  <text x="108" y="44" text-anchor="middle" class="s8-colhead">règle métier</text>
+  <text x="398" y="44" text-anchor="middle" class="s8-colhead">exemples (critères)</text>
+
+  <!-- Liens règle -> exemples -->
+  <path d="M208 125 C 240 125, 238 134, 262 134" class="s8-link" />
+  <path d="M208 125 C 240 125, 238 292, 262 292" class="s8-link" />
+
+  <!-- Exemple 1 -->
+  <rect x="262" y="60" width="330" height="148" rx="8" class="s8-card s8-ex" />
+  <text x="276" y="84" class="s8-tag">Exemple</text>
+  <text x="276" y="112" class="s8-ctext"><tspan class="s8-kw">Given</tspan> un abonné</text>
+  <text x="276" y="136" class="s8-ctext s8-chg">sans location en cours</text>
+  <text x="276" y="164" class="s8-ctext"><tspan class="s8-kw">When</tspan> il loue un vélo</text>
+  <text x="276" y="192" class="s8-ctext"><tspan class="s8-kw">Then</tspan> la location est acceptée</text>
+
+  <!-- Exemple 2 -->
+  <rect x="262" y="218" width="330" height="148" rx="8" class="s8-card s8-ex" />
+  <text x="276" y="242" class="s8-tag">Exemple</text>
+  <text x="276" y="270" class="s8-ctext"><tspan class="s8-kw">Given</tspan> un abonné</text>
+  <text x="276" y="294" class="s8-ctext s8-chg">avec une location en cours</text>
+  <text x="276" y="322" class="s8-ctext"><tspan class="s8-kw">When</tspan> il loue un vélo</text>
+  <text x="276" y="350" class="s8-ctext"><tspan class="s8-kw">Then</tspan> la location est refusée</text>
+
+  <text x="427" y="392" text-anchor="middle" class="s8-note">un seul fait change d'un exemple à l'autre</text>
+
+  <!-- Question -->
+  <rect x="8" y="410" width="584" height="64" rx="8" class="s8-card s8-q" />
+  <text x="22" y="436" class="s8-tag">Question</text>
+  <text x="22" y="461" class="s8-ctext">Durée maximale d'une location : règle non fixée, à faire fixer</text>
+
+  <!-- Légende -->
+  <text x="300" y="506" text-anchor="middle" class="s8-legend">Règles, exemples, questions : l'Example Mapping de Matt Wynne.</text>
+</svg>
+
+<style>
+  .sch {
+    font-family: var(--font-ui);
+    --c-rule: #1f5a8f; --c-rule-bg: #e3edf6;
+    --c-ex: #1d6a45; --c-ex-bg: #e1f0e7;
+    --c-q: #a02d1f; --c-q-bg: #f8e4e0;
+    --c-hl: #fff0b3;
+  }
+  :global(:root[data-theme='dark']) .sch {
+    --c-rule: #8fbfe9; --c-rule-bg: #1b2c3c;
+    --c-ex: #8fd2ac; --c-ex-bg: #17301f;
+    --c-q: #f3a79c; --c-q-bg: #3a1f1b;
+    --c-hl: #5b4a0a;
+  }
+  @media (prefers-color-scheme: dark) {
+    :global(:root:not([data-theme='light'])) .sch {
+      --c-rule: #8fbfe9; --c-rule-bg: #1b2c3c;
+      --c-ex: #8fd2ac; --c-ex-bg: #17301f;
+      --c-q: #f3a79c; --c-q-bg: #3a1f1b;
+      --c-hl: #5b4a0a;
+    }
+  }
+  .s8-card { stroke-width: 2.5; }
+  .s8-card.s8-rule { fill: var(--c-rule-bg); stroke: var(--c-rule); }
+  .s8-card.s8-ex { fill: var(--c-ex-bg); stroke: var(--c-ex); }
+  .s8-card.s8-q { fill: var(--c-q-bg); stroke: var(--c-q); stroke-dasharray: 8 5; }
+  .s8-tag { font-size: 15px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; fill: var(--sch-text-soft); }
+  .s8-ctext { font-size: 17.5px; fill: var(--sch-text); }
+  .s8-kw { font-weight: 800; }
+  .s8-chg { font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }
+  .s8-colhead { font-size: 17px; font-weight: 650; fill: var(--sch-text-soft); }
+  .s8-link { fill: none; stroke: var(--sch-grey-line); stroke-width: 2.5; }
+  .s8-note { font-size: 16.5px; font-weight: 600; fill: var(--sch-text-soft); }
+  .s8-legend { font-size: 17px; font-weight: 650; fill: var(--sch-text); }
+</style>
