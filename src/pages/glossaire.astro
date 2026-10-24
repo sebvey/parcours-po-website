@@ -33,7 +33,7 @@ const concepts = tousLesConcepts.filter((c) => termes.some((t) => t.concepts.inc
       <p class="lead">Un seul terme par notion : le cours emploie le même mot partout, en français, ou en anglais quand c’est l’usage. Chaque terme renvoie au concept qui l’introduit. La fin de la page liste les <a href="#termes-a-eviter">termes à éviter</a>.</p>
 
       <div class="gl-filtre" data-pagefind-ignore hidden>
-        <form role="search" aria-label="Filtrer le glossaire" onsubmit="return false">
+        <form role="search" aria-label="Filtrer le glossaire" onsubmit="event.preventDefault()">
           <div class="champ">
             <label for="gl-q">Chercher un terme</label>
             <input id="gl-q" type="search" autocomplete="off" placeholder="Valeur, backlog, sprint…" />
