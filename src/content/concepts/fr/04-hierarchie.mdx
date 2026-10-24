@@ -1,0 +1,262 @@
+---
+numero: "4"
+titre: "Hiérarchie du backlog"
+objectif: "Classer un besoin en epic, feature, story ou tâche, trancher entre feature et story en comptant les « je veux », et choisir peu de niveaux en sachant qu'aucun guide n'en impose."
+description: "Epic, feature, story, tâche : à quoi servent ces niveaux du backlog, ce qu'en dit le Scrum Guide (rien), et comment trancher en comptant les « je veux » qu'il reste à livrer."
+prerequis: ["3"]
+ecoles:
+  consensus:
+    - auteur: "Le Scrum Guide 2020"
+      texte: "Le backlog contient des « éléments du backlog », sans niveau : les mots epic, feature, story, thème et tâche n'y figurent pas. Découper un élément en éléments plus petits et plus précis fait partie du travail continu sur le backlog (le refinement). Au Sprint Planning, les Developers planifient le travail de chaque élément choisi, souvent en le découpant en travail d'un jour ou moins ; la façon de le faire est à leur seule discrétion."
+      refs: ["S1"]
+  ecole:
+    - auteur: "Mike Cohn : l'epic, la feature, le thème"
+      texte: "Au sens d'origine, un epic est une grosse story, trop grosse pour un sprint. Aucun seuil ne sépare les niveaux, et « feature » n'a pas de sens unique : Cohn le juge même superflu et propose d'en faire une étiquette plutôt qu'un niveau. Chez lui, un thème est une collection de stories. La frontière entre niveaux reste floue entre praticiens."
+      refs: ["S2", "S6"]
+    - auteur: "Jira Cloud (Atlassian) : choix d'outil"
+      texte: "Trois niveaux par défaut, Epic > Story > Subtask (sous-tâche), modifiables ; des niveaux au-dessus seulement dans les offres Premium et Enterprise."
+      refs: ["S3"]
+    - auteur: "Azure DevOps (Microsoft) : choix d'outil"
+      texte: "Les niveaux dépendent du processus choisi à la création du projet. Agile : Epic > Feature > User Story > Task. Scrum : Epic > Feature > Product Backlog Item > Task. Basic : Epic > Issue > Task."
+      refs: ["S4"]
+    - auteur: "SAFe (Scaled Agile) : choix de cadre"
+      texte: "Un cadre pour plusieurs équipes, qui ajoute des niveaux : la capability, entre epic et feature. Une feature y est dimensionnée pour plusieurs équipes réunies."
+      refs: ["S5"]
+  cours:
+    - texte: "Compter les « je veux » pour trancher, en jugeant d'après ce qu'il reste à livrer. Un seul « je veux » trop gros pour un sprint est un epic (au sens de Cohn, une grosse story), qui se découpe. Quand la taille et le compte divergent, le compte l'emporte. Ces règles pratiques n'ont pas de source externe."
+      refs: []
+    - texte: "Un niveau est de trop quand la plupart des features ne contiennent qu'une story. Règle pratique du cours, sans source externe ; Cohn, qui juge la feature superflue, va dans le même sens."
+      refs: ["S2"]
+    - texte: "La tâche revient aux Developers : le PO ne l'écrit pas. Le Guide laisse le découpage à leur discrétion ; le cours en déduit que la tâche est à eux."
+      refs: ["S1"]
+    - texte: "« Quatre mots courants » est un choix du cours, pas un constat d'usage. Aucune source ne dit que la plupart des équipes emploient ces quatre mots, et les outils vérifiés ont trois ou quatre niveaux par défaut."
+      refs: ["S3", "S4"]
+    - texte: "Peu de niveaux suffisent : choix du cours."
+      refs: []
+  voisines:
+    - auteur: "Le thème"
+      texte: "Le cours n'en fait pas un niveau : son sens varie selon les auteurs et les outils (chez Cohn, une collection de stories), et aucun des deux outils cités n'en a un niveau par défaut."
+      refs: ["S2", "S3", "S4", "S6"]
+sources:
+  affirmations:
+    - affirmation: "Le Scrum Guide ne définit aucun niveau : il parle d'éléments du backlog."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "Texte cherché le 22 octobre 2026 : « epic », « feature », « story », « theme », « task » : 0 occurrence ; le texte dit « Product Backlog items » et, au Sprint Planning, « work items »."
+    - affirmation: "Découper un élément en éléments plus petits fait partie du refinement."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« Product Backlog refinement is the act of breaking down and further defining Product Backlog items into smaller more precise items »."
+    - affirmation: "Les Developers planifient le travail de chaque élément choisi, souvent en le découpant en travail d'un jour ou moins, à leur seule discrétion."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« For each selected Product Backlog item, the Developers plan the work necessary… This is often done by decomposing Product Backlog items into smaller work items of one day or less. How this is done is at the sole discretion of the Developers. » Le mot « tâche » (task) n'y figure pas : c'est le terme d'usage (XP, outils)."
+    - affirmation: "Le PO n'écrit pas la tâche ; elle est dans le plan des Developers, le backlog de sprint."
+      kind: "cours"
+      refs: ["S1"]
+      verifie: "Choix du cours. Le backlog de sprint est composé de « the Sprint Goal (why), the set of Product Backlog items selected for the Sprint (what), as well as an actionable plan for delivering the Increment (how) » ; c'est « a plan by and for the Developers »."
+    - affirmation: "Quatre mots courants (epic, feature, story, tâche) ; les outils ont trois ou quatre niveaux par défaut."
+      kind: "cours"
+      refs: ["S3", "S4"]
+      verifie: "Jira : trois niveaux par défaut ; Azure DevOps : quatre (Agile, Scrum, CMMI) ou trois (Basic). « Quatre mots courants » est le choix du cours, pas un constat d'usage : aucune source ne dit que la plupart des équipes emploient ces quatre mots, et les outils vérifiés les contredisent en partie (Jira sans feature, Azure DevOps Basic sans feature)."
+    - affirmation: "Une story est un besoin d'utilisateur."
+      refs: ["S2"]
+      verifie: "« A user story is simply something a user wants. » « Une tâche technique est invisible pour l'utilisateur, donc pas une story » est un choix du cours."
+    - affirmation: "Un epic est un besoin trop gros pour un sprint ; au sens d'origine, une grosse story."
+      kind: "ecole"
+      refs: ["S2"]
+      verifie: "« an epic is a large user story » ; « epic just means big user story », trop grosse pour un sprint."
+    - affirmation: "La frontière entre niveaux est floue, même entre praticiens ; « feature » n'a pas de sens unique."
+      kind: "ecole"
+      refs: ["S2", "S6"]
+      verifie: "[S2] : « there's no magic threshold at which we call a particular story an epic » ; « feature » n'était pas employé par l'équipe XP d'origine et s'emploie de façon incohérente ; sens le plus courant : une story assez grosse pour être livrée seule. [S6] donne des définitions de thème et d'epic qui se contredisent (thème au-dessus de l'epic, ou l'inverse)."
+    - affirmation: "Une feature est une capacité qui sert seule à l'utilisateur."
+      kind: "ecole"
+      refs: ["S2", "S4"]
+      verifie: "[S2] : sens le plus courant de « feature », « a story big enough to release on its own » (reformulation du résumé de la page, voir « Non vérifié »). [S4] : Feature est un niveau de « portfolio backlog » entre Epic et l'élément du backlog produit."
+    - affirmation: "Le « thème » n'est pas un niveau enseigné : son sens varie selon les auteurs et les outils."
+      kind: "ecole"
+      refs: ["S2", "S3", "S4", "S6"]
+      verifie: "[S2] : l'équipe qui a inventé les stories employait « theme » « to mean a collection of user stories », plus grande ou plus petite qu'un epic. [S6] donne des définitions de thème qui se contredisent. Aucun des outils vérifiés [S3], [S4] n'a de niveau « thème » par défaut."
+    - affirmation: "Jira, par défaut : Epic > Story > Subtask, modifiables ; des niveaux en plus seulement dans les offres Premium et Enterprise."
+      kind: "ecole"
+      refs: ["S3"]
+      verifie: "« By default, Jira is set up with three levels of work type hierarchy » : niveau 1 « by default called Epic », niveau 0 « called Story », niveau -1 « called Subtask » ; « You can modify these levels » ; « Jira Premium and Enterprise customers can also create and manage additional levels ». Atlassian dit désormais « work type » et « work item » (ex-« issue »)."
+    - affirmation: "Azure DevOps : les niveaux dépendent du processus choisi à la création du projet (Agile, Scrum, Basic)."
+      kind: "ecole"
+      refs: ["S4"]
+      verifie: "Tableau « Main distinctions among the default processes » : portfolio backlogs Epic, Feature (Agile, Scrum, CMMI) ou Epic seul (Basic) ; niveau du backlog produit : User Story (Agile), Product backlog item (Scrum), Requirement (CMMI), Issue (Basic) ; Task partout. « You can't change a project's base process after the project is created. » Page mise à jour en 2026."
+    - affirmation: "SAFe ajoute des niveaux (la capability, entre epic et feature) ; il vise plusieurs équipes."
+      kind: "ecole"
+      refs: ["S5"]
+      verifie: "Feature « sized to be delivered by an Agile Release Train within a PI » ; capability « whose implementation often spans multiple ARTs » ; features issues d'epics ou de capabilities, découpées en stories. Source marketing pour la formation SAFe. « Une équipe seule n'en a pas besoin » est un choix du cours."
+    - affirmation: "Chaque équipe choisit ses niveaux et peut les modifier."
+      refs: ["S1", "S3", "S4"]
+      verifie: "Le Guide n'en impose aucun ; Jira (« You can modify these levels ») et Azure DevOps (processus hérités personnalisables, niveaux de backlog ajoutables) laissent le choix. « Peu de niveaux » est le choix du cours."
+    - affirmation: "Une story tient dans un sprint ; aucune durée en jours n'en fait la définition."
+      kind: "cours"
+      refs: ["S2", "S7"]
+      verifie: "[S2] : l'epic est trop gros pour un sprint, donc la story y tient. Wake (2003) : une story fait « at most a few person-weeks ». Aucune source ne donne « quelques jours » comme pratique courante."
+    - affirmation: "Un seul « je veux » trop gros pour un sprint n'est pas encore une story : il se découpe (concept 9)."
+      kind: "cours"
+      refs: ["S2"]
+      verifie: "[S2] : « epic just means big user story », trop grosse pour un sprint. Que la taille prime sur le compte des « je veux » est un choix du cours, qui rend le test cohérent avec la définition de la story."
+    - affirmation: "Le niveau de trop : quand la plupart des features ne contiennent qu'une story, un niveau double le travail."
+      kind: "cours"
+      refs: ["S2"]
+      verifie: "Choix du cours, sans source externe. [S2] va dans le même sens : Cohn juge le terme « feature » superflu et propose d'en faire une étiquette plutôt qu'un niveau."
+    - affirmation: "Feature ou story : compter les « je veux » (un seul : story ; plusieurs, chacun utile seul : feature)."
+      kind: "cours"
+      refs: []
+      verifie: "Choix du cours, sans source externe."
+    - affirmation: "Juger le niveau d'après ce qu'il reste à livrer, pas dans l'absolu."
+      kind: "cours"
+      refs: ["S1", "S2"]
+      verifie: "Choix du cours, sans source externe ; cohérent avec [S2] (pas de seuil précis) et avec le refinement qui découpe en continu [S1]."
+    - affirmation: "Epic au sens du test du cours : plusieurs groupes de « je veux », ou des « je veux » qu'on ne sait pas encore écrire ; un « je veux » qui en contient d'autres se déplie avant de compter."
+      kind: "cours"
+      refs: ["S2"]
+      verifie: "Choix du cours, extension du test « compter les je veux » à l'epic, sans source externe. [S2] : l'epic est une grosse story, trop grosse pour un sprint, donc faite de plusieurs stories."
+    - affirmation: "Quand la taille et le compte divergent, le compte l'emporte : une feature peut prendre plusieurs sprints."
+      kind: "cours"
+      refs: ["S2"]
+      verifie: "Choix du cours, sans source externe ; [S2] : aucun seuil ne sépare les niveaux."
+    - affirmation: "Une phrase au format d'une story peut être un epic : le format ne fait pas le niveau."
+      kind: "cours"
+      refs: ["S2"]
+      verifie: "« an epic is a large user story » : un epic s'écrit comme une story, seule sa taille le distingue. Formulation du cours."
+    - affirmation: "Un travail qui ne sert qu'à réaliser une story est une tâche du plan des Developers ; un travail technique qui porte sa propre raison entre au backlog, et le PO l'ordonne."
+      kind: "cours"
+      refs: ["S1"]
+      verifie: "Le backlog est « single source of work » (concept 1) ; le découpage en travail d'un jour ou moins est « at the sole discretion of the Developers ». La ligne de partage entre les deux est une formulation du cours, alignée sur le concept 3."
+    - affirmation: "Un niveau coûte (écrire, ranger, suivre) ; avant de le retirer, on vérifie que ses éléments ne sont pas mal classés."
+      kind: "cours"
+      refs: []
+      verifie: "Choix du cours, sans source externe."
+    - affirmation: "Les exemples de l'arbre (abonnés, disponibilité d'une station) sont illustratifs."
+      refs: []
+      verifie: "Sans source : l'opérateur de vélos en libre-service est fictif, et les besoins de l'arbre sont des propositions d'illustration, pas des faits du fil rouge."
+  references:
+    - id: "S1"
+      texte: "Schwaber, Sutherland, *The Scrum Guide*, novembre 2020"
+      url: "https://scrumguides.org/scrum-guide.html"
+      type: "primaire"
+      consultee: "2026-10-22"
+    - id: "S2"
+      texte: "Cohn (Mountain Goat Software), « Epics, Features and User Stories », page de guide, mise à jour le 28 avril 2025 (sans signature ; site et voix de Cohn)"
+      url: "https://www.mountaingoatsoftware.com/agile/stories-epics-and-themes"
+      type: "primaire (site de l'auteur, qui vend aussi ses formations)"
+      consultee: "2026-10-22"
+    - id: "S3"
+      texte: "Atlassian, « Configure the work type hierarchy », Jira Cloud administration (sans date de mise à jour, © 2026)"
+      url: "https://support.atlassian.com/jira-cloud-administration/docs/configure-the-issue-type-hierarchy/"
+      type: "primaire (documentation de l'éditeur)"
+      consultee: "2026-10-22"
+    - id: "S4"
+      texte: "Microsoft, « Default processes and process templates », Azure Boards, mise à jour 2026"
+      url: "https://learn.microsoft.com/en-us/azure/devops/boards/work-items/guidance/choose-process"
+      type: "primaire (documentation de l'éditeur)"
+      consultee: "2026-10-22"
+    - id: "S5"
+      texte: "Scaled Agile, « Features and Capabilities », SAFe, mise à jour le 24 février 2025"
+      url: "https://framework.scaledagile.com/features-and-capabilities"
+      type: "primaire, marketing pour la formation SAFe"
+      consultee: "2026-10-22"
+    - id: "S6"
+      texte: "Wikipédia, « User story » (chronologie, section sur epics et thèmes)"
+      url: "https://en.wikipedia.org/wiki/User_story"
+      type: "secondaire"
+      consultee: "2026-10-22"
+    - id: "S7"
+      texte: "Wake, « INVEST in Good Stories, and SMART Tasks », 17 août 2003"
+      url: "https://xp123.com/invest-in-good-stories-and-smart-tasks/"
+      type: "primaire"
+      consultee: "2026-10-22"
+  nonVerifie:
+    - "**Le texte de Beck, *Extreme Programming Explained* (1999).** Non consulté : l'origine XP de la story repose sur [S6] et [S2], concordants."
+    - "**La signature de [S2].** La page n'a pas de nom d'auteur ; l'attribution à Cohn vient du site et de la voix du texte. Sa date d'origine n'est pas affichée (seulement la mise à jour)."
+    - "**Le sens « capacité qui sert seule » de la feature.** C'est une reformulation du résumé de [S2] (« story big enough to release on its own »), lu par un outil de résumé, pas mot pour mot."
+    - "**Les niveaux de Jira Server ou Data Center, et des modèles de projet Jira** (Scrum, Kanban) au-delà de la page [S3]. Le niveau 0 de Jira regroupe en pratique Story, Task et Bug ; [S3] ne nomme que « Story »."
+    - "**« Story et tâche sont quasi universelles ».** Aucune source ; en partie contredit par [S3] (Subtask, pas Task) et [S4] (Product Backlog Item, Issue ou Requirement selon le processus). La page ne le dit pas."
+    - "**« La plupart des équipes et des outils emploient quatre mots ».** Aucune source ; contredit par [S3] (trois niveaux, sans feature) et [S4] (processus Basic sans feature). La page ne le dit pas."
+    - "**« Quelques jours » comme pratique courante pour la taille d'une story.** Aucune source ; [S7] dit « at most a few person-weeks ». La page ne le dit pas."
+    - "**Le sens de « thème » dans Jira** (regroupement transversal). Lu seulement dans [S6], page qui affiche un avertissement de fiabilité ; absent de [S3]. La page ne le cite pas."
+    - "**Les règles pratiques du cours** (compter les « je veux », niveau de trop, juger ce qu'il reste à livrer). Choix du cours, sans source externe : à prendre comme des règles pratiques, pas comme un consensus."
+---
+import Schema04 from '../../../components/schemas/Schema04.astro';
+
+Le Scrum Guide ne connaît que des **éléments du backlog**, sans niveau. Le cours emploie quatre mots courants pour les classer : **epic** (trop gros pour un sprint), **feature** (sert seule, faite de plusieurs besoins), **story** (un besoin, qui tient dans un sprint) et **tâche** (travail des Developers pour réaliser une story). Aucun guide n'impose ces niveaux : les outils ont leurs réglages par défaut, l'équipe choisit les siens, et peu suffisent. Pour trancher, on compte les « je veux » qu'il reste à livrer. Le compte l'emporte sur la taille.
+
+<Figure legende="Un exemple illustratif d'arbre. L'epic se déplie en une feature (deux stories) et une story rattachée directement à l'epic : on peut sauter un niveau. Sous une story, deux tâches grisées : elles appartiennent aux Developers. À droite, le compte de « je veux » qui désigne chaque niveau. Les besoins de l'arbre sont inventés pour illustrer.">
+  <Schema04 />
+</Figure>
+
+<Sous id="4a" titre="Les niveaux, qu'aucun guide n'impose" promesse="Les noms et le nombre de niveaux viennent des outils et des équipes, pas de Scrum.">
+
+<h4 id="4a1"><span class="num">4a1</span> Les quatre mots</h4>
+
+Le Scrum Guide ne parle que d'éléments du backlog : les mots epic, feature, story, thème et tâche n'y figurent pas. Les quatre mots du cours sont un vocabulaire courant, pas une règle de Scrum <Pastille kind="cours" />. Ils classent un besoin par ce qu'il contient :
+
+- un **epic** est trop gros pour un sprint, et ses morceaux ne sont pas tous connus. Au sens d'origine, c'est une grosse story (Mike Cohn <Pastille kind="ecole" />) ;
+- une **feature** est une capacité qui sert seule à l'utilisateur, faite de plusieurs besoins ;
+- une **story** est un seul besoin, qui tient dans un sprint (<Renvoi n="5" />) ;
+- une **tâche** est du travail des Developers pour réaliser une story : l'utilisateur ne la voit pas. Elle vit dans leur plan, le backlog de sprint, et le PO ne l'écrit pas <Pastille kind="cours" />.
+
+Aucun seuil ne sépare ces niveaux, et « feature » n'a pas de sens unique : la frontière reste floue, même entre praticiens. Un travail technique qui ne sert qu'à réaliser une story est une tâche. S'il porte sa propre raison (dédoublonner les relevés des stations, par exemple), il entre au backlog et le PO l'ordonne (<Renvoi n="3" />). Le **thème** n'est pas un niveau du cours : son sens varie selon les auteurs et les outils.
+
+<h4 id="4a2"><span class="num">4a2</span> Les niveaux de l'outil</h4>
+
+Les niveaux par défaut changent d'un outil à l'autre, et chacun se modifie <Pastille kind="ecole" /> :
+
+- **Jira Cloud** : Epic > Story > Subtask par défaut ; des niveaux au-dessus seulement dans les offres Premium et Enterprise.
+- **Azure DevOps** : selon le processus choisi à la création du projet. Agile : Epic > Feature > User Story > Task. Scrum : Epic > Feature > Product Backlog Item > Task. Basic : Epic > Issue > Task.
+- **SAFe**, un cadre pour plusieurs équipes, ajoute des niveaux, dont la capability entre epic et feature.
+
+Trois sources de règles, donc, à ne pas confondre : le Scrum Guide (aucun niveau), l'outil (des niveaux par défaut, modifiables) et l'équipe (son choix). Une équipe seule n'a pas besoin des niveaux d'un cadre pensé pour plusieurs équipes <Pastille kind="cours" />.
+
+<h4 id="4a3"><span class="num">4a3</span> Le niveau de trop</h4>
+
+Un niveau coûte : chaque élément s'y écrit, s'y range et s'y suit. S'il double presque toujours le niveau du dessous, il est de trop. Signe : la plupart des features ne contiennent qu'une story. C'est un choix du cours <Pastille kind="cours" />, pas un consensus ; Cohn, qui juge la feature superflue, va dans le même sens.
+
+Avant de retirer le niveau, on vérifie que ces features ne sont pas des stories mal classées, ou des features dont les autres stories ne sont pas encore écrites : dans ce cas, on reclasse et on recompte. Une feature isolée qui ne contient qu'une story n'est pas un signal. Régler les niveaux dans l'outil : <Renvoi n="A1" />.
+
+</Sous>
+
+<Sous id="4b" titre="Feature ou story : compter les « je veux »" promesse="Le niveau d'un besoin se lit au nombre de « je veux » qu'il reste à livrer.">
+
+<h4 id="4b1"><span class="num">4b1</span> Le test du compte</h4>
+
+Le test est un choix du cours <Pastille kind="cours" />. On écrit les « je veux » de **ce qu'il reste à livrer** à l'utilisateur, pas le travail technique, puis on les compte :
+
+- **un seul**, qui tient dans un sprint : une **story** ;
+- **un seul**, trop gros pour un sprint : un **epic** (au sens de Cohn), qui se découpe (<Renvoi n="9" />) ;
+- **plusieurs**, chacun utile seul : une **feature**, et chaque « je veux » devient une story candidate ;
+- **plusieurs groupes**, ou des « je veux » qu'on ne sait pas encore écrire : un **epic**. Un « je veux » qui en contient d'autres se déplie avant de compter.
+
+<FilRouge>La journée d'Étienne (point du matin, envoi des régulateurs, suivi des incidents, bilan du soir) compte plusieurs moments distincts : un besoin qui couvre toute sa journée est un epic, pas une story.</FilRouge>
+
+<h4 id="4b2"><span class="num">4b2</span> Ce que le compte ne regarde pas</h4>
+
+Le compte l'emporte sur la taille : une feature peut prendre plusieurs sprints. La taille ne tranche qu'entre story et epic, pour un seul « je veux ». Le format non plus ne fait pas le niveau : une phrase au format d'une story (<Renvoi n="5" />) peut cacher plusieurs besoins, et un mot comme « vue » ne dit rien du niveau.
+
+Le niveau se juge d'après ce qu'il reste à livrer, pas dans l'absolu. Si une première vue existe déjà, demander une variante de cette vue ne laisse qu'un « je veux » à livrer : c'est une story, même si la variante demande un calcul nouveau. Le calcul est du travail des Developers, pas un besoin de plus pour l'utilisateur.
+
+On ne compte que des « je veux » qui servent seuls : un filtre sans rien à filtrer n'est pas un besoin de plus, c'est un morceau du même besoin.
+
+</Sous>
+
+<Reflexe note="Règle pratique du cours, sans source externe.">
+Écris les « je veux » de ce qu'il reste à livrer. Un seul, qui tient dans un sprint : story ; trop gros pour un sprint : epic, qui se découpe. Plusieurs, chacun utile seul : feature. Plusieurs groupes, ou pas encore tous écrits : epic. Du travail que l'utilisateur ne voit pas, pour réaliser une story : tâche, dans le plan des Developers.
+</Reflexe>
+
+<Erreurs>
+
+- **Classer un epic en story** : une phrase courte, ou au format d'une story, cache plusieurs besoins. Déplier le « je veux » : s'il en contient d'autres, ce n'est pas une story.
+- **Mettre une tâche au backlog produit** : le travail qui ne sert qu'à réaliser une story est dans le plan des Developers. Un travail technique qui porte sa propre raison, lui, entre au backlog.
+- **Croire que Scrum impose des niveaux**, ou copier ceux de l'outil sans les choisir.
+- **Garder un niveau de trop** : quand la plupart des features ne contiennent qu'une story, un niveau double le travail.
+- **Faire du thème un niveau** : son sens varie selon l'outil et l'auteur.
+- **Juger le niveau dans l'absolu** : on juge les « je veux » qu'il reste à livrer, pas le travail technique.
+- **Donner une taille en jours comme définition d'une story** : elle tient dans un sprint, aucune durée en jours n'en fait la définition.
+
+</Erreurs>

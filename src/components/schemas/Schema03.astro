@@ -1,0 +1,134 @@
+---
+// Schéma 3 : le backlog produit. Une colonne de cartes (haut précis, bas vague), l'objectif produit
+// au-dessus, les demandes en vrac à gauche, la sortie vers le Sprint Planning en haut à droite,
+// quatre mouvements à droite, deux vignettes barrées en marge.
+// Couleurs : variables CSS --sch-* (clair/sombre) définies dans global.css.
+const X = 200, W = 170;
+const cards = [
+  { y: 90, h: 32, t: '1  précis', k: 'n1' },
+  { y: 130, h: 32, t: '2', k: 'n2' },
+  { y: 170, h: 40, t: '3', k: 'n3' },
+  { y: 218, h: 54, t: '4', k: 'v1' },
+  { y: 280, h: 70, t: '5', k: 'v2' },
+  { y: 358, h: 86, t: '6  vague', k: 'v3' },
+];
+const chips = ['Étienne', 'Maud', 'Charlotte', 'Pia', 'Dana'];
+const moves = [
+  { y: 200, label: ['ajouter'], path: 'M436 204 Q410 182 382 198', end: true },
+  { y: 262, label: ['préciser', 'et découper'], path: 'M380 244 C424 244 424 280 382 280', end: true },
+  { y: 336, label: ['réordonner'], path: 'M380 318 C424 318 424 354 382 354', end: true, start: true },
+  { y: 400, label: ['retirer'], path: 'M382 398 Q410 376 436 394', end: true },
+];
+---
+<svg viewBox="0 0 600 570" role="img" aria-labelledby="g3-t g3-d" class="sch">
+  <title id="g3-t">Le backlog produit : une colonne ordonnée, précise en haut et vague en bas</title>
+  <desc id="g3-d">
+    Une colonne verticale de six cartes numérotées de 1 à 6. En haut, de petites cartes nettes, légendées précis ;
+    plus bas, des cartes de plus en plus grosses et en pointillés, la dernière légendée vague.
+    Légende : le haut précis, le bas vague, choix d'école (DEEP).
+    Au-dessus de la colonne, un drapeau Objectif produit, relié à la colonne par la mention : justifie l'ordre.
+    À gauche, cinq demandes en vrac (Étienne, Maud, Charlotte, Pia, Dana) entrent dans la colonne ;
+    sur la flèche d'entrée : le PO décide de leur place.
+    En haut à droite, la première carte sort vers le Sprint Planning : prêt à être choisi.
+    À droite, quatre flèches courbes : ajouter, préciser et découper, réordonner, retirer.
+    En marge, deux vignettes barrées d'une croix : un classeur, cahier des charges figé, et une pile, à dépiler.
+  </desc>
+  <defs>
+    <marker id="g3-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" class="arrow-head" />
+    </marker>
+  </defs>
+
+  <!-- Objectif produit -->
+  <rect x="190" y="6" width="190" height="38" rx="6" class="flag" />
+  <text x="285" y="31" text-anchor="middle" class="flag-text">Objectif produit</text>
+  <path d="M285 46 V86" class="line" marker-end="url(#g3-arr)" />
+  <text x="297" y="72" class="note">justifie l'ordre</text>
+
+  <!-- La colonne -->
+  {cards.map((c) => (
+    <>
+      <rect x={X} y={c.y} width={W} height={c.h} rx="6" class={`kcard ${c.k}`} />
+      <text x={X + W / 2} y={c.y + c.h / 2 + 6} text-anchor="middle" class={`card-text ${c.k}`}>{c.t}</text>
+    </>
+  ))}
+
+  <!-- Sortie vers le Sprint Planning -->
+  <path d="M372 106 H416" class="line" marker-end="url(#g3-arr)" />
+  <rect x="420" y="82" width="172" height="50" rx="6" class="kbox" />
+  <text x="506" y="104" text-anchor="middle" class="box-text strong">Sprint Planning</text>
+  <text x="506" y="124" text-anchor="middle" class="box-text">prêt à être choisi</text>
+
+  <!-- Demandes en vrac -->
+  <text x="8" y="102" class="head">Demandes en vrac</text>
+  {chips.map((n, i) => (
+    <>
+      <rect x="8" y={112 + i * 38} width="118" height="30" rx="15" class="chip" />
+      <text x="67" y={112 + i * 38 + 21} text-anchor="middle" class="chip-text">{n}</text>
+    </>
+  ))}
+  <path d="M130 112 H136 V294 H130" class="line" fill="none" />
+  <path d="M136 203 H196" class="line" marker-end="url(#g3-arr)" />
+  <text x="8" y="324" class="note">le PO décide</text>
+  <text x="8" y="346" class="note">de leur place</text>
+
+  <!-- Quatre mouvements -->
+  {moves.map((m) => (
+    <>
+      <path d={m.path} class="line" fill="none" marker-end="url(#g3-arr)" marker-start={m.start ? 'url(#g3-arr)' : undefined} />
+      {m.label.map((l, i) => (
+        <text x="452" y={m.y + 6 + i * 20 - (m.label.length - 1) * 10} class="move">{l}</text>
+      ))}
+    </>
+  ))}
+
+  <!-- Légende de la colonne -->
+  <text x="300" y="472" text-anchor="middle" class="legend">le haut précis, le bas vague : <tspan class="strong">choix d'école (DEEP)</tspan></text>
+
+  <!-- En marge : deux façons de se tromper -->
+  <g transform="translate(14 490)">
+    <rect x="0" y="0" width="44" height="58" rx="3" class="doc" />
+    <rect x="0" y="0" width="9" height="58" rx="3" class="doc-spine" />
+    <path d="M18 14 H38 M18 26 H38 M18 38 H38" class="doc-line" />
+    <path d="M-6 -4 L50 62 M50 -4 L-6 62" class="cross" />
+    <text x="62" y="26" class="vig">cahier des charges</text>
+    <text x="62" y="48" class="vig">figé</text>
+  </g>
+  <g transform="translate(318 490)">
+    <rect x="6" y="40" width="46" height="14" rx="2" class="doc" />
+    <rect x="3" y="26" width="46" height="14" rx="2" class="doc" />
+    <rect x="0" y="12" width="46" height="14" rx="2" class="doc" />
+    <path d="M-6 6 L56 62 M56 6 L-6 62" class="cross" />
+    <text x="72" y="40" class="vig">à dépiler</text>
+  </g>
+</svg>
+
+<style>
+  .sch { font-family: var(--font-ui); }
+  .line { stroke: var(--sch-text-soft); stroke-width: 2.2; fill: none; }
+  .arrow-head { fill: var(--sch-text-soft); }
+  .flag { fill: var(--sch-band); stroke: var(--sch-s1); stroke-width: 3.5; }
+  .flag-text { font-size: 19px; font-weight: 700; fill: var(--sch-text); }
+  .note { font-size: 17px; fill: var(--sch-text-soft); font-style: italic; }
+  .kcard.n1, .kcard.n2, .kcard.n3 { fill: var(--sch-s1); }
+  .card-text.n1, .card-text.n2, .card-text.n3 { fill: var(--sch-s-ink); font-size: 18px; font-weight: 700; }
+  .kcard.v1, .kcard.v2, .kcard.v3 { fill: var(--sch-band); stroke: var(--sch-grey-line); stroke-width: 2; stroke-dasharray: 7 5; }
+  .kcard.v1 { opacity: 0.95; }
+  .kcard.v2 { opacity: 0.8; }
+  .kcard.v3 { opacity: 0.65; }
+  .card-text.v1, .card-text.v2, .card-text.v3 { fill: var(--sch-text); font-size: 18px; font-weight: 600; }
+  .kbox { fill: var(--sch-band); stroke: var(--sch-band-line); stroke-width: 1.5; }
+  .box-text { font-size: 16.5px; fill: var(--sch-text); }
+  .strong { font-weight: 700; }
+  .head { font-size: 17px; font-weight: 700; fill: var(--sch-text); }
+  .chip { fill: var(--sch-band); stroke: var(--sch-band-line); stroke-width: 1.5; }
+  .chip-text { font-size: 17px; fill: var(--sch-text); font-weight: 600; }
+  .move { font-size: 18px; font-weight: 600; fill: var(--sch-text); }
+  .legend { font-size: 17.5px; fill: var(--sch-text-soft); }
+  .legend .strong { fill: var(--sch-text); }
+  .doc { fill: var(--sch-grey); stroke: var(--sch-grey-line); stroke-width: 1.5; }
+  .doc-spine { fill: var(--sch-grey-line); }
+  .doc-line { stroke: var(--sch-grey-line); stroke-width: 2; }
+  .cross { stroke: var(--sch-text); stroke-width: 4.5; stroke-linecap: round; opacity: 0.8; }
+  .vig { font-size: 17px; fill: var(--sch-text); }
+</style>

@@ -1,0 +1,113 @@
+---
+// Schéma 5 : la phrase en trois blocs (le troisième mis en avant), l'échelle des « pourquoi ? » au-dessus
+// du « afin de », et la carte avec sa bulle (conversation) et sa coche (confirmation).
+// Exemple : la vue des stations vides d'Étienne (fil rouge). Couleurs : variables CSS --sch-*.
+---
+<svg viewBox="0 0 600 470" role="img" aria-labelledby="g5-t g5-d" class="sch">
+  <title id="g5-t">La phrase d'une story en trois blocs, et l'échelle des « pourquoi ? »</title>
+  <desc id="g5-d">
+    En bas, la phrase d'une story en trois blocs côte à côte : « En tant que » (qui), « je veux » (quoi, sans solution),
+    « afin de » (pourquoi), le troisième mis en avant. Un exemple suit : en tant que responsable d'exploitation,
+    je veux voir les stations vides, afin de choisir où envoyer les régulateurs plus tôt.
+    Au-dessus du « afin de », une échelle de « pourquoi ? » qui monte. Premier barreau, barré : suivre les stations vides,
+    circulaire, il répète le « je veux ». Deuxième barreau : savoir où il manque des vélos. Troisième barreau, encadré :
+    choisir où envoyer les régulateurs plus tôt, on s'arrête ici, c'est la décision d'Étienne. Quatrième barreau, en pointillés et grisé :
+    que les stations restent moins longtemps vides, trop haut, c'est l'objectif produit.
+    À gauche, la carte de la story, avec une bulle de dialogue, la conversation, et une coche, la confirmation :
+    les 3C de Jeffries, issus d'Extreme Programming.
+  </desc>
+  <defs>
+    <marker id="g5-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" class="arrow-head" />
+    </marker>
+  </defs>
+
+  <!-- La carte et ses 3C -->
+  <rect x="20" y="62" width="220" height="150" rx="8" class="kcard" />
+  <text x="36" y="90" class="card-title">Carte</text>
+  <text x="36" y="110" class="card-sub">la phrase écrite</text>
+  <path d="M36 134 H224 M36 154 H224 M36 174 H170" class="card-line" />
+
+  <rect x="120" y="8" width="136" height="42" rx="16" class="bubble" />
+  <path d="M146 50 L138 68 L168 50 Z" class="bubble" />
+  <text x="188" y="34" text-anchor="middle" class="bubble-text">Conversation</text>
+
+  <circle cx="214" cy="212" r="22" class="check-bg" />
+  <path d="M203 212 L211 221 L226 203" class="check" />
+  <text x="190" y="262" text-anchor="middle" class="label">Confirmation</text>
+  <text x="130" y="296" text-anchor="middle" class="soft">les 3C (Jeffries, XP)</text>
+
+  <!-- L'échelle des « pourquoi ? » -->
+  <rect x="300" y="6" width="290" height="74" rx="8" class="rung high" />
+  <text x="445" y="32" text-anchor="middle" class="rung-text soft-text">que les stations restent</text>
+  <text x="445" y="52" text-anchor="middle" class="rung-text soft-text">moins longtemps vides</text>
+  <text x="445" y="71" text-anchor="middle" class="tag">trop haut : l'objectif produit</text>
+
+  <path d="M320 108 V84" class="line" marker-end="url(#g5-arr)" />
+  <text x="332" y="101" class="why">pourquoi ?</text>
+
+  <rect x="300" y="110" width="290" height="62" rx="8" class="rung stop" />
+  <text x="445" y="132" text-anchor="middle" class="rung-text strong">choisir où envoyer les</text>
+  <text x="445" y="152" text-anchor="middle" class="rung-text strong">régulateurs, plus tôt</text>
+  <text x="596" y="189" text-anchor="end" class="tag-stop">on s'arrête ici : la décision d'Étienne</text>
+
+  <path d="M320 238 V214" class="line" marker-end="url(#g5-arr)" />
+  <text x="332" y="231" class="why">pourquoi ?</text>
+
+  <rect x="300" y="244" width="290" height="40" rx="8" class="rung" />
+  <text x="445" y="270" text-anchor="middle" class="rung-text">savoir où il manque des vélos</text>
+
+  <path d="M320 308 V288" class="line" marker-end="url(#g5-arr)" />
+  <text x="332" y="303" class="why">pourquoi ?</text>
+
+  <rect x="300" y="314" width="290" height="40" rx="8" class="rung weak" />
+  <text x="445" y="340" text-anchor="middle" class="rung-text soft-text">suivre les stations vides</text>
+  <path d="M356 334 H534" class="strike" />
+  <text x="596" y="373" text-anchor="end" class="tag">circulaire : répète le « je veux »</text>
+
+  <!-- Les trois blocs -->
+  <rect x="5" y="388" width="140" height="56" rx="8" class="block" />
+  <text x="75" y="411" text-anchor="middle" class="block-text">En tant que</text>
+  <text x="75" y="433" text-anchor="middle" class="block-hint">qui</text>
+  <rect x="152" y="388" width="140" height="56" rx="8" class="block" />
+  <text x="222" y="411" text-anchor="middle" class="block-text">je veux</text>
+  <text x="222" y="433" text-anchor="middle" class="block-hint">quoi, sans solution</text>
+  <rect x="300" y="388" width="290" height="56" rx="8" class="block main" />
+  <text x="445" y="411" text-anchor="middle" class="block-text main-text">afin de</text>
+  <text x="445" y="433" text-anchor="middle" class="block-hint main-hint">pourquoi</text>
+
+  <text x="300" y="464" text-anchor="middle" class="soft">exemple : la vue des stations vides d'Étienne</text>
+</svg>
+
+<style>
+  .sch { font-family: var(--font-ui); }
+  .line { stroke: var(--sch-text-soft); stroke-width: 2.2; fill: none; }
+  .arrow-head { fill: var(--sch-text-soft); }
+  .kcard { fill: var(--sch-band); stroke: var(--sch-band-line); stroke-width: 2; }
+  .card-title { font-size: 18px; font-weight: 700; fill: var(--sch-text); }
+  .card-sub { font-size: 15.5px; fill: var(--sch-text-soft); }
+  .card-line { stroke: var(--sch-band-line); stroke-width: 5; stroke-linecap: round; }
+  .bubble { fill: var(--sch-band); stroke: var(--sch-s2); stroke-width: 3; }
+  .bubble-text { font-size: 16.5px; font-weight: 700; fill: var(--sch-text); }
+  .check-bg { fill: var(--sch-s1); }
+  .check { fill: none; stroke: var(--sch-s-ink); stroke-width: 4.5; stroke-linecap: round; stroke-linejoin: round; }
+  .label { font-size: 16.5px; font-weight: 700; fill: var(--sch-text); }
+  .soft { font-size: 15.5px; fill: var(--sch-text-soft); text-anchor: middle; }
+  .rung { fill: var(--sch-band); stroke: var(--sch-band-line); stroke-width: 2; }
+  .rung.stop { stroke: var(--sch-s1); stroke-width: 4; }
+  .rung.high { fill: none; stroke: var(--sch-grey-line); stroke-dasharray: 7 5; }
+  .rung.weak { opacity: 0.85; }
+  .rung-text { font-size: 17px; fill: var(--sch-text); }
+  .rung-text.strong { font-weight: 700; }
+  .rung-text.soft-text { fill: var(--sch-text-soft); }
+  .tag { font-size: 14.5px; font-style: italic; fill: var(--sch-text-soft); }
+  .tag-stop { font-size: 14.5px; font-weight: 700; fill: var(--sch-text); }
+  .why { font-size: 15.5px; font-weight: 600; fill: var(--sch-text-soft); }
+  .strike { stroke: var(--sch-text); stroke-width: 3; stroke-linecap: round; opacity: 0.85; }
+  .block { fill: var(--sch-band); stroke: var(--sch-band-line); stroke-width: 2; }
+  .block.main { fill: var(--sch-s1); stroke: var(--sch-s1); }
+  .block-text { font-size: 18.5px; font-weight: 700; fill: var(--sch-text); }
+  .block-hint { font-size: 14.5px; fill: var(--sch-text-soft); }
+  .main-text { fill: var(--sch-s-ink); font-size: 20px; }
+  .main-hint { fill: var(--sch-s-ink); }
+</style>
