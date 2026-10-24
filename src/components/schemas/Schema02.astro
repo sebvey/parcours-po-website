@@ -1,6 +1,6 @@
 ---
 // Schéma 2 : la chaîne livrable, usage, changement de comportement, effet visé.
-// Le livrable est sous le contrôle de l'équipe ; l'usage est un signal, pas une preuve ;
+// Les cases sont génériques (aucune situation d'exercice). Le livrable est sous le contrôle de l'équipe ; l'usage est un signal, pas une preuve ;
 // le résultat (changement de comportement, effet visé) juge le produit. L'objectif produit vise
 // l'effet visé ; la vision, plus haut, est un choix d'école ; une jauge figure la mesure de résultat.
 // Couleurs : variables CSS --sch-* (clair/sombre) définies dans global.css.
@@ -8,10 +8,10 @@
 <svg viewBox="0 0 600 460" role="img" aria-labelledby="g2-t g2-d" class="sch">
   <title id="g2-t">Du livrable au résultat : ce que l'équipe produit, ce qui change chez l'utilisateur</title>
   <desc id="g2-d">
-    Une chaîne de gauche à droite. D'abord le livrable, la vue des stations vides, seul sous une accolade : ce que l'équipe maîtrise.
-    Ensuite l'usage, une case grisée, Étienne consulte la vue : un signal, pas une preuve.
-    Puis un grand cadre, le résultat, qui contient deux cases : le changement de comportement, Étienne envoie les régulateurs plus tôt,
-    puis l'effet visé, les stations du centre-ville moins longtemps vides aux heures de pointe.
+    Une chaîne de gauche à droite. D'abord le livrable, ce que l'équipe produit, seul sous une accolade : ce que l'équipe maîtrise.
+    Ensuite l'usage, une case grisée, le livrable est consulté : un signal, pas une preuve.
+    Puis un grand cadre, le résultat, qui contient deux cases : le changement de comportement, l'utilisateur fait autre chose qu'avant,
+    puis l'effet visé, l'état futur du produit que l'objectif produit vise.
     Sous l'usage et le résultat, une accolade : hors du contrôle de l'équipe, ce qui juge le produit.
     Au-dessus de l'effet visé, un drapeau, l'objectif produit, qui est du consensus (Scrum Guide) ;
     plus haut, une ligne en pointillés, la vision produit, qui est un choix d'école.
@@ -42,30 +42,29 @@
   <!-- Les quatre cases -->
   <rect x="20" y="160" width="100" height="110" rx="8" class="box strong" />
   <text x="70" y="182" text-anchor="middle" class="label">Livrable</text>
-  <text x="70" y="204" text-anchor="middle" class="line">la vue des</text>
-  <text x="70" y="222" text-anchor="middle" class="line">stations</text>
-  <text x="70" y="240" text-anchor="middle" class="line">vides</text>
+  <text x="70" y="204" text-anchor="middle" class="line">ce que</text>
+  <text x="70" y="222" text-anchor="middle" class="line">l'équipe</text>
+  <text x="70" y="240" text-anchor="middle" class="line">produit</text>
 
   <rect x="144" y="160" width="100" height="110" rx="8" fill="url(#g2-hatch)" class="usage" />
   <text x="194" y="182" text-anchor="middle" class="label halo">Usage</text>
-  <text x="194" y="202" text-anchor="middle" class="line halo">Étienne la</text>
-  <text x="194" y="220" text-anchor="middle" class="line halo">consulte</text>
+  <text x="194" y="202" text-anchor="middle" class="line halo">il est</text>
+  <text x="194" y="220" text-anchor="middle" class="line halo">consulté</text>
   <text x="194" y="244" text-anchor="middle" class="line halo it">signal,</text>
   <text x="194" y="262" text-anchor="middle" class="line halo it">pas preuve</text>
 
   <rect x="274" y="160" width="136" height="110" rx="8" class="box" />
   <text x="342" y="182" text-anchor="middle" class="label">Changement de</text>
   <text x="342" y="200" text-anchor="middle" class="label">comportement</text>
-  <text x="342" y="224" text-anchor="middle" class="line">Étienne envoie</text>
-  <text x="342" y="242" text-anchor="middle" class="line">les régulateurs</text>
-  <text x="342" y="260" text-anchor="middle" class="line">plus tôt</text>
+  <text x="342" y="224" text-anchor="middle" class="line">l'utilisateur</text>
+  <text x="342" y="242" text-anchor="middle" class="line">fait autre chose</text>
+  <text x="342" y="260" text-anchor="middle" class="line">qu'avant</text>
 
   <rect x="426" y="160" width="142" height="110" rx="8" class="box strong" />
   <text x="497" y="182" text-anchor="middle" class="label">Effet visé</text>
-  <text x="497" y="204" text-anchor="middle" class="line">stations du</text>
-  <text x="497" y="222" text-anchor="middle" class="line">centre-ville</text>
-  <text x="497" y="240" text-anchor="middle" class="line">moins longtemps</text>
-  <text x="497" y="258" text-anchor="middle" class="line">vides</text>
+  <text x="497" y="206" text-anchor="middle" class="line">l'état futur</text>
+  <text x="497" y="226" text-anchor="middle" class="line">du produit que</text>
+  <text x="497" y="246" text-anchor="middle" class="line">l'objectif vise</text>
 
   <!-- Les flèches de la chaîne -->
   <line x1="122" y1="215" x2="142" y2="215" class="link" marker-end="url(#g2-arr)" />

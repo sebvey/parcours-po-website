@@ -69,14 +69,6 @@ sources:
       kind: "consensus"
       refs: ["S1"]
       verifie: "« may represent the needs of many stakeholders in the Product Backlog. Those wanting to change the Product Backlog can do so by trying to convince the Product Owner. » ; « the entire organization must respect their decisions. These decisions are visible in the content and ordering of the Product Backlog, and through the inspectable Increment at the Sprint Review. »"
-    - affirmation: "Plusieurs équipes sur un même produit partagent le même PO, le même backlog et le même objectif produit."
-      kind: "consensus"
-      refs: ["S1"]
-      verifie: "« each focused on the same product. Therefore, they should share the same Product Goal, Product Backlog, and Product Owner. » Section « Scrum Team »."
-    - affirmation: "Avec un comité qui vote ou deux PO, personne ne répondrait de la valeur."
-      kind: "cours"
-      refs: ["S1"]
-      verifie: "Conséquence de « one person, not a committee » et de « the Product Owner remains accountable » ; le raisonnement est celui du cours. Le Guide ne parle pas de « proxy PO » (mot absent du texte) : seule la délégation est prévue."
     - affirmation: "Les Developers décident du comment."
       kind: "consensus"
       refs: ["S1"]
@@ -85,20 +77,17 @@ sources:
       kind: "consensus"
       refs: ["S1"]
       verifie: "« The Developers who will be doing the work are responsible for the sizing. The Product Owner may influence the Developers by helping them understand and select trade-offs. »"
-    - affirmation: "Les Developers choisissent le travail du sprint en discussion avec le PO ; le PO décide de l'ordre du backlog, pas de la quantité de travail du sprint."
+    - affirmation: "Les Developers choisissent le travail du sprint en discussion avec le PO ; le PO ne le fixe pas seul."
       kind: "consensus"
       refs: ["S1"]
       verifie: "« Through discussion with the Product Owner, the Developers select items from the Product Backlog to include in the current Sprint. » Le Guide ne dit pas que le PO fixe seul ce qui entre dans le sprint."
-    - affirmation: "Même un travail purement technique passe par le backlog, que le PO ordonne en écoutant les Developers."
-      refs: ["S1"]
-      verifie: "Le backlog est « the single source of work undertaken by the Scrum Team » ; le PO répond de l'ordre. « En écoutant l'argument des Developers » est un choix du cours, appuyé sur « helping them understand and select trade-offs »."
     - affirmation: "Partie prenante : toute personne ou équipe concernée par le produit, utilisateurs compris ; le sponsor porte le budget et les obstacles qui dépassent le PO."
       kind: "cours"
       refs: ["S1"]
       verifie: "Le Scrum Guide emploie « stakeholders » sans le définir. La définition (utilisateur, financeur, sponsor, équipe voisine) et celle du sponsor sont celles du cours ; arbitrer entre parties prenantes et escalader viennent au concept 14."
     - affirmation: "Le rôle du PO et son autorité sur le backlog figurent aussi dans les référentiels de certification."
       refs: ["S3", "S4"]
-      verifie: "Objectifs CSPO 1.6 et 1.7 (autorité du PO tout en collaborant avec les parties prenantes) ; domaine PSPO « Scrum Team ». Vérifié une première fois pour le cadrage du cours ; non relu pour cette page."
+      verifie: "Objectifs CSPO 1.6 et 1.7 (autorité du PO tout en collaborant avec les parties prenantes) ; domaine PSPO « Scrum Team ». Non relu pour cette version de la page."
     - affirmation: "Le PO obtient les faits du métier des utilisateurs au lieu de les trancher seul."
       kind: "cours"
       refs: []
@@ -160,7 +149,7 @@ La **valeur** est ce que l'utilisateur ou l'organisation gagne (du temps, une me
 
 Les **utilisateurs** sont les personnes ou les équipes qui se servent du produit. Pour un produit data, un consommateur de données en est un, même s'il n'ouvre aucun écran du produit. Dehghani, dans le data mesh, va dans ce sens : traiter les consommateurs de données comme des clients <Pastille kind="ecole" />. Le cours en fait un choix : l'équipe appli et la collectivité sont des utilisatrices de la plateforme <Pastille kind="cours" />.
 
-<FilRouge>La collectivité finance le service par une subvention et attend des indicateurs pour la justifier devant son conseil. Problème : justifier la subvention. Utilisatrice : Charlotte, chargée de mission mobilité. Valeur : un bilan chiffré, comme les locations par quartier, qu'elle peut présenter.</FilRouge>
+<FilRouge>Étienne, responsable d'exploitation, fait chaque matin le point sur l'état du réseau avant d'envoyer les régulateurs. Problème : faire ce point. Utilisateur : Étienne. Valeur : ce que ce point change pour lui, que le PO précise avec lui au lieu de la deviner (exemple inventé pour l'illustration : décider d'envoyer les régulateurs en connaissance de cause).</FilRouge>
 
 </Sous>
 
@@ -168,13 +157,13 @@ Les **utilisateurs** sont les personnes ou les équipes qui se servent du produi
 
 Le concept <Renvoi n="0" /> a situé les trois responsabilités de l'équipe Scrum ; voici qui décide quoi.
 
-**Le PO** répond de la valeur du produit et du backlog. Il formule l'objectif produit, crée les éléments, les ordonne et les explique : c'est lui qui dit le quoi, l'ordre et le pourquoi. Il est une seule personne, pas un comité <Pastille kind="consensus" />. Pourquoi une seule ? Avec un comité qui vote, ou deux PO, personne ne répondrait de la valeur <Pastille kind="cours" />. Même quand plusieurs équipes travaillent sur un seul produit, elles partagent le même PO. Il peut confier une partie du travail, mais il en reste responsable.
+**Le PO** répond de la valeur du produit et du backlog. Il formule l'objectif produit, crée les éléments, les ordonne et les explique : c'est lui qui dit le quoi, l'ordre et le pourquoi. Il est une seule personne, pas un comité <Pastille kind="consensus" />. Il peut confier une partie du travail, mais il en reste responsable.
 
-**Les Developers** décident du comment et donnent le coût (la taille des éléments). Le PO peut les aider à comprendre les arbitrages, il ne choisit pas la technique à leur place. Un travail purement technique passe lui aussi par le backlog, seule source de travail de l'équipe : le PO l'ordonne, en écoutant l'argument des Developers (<Renvoi n="3" />). Le travail du sprint, les Developers le choisissent en discussion avec le PO : le PO décide de l'ordre du backlog, pas de la quantité de travail du sprint.
+**Les Developers** décident du comment et donnent le coût (la taille des éléments). Le PO peut les aider à comprendre les arbitrages, il ne choisit pas la technique à leur place. Le travail du sprint, les Developers le choisissent en discussion avec le PO : le PO ne le fixe pas seul.
 
 **Les parties prenantes** sont toutes les personnes ou équipes concernées par le produit : les utilisateurs, le financeur, le sponsor, une équipe voisine <Pastille kind="cours" />. Elles font valoir leurs besoins, et qui veut changer le backlog doit convaincre le PO. Le sponsor porte le budget du produit et porte plus haut les obstacles qui dépassent le PO, sans ordonner le backlog. Arbitrer entre parties prenantes et escalader viennent au concept <Renvoi n="14" />.
 
-<FilRouge>Odile, directrice des opérations, porte le budget de la plateforme : elle en est la sponsor. Les demandes d'Étienne, de Maud, de Charlotte ou de Pia sont des besoins de parties prenantes, qui se discutent avec le PO.</FilRouge>
+<FilRouge>Odile, directrice des opérations, porte le budget de la plateforme : elle en est la sponsor. Sid, le DSI, qui donne les accès aux données des systèmes, est lui aussi une partie prenante, comme fournisseur de données.</FilRouge>
 
 </Sous>
 
@@ -184,12 +173,12 @@ Ma phrase dit-elle qui a quel problème, et ce qui change pour lui une fois rés
 
 <Erreurs>
 
-- **Décrire le produit par sa technique** (entrepôt, rafraîchissement, alertes) : la phrase ne dit ni pour qui ni ce qui change.
+- **Décrire le produit par sa technique** (l'architecture, les composants, la fréquence de mise à jour) : la phrase ne dit ni pour qui ni ce qui change.
 - **Oublier la valeur** : dire ce que le produit affiche ou calcule, sans dire ce qui change pour une personne nommée.
 - **Oublier les consommateurs de données** : l'équipe appli et la collectivité sont des utilisatrices, pas seulement des équipes voisines ou des destinataires de rapports.
-- **Trancher seul un fait métier**, comme le besoin de temps réel des régulateurs ou le temps qu'un technicien gagnerait : il se demande à l'acteur concerné.
+- **Trancher seul un fait métier**, comme ce dont un utilisateur a besoin ou le temps qu'il gagnerait : il se demande à l'acteur concerné.
 - **Garder la casquette de développeur** : choisir la technique ou estimer à la place des Developers. Le comment et le coût sont à eux.
 - **Croire que le PO fixe seul le contenu du sprint** : il propose, les Developers choisissent avec lui.
-- **Partager le rôle** (un comité qui vote l'ordre, deux PO) : déléguer le travail est permis, pas la responsabilité.
+- **Partager le rôle** : déléguer le travail est permis, pas la responsabilité.
 
 </Erreurs>

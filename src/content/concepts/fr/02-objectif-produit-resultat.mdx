@@ -36,8 +36,6 @@ ecoles:
       refs: ["S11", "S12", "S13"]
     - texte: "Un indicateur que la plateforme calcule pour ses utilisateurs est un livrable, même quand on s'en sert pour juger le produit : on parle alors de mesure de résultat. Même chiffre, deux rôles."
       refs: ["S13"]
-    - texte: "Accoler un second résultat à l'objectif produit disperse l'équipe et empêche d'argumenter l'ordre du backlog."
-      refs: ["S1", "S13"]
     - texte: "Un objectif produit qui décrit une caractéristique du livrable ou un moyen ne convient pas : il ne dit pas ce qui change pour qui."
       refs: ["S1", "S6", "S13"]
 sources:
@@ -66,12 +64,9 @@ sources:
       kind: "cours"
       refs: ["S13"]
       verifie: "Choix du cours et de son glossaire (« indicateur » : ce que calcule le produit ; « mesure de résultat » : ce qui juge le produit)."
-    - affirmation: "Livrer un indicateur n'est pas obtenir le résultat ; un incrément terminé ne prouve pas la valeur."
+    - affirmation: "Livrer un indicateur n'est pas obtenir le résultat ; un livrable terminé ne prouve pas la valeur."
       refs: ["S1", "S2", "S13"]
       verifie: "Le Guide veut l'incrément utilisable ; la valeur se juge au résultat (CSPO 5.1, 5.2). Le raisonnement sur l'indicateur est celui du cours, à présenter comme une conséquence de la distinction, pas comme une citation."
-    - affirmation: "La satisfaction d'un utilisateur est une perception, utile en complément ; elle ne dit pas seule si le résultat visé est obtenu."
-      refs: ["S10"]
-      verifie: "HEART : la catégorie Happiness couvre les mesures d'attitude (satisfaction), à côté des catégories de comportement ; l'article recommande de choisir les catégories selon le but."
     - affirmation: "L'objectif produit est un état futur du produit, qui sert de cible à l'équipe pour planifier ; c'est son objectif à long terme."
       kind: "consensus"
       refs: ["S1"]
@@ -128,10 +123,6 @@ sources:
       kind: "cours"
       refs: ["S1", "S6", "S13"]
       verifie: "Scrum.org veut un objectif « Outcome-driven to reflect a customer want or need » ; Guide : « How this is done is at the sole discretion of the Developers ». Le besoin de fraîcheur est un fait à demander aux utilisateurs (concept 1)."
-    - affirmation: "Accoler un second résultat à l'objectif produit disperse l'équipe et empêche d'argumenter l'ordre du backlog."
-      kind: "cours"
-      refs: ["S1", "S13"]
-      verifie: "Conséquence de « one objective at a time » ; raisonnement du cours, pas une citation."
     - affirmation: "Mesurer la valeur fait partie des objectifs d'apprentissage du PO, sans technique imposée."
       kind: "consensus"
       refs: ["S2"]
@@ -148,7 +139,7 @@ sources:
       kind: "ecole"
       refs: ["S10"]
       verifie: "Article lu : les cinq catégories ; « It is not always appropriate to employ metrics from every category »."
-    - affirmation: "Le nombre de consultations d'un livrable mesure son usage : un signal utile, pas la preuve du résultat. Le nombre d'éléments livrés mesure le livrable."
+    - affirmation: "L'usage d'un livrable (consultations, connexions) est un signal utile, pas la preuve du résultat."
       refs: ["S2", "S10", "S13"]
       verifie: "HEART : Adoption et Engagement mesurent l'usage ; l'article demande de rattacher chaque mesure à un but ; CSPO 5.1, 5.2 pour output et outcome. L'écart entre usage et résultat est un raisonnement du cours."
     - affirmation: "Les comptages bruts montent avec le nombre d'utilisateurs : les ramener à une base."
@@ -288,11 +279,11 @@ Le PO répond de la valeur du produit, et le Scrum Guide n'impose aucune méthod
 
 <Sous id="2a" titre="Livrable et résultat" promesse="Livrer rend la valeur possible ; seul le résultat dit si elle est là.">
 
-Le **livrable** est ce que l'équipe produit. Le **résultat** est ce qui change chez l'utilisateur grâce à lui. Un livrable terminé rend la valeur possible, il ne la prouve pas : livrer reste nécessaire, l'incrément est un pas vers l'objectif produit, pas sa preuve. Cette distinction est une pratique établie, absente du Scrum Guide <Pastille kind="consensus" /> ; Josh Seiden définit le résultat comme un changement de comportement de l'utilisateur <Pastille kind="ecole" />.
+Le **livrable** est ce que l'équipe produit. Le **résultat** est ce qui change chez l'utilisateur grâce à lui. Un livrable terminé rend la valeur possible, il ne la prouve pas. Cette distinction est une pratique établie, absente du Scrum Guide <Pastille kind="consensus" /> ; Josh Seiden définit le résultat comme un changement de comportement de l'utilisateur <Pastille kind="ecole" />.
 
-Un test simple <Pastille kind="cours" /> : si l'équipe peut le faire seule, sans que personne ne change sa façon de travailler, c'est un livrable. Pour un produit data, un **indicateur** que la plateforme calcule est un livrable, même quand on s'en sert ensuite pour juger le produit : c'est le même chiffre, avec deux rôles. La satisfaction d'un utilisateur est utile en complément, mais c'est une perception : elle ne dit pas seule si le résultat est obtenu.
+Un test simple <Pastille kind="cours" /> : si l'équipe peut le faire seule, sans que personne ne change sa façon de travailler, c'est un livrable. Pour un produit data, un **indicateur** que la plateforme calcule est un livrable, même quand on s'en sert ensuite pour juger le produit : c'est le même chiffre, avec deux rôles.
 
-<FilRouge>Maud fixe chaque semaine le nombre de techniciens en tournée, et demande le nombre de vélos en panne par semaine. Le calculer est un livrable. Que Maud ajuste ses tournées à partir de ce chiffre est un changement de comportement : le début du résultat.</FilRouge>
+<FilRouge>Maud fixe chaque semaine le nombre de techniciens en tournée, et demande le nombre de vélos en panne par semaine. Le calculer est un livrable. Si Maud ajuste ses tournées à partir de ce chiffre, c'est un changement de comportement : le début du résultat.</FilRouge>
 
 </Sous>
 
@@ -302,9 +293,7 @@ Selon le Scrum Guide, l'objectif produit est un état futur du produit qui sert 
 
 Un bon objectif vise un **résultat**. Il n'est donc ni une liste de livrables ou une feuille de route datée (on peut tout livrer sans que rien ne change), ni une caractéristique du livrable ou un moyen (adopter telle technique ne dit pas ce qui change pour qui), ni une aspiration si vaste qu'aucune mesure ne dirait si l'équipe s'en approche <Pastille kind="cours" />. Scrum.org propose des critères : aligné sur la vision, clair et concis, orienté résultat, mesurable, transparent. Pour Scrum.org aussi, l'objectif est une **hypothèse** (concept <Renvoi n="17" />) : on peut le reformuler quand on apprend, sans que ce soit un échec <Pastille kind="ecole" />.
 
-La **vision produit**, plus lointaine et souvent aspirationnelle, est un choix d'école <Pastille kind="ecole" />. Le Scrum Guide 2020 ne contient plus le mot (la version 2017 l'employait) ; Scrum.org et Scrum Alliance la gardent, et font de l'objectif produit un pas concret et mesurable vers elle.
-
-Un second objectif accolé au premier (« X et Y ») disperse l'équipe et rend l'ordre du backlog impossible à argumenter. Les demandes qui ne le servent pas ne disparaissent pas pour autant : le PO les ordonne (<Renvoi n="13" />) et en parle avec leurs porteurs (<Renvoi n="14" />). Si une autre cible devient prioritaire, on change d'objectif, on ne les additionne pas.
+La **vision produit**, plus lointaine et souvent aspirationnelle, est un choix d'école <Pastille kind="ecole" />. Le Scrum Guide 2020 ne contient plus le mot (la version 2017 l'employait) ; Scrum.org et Scrum Alliance la gardent, et pour Scrum.org l'objectif produit en est un pas concret et mesurable.
 
 <FilRouge>Objectif produit de la plateforme : « Que les stations du centre-ville restent le moins longtemps possible vides aux heures de pointe, grâce à des données à jour pour l'exploitation. » Il dit un état futur, un périmètre (centre-ville, heures de pointe) et ce que le produit y apporte. Sans cible chiffrée, pas encore fixée, c'est une direction : on ne peut pas dire qu'il est atteint.</FilRouge>
 
@@ -316,13 +305,13 @@ Une mesure n'est utile que si elle se rattache à un but. La démarche **Goals-S
 
 Le tri se fait avec une question : cette mesure peut-elle monter alors que le résultat ne bouge pas ? On écarte ainsi :
 
-- **la mesure du livrable** (le nombre d'éléments livrés) ;
-- **l'usage seul** (le nombre de consultations) : un signal utile, pas une preuve, car on peut regarder une vue sans changer ce que l'on fait ;
+- **la mesure du livrable** (ce que l'équipe a produit ou livré) ;
+- **l'usage seul** (consultations, connexions) : un signal utile, pas une preuve, car on peut consulter un livrable sans changer ce que l'on fait ;
 - **le comptage brut qui monte avec la taille du réseau ou du nombre d'abonnés** : il faut le ramener à une base avant de le lire. Eric Ries parle de mesures de vanité : flatteuses, inutiles pour décider <Pastille kind="ecole" />.
 
-<FilRouge>La mesure retenue pour la plateforme : le temps cumulé pendant lequel une station du centre-ville est vide aux heures de pointe, calculé depuis les relevés des stations. Elle mesure l'état visé, avec une source qui existe déjà. Elle n'est pas prête à l'emploi : les heures de pointe, la cible chiffrée et le calcul (par station ou cumulé sur le centre-ville) ne sont pas fixés. Le PO ne les invente pas, il les fait fixer avec les parties prenantes.</FilRouge>
+<FilRouge>La mesure retenue pour la plateforme : le temps cumulé pendant lequel une station du centre-ville est vide aux heures de pointe, calculé depuis les relevés des stations. Elle n'est pas prête à l'emploi : les heures de pointe, la cible chiffrée et le calcul (par station ou cumulé sur le centre-ville) ne sont pas fixés. Le PO ne les invente pas, il les fait fixer avec les parties prenantes.</FilRouge>
 
-Une mesure seule ne suffit pas à conclure : on la croise avec d'autres sources (entretiens, observation). Quand elle s'améliore le mois qui suit une livraison, une autre cause peut l'expliquer. Avant de conclure : comparer à des périodes comparables de l'historique, vérifier le signal de comportement, en parler avec ceux qui utilisent le livrable. On réduit le doute, on ne l'élimine pas ; l'exploration rigoureuse d'une hypothèse vient au concept <Renvoi n="17" />. Enfin, la définition d'un indicateur se travaille au concept <Renvoi n="12" />, car une mesure mal définie trompe sans que personne le veuille.
+Une mesure seule ne suffit pas à conclure : on la croise avec d'autres sources (entretiens, observation) <Pastille kind="ecole" />. L'exploration rigoureuse d'une hypothèse vient au concept <Renvoi n="17" />. Enfin, la définition d'un indicateur se travaille au concept <Renvoi n="12" />, car une mesure mal définie trompe sans que personne le veuille.
 
 </Sous>
 

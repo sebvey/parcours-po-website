@@ -86,21 +86,10 @@ sources:
       kind: "ecole"
       refs: ["S4", "S5"]
       verifie: "Cohn (DEEP) et Rubin vont dans ce sens (voir ci-dessus). « Travail à refaire » est la formulation du cours."
-    - affirmation: "Le haut est en général précisé avant le Sprint Planning ; l'équipe peut encore le préciser pendant."
-      refs: ["S1"]
-      verifie: "Les éléments faisables en un sprint « usually acquire this degree of transparency after refining activities » (« usually » : en général, pas toujours). Sprint Planning : « The Scrum Team may refine these items during this process, which increases understanding and confidence. »"
-    - affirmation: "Un travail pris hors du backlog fait glisser le reste sans décision, et le PO ne peut plus répondre de l'ordre."
-      kind: "cours"
-      refs: ["S1"]
-      verifie: "Guide : « the single source of work undertaken by the Scrum Team » ; le PO « remains accountable » ; ses décisions sont visibles « in the content and ordering of the Product Backlog ». La conséquence (glissement non décidé) est un choix du cours."
     - affirmation: "Certains éléments ne seront jamais faits."
       kind: "ecole"
       refs: ["S4", "S5", "S9"]
       verifie: "Pas dans le Guide. Cohn (DEEP) : éléments « removed » ; Rubin : « discard some » ; Atlassian (marketing) : « closing issues the team will never get to is okay ». Pratique répandue, présentée comme telle."
-    - affirmation: "Retirer un élément n'est pas définitif : il revient si le besoin apparaît."
-      kind: "cours"
-      refs: ["S1"]
-      verifie: "Conséquence de « emergent » et du PO qui crée les éléments (« Creating and clearly communicating Product Backlog items ») : choix du cours."
     - affirmation: "Le backlog n'est pas un cahier des charges figé : il évolue."
       kind: "consensus"
       refs: ["S1", "S2", "S8"]
@@ -199,7 +188,7 @@ Le Scrum Guide dit « ordonné » et non « priorisé » depuis 2011. Des niveau
 
 Le backlog est aussi la seule source de travail de l'équipe (vu au <Renvoi n="1" />) : ce qui n'y figure pas, l'équipe ne le fait pas. Le PO en répond ; d'autres peuvent écrire des éléments, et il reste responsable. Qui veut changer le backlog doit le convaincre.
 
-<FilRouge>Les demandes d'Étienne, de Maud, de Charlotte et de Pia arrivent au même endroit : le backlog, où chacune reçoit une place.</FilRouge>
+<FilRouge>Pour la plateforme, le repère de l'ordre est l'objectif produit : des stations du centre-ville moins longtemps vides aux heures de pointe.</FilRouge>
 
 <h4 id="3a2"><span class="num">3a2</span> Émergente</h4>
 
@@ -207,9 +196,9 @@ Le backlog change à mesure que l'équipe apprend : on y ajoute, précise et dé
 
 Le haut doit être assez précis pour que les Developers le choisissent au Sprint Planning et le finissent en un sprint : le Guide dit d'un tel élément qu'il est « prêt à être choisi ». Le bas, lui, reste vague : on précise un élément quand il approche du haut. Le Scrum Guide 2017 le disait ; celui de 2020 a retiré la phrase. C'est aujourd'hui le D de DEEP, un choix d'école <Pastille kind="ecole" /> de Mike Cohn et Roman Pichler, partagé par Kenneth Rubin.
 
-Détailler le bas d'avance, c'est écrire du travail qui sera à refaire : d'ici à ce que l'élément approche du haut, le besoin, l'accès aux données ou la façon de compter auront changé <Pastille kind="cours" />. « Vague » ne veut pas dire vide : on garde une ligne qui dit le besoin, assez pour le comprendre et le placer dans l'ordre. Le travail continu qui précise les éléments a un nom, le refinement (<Renvoi n="15" />).
+Détailler le bas d'avance, c'est écrire du travail qui sera à refaire : d'ici à ce que l'élément approche du haut, le besoin ou le contexte auront pu changer <Pastille kind="cours" />. On garde le bas en une ligne qui dit le besoin. Le travail continu qui précise les éléments est traité au <Renvoi n="15" />.
 
-<FilRouge>Une demande encore lointaine, comme celle de Pia (la disponibilité par station pour l'appli), peut tenir en une ligne tant qu'elle n'approche pas du haut.</FilRouge>
+<FilRouge>Une demande lointaine, comme celle de Pia (la disponibilité par station pour l'appli), peut tenir en une ligne tant qu'elle n'approche pas du haut (exemple inventé pour l'illustration).</FilRouge>
 
 </Sous>
 
@@ -219,7 +208,7 @@ Détailler le bas d'avance, c'est écrire du travail qui sera à refaire : d'ici
 
 Un **cahier des charges** découpé se remplit et se valide au début, puis se fige. Le backlog, lui, n'est jamais complet : on n'en connaît au départ qu'une partie, et il change à chaque chose apprise.
 
-Une **liste à dépiler** se traite dans l'ordre d'arrivée, ou dans un ordre fixé une fois pour toutes, jusqu'au dernier élément. Or l'ordre change, et certains éléments ne seront jamais faits. Être au backlog n'est pas une promesse : retirer ce qui ne servira plus garde le backlog lisible. Le Scrum Guide ne le dit pas ; c'est la pratique de Cohn et de Rubin <Pastille kind="ecole" />, conséquence d'un backlog émergent. Retirer n'est pas définitif : l'élément revient si le besoin apparaît.
+Une **liste à dépiler** se traite dans l'ordre d'arrivée, ou dans un ordre fixé une fois pour toutes, jusqu'au dernier élément. Or l'ordre change, et certains éléments ne seront jamais faits. Être au backlog n'est pas une promesse : retirer ce qui ne servira plus garde le backlog lisible. Le Scrum Guide ne le dit pas ; c'est la pratique de Cohn et de Rubin <Pastille kind="ecole" />, conséquence d'un backlog émergent.
 
 <h4 id="3b2"><span class="num">3b2</span> Pas le plan technique de la solution</h4>
 
@@ -238,7 +227,7 @@ En lisant le haut du backlog, sait-on ce que l'équipe fera ensuite, et pourquoi
 - **Le dépiler** : l'ordre change, et certains éléments ne seront jamais faits.
 - **Des priorités au lieu d'un ordre** (haute, moyenne, basse) : des ex aequo qui ne disent pas quoi faire ensuite.
 - **Tout détailler d'avance** : du travail à refaire. Détailler le haut, garder le bas en une ligne.
-- **Travailler hors du backlog** : une demande prise en direct par un Developer doit entrer au backlog, à la place que décide le PO.
+- **Travailler hors du backlog** : ce qui n'y figure pas, l'équipe ne le fait pas ; la demande entre au backlog, à la place que décide le PO.
 - **Dire que le backlog « appartient » au PO** : il en répond ; d'autres peuvent y écrire des éléments.
 - **Dire « ticket »** : c'est un terme d'outil ; le cours dit « élément du backlog ».
 - **Confondre « prêt à être choisi » avec la Definition of Ready** : la seconde est un choix d'école, vu au <Renvoi n="11" />.

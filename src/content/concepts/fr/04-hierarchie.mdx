@@ -7,7 +7,7 @@ prerequis: ["3"]
 ecoles:
   consensus:
     - auteur: "Le Scrum Guide 2020"
-      texte: "Le backlog contient des « éléments du backlog », sans niveau : les mots epic, feature, story, thème et tâche n'y figurent pas. Découper un élément en éléments plus petits et plus précis fait partie du travail continu sur le backlog (le refinement). Au Sprint Planning, les Developers planifient le travail de chaque élément choisi, souvent en le découpant en travail d'un jour ou moins ; la façon de le faire est à leur seule discrétion."
+      texte: "Le backlog contient des « éléments du backlog », sans niveau : les mots epic, feature, story, thème et tâche n'y figurent pas. Découper un élément en éléments plus petits et plus précis fait partie du travail continu sur le backlog (le refinement, vu au concept 15). Au Sprint Planning, les Developers planifient le travail de chaque élément choisi, souvent en le découpant en travail d'un jour ou moins ; la façon de le faire est à leur seule discrétion."
       refs: ["S1"]
   ecole:
     - auteur: "Mike Cohn : l'epic, la feature, le thème"
@@ -43,7 +43,7 @@ sources:
       kind: "consensus"
       refs: ["S1"]
       verifie: "Texte cherché le 22 octobre 2026 : « epic », « feature », « story », « theme », « task » : 0 occurrence ; le texte dit « Product Backlog items » et, au Sprint Planning, « work items »."
-    - affirmation: "Découper un élément en éléments plus petits fait partie du refinement."
+    - affirmation: "Découper un élément en éléments plus petits fait partie du refinement (concept 15)."
       kind: "consensus"
       refs: ["S1"]
       verifie: "« Product Backlog refinement is the act of breaking down and further defining Product Backlog items into smaller more precise items »."
@@ -89,7 +89,7 @@ sources:
     - affirmation: "SAFe ajoute des niveaux (la capability, entre epic et feature) ; il vise plusieurs équipes."
       kind: "ecole"
       refs: ["S5"]
-      verifie: "Feature « sized to be delivered by an Agile Release Train within a PI » ; capability « whose implementation often spans multiple ARTs » ; features issues d'epics ou de capabilities, découpées en stories. Source marketing pour la formation SAFe. « Une équipe seule n'en a pas besoin » est un choix du cours."
+      verifie: "Feature « sized to be delivered by an Agile Release Train within a PI » ; capability « whose implementation often spans multiple ARTs » ; features issues d'epics ou de capabilities, découpées en stories. Source marketing pour la formation SAFe."
     - affirmation: "Chaque équipe choisit ses niveaux et peut les modifier."
       refs: ["S1", "S3", "S4"]
       verifie: "Le Guide n'en impose aucun ; Jira (« You can modify these levels ») et Azure DevOps (processus hérités personnalisables, niveaux de backlog ajoutables) laissent le choix. « Peu de niveaux » est le choix du cours."
@@ -129,7 +129,7 @@ sources:
       kind: "cours"
       refs: ["S1"]
       verifie: "Le backlog est « single source of work » (concept 1) ; le découpage en travail d'un jour ou moins est « at the sole discretion of the Developers ». La ligne de partage entre les deux est une formulation du cours, alignée sur le concept 3."
-    - affirmation: "Un niveau coûte (écrire, ranger, suivre) ; avant de le retirer, on vérifie que ses éléments ne sont pas mal classés."
+    - affirmation: "Un niveau coûte : chaque élément s'y écrit, s'y range et s'y suit."
       kind: "cours"
       refs: []
       verifie: "Choix du cours, sans source externe."
@@ -212,13 +212,13 @@ Les niveaux par défaut changent d'un outil à l'autre, et chacun se modifie <Pa
 - **Azure DevOps** : selon le processus choisi à la création du projet. Agile : Epic > Feature > User Story > Task. Scrum : Epic > Feature > Product Backlog Item > Task. Basic : Epic > Issue > Task.
 - **SAFe**, un cadre pour plusieurs équipes, ajoute des niveaux, dont la capability entre epic et feature.
 
-Trois sources de règles, donc, à ne pas confondre : le Scrum Guide (aucun niveau), l'outil (des niveaux par défaut, modifiables) et l'équipe (son choix). Une équipe seule n'a pas besoin des niveaux d'un cadre pensé pour plusieurs équipes <Pastille kind="cours" />.
+Trois sources de règles, donc, à ne pas confondre : le Scrum Guide (aucun niveau), l'outil (des niveaux par défaut, modifiables) et l'équipe (son choix).
 
 <h4 id="4a3"><span class="num">4a3</span> Le niveau de trop</h4>
 
 Un niveau coûte : chaque élément s'y écrit, s'y range et s'y suit. S'il double presque toujours le niveau du dessous, il est de trop. Signe : la plupart des features ne contiennent qu'une story. C'est un choix du cours <Pastille kind="cours" />, pas un consensus ; Cohn, qui juge la feature superflue, va dans le même sens.
 
-Avant de retirer le niveau, on vérifie que ces features ne sont pas des stories mal classées, ou des features dont les autres stories ne sont pas encore écrites : dans ce cas, on reclasse et on recompte. Une feature isolée qui ne contient qu'une story n'est pas un signal. Régler les niveaux dans l'outil : <Renvoi n="A1" />.
+Régler les niveaux dans l'outil : <Renvoi n="A1" />.
 
 </Sous>
 
@@ -237,11 +237,9 @@ Le test est un choix du cours <Pastille kind="cours" />. On écrit les « je veu
 
 <h4 id="4b2"><span class="num">4b2</span> Ce que le compte ne regarde pas</h4>
 
-Le compte l'emporte sur la taille : une feature peut prendre plusieurs sprints. La taille ne tranche qu'entre story et epic, pour un seul « je veux ». Le format non plus ne fait pas le niveau : une phrase au format d'une story (<Renvoi n="5" />) peut cacher plusieurs besoins, et un mot comme « vue » ne dit rien du niveau.
+Le compte l'emporte sur la taille : une feature peut prendre plusieurs sprints. La taille ne tranche qu'entre story et epic, pour un seul « je veux ». Le format non plus ne fait pas le niveau : une phrase au format d'une story (<Renvoi n="5" />) peut cacher plusieurs besoins.
 
-Le niveau se juge d'après ce qu'il reste à livrer, pas dans l'absolu. Si une première vue existe déjà, demander une variante de cette vue ne laisse qu'un « je veux » à livrer : c'est une story, même si la variante demande un calcul nouveau. Le calcul est du travail des Developers, pas un besoin de plus pour l'utilisateur.
-
-On ne compte que des « je veux » qui servent seuls : un filtre sans rien à filtrer n'est pas un besoin de plus, c'est un morceau du même besoin.
+Le niveau se juge d'après ce qu'il reste à livrer, pas dans l'absolu. Ce qui existe déjà ne compte plus, et le travail technique n'est pas un « je veux » de plus pour l'utilisateur.
 
 </Sous>
 
