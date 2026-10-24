@@ -5,6 +5,24 @@ dit sur quelle version du cours elle est alignée.
 
 ## Non publié
 
+## 0.2.0, 2026-10-25 (aligné sur le cours 2.0.0)
+
+Le cours remplace ses sept objectifs par sept domaines qui le partitionnent (T-057a) ; le site
+s'organise par domaines (T-057b).
+
+- Une page **Domaines** remplace les pages Parcours et Lectures : les sept domaines dans l'ordre,
+  ce qu'on sait faire à la fin de chacun, ses concepts, et sa lecture rapide (sections ordonnées,
+  au moins une par concept du domaine) ; puis les annexes, avec la lecture « Mon équipe travaille
+  sans sprint ». Les blocs, le filtre par objectif et la liste des objectifs disparaissent ; la
+  lecture « Pour quand ? » rejoint celle du domaine 6.
+- Navigation : « Domaines » à la place de « Parcours » et « Lectures ». `/parcours/` et
+  `/lectures/` redirigent vers `/domaines/`, les anciennes ancres de lecture vers la lecture du
+  domaine correspondant.
+- Accueil : deux portes (commencer par le concept 0, voir les domaines), sans liste de lectures.
+- Page de concept : l'en-tête donne le domaine du concept, à la place des objectifs servis.
+- Les 20 pages portent la version 2.0.0 du cours ; leurs fiches n'avaient pas changé depuis le
+  dernier réalignement.
+
 ## 0.1.0, 2026-10-24 (aligné sur le cours 1.0.0)
 
 Première version, en aperçu : 18 concepts (0 à 17) et 2 annexes (A1, A2), glossaire, fil rouge,
