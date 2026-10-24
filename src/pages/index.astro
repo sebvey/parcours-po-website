@@ -1,0 +1,32 @@
+---
+import Base from '../layouts/Base.astro';
+import Pastille from '../components/Pastille.astro';
+import { url } from '../i18n/ui';
+import { disponibles, conceptUrl } from '../lib/concepts';
+const dispo = await disponibles();
+const first = dispo.get('9');
+---
+<Base nav="home" description="Un cours de gestion de produit pour le Product Owner d’un produit data : des concepts courts, des schémas, des sources visibles.">
+  <div class="container">
+    <section class="hero">
+      <p class="eyebrow">Un cours de gestion de produit</p>
+      <h1>Product Owner d'un produit data</h1>
+      <p class="lead">Les bases du rôle, pour un développeur ou un profil data qui devient Product Owner d’une plateforme, d’indicateurs ou de modèles, dans une équipe Scrum ou proche. Chaque concept tient en quelques écrans, avec un schéma, et dit d’où vient chaque affirmation.</p>
+      <div class="actions">
+        <a class="btn" href={url('parcours/')}>Voir le parcours</a>
+        {first && <a class="btn secondary" href={conceptUrl('9')}>Lire un concept : {first.data.titre}</a>}
+      </div>
+    </section>
+
+    <section class="page" style="padding-top:2rem" aria-labelledby="lire">
+      <h2 id="lire" style="margin-top:0">Comment lire une page</h2>
+      <p>Chaque concept a la même forme : on l’apprend une fois. Trois onglets : <strong>Comprendre</strong> (l’essentiel, le schéma, le réflexe, les erreurs classiques), <strong>Consensus ou école</strong> (qui dit quoi) et <strong>Sources</strong> (ce qui a été vérifié, et ce qui ne l’a pas été).</p>
+      <p>Trois pastilles disent le statut de ce qu’on lit :</p>
+      <div class="three">
+        <div><Pastille kind="consensus" /><p>Ce que disent les textes de référence (le Scrum Guide, la loi) et les pratiques établies.</p></div>
+        <div><Pastille kind="ecole" /><p>Une position défendable, attribuée à son auteur. D'autres écoles pensent autrement.</p></div>
+        <div><Pastille kind="cours" /><p>Une décision de ce cours, sans source externe : à prendre comme telle.</p></div>
+      </div>
+    </section>
+  </div>
+</Base>

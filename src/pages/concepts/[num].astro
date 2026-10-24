@@ -1,0 +1,177 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Ecoles from '../../components/Ecoles.astro';
+import Sources from '../../components/Sources.astro';
+import Pastille from '../../components/Pastille.astro';
+import Renvoi from '../../components/Renvoi.astro';
+import Sous from '../../components/Sous.astro';
+import FilRouge from '../../components/FilRouge.astro';
+import Reflexe from '../../components/Reflexe.astro';
+import Erreurs from '../../components/Erreurs.astro';
+import Figure from '../../components/Figure.astro';
+import { useT, url } from '../../i18n/ui';
+import { typoFr } from '../../lib/typo-fr';
+import { slugOf, tousLesConcepts } from '../../data/parcours';
+import { disponibles, conceptUrl } from '../../lib/concepts';
+
+export async function getStaticPaths() {
+  const entries = (await getCollection('concepts')).filter((e) => e.id.startsWith('fr/'));
+  return entries.map((entry) => ({ params: { num: slugOf(entry.data.numero) }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const d = entry.data;
+const t = useT('fr');
+const { Content } = await render(entry);
+const dispo = await disponibles('fr');
+
+const known = tousLesConcepts.find((c) => c.n === d.numero);
+const isAnnexe = d.numero.startsWith('A');
+const sequence = tousLesConcepts.filter((c) => !c.n.startsWith('A'));
+const idx = sequence.findIndex((c) => c.n === d.numero);
+const neighbour = (i: number) => {
+  const c = sequence[i];
+  return c ? { ...c, href: dispo.has(c.n) ? conceptUrl(c.n) : undefined } : undefined;
+};
+const prev = isAnnexe ? undefined : neighbour(idx - 1);
+const next = isAnnexe ? undefined : neighbour(idx + 1);
+const prereqs = d.prerequis.map((n) => {
+  const c = tousLesConcepts.find((x) => x.n === n);
+  return { n, titre: c?.titre ?? '', href: dispo.has(n) ? conceptUrl(n) : undefined };
+});
+
+const tabs = [
+  { id: 'comprendre', label: t('tab.comprendre') },
+  { id: 'ecoles', label: t('tab.ecoles') },
+  { id: 'sources', label: t('tab.sources') },
+];
+---
+<Base title={`Concept ${d.numero} : ${d.titre}`} description={typoFr(d.description)} nav="path">
+  <header class="concept-head container">
+    <p class="eyebrow">{t('concept.label')} {d.numero}{known && <> · {known.bloc.titre}</>}</p>
+    <h1>{typoFr(d.titre)}</h1>
+    <p class="lead">{typoFr(d.objectif)}</p>
+    <div class="concept-meta" data-pagefind-ignore>
+      {t('concept.prerequisites')} :
+      {prereqs.length === 0 && <> {t('concept.none')}</>}
+      {prereqs.map((p, i) => (
+        <>{i > 0 ? ', ' : ' '}{p.href
+          ? <a href={p.href}>{p.n}. {p.titre}</a>
+          : <span>{p.n}. {p.titre}<span class="soon">{t('concept.soon')}</span></span>}</>
+      ))}
+    </div>
+    {!isAnnexe && (
+      <nav class="pn" aria-label="Concepts voisins" data-pagefind-ignore>
+        <div>
+          {prev && (prev.href
+            ? <a href={prev.href}><span class="dir">{t('concept.previous')}</span>{prev.n}. {prev.titre}</a>
+            : <span class="off"><span class="dir">{t('concept.previous')}</span>{prev.n}. {prev.titre}<span class="soon">{t('concept.soon')}</span></span>)}
+        </div>
+        <div class="nx">
+          {next && (next.href
+            ? <a href={next.href}><span class="dir">{t('concept.next')}</span>{next.n}. {next.titre}</a>
+            : <span class="off"><span class="dir">{t('concept.next')}</span>{next.n}. {next.titre}<span class="soon">{t('concept.soon')}</span></span>)}
+        </div>
+      </nav>
+    )}
+  </header>
+
+  <div class="tabs-bar" data-pagefind-ignore>
+    <div class="container">
+      <div class="tablist" id="tablist" aria-label={t('concept.tabs')}>
+        {tabs.map((tab) => (
+          <a id={`tab-${tab.id}`} href={`#${tab.id}`} data-tab={tab.id}>{tab.label}</a>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <div class="container-wide">
+    <section class="panel" id="comprendre" data-panel>
+      <h2 class="panel-title" id="titre-comprendre">{t('tab.comprendre')}</h2>
+      <div class="prose">
+        <Content components={{ Pastille, Renvoi, Sous, FilRouge, Reflexe, Erreurs, Figure }} />
+      </div>
+    </section>
+
+    <section class="panel" id="ecoles" data-panel>
+      <h2 class="panel-title" id="titre-ecoles">{t('tab.ecoles')}</h2>
+      <Ecoles data={d.ecoles} />
+    </section>
+
+    <section class="panel" id="sources" data-panel>
+      <h2 class="panel-title" id="titre-sources">{t('tab.sources')}</h2>
+      <Sources data={d.sources} />
+    </section>
+
+    <p class="concept-meta" style="margin:3rem auto 0;max-width:var(--measure)" data-pagefind-ignore>
+      Ce cours existe aussi sous la forme d’un parcours accompagné par un professeur : voir <a href={url('a-propos/#cours-accompagne')}>À propos</a>.
+    </p>
+  </div>
+
+  <script is:inline>
+    (function () {
+      var tabs = Array.prototype.slice.call(document.querySelectorAll('[data-tab]'));
+      var panels = Array.prototype.slice.call(document.querySelectorAll('[data-panel]'));
+      var list = document.getElementById('tablist');
+      if (!tabs.length) return;
+      list.setAttribute('role', 'tablist');
+      tabs.forEach(function (tab) {
+        tab.setAttribute('role', 'tab');
+        tab.setAttribute('aria-controls', tab.dataset.tab);
+      });
+      panels.forEach(function (p) {
+        p.setAttribute('role', 'tabpanel');
+        p.setAttribute('aria-labelledby', 'tab-' + p.id);
+      });
+
+      function panelFor(hash) {
+        var id = decodeURIComponent((hash || '').replace(/^#/, ''));
+        if (!id) return 'comprendre';
+        var el = document.getElementById(id);
+        var panel = el && el.closest('[data-panel]');
+        return panel ? panel.id : 'comprendre';
+      }
+      function activate(id) {
+        tabs.forEach(function (tab) {
+          var on = tab.dataset.tab === id;
+          tab.setAttribute('aria-selected', on ? 'true' : 'false');
+          tab.tabIndex = on ? 0 : -1;
+        });
+        panels.forEach(function (p) { p.classList.toggle('is-active', p.id === id); });
+      }
+      function scrollToHash() {
+        var id = decodeURIComponent(location.hash.replace(/^#/, ''));
+        var el = id && document.getElementById(id);
+        if (el) el.scrollIntoView();
+      }
+      function sync() { activate(panelFor(location.hash)); scrollToHash(); }
+
+      tabs.forEach(function (tab, i) {
+        tab.addEventListener('click', function (e) {
+          e.preventDefault();
+          activate(tab.dataset.tab);
+          history.pushState(null, '', '#' + tab.dataset.tab);
+          document.getElementById(tab.dataset.tab).scrollIntoView();
+        });
+        tab.addEventListener('keydown', function (e) {
+          if (e.key === ' ') { e.preventDefault(); tab.click(); return; }
+          var n = tabs.length, j = -1;
+          if (e.key === 'ArrowRight') j = (i + 1) % n;
+          else if (e.key === 'ArrowLeft') j = (i - 1 + n) % n;
+          else if (e.key === 'Home') j = 0;
+          else if (e.key === 'End') j = n - 1;
+          if (j < 0) return;
+          e.preventDefault();
+          tabs[j].focus();
+          activate(tabs[j].dataset.tab);
+          history.replaceState(null, '', '#' + tabs[j].dataset.tab);
+        });
+      });
+      window.addEventListener('hashchange', sync);
+      window.addEventListener('popstate', sync);
+      sync();
+    })();
+  </script>
+</Base>

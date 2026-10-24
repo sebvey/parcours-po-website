@@ -1,0 +1,13 @@
+---
+import Base from '../layouts/Base.astro';
+import { url } from '../i18n/ui';
+---
+<Base title="Page introuvable" noindex>
+  <div class="container">
+    <section class="page">
+      <h1>Page introuvable</h1>
+      <p class="lead">Cette page n’existe pas, ou pas encore : seuls certains concepts sont rédigés.</p>
+      <div class="actions"><a class="btn" href={url('parcours/')}>Voir le parcours</a></div>
+    </section>
+  </div>
+</Base>

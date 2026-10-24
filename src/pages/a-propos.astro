@@ -1,0 +1,27 @@
+---
+import Base from '../layouts/Base.astro';
+import Pastille from '../components/Pastille.astro';
+---
+<Base title="À propos" nav="about" description="Pour qui est ce cours, comment il est fait, comment lire les pastilles, et sous quelle licence il est publié.">
+  <div class="container">
+    <section class="page prose">
+      <h1>À propos</h1>
+      <p class="lead">Ce site est la version publique d’un cours de gestion de produit pour le Product Owner d’un produit data.</p>
+
+      <h2 id="pour-qui">Pour qui</h2>
+      <p>Pour un développeur ou un profil data (data engineer, analyste), à l’aise avec la technique et débutant en gestion de produit, qui devient Product Owner d’un produit data (plateforme, indicateurs, modèles) et veut de bonnes bases pour tenir le rôle dans une équipe Scrum ou proche. Le cours suppose une équipe qui travaille en sprints ; une annexe traite le travail sans sprint.</p>
+
+      <h2 id="comment-lire">Comment lire les pastilles</h2>
+      <p>Chaque affirmation importante dit d’où elle vient. <Pastille kind="consensus" /> : un texte de référence ou une pratique établie. <Pastille kind="ecole" /> : une position défendable, attribuée à son auteur, que d’autres écoles contestent. <Pastille kind="cours" /> : une décision de ce cours, sans source externe. Les sources consultées, et ce qui n’a pas pu être vérifié, sont dans l’onglet « Sources » de chaque concept.</p>
+
+      <h2 id="fil-rouge">Un cas fictif</h2>
+      <p>Les exemples s’appuient sur un cas inventé : un opérateur de vélos en libre-service, sa plateforme de données et son équipe. Les personnes, les chiffres et les faits de ce cas sont fictifs. Ils servent à illustrer, pas à documenter.</p>
+
+      <h2 id="cours-accompagne">Un cours accompagné</h2>
+      <p>La matière de ce site sert aussi de base à un cours accompagné par un professeur. Ce site ne contient ni question ni exercice : ils appartiennent au cours accompagné.</p>
+
+      <h2 id="licence">Licence</h2>
+      <p>© Sébastien Vey. Les textes et les schémas sont publiés sous licence <a href="https://creativecommons.org/licenses/by/4.0/deed.fr" rel="license noopener">Creative Commons Attribution 4.0 (CC BY 4.0)</a> : vous pouvez les réutiliser, y compris à des fins commerciales, en citant l’auteur.</p>
+    </section>
+  </div>
+</Base>

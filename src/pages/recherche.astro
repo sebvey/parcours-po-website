@@ -1,0 +1,37 @@
+---
+import Base from '../layouts/Base.astro';
+import { url } from '../i18n/ui';
+const bundle = url('pagefind/');
+---
+<Base title="Recherche" nav="search" description="Rechercher dans le cours." noindex>
+  <link rel="stylesheet" href={`${bundle}pagefind-component-ui.css`} />
+  <div class="container search-page">
+    <section class="page">
+      <p class="eyebrow">Recherche</p>
+      <h1>Rechercher dans le cours</h1>
+      <pagefind-config bundle-path={bundle} base-url={import.meta.env.BASE_URL}></pagefind-config>
+      <pagefind-input autofocus></pagefind-input>
+      <pagefind-summary></pagefind-summary>
+      <pagefind-results></pagefind-results>
+      <noscript><p>La recherche demande JavaScript.</p></noscript>
+      <p id="search-fallback" hidden>La recherche est construite avec le site : elle est disponible après <code>npm run build</code>, puis <code>npm run preview</code>.</p>
+    </section>
+  </div>
+  <script is:inline type="module" src={`${bundle}pagefind-component-ui.js`} onerror="document.getElementById('search-fallback').hidden=false"></script>
+  <script is:inline>
+    // Préremplit la recherche depuis ?q= (formulaire de l'en-tête).
+    window.addEventListener('DOMContentLoaded', function () {
+      var q = new URLSearchParams(location.search).get('q');
+      if (!q) return;
+      customElements.whenDefined('pagefind-input').then(function () {
+        setTimeout(function () {
+          var host = document.querySelector('pagefind-input');
+          var input = host && (host.querySelector('input') || (host.shadowRoot && host.shadowRoot.querySelector('input')));
+          if (!input) return;
+          input.value = q;
+          input.dispatchEvent(new Event('input', { bubbles: true }));
+        }, 50);
+      });
+    });
+  </script>
+</Base>
