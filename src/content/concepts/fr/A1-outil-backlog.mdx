@@ -70,7 +70,7 @@ sources:
       verifie: "Règle pratique du cours, déjà sourcée au concept 4, avec l'appui partiel de Cohn (le terme « feature » superflu, à garder en étiquette plutôt qu'en niveau). Aucune source externe ne fixe un nombre de niveaux."
     - affirmation: "Aucun des trois outils n'a de type de lien « dépend de » : Jira dit « blocks / is blocked by », Azure DevOps « Predecessor / Successor », Linear « blocked / blocking »."
       refs: ["S6", "S6b", "S7", "S12"]
-      verifie: "Constat sur les types de liens des trois pages. Jira Data Center 11.3 : quatre types par défaut (relates to, duplicates, blocks, clones), configurables ; exemple de la page, A « is blocked by » B, B « blocks » A. Azure DevOps : « Choose Predecessor when linking to a work item that should complete before the current item ». Linear : « You can mark issues as blocked, blocking, related, and duplicate »."
+      verifie: "Constat sur les types de liens des trois pages. Jira Data Center 11.3 : types de liens configurables ; exemple de la page, A « is blocked by » B, B « blocks » A. Azure DevOps : « Choose Predecessor when linking to a work item that should complete before the current item ». Linear : « You can mark issues as blocked, blocking, related, and duplicate »."
     - affirmation: "Le lien peut relier des éléments de deux équipes : dans Jira, de deux espaces ; dans Azure DevOps, de deux projets."
       refs: ["S6b", "S7"]
       verifie: "Jira Cloud : « You can link work items across different spaces ». Azure DevOps : « You can create predecessor-successor links across projects » ; entre deux organisations, des liens distants (Consumes From / Produced For) si le même annuaire Entra ID les gère. Pour Linear, la page ne dit pas si une relation relie deux équipes : non vérifié."
@@ -116,9 +116,6 @@ sources:
       kind: "cours"
       refs: ["S6b", "S8"]
       verifie: "Atlassian a renommé « issue » en « work item » et « project » en « space ». Ne pas décrire les clics est un parti pris de la page."
-    - affirmation: "« Ticket » est un terme d'outil, absent du Scrum Guide : la page dit « élément du backlog »."
-      refs: ["S1"]
-      verifie: "« Ticket » n'apparaît pas dans le Scrum Guide. Atlassian et Microsoft disent « work item », Linear « issue »."
     - affirmation: "Les faits du fil rouge (équipe vélos, Abba, Pia, équipe appli, vues d’Étienne) et les illustrations inventées de la page sont des faits inventés."
       refs: []
       verifie: "Sans source : le cas de l'opérateur de vélos en libre-service est fictif. Le fil rouge ne dit pas quel outil emploie l'équipe vélos : la page n'en suppose aucun."
