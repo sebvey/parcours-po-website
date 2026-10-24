@@ -356,12 +356,17 @@ h1, h2, h3, h4 {
 .nonverifie { max-width: 46rem; padding-left: 1.2em; }
 .nonverifie li { margin-bottom: 0.7em; font-size: 0.98rem; }
 
-/* ---------- Parcours ---------- */
-.bloc { padding: 1.75rem 0; border-top: 1px solid var(--rule); display: grid; gap: 1rem 2rem; }
-@media (min-width: 52rem) { .bloc { grid-template-columns: 15rem 1fr; } }
-.bloc h2 { font-size: 1.3rem; margin: 0 0 0.3rem; }
-.bloc .q { font-size: 0.95rem; color: var(--ink-soft); margin: 0; font-style: italic; line-height: 1.5; }
-.bloc .n { font-family: var(--font-ui); font-size: 0.75rem; font-weight: 650; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); margin: 0 0 0.3rem; }
+/* ---------- Domaines ---------- */
+.domaine { padding: 1.75rem 0; border-top: 1px solid var(--rule); display: grid; gap: 1rem 2rem; scroll-margin-top: 1rem; }
+@media (min-width: 52rem) { .domaine { grid-template-columns: 15rem 1fr; } }
+.page .domaine h2 { font-size: 1.3rem; margin: 0 0 0.3rem; }
+.domaine h2 .ancre { font-family: var(--font-ui); font-size: 0.6em; margin-left: 0.4em; text-decoration: none; color: var(--ink-soft); opacity: 0; }
+.domaine h2:hover .ancre, .domaine h2 .ancre:focus-visible { opacity: 1; }
+@media (hover: none) { .domaine h2 .ancre { opacity: 0.6; } }
+.domaine .q { font-size: 0.95rem; color: var(--ink-soft); margin: 0; line-height: 1.5; }
+.domaine .n { font-family: var(--font-ui); font-size: 0.75rem; font-weight: 650; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); margin: 0 0 0.3rem; }
+.domaine:target { background: var(--surface); }
+.eyebrow-lien { color: inherit; }
 .cards { display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); list-style: none; padding: 0; margin: 0; }
 .card {
   display: block; height: 100%; padding: 0.9rem 1rem; border: 1px solid var(--rule); border-radius: 6px;
@@ -376,9 +381,9 @@ a.card .st { color: var(--accent); font-weight: 650; }
 .card.off { border-style: dashed; color: var(--ink-soft); }
 .card.off .st { color: var(--ink-soft); }
 
-/* ===== Pages transversales : index (Consensus ou école, Sources) et objectifs du cours — début ===== */
+/* ===== Pages transversales : index (Consensus ou école, Sources) — début ===== */
 [hidden] { display: none !important; }
-.index-page .sec-intro, .objectifs-cours .sec-intro { font-family: var(--font-ui); font-size: 0.92rem; color: var(--ink-soft); max-width: 46rem; margin: 0 0 1.25rem; line-height: 1.55; }
+.index-page .sec-intro { font-family: var(--font-ui); font-size: 0.92rem; color: var(--ink-soft); max-width: 46rem; margin: 0 0 1.25rem; line-height: 1.55; }
 .index-page h2 { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.9rem; scroll-margin-top: 1rem; }
 .index-page h3 { font-size: 1.15rem; margin: 2rem 0 0.4rem; scroll-margin-top: 1rem; }
 .index-page .nb { font-family: var(--font-ui); font-size: 0.8rem; font-weight: 600; color: var(--ink-soft); letter-spacing: 0; }
@@ -444,36 +449,6 @@ a.card .st { color: var(--accent); font-weight: 650; }
 .nv-concept h3 { margin-top: 1.5rem; }
 .nv-lien { font-family: var(--font-ui); font-size: 0.85rem; margin: 0.3rem 0 0; }
 
-/* Objectifs du cours : pastilles de l'en-tête de concept */
-.concept-meta.objs { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.35rem 0.6rem; margin: 0.6rem 0 0.2rem; }
-.concept-meta.objs ul { display: flex; flex-wrap: wrap; gap: 0.35rem; list-style: none; margin: 0; padding: 0; }
-.concept-meta.objs li { display: block; }
-.concept-meta.objs li + li::before { content: none; }
-.obj-chip {
-  display: inline-block; padding: 0.2rem 0.65rem; border: 1px solid var(--rule); border-radius: 999px;
-  background: var(--surface); color: var(--ink); text-decoration: none; font-size: 0.84rem; line-height: 1.4;
-}
-.obj-chip:hover { background: var(--surface-2); color: var(--ink); }
-.obj-n { font-weight: 700; color: var(--accent); }
-
-/* Parcours : filtre par objectif (JS) et liste des objectifs */
-.filtre-obj { margin: 0 0 1.5rem; padding: 1rem 1.1rem; background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; font-family: var(--font-ui); }
-.filtre-titre { margin: 0 0 0.6rem; font-size: 0.85rem; font-weight: 650; }
-.filtre-boutons { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-.filtre-boutons button {
-  font: inherit; font-size: 0.88rem; padding: 0.35rem 0.8rem; border: 1px solid var(--rule); border-radius: 999px;
-  background: var(--bg); color: var(--ink); cursor: pointer; min-height: 2.25rem;
-}
-.filtre-boutons button:hover { background: var(--surface-2); }
-.filtre-boutons button[aria-pressed='true'] { background: var(--accent); color: var(--bg); border-color: var(--accent); }
-.filtre-obj .filtre-etat { margin: 0.6rem 0 0; font-size: 0.88rem; color: var(--ink-soft); min-height: 1.3em; }
-.objectifs-cours { margin-top: 3.5rem; padding-top: 0.5rem; border-top: 1px solid var(--rule); }
-.obj-liste { list-style: none; margin: 0; padding: 0; max-width: 52rem; }
-.obj-liste > li { padding: 1rem 0; border-top: 1px solid var(--rule); scroll-margin-top: 1rem; }
-.obj-liste > li:target { background: var(--surface); }
-.obj-liste h3 { font-size: 1.1rem; margin: 0 0 0.3rem; }
-.obj-liste p { margin: 0; font-size: 0.98rem; line-height: 1.55; }
-.obj-liste .obj-concepts { margin-top: 0.5rem; }
 .col li:target { background: var(--surface); outline: 2px solid var(--rule); outline-offset: 4px; }
 /* ===== Pages transversales : index — fin ===== */
 

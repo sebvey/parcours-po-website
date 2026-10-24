@@ -1,7 +1,7 @@
 // Texte en ligne avec renvois : « [[11b]] » devient un lien « concept 11b » vers la section ;
 // « [[11b:11b]] » fixe le texte du lien.
 import { inline } from './inline';
-import { conceptOf } from '../data/parcours';
+import { conceptOf } from '../data/domaines';
 import { conceptUrl } from './concepts';
 
 export function avecRenvois(s: string): string {

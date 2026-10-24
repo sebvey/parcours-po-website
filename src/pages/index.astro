@@ -3,10 +3,9 @@ import Base from '../layouts/Base.astro';
 import Pastille from '../components/Pastille.astro';
 import '../styles/transversal.css';
 import { url } from '../i18n/ui';
-import { lectures } from '../data/lectures';
 import { disponibles, conceptUrl } from '../lib/concepts';
 const dispo = await disponibles();
-const first = dispo.get('9');
+const first = dispo.get('0');
 ---
 <Base nav="home" description="Un cours de gestion de produit pour le Product Owner d’un produit data : des concepts courts, des schémas, des sources visibles.">
   <div class="container">
@@ -15,8 +14,8 @@ const first = dispo.get('9');
       <h1>Product Owner d’un produit data</h1>
       <p class="lead">Les bases du rôle, pour un développeur ou un profil data qui devient Product Owner d’une plateforme, d’indicateurs ou de modèles, dans une équipe Scrum ou proche. Chaque concept tient en quelques écrans, avec un schéma, et dit d’où vient chaque affirmation.</p>
       <div class="actions">
-        <a class="btn" href={url('parcours/')}>Voir le parcours</a>
-        {first && <a class="btn secondary" href={conceptUrl('9')}>Lire un concept : {first.data.titre}</a>}
+        {first && <a class="btn" href={conceptUrl('0')}>Commencer : concept 0</a>}
+        <a class="btn secondary" href={url('domaines/')}>Voir les sept domaines</a>
       </div>
     </section>
 
@@ -33,11 +32,8 @@ const first = dispo.get('9');
 
     <section class="page" style="padding-top:1rem" aria-labelledby="situations">
       <h2 id="situations" style="margin-top:0">Par où commencer</h2>
-      <p>Pas besoin de tout lire dans l’ordre. Les <a href={url('lectures/')}>parcours de lecture</a> partent d’une situation et enchaînent les sections qui y répondent :</p>
-      <ul class="home-situations">
-        {lectures.map((l) => <li><a href={url(`lectures/#${l.id}`)}>{l.titre}</a></li>)}
-      </ul>
-      <p style="margin-top:1.25rem">Pour les exemples, le <a href={url('fil-rouge/')}>fil rouge</a> présente le cas inventé sur lequel ils s’appuient ; le <a href={url('glossaire/')}>glossaire</a> donne le sens exact des termes.</p>
+      <p>Le cours se lit dans l’ordre, du concept 0 au concept 17, en sept <a href={url('domaines/')}>domaines</a> : chacun dit ce qu’on sait faire à la fin. Pour creuser un sujet sans tout lire, chaque domaine propose une lecture rapide de ses sections essentielles.</p>
+      <p>Pour les exemples, le <a href={url('fil-rouge/')}>fil rouge</a> présente le cas inventé sur lequel ils s’appuient ; le <a href={url('glossaire/')}>glossaire</a> donne le sens exact des termes.</p>
     </section>
   </div>
 </Base>

@@ -1,0 +1,25 @@
+---
+// Page d'une ancienne adresse : renvoie vers la page Domaines, en traduisant l'ancre si elle
+// a un équivalent (`ancres` : ancienne ancre -> nouvelle).
+import { url } from '../i18n/ui';
+interface Props { ancres: Record<string, string>; }
+const { ancres } = Astro.props;
+const cible = url('domaines/');
+---
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex" />
+    <meta http-equiv="refresh" content={`0; url=${cible}`} />
+    <link rel="canonical" href={new URL(cible, Astro.site)} />
+    <title>Page déplacée</title>
+    <script is:inline define:vars={{ cible, ancres }}>
+      var a = location.hash.slice(1);
+      location.replace(cible + (ancres[a] ? '#' + ancres[a] : ''));
+    </script>
+  </head>
+  <body>
+    <p>Cette page est devenue <a href={cible}>Domaines</a>.</p>
+  </body>
+</html>

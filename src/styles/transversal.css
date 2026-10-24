@@ -1,4 +1,4 @@
-/* Pages transversales : glossaire, fil rouge, parcours de lecture. */
+/* Pages transversales : glossaire, fil rouge, domaines (lectures rapides). */
 [hidden] { display: none !important; }
 
 .tr h2 { scroll-margin-top: 1.5rem; }
@@ -81,22 +81,17 @@ div.tr-text p { margin: 0 0 1em; }
   .tr-table td::before { content: attr(data-label); display: block; font-family: var(--font-ui); font-size: 0.7rem; font-weight: 650; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); }
 }
 
-/* ---------- Parcours de lecture ---------- */
-.lec-liste { list-style: none; padding: 0; margin: 1.75rem 0 0; display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr)); }
-.lec-carte { display: grid; grid-template-columns: 2rem 1fr; column-gap: 0.7rem; height: 100%; padding: 0.9rem 1rem; border: 1px solid var(--accent); border-radius: 6px; background: var(--surface); text-decoration: none; color: var(--ink); font-family: var(--font-ui); }
-.lec-carte:hover { background: var(--surface-2); color: var(--ink); }
-.lec-carte .n { grid-row: span 2; font-size: 1.4rem; font-weight: 700; color: var(--accent); line-height: 1.2; }
-.lec-carte .t { font-family: var(--font-text); font-size: 1.05rem; line-height: 1.35; }
-.lec-carte .m { font-size: 0.8rem; color: var(--ink-soft); margin-top: 0.25rem; }
-
-.lec { margin-top: 3.5rem; padding-top: 1.75rem; border-top: 1px solid var(--rule); max-width: 46rem; scroll-margin-top: 1.5rem; }
-.lec .n { font-family: var(--font-ui); font-size: 0.75rem; font-weight: 650; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); margin: 0 0 0.3rem; }
-.page .lec h2 { margin: 0 0 0.75rem; scroll-margin-top: 1.5rem; }
-.lec h2 .ancre { font-family: var(--font-ui); font-size: 0.6em; margin-left: 0.4em; text-decoration: none; color: var(--ink-soft); opacity: 0; }
-.lec h2:hover .ancre, .lec h2 .ancre:focus-visible { opacity: 1; }
-@media (hover: none) { .lec h2 .ancre { opacity: 0.6; } }
-.lec .situation { font-size: 1.1rem; line-height: 1.55; margin: 0 0 0.9rem; text-wrap: pretty; }
-.lec-meta { display: flex; flex-wrap: wrap; gap: 0.3rem 1.1rem; font-family: var(--font-ui); font-size: 0.85rem; color: var(--ink-soft); margin: 0 0 1rem; }
+/* ---------- Domaines : lecture rapide ---------- */
+.dom-jump { margin: 1.5rem 0 1rem; }
+details.lec { margin-top: 1rem; border: 1px solid var(--rule); border-radius: 6px; background: var(--surface); }
+details.lec > summary { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.2rem 1rem; padding: 0.75rem 1rem; cursor: pointer; font-family: var(--font-ui); list-style-position: inside; }
+details.lec > summary:hover { background: var(--surface-2); }
+details.lec .lec-t { font-weight: 650; color: var(--accent); }
+details.lec .lec-m { font-size: 0.85rem; color: var(--ink-soft); }
+details.lec[open] > summary { border-bottom: 1px solid var(--rule); }
+details.lec > :not(summary) { margin-left: 1rem; margin-right: 1rem; }
+details.lec > .situation, details.lec > .lec-avant { margin-top: 0.9rem; }
+details.lec .situation { font-size: 1rem; line-height: 1.55; margin-bottom: 0.6rem; text-wrap: pretty; }
 .lec-avant { font-size: 0.95rem; color: var(--ink-soft); font-style: italic; margin: 0 0 1rem; }
 .etapes { list-style: none; counter-reset: etape; padding: 0; margin: 0 0 1.25rem; }
 .etapes li { counter-increment: etape; margin: 0; }
@@ -109,10 +104,5 @@ div.tr-text p { margin: 0 0 1em; }
 .etape .tt { font-size: 1.08rem; line-height: 1.35; font-weight: 600; color: var(--accent); }
 .etape .src { font-family: var(--font-ui); font-size: 0.78rem; color: var(--ink-soft); }
 .etape .pq { font-size: 0.97rem; line-height: 1.5; text-wrap: pretty; }
-.lec .apres { background: var(--surface); border-left: 3px solid var(--rule); padding: 0.8rem 1rem; margin: 0; font-size: 0.98rem; }
 
-/* ---------- Accueil : situations ---------- */
-.home-situations { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.5rem; grid-template-columns: 1fr; }
-.home-situations a { display: block; padding: 0.7rem 0.9rem; border: 1px solid var(--rule); border-radius: 6px; text-decoration: none; background: var(--surface); }
-.home-situations a:hover { background: var(--surface-2); }
-@media (min-width: 40rem) { .home-situations { grid-template-columns: 1fr 1fr; } }
+details.lec .etape:hover { background: var(--bg); }

@@ -9,13 +9,12 @@ export const ui = {
     'site.name': "Product Owner d’un produit data",
     'site.tagline': 'Un cours de gestion de produit, en clair et sourcé',
     'nav.home': 'Accueil',
-    'nav.path': 'Parcours',
+    'nav.domaines': 'Domaines',
     // --- Pages transversales : index (début)
     'nav.ecoles': 'Consensus ou école',
     'nav.sources': 'Sources',
     // --- Pages transversales : index (fin)
     'nav.about': 'À propos',
-    'nav.lectures': 'Lectures',
     'nav.filrouge': 'Fil rouge',
     'nav.glossary': 'Glossaire',
     'nav.menu': 'Menu',
