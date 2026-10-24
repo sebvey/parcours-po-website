@@ -1,0 +1,82 @@
+---
+// Schéma 17 : l'exploration bornée (question, durée, décision selon la réponse)
+// et, en dessous, l'ordre dans le temps des deux seuils à ne pas mêler.
+// Couleurs : variables CSS --sch-* (clair/sombre) définies dans global.css.
+---
+<svg viewBox="0 0 600 420" role="img" aria-labelledby="g17-t g17-d" class="sch">
+  <title id="g17-t">Une exploration bornée : une question, une durée, une décision, et deux seuils dans l'ordre</title>
+  <desc id="g17-d">
+    En haut, de gauche à droite : le Product Owner pose une question ; elle entre dans une boîte large, dont la largeur représente la durée, fixée avant ; dans la boîte, les Developers explorent ; une réponse en sort, et non une fonction.
+    De la réponse partent deux flèches : si oui, on construit ; si non, on revoit. À gauche, une note rappelle ce qui se décide avant : la question, la durée, et ce qu'on fera selon la réponse.
+    En bas, une flèche du temps porte trois repères, dans cet ordre : le seuil qui juge l'exploration, fixé avant ; l'exploration elle-même ; le niveau exigé de la fonction livrée, fixé après, quand l'exploration a montré ce qu'on peut atteindre.
+  </desc>
+  <defs>
+    <marker id="g17-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" class="head" />
+    </marker>
+  </defs>
+
+  <!-- Le PO pose la question -->
+  <text x="20" y="96" class="note strong">le PO pose</text>
+  <text x="20" y="116" class="note strong">la question</text>
+  <path d="M112 106 H160" class="arrow" marker-end="url(#g17-ar)" />
+
+  <!-- La boîte, dont la largeur est la durée -->
+  <path d="M170 60 H400 M170 54 V66 M400 54 V66" class="bracket" />
+  <text x="285" y="48" text-anchor="middle" class="note soft">durée fixée avant</text>
+  <rect x="170" y="72" width="230" height="68" rx="8" class="xbox" />
+  <text x="285" y="112" text-anchor="middle" class="xbox-t">les Developers explorent</text>
+
+  <!-- La réponse -->
+  <path d="M400 106 H438" class="arrow" marker-end="url(#g17-ar)" />
+  <rect x="442" y="86" width="138" height="40" rx="20" class="answer" />
+  <text x="511" y="112" text-anchor="middle" class="answer-t">une réponse</text>
+  <text x="511" y="146" text-anchor="middle" class="note soft">pas une fonction</text>
+
+  <!-- Bifurcation -->
+  <path d="M511 154 V176 H365 V196" class="arrow" marker-end="url(#g17-ar)" />
+  <path d="M511 176 V196" class="arrow" marker-end="url(#g17-ar)" />
+  <rect x="290" y="200" width="150" height="40" rx="6" class="decision" />
+  <text x="365" y="225" text-anchor="middle" class="note">si oui : on construit</text>
+  <rect x="450" y="200" width="130" height="40" rx="6" class="decision" />
+  <text x="515" y="225" text-anchor="middle" class="note">si non : on revoit</text>
+
+  <!-- Ce qui se décide avant -->
+  <text x="20" y="196" class="note strong">décidé avant :</text>
+  <text x="20" y="218" class="note">la question,</text>
+  <text x="20" y="238" class="note">la durée,</text>
+  <text x="20" y="258" class="note">ce qu'on fera selon la réponse</text>
+
+  <!-- Le temps et les deux seuils -->
+  <path d="M20 330 H570" class="time" marker-end="url(#g17-ar)" />
+  <rect x="215" y="322" width="170" height="16" rx="8" class="phase" />
+  <text x="300" y="312" text-anchor="middle" class="note soft">exploration</text>
+  <circle cx="110" cy="330" r="8" class="tick" />
+  <circle cx="490" cy="330" r="8" class="tick" />
+  <g text-anchor="middle" class="note">
+    <text x="110" y="364" class="strong">seuil qui juge</text>
+    <text x="110" y="384">l'exploration,</text>
+    <text x="110" y="404">fixé avant</text>
+    <text x="490" y="364" class="strong">niveau exigé de la</text>
+    <text x="490" y="384">fonction livrée,</text>
+    <text x="490" y="404">fixé après</text>
+  </g>
+</svg>
+
+<style>
+  .sch { font-family: var(--font-ui); }
+  .note { font-size: 15px; fill: var(--sch-text); }
+  .note.strong, .strong { font-weight: 650; }
+  .note.soft { fill: var(--sch-text-soft); font-size: 14px; }
+  .arrow { stroke: var(--sch-text); stroke-width: 2; fill: none; }
+  .head { fill: var(--sch-text); }
+  .bracket { stroke: var(--sch-grey-line); stroke-width: 2; fill: none; }
+  .xbox { fill: var(--sch-s2); }
+  .xbox-t { font-size: 17px; font-weight: 650; fill: var(--sch-s-ink); }
+  .answer { fill: var(--sch-s1); }
+  .answer-t { font-size: 16px; font-weight: 650; fill: var(--sch-s-ink); }
+  .decision { fill: var(--sch-band); stroke: var(--sch-band-line); stroke-width: 2; }
+  .time { stroke: var(--sch-text); stroke-width: 3; fill: none; }
+  .phase { fill: var(--sch-s2); }
+  .tick { fill: var(--sch-bg, var(--sch-band)); stroke: var(--sch-text); stroke-width: 3; }
+</style>

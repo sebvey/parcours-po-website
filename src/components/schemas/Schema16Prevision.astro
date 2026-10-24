@@ -1,0 +1,51 @@
+---
+// Schéma 16c : une prévision en fourchette, redessinée à chaque revue de sprint,
+// avec deux poids qui la font bouger. Fourchette purement illustrative, sans chiffre.
+---
+<svg viewBox="0 0 600 278" role="img" aria-labelledby="g16p-t g16p-d" class="sch">
+  <title id="g16p-t">Une prévision en fourchette, que deux poids peuvent déplacer</title>
+  <desc id="g16p-d">
+    Une longue barre horizontale représente le temps, de maintenant à plus tard. Sur la barre, une zone épaisse, sans chiffre, est la fourchette de la prévision, avec une borne basse à gauche et une borne haute à droite.
+    Au-dessus, la mention : prévision des Developers, d'après la taille des stories et leur rythme des derniers sprints.
+    Deux éléments agissent sur la fourchette, avec une flèche vers elle : l'ordre du backlog, au-dessus, et une dépendance en attente, en dessous. Ils peuvent la déplacer.
+    En bas, une mention rappelle que la fourchette est redessinée à chaque revue de sprint.
+  </desc>
+  <defs>
+    <marker id="g16p-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" class="head" />
+    </marker>
+  </defs>
+  <text x="300" y="26" text-anchor="middle" class="note strong">prévision des Developers</text>
+  <text x="300" y="48" text-anchor="middle" class="note soft">d'après la taille des stories et leur rythme des derniers sprints</text>
+
+  <path d="M30 150 H570" class="time" />
+  <rect x="150" y="128" width="230" height="44" rx="6" class="range" />
+  <text x="265" y="156" text-anchor="middle" class="range-t">fourchette</text>
+  <text x="150" y="192" text-anchor="middle" class="note">borne basse</text>
+  <text x="380" y="192" text-anchor="middle" class="note">borne haute</text>
+  <text x="30" y="140" class="note soft">maintenant</text>
+  <text x="570" y="140" text-anchor="end" class="note soft">plus tard</text>
+
+  <!-- Deux poids, qui agissent sur la fourchette -->
+  <rect x="180" y="66" width="170" height="30" rx="5" class="weight" />
+  <text x="265" y="86" text-anchor="middle" class="note">l'ordre du backlog</text>
+  <path d="M265 100 L265 122" class="push" marker-end="url(#g16p-ar)" />
+  <rect x="180" y="212" width="170" height="30" rx="5" class="weight" />
+  <text x="265" y="232" text-anchor="middle" class="note">une dépendance</text>
+  <path d="M265 208 L265 178" class="push" marker-end="url(#g16p-ar)" />
+  <text x="300" y="266" text-anchor="middle" class="note soft">redessinée à chaque revue de sprint</text>
+</svg>
+
+<style>
+  .sch { font-family: var(--font-ui); }
+  .note { font-size: 15px; fill: var(--sch-text); }
+  .note.strong { font-weight: 650; font-size: 17px; }
+  .note.soft { fill: var(--sch-text-soft); font-size: 14px; }
+  .time { stroke: var(--sch-grey-line); stroke-width: 3; }
+  .time.thin { stroke-width: 2; stroke-dasharray: 6 5; }
+  .range { fill: var(--sch-s2); }
+  .range-t { font-size: 16px; font-weight: 650; fill: var(--sch-s-ink); }
+  .weight { fill: var(--sch-band); stroke: var(--sch-band-line); stroke-width: 2; }
+  .push { stroke: var(--sch-text); stroke-width: 2; fill: none; }
+  .head { fill: var(--sch-text); }
+</style>
