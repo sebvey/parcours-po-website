@@ -1,0 +1,25 @@
+{
+  "name": "parcours-po-website",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Site public du cours « Product Owner d'un produit data »",
+  "license": "CC-BY-4.0",
+  "engines": {
+    "node": ">=22.23.4"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro check && astro build && pagefind --site dist",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/check": "0.9.12",
+    "@astrojs/markdown-remark": "7.3.4",
+    "@astrojs/mdx": "8.1.1",
+    "astro": "7.4.2",
+    "pagefind": "1.5.2",
+    "typescript": "6.0.3"
+  }
+}
