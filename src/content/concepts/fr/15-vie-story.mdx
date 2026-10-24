@@ -1,0 +1,268 @@
+---
+numero: "15"
+titre: "La vie d'une story"
+objectif: "Préparer une story au refinement en faisant préciser ses mots flous par l'utilisateur concerné ; la faire choisir au Sprint Planning avec un objectif de sprint qui dit pourquoi le sprint a de la valeur ; la faire inspecter en revue de sprint et adapter le backlog à ce qu'on y apprend."
+description: "Les trois temps de la vie d'une story dans Scrum : le refinement, le Sprint Planning avec son objectif de sprint, puis la revue de sprint."
+prerequis: ["11", "12", "13"]
+ecoles:
+  consensus:
+    - auteur: "Le Scrum Guide 2020 : le refinement"
+      texte: "Découper les éléments du backlog et les préciser (description, ordre, taille). C'est une activité continue, pas un événement : le Guide ne lui fixe ni moment ni durée. Il se fait en général avant le Sprint Planning, et l'équipe peut encore préciser un élément pendant. Les Developers qui feront le travail répondent de la taille."
+      refs: ["S1", "S2"]
+    - auteur: "Le Scrum Guide 2020 : le Sprint Planning"
+      texte: "Trois sujets. Pourquoi : le PO propose comment le produit peut gagner en valeur, toute l'équipe Scrum fixe l'objectif de sprint avant la fin du Sprint Planning. Quoi : les Developers choisissent les éléments en discutant avec le PO. Comment : les Developers planifient le travail, à leur seule discrétion. Le « pourquoi » est l'ajout de 2020."
+      refs: ["S1", "S3"]
+    - auteur: "Le Scrum Guide 2020 : l'objectif de sprint"
+      texte: "L'objectif unique du sprint et l'engagement du backlog de sprint. Il donne cohérence et focus. Les Developers s'y engagent, mais il laisse de la souplesse sur le travail exact : si le travail diffère de ce qu'ils attendaient, ils renégocient la portée avec le PO sans toucher à l'objectif. Si l'objectif devient obsolète, seul le PO peut annuler le sprint."
+      refs: ["S1"]
+    - auteur: "Le Scrum Guide 2020 : la revue de sprint"
+      texte: "On inspecte ce que le sprint a produit et ce qui a changé ; les participants décident ensemble de la suite et le backlog peut être ajusté. C'est une séance de travail, pas une simple présentation, ni une porte de mise en production."
+      refs: ["S1"]
+    - auteur: "Pratique établie, hors du Scrum Guide (Scrum.org)"
+      texte: "La revue n'est ni une démonstration à sens unique, ni une séance où le PO « accepte » le travail des Developers."
+      refs: ["S6"]
+  ecole:
+    - auteur: "Christiaan Verwijs et Barry Overeem : le refinement en conversations"
+      texte: "Ce n'est pas forcément une réunion de toute l'équipe : c'est une suite de conversations, parfois avec les parties prenantes."
+      refs: ["S4"]
+    - auteur: "Mike Cohn : l'objectif de sprint"
+      texte: "« Finir les sept stories » n'est pas un bon objectif de sprint : il doit être d'un niveau plus haut. Cohn tient pourtant l'objectif de sprint pour facultatif, contre le Scrum Guide, qui en fait un engagement."
+      refs: ["S5"]
+  cours:
+    - texte: "Un mot flou se fait préciser par l'utilisateur concerné de chaque story. Le sens peut différer d'une story à l'autre, sous un nom distinct ; un chiffre partagé garde une seule définition (concept 7a2)."
+      refs: ["S4"]
+    - texte: "Une story « définir X » dont une autre dépend n'apporte rien seule : X se précise au refinement, et on livre d'abord ce dont les règles sont connues. Aucune source externe ne traite ce cas."
+      refs: []
+    - texte: "Le mot « recette » nomme, dans le cours, l'erreur qui fait de la revue une validation avant livraison."
+      refs: ["S6", "S1"]
+  voisines:
+    - auteur: "Les états d'un élément dans l'outil"
+      texte: "« À faire », « en cours », « fait » : un workflow choisi et configurable par l'équipe, propre à l'outil. Le Scrum Guide n'en fixe aucun, et « fait » ne dit rien s'il ne veut pas dire que la Definition of Done est remplie (annexe A1)."
+      refs: ["S7", "S8", "S1"]
+sources:
+  affirmations:
+    - affirmation: "Le refinement : découper les éléments en éléments plus petits et plus précis, en ajoutant description, ordre et taille."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« Product Backlog refinement is the act of breaking down and further defining Product Backlog items into smaller more precise items. This is an ongoing activity to add details, such as a description, order, and size. »"
+    - affirmation: "Le refinement est une activité continue, pas un événement ; le Scrum Guide ne lui fixe ni moment ni durée."
+      kind: "consensus"
+      refs: ["S1", "S2"]
+      verifie: "Guide 2020 : « an ongoing activity » ; les événements sont le sprint, le Sprint Planning, le Daily Scrum, la revue et la rétrospective, sans refinement. Le Guide de 2017 disait que le refinement consomme en général au plus 10 % de la capacité de l'équipe ; ce repère a disparu en 2020 (« 10% » : 0 occurrence). Il n'est pas donné comme règle actuelle."
+    - affirmation: "Le refinement se fait en général avant le Sprint Planning ; l'équipe peut encore préciser un élément pendant."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« They usually acquire this degree of transparency after refining activities » ; « The Scrum Team may refine these items during this process, which increases understanding and confidence. »"
+    - affirmation: "Les Developers répondent de la taille ; le PO peut les aider à comprendre et choisir des compromis."
+      kind: "consensus"
+      refs: ["S1", "S2"]
+      verifie: "Guide 2020 : « The Developers who will be doing the work are responsible for the sizing. The Product Owner may influence the Developers by helping them understand and select trade-offs. » Le Guide 2020 dit « sizing », pas « estimate » ; celui de 2017 disait « estimates »."
+    - affirmation: "Le refinement n'est pas forcément une réunion de toute l'équipe : c'est une suite de conversations, parfois avec les parties prenantes."
+      kind: "ecole"
+      refs: ["S4"]
+      verifie: "Verwijs et Overeem (Scrum.org, série de mythes) : « refinement is not an event in Scrum » ; le refinement est le processus continu de ces conversations, qui passent parfois par des parties prenantes. Avis d'auteurs : le Guide ne nomme pas les parties prenantes au refinement. La date du billet n'a pas été relevée."
+    - affirmation: "Un mot flou se fait préciser par l'utilisateur concerné, au refinement, avant que la story soit choisie ; la story attend."
+      kind: "cours"
+      refs: ["S4"]
+      verifie: "Choix du cours, posé aux concepts 4, 7a2 et 8a2. Le Guide dit seulement que le refinement précise les éléments ; parler avec les parties prenantes au refinement : S4 (choix d'école). Aucune source ne fait de l'utilisateur concerné celui qui fixe le sens d'un terme."
+    - affirmation: "Le sens d'un terme peut différer d'une story à l'autre ; un chiffre partagé ou la mesure de l'objectif produit garde une seule définition."
+      kind: "cours"
+      refs: []
+      verifie: "Raisonnement du cours, sans source externe ; une seule définition pour un chiffre partagé est posé au concept 7a2."
+    - affirmation: "Une story « définir X » dont une autre dépend n'apporte rien seule."
+      kind: "cours"
+      refs: []
+      verifie: "Choix du cours, appuyé sur la lecture d'INVEST (V : utile à l'utilisateur ; I : stories qu'on peut planifier dans n'importe quel ordre), vérifiée au concept 7. Aucune source externe ne traite ce cas : il n'est pas attribué à Wake. Le raisonnement « livrer d'abord ce dont les règles sont connues » est celui du cours."
+    - affirmation: "Le Sprint Planning ouvre le sprint ; le plan est le fruit du travail de toute l'équipe Scrum."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« Sprint Planning initiates the Sprint by laying out the work to be performed for the Sprint. This resulting plan is created by the collaborative work of the entire Scrum Team. » Durée : huit heures au plus pour un sprint d'un mois."
+    - affirmation: "Trois sujets : pourquoi ce sprint a de la valeur, ce qui peut être fait, comment ; le « pourquoi » est l'ajout de 2020."
+      kind: "consensus"
+      refs: ["S1", "S3"]
+      verifie: "« Topic One: Why is this Sprint valuable? » ; « Topic Two: What can be Done this Sprint? » ; « Topic Three: How will the chosen work get done? ». L'historique des révisions note que le Guide 2020 met l'accent sur le « Why », avec l'objectif de sprint."
+    - affirmation: "Pourquoi : le PO propose comment le produit peut gagner en valeur, toute l'équipe Scrum fixe l'objectif de sprint, arrêté avant la fin du Sprint Planning."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« The Product Owner proposes how the product could increase its value and utility in the current Sprint. The whole Scrum Team then collaborates to define a Sprint Goal that communicates why the Sprint is valuable to stakeholders. The Sprint Goal must be finalized prior to the end of Sprint Planning. »"
+    - affirmation: "Quoi : les Developers choisissent les éléments en discutant avec le PO, d'après leurs résultats passés, leur capacité et la DoD."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« Through discussion with the Product Owner, the Developers select items from the Product Backlog to include in the current Sprint. » ; choisir combien est difficile, et plus les Developers connaissent leurs résultats passés, leur capacité à venir et leur Definition of Done, plus ils sont confiants dans leurs prévisions. Le Guide ne nomme ni vélocité ni story points."
+    - affirmation: "Comment : les Developers planifient le travail, souvent en le découpant en travail d'un jour ou moins, à leur seule discrétion."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« For each selected Product Backlog item, the Developers plan the work necessary to create an Increment that meets the Definition of Done » ; découpage « of one day or less » ; « at the sole discretion of the Developers »."
+    - affirmation: "L'objectif de sprint est l'objectif unique du sprint et l'engagement du backlog de sprint ; il donne cohérence et focus."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« The Sprint Goal is the single objective for the Sprint » ; « For the Sprint Backlog it is the Sprint Goal » ; « The Sprint Goal also creates coherence and focus, encouraging the Scrum Team to work together rather than on separate initiatives. »"
+    - affirmation: "L'objectif reste quand une story ne passe pas : la portée se renégocie avec le PO."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« Although the Sprint Goal is a commitment by the Developers, it provides flexibility in terms of the exact work needed to achieve it » ; « If the work turns out to be different than they expected, they collaborate with the Product Owner to negotiate the scope of the Sprint Backlog within the Sprint without affecting the Sprint Goal ». Le retour d'une story sortie du sprint au backlog produit, où le PO l'ordonne, est la formulation du cours."
+    - affirmation: "Si l'objectif devient obsolète, le sprint peut être annulé ; seul le PO peut l'annuler."
+      kind: "consensus"
+      refs: ["S1", "S3"]
+      verifie: "« A Sprint could be cancelled if the Sprint Goal becomes obsolete. Only the Product Owner has the authority to cancel the Sprint. » La section sur l'annulation a été raccourcie en 2020."
+    - affirmation: "Un objectif de sprint qui liste les stories n'est pas un objectif : il dit quoi, pas pourquoi."
+      kind: "cours"
+      refs: ["S1", "S5"]
+      verifie: "Déduit de « why the Sprint is valuable » et de « coherence and focus » (Guide). Cohn juge que finir les sept stories engagées n'est pas un bon objectif : « A sprint goal has to be higher-level than that. » Avis d'auteur, cohérent avec le Guide."
+    - affirmation: "Cohn tient l'objectif de sprint pour facultatif, contre le Scrum Guide."
+      kind: "ecole"
+      refs: ["S5"]
+      verifie: "« contrary to the Scrum Guide, I consider sprint goals an optional part of Scrum » ; il cite les équipes qui travaillent pour plusieurs clients sans lien. Le Guide en fait un engagement : le consensus est le Guide, l'avis de Cohn est un choix d'école."
+    - affirmation: "Une story qui ne remplit pas la DoR ne se choisit pas ; le Guide parle d'éléments « ready for selection »."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« Product Backlog items that can be Done by the Scrum Team within one Sprint are deemed ready for selection in a Sprint Planning event. » La DoR est un choix d'école, vérifiée au concept 11."
+    - affirmation: "La revue de sprint inspecte ce que le sprint a produit et décide des adaptations ; le backlog peut être ajusté."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« The purpose of the Sprint Review is to inspect the outcome of the Sprint and determine future adaptations. The Scrum Team presents the results of their work to key stakeholders and progress toward the Product Goal is discussed. » ; « The Product Backlog may also be adjusted to meet new opportunities. »"
+    - affirmation: "La revue est une séance de travail, pas une simple présentation ni une porte de mise en production."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« The Sprint Review is a working session and the Scrum Team should avoid limiting it to a presentation » ; un incrément peut être livré avant la fin du sprint, et la revue « should never be considered a gate to releasing value ». Quatre heures au plus pour un sprint d'un mois."
+    - affirmation: "La revue n'est ni une démonstration à sens unique, ni une séance où le PO « accepte » le travail."
+      kind: "consensus"
+      refs: ["S6", "S1"]
+      verifie: "Scrum.org, anti-modèles : la revue n'est pas « a status meeting, demo or one-way presentation » ; ce n'est pas une séance pour que le PO « accepte » le travail des Developers. Page sans auteur ni date, cohérente avec « working session » et « never a gate »."
+    - affirmation: "La revue n'est pas non plus une recette où une partie prenante valide."
+      kind: "cours"
+      refs: ["S1", "S6"]
+      verifie: "Le mot « recette » est celui du cours. Qu'une partie prenante n'y valide pas non plus le travail est tiré de « working session » et « never a gate » et de l'anti-modèle du PO qui signe ; S6 ne parle que du PO."
+    - affirmation: "Une story qui ne remplit pas la DoD n'est pas présentée en revue ; elle retourne au backlog."
+      kind: "consensus"
+      refs: ["S1", "S6"]
+      verifie: "Guide : elle « cannot be released or even presented at the Sprint Review. Instead, it returns to the Product Backlog for future consideration. » Scrum.org : « Be clear on what was Done and not Done »."
+    - affirmation: "Une demande née de la revue entre au backlog et s'ordonne ; elle ne se promet pas en séance."
+      kind: "cours"
+      refs: ["S1", "S6"]
+      verifie: "Le Guide : le backlog peut être ajusté pour de nouvelles opportunités ; qui veut changer l'ordre convainc le PO. Scrum.org : nouvelles opportunités « potentially added to the backlog ». « Ne pas la promettre en séance » est un choix du cours (le PO ordonne, les Developers choisissent au Sprint Planning suivant)."
+    - affirmation: "Les états d'un élément (à faire, en cours, fait) sont ceux d'un outil, choisis et configurables par l'équipe ; le Guide n'en fixe aucun."
+      refs: ["S7", "S8", "S1"]
+      verifie: "Atlassian : « Statuses are the steps of a team's workflow », avec un exemple à trois statuts (To do, In progress, Done) qu'on peut compléter. Le Guide ne parle ni de statut ni de workflow d'un élément. Que « fait » ne dise rien s'il ne veut pas dire DoD remplie est le rapprochement du cours (« Done » chez Jira : le travail est terminé)."
+    - affirmation: "Les situations du fil rouge (mots non fixés comme « heures de pointe ») sont inventées."
+      refs: []
+      verifie: "Sans source : le cas de l'opérateur de vélos en libre-service est fictif."
+  references:
+    - id: "S1"
+      texte: "Schwaber, Sutherland, *The Scrum Guide*, novembre 2020"
+      url: "https://scrumguides.org/scrum-guide.html"
+      type: "primaire"
+      consultee: "2026-10-23"
+    - id: "S2"
+      texte: "Schwaber, Sutherland, *The Scrum Guide*, novembre 2017 (version abrogée)"
+      url: "https://scrumguides.org/docs/scrumguide/v2017/2017-Scrum-Guide-US.pdf"
+      type: "primaire"
+      consultee: "2026-10-23"
+    - id: "S3"
+      texte: "Scrumguides.org, « Scrum Guide Revision History », section « Changes between 2017 and 2020 Scrum Guides »"
+      url: "https://scrumguides.org/revisions.html"
+      type: "primaire"
+      consultee: "2026-10-23"
+    - id: "S4"
+      texte: "Verwijs, Overeem, « Myth 14: Refinement is a Required Meeting for the Entire Scrum Team », blog Scrum.org (série de mythes de The Liberators ; date non relevée)"
+      url: "https://www.scrum.org/resources/blog/myth-14-refinement-required-meeting-entire-scrum-team"
+      type: "secondaire (praticiens, publié par Scrum.org, qui vend des formations)"
+      consultee: "2026-10-23"
+    - id: "S5"
+      texte: "Mountain Goat Software (Cohn), « The Sprint Goal: What It Is and How It Can Help » (date non relevée ; site et voix de Cohn)"
+      url: "https://www.mountaingoatsoftware.com/agile/the-sprint-goal-what-it-is-and-how-it-can-help"
+      type: "primaire (site de l'auteur, qui vend aussi ses formations)"
+      consultee: "2026-10-23"
+    - id: "S6"
+      texte: "Scrum.org, « Making Your Sprint Reviews More Effective » (page sans auteur ni date)"
+      url: "https://www.scrum.org/resources/making-your-sprint-reviews-more-effective"
+      type: "secondaire (organisme de Schwaber, qui vend des formations)"
+      consultee: "2026-10-23"
+    - id: "S7"
+      texte: "Atlassian, « What are work item statuses, priorities, and resolutions? », Jira Cloud ; « Workflows and statuses for boards in business spaces »"
+      url: "https://support.atlassian.com/jira-cloud-administration/docs/what-are-issue-statuses-priorities-and-resolutions"
+      type: "primaire pour ce que fait l'outil (documentation de l'éditeur)"
+      consultee: "2026-10-23"
+    - id: "S8"
+      texte: "Atlassian, « Add statuses to a Jira workflow », Jira Cloud administration"
+      url: "https://support.atlassian.com/jira-cloud-administration/docs/add-statuses-to-a-jira-workflow"
+      type: "primaire pour ce que fait l'outil"
+      consultee: "2026-10-23"
+  nonVerifie:
+    - "**Les dates de S4, S5 et S6** : non affichées dans les extraits lus. S4 semble reprendre un billet de The Liberators sur Medium ; la date d'origine n'a pas été relevée. La page ne date pas ces avis."
+    - "**Préciser un terme avec l'utilisateur concerné au refinement.** Aucune source ne fait de l'utilisateur concerné celui qui fixe le sens d'un terme ; le Guide ne nomme pas les parties prenantes au refinement. S4 parle de conversations avec les parties prenantes « where necessary ». C'est un choix du cours, soutenu par un choix d'école, pas un consensus."
+    - "**Qu'une story « définir X » n'apporte rien seule.** Lecture d'INVEST et raisonnement du cours ; aucune source externe ne traite ce cas."
+    - "**La fréquence des pièges** (refinement en réunion sans l'utilisateur, objectif de sprint en liste de stories, revue en recette). S5 et S6 décrivent ces travers comme courants, sans étude : c'est un piège courant en formation, pas un fait mesuré."
+    - "**Les états par défaut des autres outils que Jira** (Azure DevOps, etc.) : non vérifiés. La page ne cite que l'exemple générique « à faire, en cours, fait »."
+    - "**Les termes français officiels** (« objectif de sprint », « revue de sprint ») : la traduction française du Scrum Guide n'a pas pu être extraite ; les termes suivent le glossaire du cours."
+---
+import Schema15 from '../../../components/schemas/Schema15.astro';
+
+Une story vit en trois temps. Le **refinement**, activité continue, la précise et la découpe : un mot flou s'y fait préciser par l'utilisateur concerné. Au **Sprint Planning**, l'objectif de sprint dit pourquoi le sprint a de la valeur, et non quelles stories finir. La **revue de sprint**, séance de travail, inspecte l'incrément et adapte le backlog. Les états d'un outil ne racontent pas cette vie.
+
+<Figure legende="La frise d'un sprint. Le refinement est une bande continue, pas une boîte : une story au mot flou s'y précise avec l'utilisateur concerné. Le Sprint Planning pose trois questions : pourquoi, quoi, comment. La revue inspecte l'incrément, et une nouvelle carte repart au backlog. En gris, les états de l'outil : ils ne sont pas la vie de la story.">
+  <Schema15 />
+</Figure>
+
+<Sous id="15a" titre="Le refinement" promesse="Préparer une story avant qu'elle soit choisie, sans réunion imposée.">
+
+<h4 id="15a1"><span class="num">15a1</span> Le mot flou se précise avec l'utilisateur concerné</h4>
+
+Le refinement découpe les éléments du haut du backlog et les précise (description, ordre, taille) <Pastille kind="consensus" />. Le Scrum Guide en fait une **activité continue**, pas un événement : ni moment ni durée imposés. Il se fait en général avant le Sprint Planning, et l'équipe peut encore préciser un élément pendant. Les Developers répondent de la taille. Le repère des « 10 % de la capacité » figurait dans le Guide de 2017 et a été retiré en 2020.
+
+Ce n'est pas forcément une réunion de toute l'équipe : Christiaan Verwijs et Barry Overeem y voient une suite de conversations, parfois avec les parties prenantes <Pastille kind="ecole" />.
+
+Un **mot flou** (un mot dont le sens n'est pas fixé, <Renvoi n="7a2" />) se fait préciser par l'utilisateur concerné de chaque story, au refinement, avant que la story soit choisie <Pastille kind="cours" />. Ni le PO ni les Developers ne le fixent seuls ; tant que le sens manque, la story attend. Le sens s'écrit dans la règle ou les critères d'acceptation de la story (<Renvoi n="8" />). Le sens peut différer d'une story à l'autre, chacune dit le sien sous un nom qui ne prête pas à confusion. Mais un chiffre partagé par plusieurs utilisateurs, ou qui mesure l'objectif produit, garde une seule définition (<Renvoi n="12a" />).
+
+<FilRouge>Le fil rouge laisse des mots non fixés, comme « heures de pointe » : ils se précisent avec ceux qui s'en servent, pas à leur place.</FilRouge>
+
+<h4 id="15a2"><span class="num">15a2</span> Pas de story « définir X »</h4>
+
+Un mot ou une règle à préciser n'est pas une story : quand c'est fait, rien n'a changé pour l'utilisateur. Une story « définir X » dont une autre dépend n'apporte donc rien seule (c'est la valeur et l'indépendance d'INVEST, <Renvoi n="7" />). Le cours en tire que X se précise au refinement, avec l'utilisateur concerné, comme une règle non fixée que le PO fait fixer (<Renvoi n="8a2" />), et qu'on livre d'abord ce dont les règles sont connues <Pastille kind="cours" />. La Definition of Ready de l'équipe veut d'ailleurs des règles métier fixées avant le sprint (<Renvoi n="11b" />). Si l'utilisateur a besoin de données pour trancher, une exploration bornée peut l'éclairer (<Renvoi n="17" />) : elle livre une réponse, pas la règle, que l'utilisateur fixe.
+
+</Sous>
+
+<Sous id="15b" titre="Sprint Planning et objectif de sprint" promesse="Choisir le travail d'un sprint pour un pourquoi.">
+
+Le Sprint Planning traite trois sujets <Pastille kind="consensus" /> :
+
+- **pourquoi** : le PO propose comment le produit peut gagner en valeur, et toute l'équipe Scrum fixe l'**objectif de sprint**, avant la fin du Sprint Planning. C'est l'ajout de 2020 ;
+- **quoi** : les Developers choisissent les éléments en discutant avec le PO, d'après leurs résultats passés, leur capacité et la DoD. Un élément qui ne remplit pas la DoR ne se choisit pas (<Renvoi n="11b" />) ;
+- **comment** : les Developers planifient le travail, à leur seule discrétion (leurs tâches, <Renvoi n="9" />).
+
+L'objectif de sprint est l'objectif unique du sprint et l'engagement du backlog de sprint (<Renvoi n="0a3" />). Il dit **pourquoi** le sprint a de la valeur, par exemple « que l'exploitation voie plus tôt les stations qui se vident ». Une liste de stories à finir n'en est pas un : elle dit quoi, pas pourquoi, et ne donne aucune cohérence, chacun finissant « sa » story. Mike Cohn dit de même que « finir les sept stories » n'est pas un bon objectif.
+
+Un bon objectif laisse de la souplesse sur le travail exact. Si une story ne passe pas, les Developers et le PO renégocient la portée du backlog de sprint, sans toucher à l'objectif ; la story sortie revient au backlog produit, où le PO l'ordonne. On n'annule le sprint que si l'objectif devient obsolète, et seul le PO le peut. Mike Cohn tient pourtant l'objectif de sprint pour facultatif <Pastille kind="ecole" /> : le Scrum Guide, lui, en fait un engagement.
+
+Le PO propose, l'équipe fixe l'objectif, les Developers choisissent avec le PO : le PO ne choisit pas les stories ni leur nombre à leur place, et il ne fait pas leur plan. Le Sprint Planning suppose des sprints : pour une équipe qui travaille sans sprint, voir <Renvoi n="A2" />.
+
+</Sous>
+
+<Sous id="15c" titre="La revue de sprint" promesse="Inspecter l'incrément avec les parties prenantes, puis adapter le backlog.">
+
+La revue inspecte ce que le sprint a produit et ce qui a changé <Pastille kind="consensus" /> ; l'équipe et les parties prenantes décident ensemble de la suite, et le backlog peut être ajusté. C'est une séance de travail, pas une simple présentation ni une porte de mise en production : un incrément peut être livré avant la revue. La revue n'est ni une démonstration à sens unique, ni une séance où le PO « accepte » le travail (Scrum.org, pratique établie).
+
+Le cours en tire que ce n'est pas non plus une **recette** où une partie prenante valide <Pastille kind="cours" /> : ce n'est pas la signature d'une partie prenante qui rend une story faite, c'est la DoD, avant la revue. Une story qui ne la remplit pas n'est pas présentée : elle retourne au backlog (<Renvoi n="0b" />).
+
+Ce que la revue fait apparaître, une demande nouvelle par exemple, entre au backlog comme un nouvel élément ; le PO l'ordonne face au reste (<Renvoi n="13" />) et les Developers choisiront au Sprint Planning suivant. On ne la promet pas en séance, et on ne la refuse pas non plus. Si un mot flou ressort de la revue, on le reprécise au refinement avec l'utilisateur concerné.
+
+Enfin, les **états de l'outil** (à faire, en cours, fait) ne racontent pas cette vie : ils sont un choix de l'équipe, configurable, que le Scrum Guide ne fixe pas. « Fait » ne dit rien tant qu'il ne veut pas dire que la DoD est remplie (<Renvoi n="A1" />). La revue suppose elle aussi des sprints : sans sprint, voir <Renvoi n="A2" />.
+
+</Sous>
+
+<Reflexe note="Formulation du cours : un test par temps de la vie d'une story.">
+Refinement : « qui précise ce mot, pour quelle story ? » Sprint Planning : « pourquoi ce sprint a-t-il de la valeur ? » (si la réponse est une liste, ce n'est pas un objectif). Revue : « qu'est-ce qui change dans le backlog après la séance ? »
+</Reflexe>
+
+<Erreurs>
+
+- **Un refinement en réunion d'équipe, sans l'utilisateur concerné** : personne dans la pièce ne sait ce que le mot veut dire pour lui.
+- **Le PO qui tranche le mot flou lui-même**, ou qui impose d'office un sens à toutes les stories : chaque utilisateur précise le sens pour sa story, et un chiffre partagé garde une seule définition.
+- **Une story « définir X »** dont une autre dépend : elle n'apporte rien seule.
+- **Prendre le refinement pour un événement** à heure fixe, ou citer les 10 % de capacité : activité continue, repère retiré en 2020.
+- **Un objectif de sprint en liste de stories** (« finir X, Y, Z ») : il dit quoi, pas pourquoi. **Le PO qui le fixe seul** ou qui choisit les stories : il propose, l'équipe fixe, les Developers choisissent.
+- **Changer l'objectif quand une story ne passe pas** : la portée se renégocie, l'objectif reste.
+- **La revue en recette, en validation ou en démonstration à sens unique** : séance de travail, qui adapte le backlog. **Promettre en séance** une demande née de la revue, ou **présenter** une story qui ne remplit pas la DoD : l'une entre au backlog et s'ordonne, l'autre y retourne.
+- **Prendre les états de l'outil pour la vie d'une story.**
+
+</Erreurs>
