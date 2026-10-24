@@ -10,7 +10,7 @@ const { debut, suite } = premierePhrase(p.texte);
 <li class="pos">
   <p class="pos-tete">
     {sujet && <strong class="pos-sujet">{typoFr(sujet)}</strong>}
-    <a class="pos-lien" href={p.href}><span class="sr-only">Voir dans le </span>concept {p.n}<span class="pos-titre"> · {p.titre}</span></a>
+    <a class="pos-lien" href={p.href}><span class="sr-only">Voir dans </span>{/^A/.test(p.n) ? `annexe ${p.n}` : `concept ${p.n}`}<span class="pos-titre"> · {p.titre}</span></a>
   </p>
   <p class="pos-texte" set:html={inline(debut)} />
   {suite && (

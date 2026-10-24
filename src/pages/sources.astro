@@ -74,11 +74,11 @@ const cherche = (e: (typeof entrees)[number]) =>
         <p class="sec-intro">Ce que les sources consultées ne permettent pas d’établir, tel que chaque concept le dit. Les pages n’affirment rien de plus sur ces points.</p>
         {nv.map((c) => (
           <section class="nv-concept" aria-labelledby={`nv-${c.n}`}>
-            <h3 id={`nv-${c.n}`}>Concept {c.n} · {c.titre}</h3>
+            <h3 id={`nv-${c.n}`}>{/^A/.test(c.n) ? 'Annexe' : 'Concept'} {c.n} · {c.titre}</h3>
             <ul class="nonverifie">
               {c.items.map((t) => (<li set:html={inline(t)} />))}
             </ul>
-            <p class="nv-lien" data-pagefind-ignore><a href={c.href}>Voir dans l’onglet Sources du concept {c.n}</a></p>
+            <p class="nv-lien" data-pagefind-ignore><a href={c.href}>Voir dans l’onglet Sources {/^A/.test(c.n) ? `de l’annexe ${c.n}` : `du concept ${c.n}`}</a></p>
           </section>
         ))}
       </section>

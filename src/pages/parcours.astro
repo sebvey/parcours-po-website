@@ -37,13 +37,13 @@ const dispo = await disponibles();
                 <li data-objectifs={objectifsDe(c.n).map((o) => o.n).join(' ')}>
                   {e ? (
                     <a class="card" href={conceptUrl(c.n)}>
-                      <span class="num">Concept {c.n}</span>
+                      <span class="num">{/^A/.test(c.n) ? 'Annexe' : 'Concept'} {c.n}</span>
                       <span class="t">{c.titre}</span>
                       <span class="st">Lire le concept</span>
                     </a>
                   ) : (
                     <div class="card off">
-                      <span class="num">Concept {c.n}</span>
+                      <span class="num">{/^A/.test(c.n) ? 'Annexe' : 'Concept'} {c.n}</span>
                       <span class="t">{c.titre}</span>
                       <span class="st">{t('concept.soon')}</span>
                     </div>

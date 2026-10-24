@@ -50,7 +50,7 @@ const duree = (m: number) => `environ ${m} min`;
                     <span class="ref">{e.ref}</span>
                     <span class="corps">
                       <span class="tt" set:html={inline(e.titre)} />
-                      <span class="src">Concept {conceptOf(e.ref)}{c ? ` : ${c.titre}` : ''}</span>
+                      <span class="src">{/^A/.test(conceptOf(e.ref)) ? 'Annexe' : 'Concept'} {conceptOf(e.ref)}{c ? ` : ${c.titre}` : ''}</span>
                       <span class="pq" set:html={inline(e.pourquoi)} />
                     </span>
                   </a>

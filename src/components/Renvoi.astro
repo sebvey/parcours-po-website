@@ -6,8 +6,8 @@ interface Props { n: string; }
 const { n } = Astro.props;
 const l = await lien(n);
 const t = useT();
-// « concept 8 », « concept 8, 8a2 » ; pour une annexe, le sous-concept porte déjà son numéro : « concept A2d ».
-const label = /^\d+$|^A\d+[a-z]*\d*$/.test(n) ? `concept ${n}` : `concept ${l.n}, ${n}`;
+// « concept 8 », « concept 8, 8a2 » ; pour une annexe, le sous-concept porte déjà son numéro : « annexe A2d ».
+const label = /^A\d/.test(n) ? `annexe ${n}` : /^\d+$/.test(n) ? `concept ${n}` : `concept ${l.n}, ${n}`;
 ---
 {l.exists
   ? <a href={l.href}>{label}</a>

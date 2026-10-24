@@ -52,7 +52,7 @@ const tabs = [
 ---
 <Base title={`Concept ${d.numero} : ${d.titre}`} description={typoFr(d.description)} nav="path">
   <header class="concept-head container">
-    <p class="eyebrow">{t('concept.label')} {d.numero}{known && <> · {known.bloc.titre}</>}</p>
+    <p class="eyebrow">{/^A/.test(String(d.numero)) ? 'Annexe' : t('concept.label')} {d.numero}{known && !/^A/.test(String(d.numero)) && <> · {known.bloc.titre}</>}</p>
     <h1>{typoFr(d.titre)}</h1>
     <p class="lead">{typoFr(d.objectif)}</p>
     <div class="concept-meta" data-pagefind-ignore>
