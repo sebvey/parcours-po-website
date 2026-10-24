@@ -1,0 +1,82 @@
+---
+// Schéma 7 : les six lettres d'INVEST en une rangée ; un mot flou dans la phrase d'une story
+// rend E, S et T douteux à la fois (trois fils sur une même racine) ; une fois le mot précisé
+// par l'utilisateur concerné, avant le sprint, les trois lettres se tranchent.
+// Les états se lisent aussi sans la couleur : ? et trait pointillé = douteux, coche = tenable.
+const letters = [
+  { l: 'I', n: 'Independent', ok: true },
+  { l: 'N', n: 'Negotiable', ok: true },
+  { l: 'V', n: 'Valuable', ok: true },
+  { l: 'E', n: 'Estimable', ok: false },
+  { l: 'S', n: 'Small', ok: false },
+  { l: 'T', n: 'Testable', ok: false },
+];
+const W = 95, GAP = 6, X0 = 0;
+const cx = (i) => X0 + i * (W + GAP) + W / 2;
+---
+<svg viewBox="0 0 600 480" role="img" aria-labelledby="g7-t g7-d" class="sch">
+  <title id="g7-t">Un mot flou rend plusieurs lettres d'INVEST douteuses</title>
+  <desc id="g7-d">
+    Six cases alignées, une par lettre d'INVEST : I Independent, N Negotiable, V Valuable, E Estimable, S Small, T Testable.
+    I, N et V portent une coche : elles se tiennent. E, S et T portent un point d'interrogation : elles sont douteuses.
+    Sous les cases, la phrase d'une story, « je veux une vue qui s'affiche rapidement », avec le mot « rapidement » entouré.
+    Trois fils partent de ce mot vers E, S et T : une seule racine, trois lettres douteuses.
+    Plus bas, une flèche mène à l'étape suivante : l'utilisateur concerné précise le mot avant le sprint, et alors E, S et T peuvent se trancher.
+    Bandeau : INVEST, Bill Wake, 2003, un aide-mémoire absent du Scrum Guide.
+  </desc>
+  <defs>
+    <marker id="g7-head" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" class="s7-head" />
+    </marker>
+  </defs>
+
+  <!-- Les six cases -->
+  {letters.map((c, i) => (
+    <>
+      <rect x={X0 + i * (W + GAP)} y="12" width={W} height="96" rx="8" class={c.ok ? 's7-cell s7-ok' : 's7-cell s7-doubt'} />
+      <text x={cx(i)} y="58" text-anchor="middle" class="s7-letter">{c.l}</text>
+      <text x={cx(i)} y="83" text-anchor="middle" class="s7-lname">{c.n}</text>
+      <text x={X0 + i * (W + GAP) + W - 12} y="31" text-anchor="end" class={c.ok ? 's7-mark s7-okmark' : 's7-mark s7-qmark'}>{c.ok ? '✓' : '?'}</text>
+    </>
+  ))}
+
+  <!-- Les trois fils vers le mot flou -->
+  <path d={`M${cx(3)} 108 C ${cx(3)} 170, 300 150, 300 208`} class="s7-wire" />
+  <path d={`M${cx(4)} 108 C ${cx(4)} 160, 300 160, 300 208`} class="s7-wire" />
+  <path d={`M${cx(5)} 108 C ${cx(5)} 170, 300 150, 300 208`} class="s7-wire" />
+
+  <!-- La phrase de la story, mot flou entouré -->
+  <rect x="40" y="208" width="520" height="62" rx="8" class="s7-sentence" />
+  <text x="300" y="246" text-anchor="middle" class="s7-stext">« … je veux une vue qui s'affiche <tspan class="s7-vague">rapidement</tspan> … »</text>
+  <text x="300" y="296" text-anchor="middle" class="s7-note">un seul mot non fixé, trois lettres douteuses</text>
+
+  <!-- Précision par l'utilisateur -->
+  <path d="M300 312 V352" class="s7-arrow" marker-end="url(#g7-head)" />
+  <rect x="40" y="356" width="520" height="62" rx="8" class="s7-fixed" />
+  <text x="300" y="383" text-anchor="middle" class="s7-stext">l'utilisateur concerné précise le mot, avant le sprint</text>
+  <text x="300" y="407" text-anchor="middle" class="s7-note">alors E, S et T se tranchent</text>
+
+  <!-- Bandeau -->
+  <text x="300" y="456" text-anchor="middle" class="s7-band">INVEST, Wake, 2003 : un aide-mémoire, absent du Scrum Guide</text>
+</svg>
+
+<style>
+  .sch { font-family: var(--font-ui); }
+  .s7-cell { stroke-width: 2; }
+  .s7-cell.s7-ok { fill: var(--sch-band); stroke: var(--sch-s1); }
+  .s7-cell.s7-doubt { fill: var(--sch-grey); stroke: var(--sch-grey-line); stroke-dasharray: 7 5; }
+  .s7-letter { font-size: 40px; font-weight: 800; fill: var(--sch-text); }
+  .s7-lname { font-size: 16.5px; fill: var(--sch-text-soft); }
+  .s7-mark { font-size: 22px; font-weight: 800; }
+  .s7-okmark { fill: var(--sch-s1); }
+  .s7-qmark { fill: var(--sch-text); }
+  .s7-wire { fill: none; stroke: var(--sch-text); stroke-width: 2.5; stroke-dasharray: 2 6; stroke-linecap: round; }
+  .s7-sentence { fill: var(--sch-band); stroke: var(--sch-band-line); stroke-width: 1.5; }
+  .s7-stext { font-size: 18px; fill: var(--sch-text); }
+  .s7-vague { font-weight: 800; text-decoration: underline; text-decoration-style: wavy; text-underline-offset: 5px; }
+  .s7-note { font-size: 17px; font-weight: 600; fill: var(--sch-text-soft); }
+  .s7-arrow { fill: none; stroke: var(--sch-s1); stroke-width: 3; stroke-linecap: round; }
+  .s7-head { fill: var(--sch-s1); }
+  .s7-fixed { fill: none; stroke: var(--sch-s1); stroke-width: 2.5; }
+  .s7-band { font-size: 16.5px; font-weight: 600; fill: var(--sch-text-soft); }
+</style>

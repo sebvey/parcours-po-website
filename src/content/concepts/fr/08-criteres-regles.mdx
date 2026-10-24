@@ -1,0 +1,257 @@
+---
+numero: "8"
+titre: "Critères d'acceptation et règles métier"
+objectif: "Écrire des critères d'acceptation qu'un testeur tranche sans poser de question, les séparer des règles métier qu'ils illustrent, et faire fixer une règle restée ouverte au lieu de l'inventer."
+description: "Ce qu'est un critère d'acceptation, en quoi il diffère d'une règle métier, comment l'écrire en Given/When/Then avec une variable à la fois, et que faire d'une règle non fixée."
+prerequis: ["7"]
+ecoles:
+  consensus:
+    - auteur: "Le Scrum Guide 2020"
+      texte: "Ne parle ni de critère d'acceptation, ni de règle métier, ni de story. Rien de ce concept n'est donc du consensus Scrum."
+      refs: ["S1"]
+    - auteur: "Pratique établie, hors du Scrum Guide"
+      texte: "Chaque story porte des critères d'acceptation. C'est la confirmation des 3C de Ron Jeffries (XP, concept 5) et le T d'INVEST de Bill Wake (concept 7). Mike Cohn parle de conditions de satisfaction, presque synonymes, et en confie l'écriture d'abord au PO ; le cours y ajoute la conversation avec l'utilisateur et l'équipe."
+      refs: ["S2", "S3", "S4"]
+  ecole:
+    - auteur: "Dan North et Chris Matts : Given/When/Then"
+      texte: "Forme créée par North et Matts, dans les années 2000, pour écrire les critères d'une story en scénarios ; elle vient du BDD (behaviour-driven development) de Dan North, décrite dans un article de 2006. Cucumber et son langage Gherkin rendent ces scénarios exécutables ; la forme s'emploie aussi sans outil, comme simple heuristique."
+      refs: ["S5", "S6", "S10"]
+    - auteur: "Gojko Adzic : Specification by Example"
+      texte: "Décrire les exigences par des exemples, popularisé par le livre d'Adzic (2011). L'expression est plus ancienne : Martin Fowler la mentionne dès 2004."
+      refs: ["S8", "S9"]
+    - auteur: "Matt Wynne : Example Mapping"
+      texte: "Poser les règles à part et les illustrer par des exemples : règles sur des cartes bleues, exemples sur des cartes vertes, questions sans réponse sur des cartes rouges. Chez Wynne, règles et critères d'acceptation vont sur la même carte. Gherkin a un mot-clé Rule qui regroupe les exemples d'une règle."
+      refs: ["S7", "S6"]
+  cours:
+    - texte: "Séparer critère et règle métier par le test « est-ce encore vrai si cette story n'existe pas ? ». Aucune source ne sépare les deux de cette façon : chez Wynne, règles et critères vont sur la même carte."
+      refs: ["S7"]
+    - texte: "Ne changer qu'une variable d'un exemple à l'autre. Heuristique du cours, sans source externe ; Gherkin recommande seulement de limiter chaque exemple à quelques étapes."
+      refs: ["S5", "S6"]
+    - texte: "Une contrainte d'usage s'écrit dans un critère, dans le contexte de départ (Given), sans nommer de solution (concept 7)."
+      refs: ["S3"]
+    - texte: "Le Then vérifie un résultat observable par l'utilisateur, pas un moyen choisi par l'équipe."
+      refs: ["S6", "S3"]
+    - texte: "Une règle non fixée n'est ni inventée ni tranchée par le PO seul : il la fait fixer par l'utilisateur concerné avant que la story parte (concept 4)."
+      refs: ["S7"]
+    - texte: "Given/When/Then n'est pas obligatoire : un critère écrit autrement convient s'il reste tranchable."
+      refs: ["S10"]
+sources:
+  affirmations:
+    - affirmation: "Le Scrum Guide ne parle ni de critère d'acceptation, ni de règle métier, ni de story."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "Texte du Guide cherché le 2026-10-22 : « acceptance », « criteri », « business rule », « testable », « example » : aucune occurrence ; « story » : aucune. Ce que le Guide dit d'un élément prêt : « Product Backlog items that can be Done by the Scrum Team within one Sprint are deemed ready for selection in a Sprint Planning event »."
+    - affirmation: "Une story porte des critères d'acceptation : pratique établie, pas un texte de consensus Scrum."
+      kind: "consensus"
+      refs: ["S2", "S3", "S4"]
+      verifie: "Jeffries : la confirmation, « This component is the acceptance test » ; Wake : « I understand what I want well enough that I could write a test for it » ; Cohn : les conditions de satisfaction sont « specific to a given product backlog item »."
+    - affirmation: "Critère d'acceptation et condition de satisfaction : presque synonymes ; le PO en est le premier responsable."
+      kind: "ecole"
+      refs: ["S4"]
+      verifie: "Cohn : « Acceptance criteria and conditions of satisfaction (CoS) are two terms that mean almost the same thing » ; « product owners are the people primarily responsible for creating conditions of satisfaction ». Avis de Cohn, pas du Scrum Guide. Le cours y ajoute la conversation avec l'équipe (3C, concept 5)."
+    - affirmation: "Un critère d'acceptation est une condition vérifiable, propre à une story, qui dit quand elle est faite."
+      kind: "cours"
+      refs: ["S4"]
+      verifie: "Cohn : « specific to a given product backlog item » ; « what needs to be true in order for you to consider this particular story done? ». La définition elle-même est celle du glossaire du cours."
+    - affirmation: "Les critères rendent la story testable, le T d'INVEST."
+      kind: "ecole"
+      refs: ["S3"]
+      verifie: "Wake, T : « I understand what I want well enough that I could write a test for it » ; « If a customer doesn't know how to test something, this may indicate that the story isn't clear enough »."
+    - affirmation: "Une règle métier est une vérité du domaine, valable hors de la story et réutilisable."
+      kind: "cours"
+      refs: ["S6", "S7"]
+      verifie: "Définition du glossaire du cours, sans source externe. Gherkin : le mot-clé Rule représente « one business rule that should be implemented » (depuis Gherkin v6). « Valable hors de la story » est la formulation du cours."
+    - affirmation: "Les critères sont souvent des exemples qui illustrent une règle."
+      kind: "ecole"
+      refs: ["S7", "S6"]
+      verifie: "Wynne : règles sur cartes bleues, exemples sur cartes vertes, « For each rule, we may need one or more examples to illustrate it ». Gherkin : Rule regroupe des Example (« Scenario is a synonym of the keyword Example »). Chez Wynne, « rules » et « acceptance criteria » vont sur la même carte bleue : il ne sépare pas critère et règle comme le cours."
+    - affirmation: "Test de séparation : « est-ce encore vrai si cette story n'existe pas ? » pour une règle ; « un testeur peut-il dire OK ou KO sans me poser de question ? » pour un critère."
+      kind: "cours"
+      refs: ["S3"]
+      verifie: "Heuristique du cours, sans source pour la première question. La seconde découle du T de Wake (pouvoir écrire un test) ; la formulation est celle du cours."
+    - affirmation: "Example Mapping : règles en bleu, exemples en vert, questions en rouge."
+      kind: "ecole"
+      refs: ["S7"]
+      verifie: "Wynne : cartes bleues pour les règles, vertes pour les exemples ; une question sans réponse va sur une carte rouge."
+    - affirmation: "Une règle non fixée : le PO ne l'invente pas ni ne la tranche seul, il la fait fixer par l'utilisateur concerné avant que la story parte."
+      kind: "cours"
+      refs: ["S7"]
+      verifie: "Choix du cours (concept 4). Wynne : une question sans réponse va sur une carte rouge, « simply capture the question and move on » ; quelqu'un manque peut-être à la conversation. La DoR de l'équipe vélos (« règles métier fixées ») est un fait du fil rouge."
+    - affirmation: "Une contrainte d'usage s'écrit dans un critère, dans le Given ; l'équipe choisit la solution, le N d'INVEST."
+      kind: "cours"
+      refs: ["S3"]
+      verifie: "Wake, N : « It is not an explicit contract for features; rather, details will be co-created by the customer and programmer » ; « A good story captures the essence, not the details ». Mettre la contrainte dans le critère est la lecture du cours (concept 7b)."
+    - affirmation: "Given/When/Then : forme créée par Dan North et Chris Matts pour écrire les critères d'acceptation d'une story en scénarios."
+      kind: "ecole"
+      refs: ["S5"]
+      verifie: "North : Matts et lui créent un modèle « to capture a story's acceptance criteria » : « Given some initial context (the givens), When an event occurs, Then ensure some outcomes ». Article paru dans *Better Software* en mars 2006, en ligne daté du 20 septembre 2006. La page ne donne pas d'année de création (voir « Non vérifié »)."
+    - affirmation: "Le BDD (behaviour-driven development) vient de Dan North."
+      kind: "ecole"
+      refs: ["S5", "S10"]
+      verifie: "North : « I started to refer to TDD as BDD, or behaviour-driven development ». Agile Alliance : « BDD is a practice where members of the team discuss the expected behavior of a system »."
+    - affirmation: "Given/When/Then reste utilisable sans outil."
+      kind: "ecole"
+      refs: ["S10"]
+      verifie: "Agile Alliance : modèle pour écrire les tests d'acceptation d'une story ; outils JBehave, RSpec, Cucumber ; « can also be used purely as a heuristic irrespective of any tool »."
+    - affirmation: "Gherkin est le langage à mots-clés de l'outil Cucumber, qui rend les spécifications exécutables."
+      kind: "ecole"
+      refs: ["S6"]
+      verifie: "« Gherkin uses a set of special keywords to give structure and meaning to executable specifications ». Gherkin est un langage, Cucumber l'outil."
+    - affirmation: "Given : le contexte de départ ; When : l'événement ou l'action ; Then : le résultat attendu, observable."
+      kind: "ecole"
+      refs: ["S5", "S6", "S10"]
+      verifie: "North : « Given some initial context […] When an event occurs, Then ensure some outcomes ». Gherkin : Given « describe the initial context », When « describe an event, or an action », Then « describe an expected outcome » ; « An outcome should be on an observable output ». Agile Alliance : « a particular set of observable consequences »."
+    - affirmation: "Un When absent, un Then vague ou un mot flou obligent le testeur à poser une question."
+      kind: "cours"
+      refs: ["S3", "S5", "S6"]
+      verifie: "La forme de North et de Gherkin a trois parties et exige un résultat observable ; le reste découle du T de Wake. Formulation du cours."
+    - affirmation: "Le Then vérifie un résultat observable par l'utilisateur, pas un moyen choisi par l'équipe."
+      kind: "cours"
+      refs: ["S6", "S3"]
+      verifie: "Raisonnement du cours : vérifier un résultat observable (Gherkin), pas un moyen que l'équipe pouvait changer (le N de Wake). Sans source externe."
+    - affirmation: "Nommer la solution dans le Then fige ce que l'équipe pouvait négocier."
+      kind: "cours"
+      refs: ["S3"]
+      verifie: "Wake, N (voir plus haut) ; renvoi au concept 7b."
+    - affirmation: "Changer une seule variable d'un exemple à l'autre, pour savoir quelle règle on teste."
+      kind: "cours"
+      refs: ["S5", "S6"]
+      verifie: "Heuristique du cours, sans source externe trouvée. L'exemple du distributeur de North fait varier l'état du compte entre deux scénarios, sans en faire une règle. Gherkin recommande seulement « 3-5 steps per example »."
+    - affirmation: "Ce qui vaut pour toutes les vues relève de la DoD de l'équipe, pas des critères de chaque story ; la DoR de l'équipe vélos demande des règles métier fixées."
+      kind: "cours"
+      refs: []
+      verifie: "Faits du fil rouge (DoD et DoR de l'équipe vélos), inventés ; DoD et DoR s'enseignent au concept 11."
+    - affirmation: "Given/When/Then n'est pas obligatoire."
+      kind: "cours"
+      refs: ["S10", "S2", "S3"]
+      verifie: "Agile Alliance : la forme est une heuristique. Jeffries et Wake demandent un test d'acceptation, sans imposer de forme. « S'il reste tranchable » est la formulation du cours."
+    - affirmation: "Specification by Example : décrire les exigences par des exemples, popularisé par Gojko Adzic ; l'expression est plus ancienne."
+      kind: "ecole"
+      refs: ["S8", "S9"]
+      verifie: "Adzic, *Specification by Example*, Manning, juin 2011 : « a collaborative method for specifying requirements and tests ». Fowler, bliki du 18 mars 2004 : l'expression l'a frappé à un atelier XP/Agile Universe en 2002. Adzic n'a donc pas inventé le terme : la page ne lui attribue que le livre."
+    - affirmation: "Les exemples du fil rouge et le cas d'illustration du schéma (location, abonné) sont des faits inventés."
+      refs: []
+      verifie: "Sans source : l'opérateur de vélos en libre-service est fictif, et la règle « un abonné loue un seul vélo à la fois » n'est qu'un cas d'illustration inventé pour la page."
+  references:
+    - id: "S1"
+      texte: "Schwaber, Sutherland, *The Scrum Guide*, novembre 2020"
+      url: "https://scrumguides.org/scrum-guide.html"
+      type: "primaire"
+      consultee: "2026-10-22"
+    - id: "S2"
+      texte: "Jeffries, « Essential XP: Card, Conversation, Confirmation », 30 août 2001"
+      url: "https://ronjeffries.com/xprog/articles/expcardconversationconfirmation/"
+      type: "primaire"
+      consultee: "2026-10-22"
+    - id: "S3"
+      texte: "Wake, « INVEST in Good Stories, and SMART Tasks », 17 août 2003"
+      url: "https://xp123.com/invest-in-good-stories-and-smart-tasks/"
+      type: "primaire"
+      consultee: "2026-10-22"
+    - id: "S4"
+      texte: "Mountain Goat Software (Cohn), « Relationship between Definition of Done and Conditions of Satisfaction », mise à jour du 24 juin 2024 (sans signature ; site et voix de Cohn)"
+      url: "https://www.mountaingoatsoftware.com/blog/clarifying-the-relationship-between-definition-of-done-and-conditions-of-sa"
+      type: "primaire (site de l'auteur, qui vend aussi ses formations)"
+      consultee: "2026-10-22"
+    - id: "S5"
+      texte: "North, « Introducing BDD », paru dans *Better Software*, mars 2006 ; en ligne daté du 20 septembre 2006"
+      url: "https://dannorth.net/blog/introducing-bdd/"
+      type: "primaire"
+      consultee: "2026-10-22"
+    - id: "S6"
+      texte: "Cucumber, « Gherkin Reference » (documentation)"
+      url: "https://cucumber.io/docs/gherkin/reference/"
+      type: "primaire (documentation de l'outil ; Cucumber appartient à un éditeur)"
+      consultee: "2026-10-22"
+    - id: "S7"
+      texte: "Wynne, « Introducing Example Mapping », Cucumber, 8 décembre 2015"
+      url: "https://cucumber.io/blog/bdd/example-mapping-introduction/"
+      type: "primaire (blog de l'outil, part marketing)"
+      consultee: "2026-10-22"
+    - id: "S8"
+      texte: "Adzic, *Specification by Example*, Manning, juin 2011 (fiches de l'éditeur et de l'auteur)"
+      url: "https://www.manning.com/books/specification-by-example"
+      type: "primaire (fiches de l'auteur et de l'éditeur ; livre non lu)"
+      consultee: "2026-10-22"
+    - id: "S9"
+      texte: "Fowler, « Specification By Example », bliki, 18 mars 2004"
+      url: "https://martinfowler.com/bliki/SpecificationByExample.html"
+      type: "primaire"
+      consultee: "2026-10-22"
+    - id: "S10"
+      texte: "Agile Alliance, glossaire : « Given-When-Then » et « BDD »"
+      url: "https://www.agilealliance.org/glossary/gwt/"
+      type: "secondaire"
+      consultee: "2026-10-22"
+  nonVerifie:
+    - "**Date de naissance de Given/When/Then.** L'article de North ne date pas son travail avec Chris Matts ; seul l'article (mars 2006) est daté. D'autres sources avancent 2004, non consultées. La page écrit « dans les années 2000 »."
+    - "**Créateur de Gherkin et de Cucumber.** Non vérifié : la page ne nomme que l'outil."
+    - "**Contenu du livre d'Adzic.** Seules les fiches de l'éditeur et de l'auteur ont été lues. La page n'affirme rien au-delà du titre, de l'auteur, de l'année et de la définition générale."
+    - "**Séparation critère / règle métier comme pratique répandue.** Aucune source ne sépare les deux comme le cours : Wynne met « acceptance criteria, or rules » sur la même carte, et les exemples dessous. La distinction « vraie hors de la story » est un choix du cours."
+    - "**« Une variable à la fois ».** Heuristique du cours, aucune source externe trouvée."
+    - "**Une story porte des critères d'acceptation, comme consensus.** Non confirmé par le Scrum Guide : la page la présente comme une pratique établie (XP, Wake, Cohn), pas comme un consensus."
+    - "**Cohn, *User Stories Applied* (2004).** Livre non lu : rien de la page ne s'y appuie."
+---
+import Schema08 from '../../../components/schemas/Schema08.astro';
+
+Un **critère d'acceptation**, propre à une story, dit quand elle est faite : un testeur tranche OK ou KO sans poser de question (le T d'INVEST, <Renvoi n="7" />). Une **règle métier** est vraie hors de la story, et d'autres stories s'en servent. Les critères sont souvent des exemples qui illustrent une règle, écrits en **Given/When/Then** (contexte, événement, résultat observable), **une variable à la fois**. Un critère ne fixe pas une règle restée ouverte.
+
+<Figure legende="Une règle, deux exemples, une question. Les exemples en Given/When/Then illustrent la règle ; d'un exemple à l'autre, un seul fait change (souligné). Une règle non fixée reste une question, sans exemple dessous. Cas d'illustration inventé pour la page.">
+  <Schema08 />
+</Figure>
+
+<Sous id="8a" titre="Critère ou règle métier" promesse="Le critère est propre à la story et se tranche ; la règle vaut au-delà et se fixe avant.">
+
+<h4 id="8a1"><span class="num">8a1</span> Critère ou règle</h4>
+
+Un critère d'acceptation est **propre à une story** et se tranche OK ou KO. Une règle métier est une vérité du domaine : elle reste vraie sans cette story, et d'autres stories s'en servent. Les critères illustrent souvent une règle par un cas précis.
+
+Deux questions permettent de les séparer : pour une règle, « est-ce encore vrai si cette story n'existe pas ? » ; pour un critère, « un testeur peut-il dire OK ou KO sans me poser de question ? ». Cette séparation est un choix du cours <Pastille kind="cours" /> : chez Matt Wynne, règles et critères vont sur la même carte, et aucune source consultée ne les distingue ainsi. Elle sert à ne pas recopier une règle dans chaque story, ni à prendre un cas précis pour une règle générale.
+
+Une **contrainte d'usage** (par exemple, l'utilisateur ne dispose que d'un moyen d'accès précis) va dans le contexte de départ, le Given, d'un critère : c'est ainsi que le testeur la vérifie (<Renvoi n="7b" />). Ce qui vaut pour toutes les vues de l'équipe, lui, ne se répète pas dans chaque story : c'est la Definition of Done (<Renvoi n="11" />).
+
+<FilRouge>L'équipe vélos a une DoR qui demande des règles métier fixées avant qu'une story entre dans un sprint.</FilRouge>
+
+<h4 id="8a2"><span class="num">8a2</span> La règle non fixée</h4>
+
+Un critère qui s'appuie sur une règle non fixée **la fixe en douce** : le cas qu'il choisit tranche la règle, sans que personne l'ait décidée. Par exemple, « Then la location de plus de 24 heures est signalée » décide qu'une location est trop longue au-delà de 24 heures. La forme du critère peut être impeccable : c'est son contenu qui décide. Un avis répandu n'est pas une décision.
+
+Pour le repérer, on se demande, critère par critère : **quelle règle ce cas suppose-t-il, et est-elle fixée ?** Si elle ne l'est pas, le PO ne l'invente pas et ne la tranche pas à la place de l'utilisateur concerné : il la fait fixer, et la story attend (<Renvoi n="4" />, <Renvoi n="7a2" />). Dans l'Example Mapping, cette règle est une question sans réponse, sur une carte rouge, sans exemple dessous ; elle ne devient règle métier qu'une fois fixée, et les critères l'illustrent alors par des cas autour de ses limites.
+
+</Sous>
+
+<Sous id="8b" titre="Given/When/Then, une variable à la fois" promesse="Une forme simple pour écrire un critère, et une discipline pour qu'il reste lisible.">
+
+<h4 id="8b1"><span class="num">8b1</span> La forme</h4>
+
+**Given** décrit le contexte de départ, **When** l'événement ou l'action, **Then** le résultat attendu, observable : ce que le testeur vérifie. En français : étant donné, quand, alors. C'est un choix d'école <Pastille kind="ecole" /> de Dan North et Chris Matts, issu du BDD ; Cucumber et son langage Gherkin l'outillent, mais la forme s'écrit sans outil. Elle n'est pas obligatoire : un critère écrit autrement convient s'il reste tranchable.
+
+Un critère devient vite flou par quatre défauts. Un **When absent** : on ne sait pas quel événement déclenche le résultat. Un **Then vague** (« l'utilisateur peut savoir ») : on ne sait pas quoi vérifier ; on écrit ce que le testeur regarde, un nombre, un âge. Un **mot flou** (« rapidement », « à jour ») : le testeur doit encore poser une question ; on écrit la valeur fixée. Et **le moyen au lieu du résultat** : le Then vérifie ce que l'utilisateur obtient ou observe, pas un choix de l'équipe qu'elle pouvait changer. « La page est servie depuis un cache » est un moyen ; « la vue affiche le nombre de vélos disponibles » est un résultat. Un Then qui nomme une solution fige ce que l'équipe pouvait négocier (<Renvoi n="7b" />).
+
+<h4 id="8b2"><span class="num">8b2</span> Une variable à la fois</h4>
+
+D'un exemple à l'autre, **ne changer qu'un fait du Given** <Pastille kind="cours" /> : si le Then change, on sait quelle règle joue ; si un test échoue, on sait quoi corriger. Deux exemples qui diffèrent par deux faits à la fois ne disent plus lequel est en cause. Sur le schéma, les deux exemples ne diffèrent que par la location en cours.
+
+Il faut aussi que chaque Then reste fidèle aux règles fixées : un Then qui exclut un cas que la règle admet invente une règle en douce. On relit donc chaque Then contre les règles du domaine, comme on le fait pour un critère qui s'appuie sur une règle non fixée.
+
+</Sous>
+
+<Reflexe note="Formulation du cours, sans source externe.">
+Règle : « est-ce encore vrai si cette story n'existe pas ? » Critère : « un testeur peut-il dire OK ou KO sans me poser de question ? » Et d'un exemple à l'autre, un seul fait change.
+</Reflexe>
+
+<Erreurs>
+
+- **Confondre règle et critère** : recopier une règle dans les critères de chaque story, ou ériger un cas précis en règle.
+- **Fixer une règle non fixée dans un critère** : le critère décide en douce. Le PO la fait fixer avant que la story parte.
+- **Inventer une règle dans le Then** : relire chaque Then contre les règles fixées.
+- **Un mot flou** (« à jour », « rapidement ») : écrire la valeur fixée.
+- **Un Then vague ou un When absent ou mal placé** : sans événement ni résultat observable, on ne sait pas quoi vérifier ni quand.
+- **Le moyen au lieu du résultat** : le Then vérifie ce que l'utilisateur observe.
+- **La solution dans le critère** : on fige ce que l'équipe pouvait négocier.
+- **Reformuler une contrainte plus large qu'elle n'est** : la reprendre telle qu'elle est posée.
+- **Changer plusieurs variables à la fois** : on ne sait plus quelle règle on teste.
+- **Répéter dans chaque story ce qui vaut pour toutes** : c'est la DoD.
+- **Croire Given/When/Then obligatoire ou lié à un outil** : c'est un choix d'école.
+
+</Erreurs>
