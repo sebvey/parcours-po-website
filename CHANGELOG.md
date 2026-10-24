@@ -5,6 +5,19 @@ dit sur quelle version du cours elle est alignée.
 
 ## Non publié
 
+## 0.1.0, 2026-10-24 (aligné sur le cours 1.0.0)
+
+Première version, en aperçu : 18 concepts (0 à 17) et 2 annexes (A1, A2), glossaire, fil rouge,
+parcours de lecture, page Consensus ou école, sources, recherche.
+
+- Le fond suit les fiches du cours : les exemples que l'audit avait généralisés pour ne pas
+  dévoiler les exercices sont repris des fiches (voir ci-dessous).
+- Chaque page de concept porte la version du cours et l'empreinte des fiches dont elle dérive ;
+  `npm run check-alignment` liste les pages à réaligner.
+- Version du site et du cours dans le pied de page et dans À propos.
+
+### Réalignements avant la première publication
+
 - Contenu d'enseignement propre au site repris dans le cours (T-054) : les pages suivent les fiches
   corrigées. Encadrés « fil rouge » retirés quand ils reprenaient la situation ou le verdict d'une
   question de la banque (concepts 0, 1, 2, 3, 6, 7, 9, 10, 11), alignés sur les fiches pour les autres
@@ -19,16 +32,8 @@ dit sur quelle version du cours elle est alignée.
   affirmation CRISP-DM (17), liste des types de liens Jira et affirmation « ticket » (A1),
   citation « If you only quantify one thing » et référence S15 (13).
 
-## 0.1.0, 2026-10-24 (aligné sur le cours 1.0.0)
-
-Première version, en aperçu : 18 concepts (0 à 17) et 2 annexes (A1, A2), glossaire, fil rouge,
-parcours de lecture, page Consensus ou école, sources, recherche.
-
-- Le fond suit les fiches du cours : les exemples que l'audit avait généralisés pour ne pas
-  dévoiler les exercices sont repris des fiches (voir ci-dessous).
-- Chaque page de concept porte la version du cours et l'empreinte des fiches dont elle dérive ;
-  `npm run check-alignment` liste les pages à réaligner.
-- Version du site et du cours dans le pied de page et dans À propos.
+- Licences : contenu CC BY 4.0, code MIT (`LICENSE`). Le site demande aux moteurs de recherche de ne pas
+  l'indexer tant que sa version est 0.x.
 
 ### Réalignement sur les fiches du cours 1.0.0
 

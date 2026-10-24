@@ -17,6 +17,8 @@ const t = useT(lang);
 const fullTitle = title ? `${title} | ${t('site.name')}` : t('site.name');
 const desc = description ?? t('site.tagline');
 const canonical = new URL(Astro.url.pathname, Astro.site);
+// Aperçu : tant que la version est 0.x, le site demande aux moteurs de recherche de ne pas l'indexer.
+const preview = siteVersion.startsWith('0.');
 const items = [
   { key: 'home', href: url(''), label: t('nav.home') },
   { key: 'path', href: url('parcours/'), label: t('nav.path') },
@@ -38,6 +40,7 @@ const items = [
     <title>{fullTitle}</title>
     <meta name="description" content={desc} />
     <link rel="canonical" href={canonical} />
+    {preview && <meta name="robots" content="noindex, nofollow" />}
     <link rel="icon" type="image/svg+xml" href={url('favicon.svg')} />
     <meta name="color-scheme" content="light dark" />
     <meta property="og:title" content={fullTitle} />

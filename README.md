@@ -85,4 +85,4 @@ et `src/pages/en/`.
 
 ## Licence
 
-© Sébastien Vey. Contenu sous licence CC BY 4.0 : voir `LICENSE`. La licence du code du site reste à préciser.
+© Sébastien Vey. Contenu sous licence CC BY 4.0, code sous licence MIT : voir `LICENSE`.
