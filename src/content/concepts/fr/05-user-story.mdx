@@ -187,7 +187,7 @@ import Schema05 from '../../../components/schemas/Schema05.astro';
 
 Une **user story** (story) exprime **un besoin précis** d'un utilisateur, vu de lui : ni son parcours entier, ni une spécification. Elle s'écrit souvent **en tant que** (qui), **je veux** (quoi, sans solution imposée), **afin de** (sa raison). La raison aide le PO à ordonner et laisse l'équipe choisir comment répondre, parfois plus simplement. La phrase écrite, la **carte**, ne suffit pas : la **conversation** la précise, et la **confirmation** dit comment vérifier qu'elle est faite (les 3C).
 
-<Figure legende="Une story sur l'exemple de la vue des stations vides. En bas, la phrase en trois blocs ; le « afin de » est mis en avant. Au-dessus, l'échelle des « pourquoi ? » : on monte jusqu'à une décision que l'utilisateur prend, et pas plus haut. À gauche, la carte, avec sa conversation (bulle) et sa confirmation (coche) : les 3C.">
+<Figure legende="Une story sur l'exemple de la vue des stations vides. En bas, la phrase en trois blocs ; le « afin de » est mis en avant. Au-dessus, l'échelle des « pourquoi ? » : on monte jusqu'à une décision que l'utilisateur prend, et pas plus haut (échelons intermédiaires inventés pour l'illustration). À gauche, la carte, avec sa conversation (bulle) et sa confirmation (coche) : les 3C.">
   <Schema05 />
 </Figure>
 
@@ -195,7 +195,7 @@ Une **user story** (story) exprime **un besoin précis** d'un utilisateur, vu de
 
 <h4 id="5a1"><span class="num">5a1</span> Les trois parties</h4>
 
-Une story dit **qui** a le besoin (l'utilisateur, désigné par son rôle, c'est-à-dire sa catégorie d'utilisateurs ; le choix de l'acteur est au <Renvoi n="6" />), **quoi** (ce qu'il veut faire ou savoir) et **pourquoi** (sa raison). Le « je veux » décrit ce que l'utilisateur veut, pas la façon dont l'équipe le construit : une table, un traitement de nuit ou un graphique sont des solutions, c'est-à-dire le comment des Developers.
+Une story dit **qui** a le besoin (l'utilisateur, désigné par son rôle, c'est-à-dire sa catégorie d'utilisateurs ; le choix de l'acteur est au <Renvoi n="6" />), **quoi** (ce qu'il veut faire ou savoir) et **pourquoi** (sa raison). Le « je veux » décrit ce que l'utilisateur veut, pas la façon dont l'équipe le construit : un écran, un export ou un graphique sont des solutions, c'est-à-dire le comment des Developers.
 
 Une story porte un seul « je veux ». S'il y en a plusieurs, ce n'est plus une story : c'est une feature ou un epic (<Renvoi n="4" />), ou un parcours, que le <Renvoi n="16" /> range en story map.
 
@@ -221,7 +221,7 @@ La carte n'est donc pas à allonger : elle reste courte, et le détail va dans l
 
 <h4 id="5b1"><span class="num">5b1</span> Un « afin de » qui sert</h4>
 
-Le « afin de » donne la raison du besoin. Il aide le PO à ordonner les stories, et il laisse l'équipe choisir comment répondre : connaître la raison permet parfois une réponse plus simple <Pastille kind="ecole" />. Deux formes le rendent inutile :
+Le « afin de » donne la raison du besoin. Il aide le PO à ordonner les stories, et il laisse l'équipe choisir comment répondre <Pastille kind="ecole" /> : connaître la raison permet parfois une réponse plus simple (formulation du cours). Deux formes le rendent inutile :
 
 - le « afin de » **circulaire**, qui répète le « je veux » (« voir les stations vides, afin de suivre les stations vides ») ;
 - le « afin de » **de confort** (« afin d'avoir une vue claire »), qui ne dit pas ce que la clarté change pour l'utilisateur.
@@ -245,7 +245,7 @@ Lis le seul « afin de » à la personne qui a fait la demande : reconnaît-elle
 <Erreurs>
 
 - **Prendre la story pour le parcours de l'utilisateur** : une story est un besoin, pas une suite d'actions. Si la phrase enchaîne plusieurs actions, c'est un parcours.
-- **Mettre une solution dans le « je veux »** (« je veux une table de… », « un graphique dans la vue ») : écrire le besoin, l'équipe proposera la solution.
+- **Mettre une solution dans le « je veux »** (« je veux un export de… », « un graphique dans la vue ») : écrire le besoin, l'équipe proposera la solution.
 - **Un « afin de » circulaire ou de confort** : demander « pourquoi ? » à l'utilisateur, jusqu'à une décision ou un gain qu'il reconnaît.
 - **Un « afin de » trop haut** (l'objectif produit, « améliorer le service ») : il vaut pour toutes les stories et n'aide plus à ordonner.
 - **Inventer la raison** au lieu de la demander.

@@ -175,9 +175,9 @@ sources:
 ---
 import Schema07 from '../../../components/schemas/Schema07.astro';
 
-INVEST donne six critères pour juger une story : **I**ndependent, **N**egotiable, **V**aluable, **E**stimable, **S**mall, **T**estable. C'est une grille de Bill Wake (2003, milieu XP), un aide-mémoire plutôt qu'une règle de Scrum. Elle sert à repérer ce qui cloche dans une story, pas à la noter. Quand E, S et T restent douteux ensemble, c'est souvent **un même mot flou** : on le fait préciser, on ne coche pas.
+INVEST donne six critères pour juger une story : **I**ndependent, **N**egotiable, **V**aluable, **E**stimable, **S**mall, **T**estable. C'est une grille de Bill Wake (2003, milieu XP), un aide-mémoire plutôt qu'une règle de Scrum. Elle sert à juger une story, lettre par lettre. Quand E, S et T restent douteux ensemble, c'est souvent **un même mot flou** : on le fait préciser, on ne coche pas.
 
-<Figure legende="Les six lettres d'INVEST. Une coche : la lettre se tient. Un point d'interrogation : elle est douteuse. Trois lettres douteuses à la fois (E, S, T) pointent souvent vers un seul mot non fixé dans la story ; une fois ce mot précisé par l'utilisateur concerné, avant le sprint, elles se tranchent.">
+<Figure legende="Les six lettres d'INVEST. Une coche : la lettre se tient. Un point d'interrogation : elle est douteuse. Trois lettres douteuses à la fois (E, S, T) pointent souvent vers un seul mot non fixé dans la story ; une fois ce mot précisé par l'utilisateur concerné, avant le sprint, elles se tranchent. La phrase est un exemple inventé pour l'illustration.">
   <Schema07 />
 </Figure>
 
@@ -192,7 +192,7 @@ INVEST donne six critères pour juger une story : **I**ndependent, **N**egotiabl
 - **S, Small.** Elle est petite. Trois repères, à ne pas mêler : chez Wake, au plus quelques semaines-personnes <Pastille kind="ecole" /> ; certaines équipes visent quelques jours-personnes, et Wake le signale lui-même ; le repère du cours est qu'elle **tient dans un sprint** <Pastille kind="cours" /> (<Renvoi n="4" />). « Quelques jours » est donc la règle de certaines équipes, pas celle d'INVEST.
 - **T, Testable.** On saurait écrire un test qui dit si elle est faite. Si le client ne sait pas comment la tester, la story n'est peut-être pas assez claire (ses critères s'écrivent au <Renvoi n="8" />).
 
-E et S ne se cochent pas seul : le Scrum Guide confie l'estimation de la taille aux Developers, le PO peut les aider à comprendre les compromis.
+Le PO ne coche pas E et S seul : le Scrum Guide confie l'estimation de la taille aux Developers, le PO peut les aider à comprendre les compromis.
 
 <FilRouge>L'équipe vélos travaille en sprints de deux semaines : pour elle, la question de S est « cette story tient-elle dans le sprint ? », et ce sont ses Developers qui y répondent.</FilRouge>
 
@@ -208,13 +208,13 @@ Une même question aide à le repérer : un testeur qui ne connaît que la story
 
 <Sous id="7b" titre="N : le besoin, pas la solution" promesse="La story fixe le besoin ; une contrainte réelle ne se négocie pas, et elle s'écrit dans un critère.">
 
-N veut dire que la story n'est pas un contrat de fonctions : elle porte l'essentiel, et les détails se construisent avec l'équipe, jusque pendant la réalisation (Wake). Ce qui relève de la **solution** (le canal, la forme, l'outil) reste donc ouvert à la discussion. Écrire la solution dans la story, ou dans un critère, empêche l'équipe de proposer mieux.
+N veut dire que la story n'est pas un contrat de fonctions : elle porte l'essentiel, et les détails se construisent avec l'équipe, jusque pendant la réalisation (Wake). Dans la lecture du cours, la story fixe le besoin, et ce qui relève de la **solution** (le canal, la forme, l'outil) reste ouvert à la discussion. Écrire la solution dans la story, ou dans un critère, empêche l'équipe de proposer mieux <Pastille kind="cours" />.
 
 <FilRouge>Le canal par lequel un abonné reçoit une information (SMS, serveur vocal, appli) relève de l'équipe appli, pas de l'équipe vélos.</FilRouge>
 
-Mais **négociable ne veut pas dire tout ouvert** <Pastille kind="cours" />. Une **contrainte** est une exigence réelle de l'usage, qui ne se négocie pas : par exemple, une catégorie d'utilisateurs qui ne peut consulter l'information que par un moyen précis. Elle n'est pas une solution : plusieurs solutions peuvent la respecter. Elle s'écrit dans un **critère d'acceptation**, sans nommer de solution, pour que le testeur la lise (<Renvoi n="8" />). La phrase de la story, elle, ne change pas : elle reste le besoin.
+Mais **négociable ne veut pas dire tout ouvert** <Pastille kind="cours" />. Une **contrainte** est une exigence réelle de l'usage, qui ne se négocie pas . Elle n'est pas une solution : plusieurs solutions peuvent la respecter. Elle s'écrit dans un **critère d'acceptation**, sans nommer de solution, pour que le testeur la lise (<Renvoi n="8" />). La phrase de la story, elle, ne change pas : elle reste le besoin.
 
-Une façon de distinguer les deux : face à un détail, demander « une autre solution le respecterait-elle ? ». Si oui, c'est une solution, donc négociable. Si non, c'est une contrainte.
+Exemple inventé pour l'illustration : un régulateur consulte une vue depuis sa camionnette, sur un petit écran. « Se lire sur un petit écran » est une contrainte, qui va dans un critère ; un tableau, une liste ou une carte sont des solutions, que l'équipe peut proposer.
 
 </Sous>
 
@@ -228,7 +228,7 @@ Un testeur qui ne connaît que la story et ses critères peut-il dire « fait »
 - **Fixer soi-même le mot flou**, ou le laisser fixer par les Developers : l'utilisateur concerné le précise, avant le sprint.
 - **Juger E et S à la place des Developers** : ce sont eux qui estiment la taille.
 - **Donner S en jours** comme si c'était la grille : chez Wake, c'est au plus quelques semaines-personnes ; le repère du cours est le sprint.
-- **Écrire la solution dans la story ou dans le critère** (« recevoir un SMS »).
+- **Écrire la solution dans la story ou dans le critère** (« un export CSV chaque matin »).
 - **Croire que négociable veut dire tout ouvert** : la contrainte d'usage ne se négocie pas.
 - **Rejeter une story parce qu'elle dépend d'une autre équipe** : I se tient autant que possible ; la dépendance s'écrit et se traite.
 - **Prendre INVEST pour une règle de Scrum** : c'est un aide-mémoire de Wake, absent du Scrum Guide.
