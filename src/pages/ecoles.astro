@@ -83,13 +83,13 @@ const sections = [
           {s.kind === 'ecole' && (
             <nav class="saut auteurs" aria-label="Auteurs et écoles" data-pagefind-ignore>
               <ul>
-                {s.groupes.map((g) => (<li><a href={`#${g.id}`}>{g.titre}</a></li>))}
+                {s.groupes.map((g) => (<li><a href={`#${s.kind}-${g.id}`}>{g.titre}</a></li>))}
               </ul>
             </nav>
           )}
           {s.groupes.map((g) => (
-            <section class="groupe" aria-labelledby={`g-${g.id}`}>
-              <h3 id={g.id}><span id={`g-${g.id}`}>{g.titre}</span> <span class="nb">{g.items.length}</span></h3>
+            <section class="groupe" aria-labelledby={`g-${s.kind}-${g.id}`}>
+              <h3 id={`${s.kind}-${g.id}`}><span id={`g-${s.kind}-${g.id}`}>{g.titre}</span> <span class="nb">{g.items.length}</span></h3>
               <ul class="pos-liste">
                 {g.items.map((it) => (<Position p={it.p} sujet={it.sujet} />))}
               </ul>
