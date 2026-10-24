@@ -6,12 +6,12 @@ const SEG = 38, Y0 = 142;
 <svg viewBox="0 0 600 395" role="img" aria-labelledby="g9b-t g9b-d" class="sch">
   <title id="g9b-t">Une part trop grosse recoupée en parts verticales plus fines</title>
   <desc id="g9b-d">
-    En haut, une part en pointillés : prévoir les stations à risque, trop grosse pour un sprint.
-    Elle est recoupée en trois morceaux. Morceau a, le centre-ville seulement : une part verticale qui traverse les quatre couches ;
+    En haut, une part en pointillés : une vue des vélos en panne pour Étienne, trop grosse pour un sprint.
+    Elle est recoupée en trois morceaux. Morceau a, les stations du centre-ville seulement : une part verticale qui traverse les quatre couches ;
     patron : D de SPIDR (Mike Cohn), ou Variations in Data (Richard Lawrence), même idée sous deux noms.
-    Morceau c, la tendance de la dernière heure, avant tout modèle : une part verticale qui traverse les quatre couches ;
-    patron : Simple/Complex (Richard Lawrence) ; le R de SPIDR est défendable.
-    Morceau b, la collecte des données météo : une simple lamelle horizontale au niveau de l’ingestion, les trois couches du dessus restent vides ;
+    Morceau c, le nombre de vélos signalés avant la liste détaillée : une part verticale qui traverse les quatre couches ;
+    patron : Simple/Complex (Richard Lawrence), sans patron du même nom dans SPIDR.
+    Morceau b, la collecte des signalements de pannes : une simple lamelle horizontale au niveau de l’ingestion, les trois couches du dessus restent vides ;
     c’est une couche, pas une tranche, et il n’a pas de patron.
   </desc>
   <defs>
@@ -23,24 +23,24 @@ const SEG = 38, Y0 = 142;
 
   <!-- La part d’origine -->
   <rect x="20" y="18" width="560" height="46" rx="8" class="origin" />
-  <text x="300" y="47" text-anchor="middle" class="origin-text">Prévoir les stations à risque : trop gros pour un sprint</text>
+  <text x="300" y="47" text-anchor="middle" class="origin-text">Une vue des vélos en panne : trop gros pour un sprint</text>
   {[115, 325, 510].map((x) => (<path d={`M${x} 68 V92`} class="link" />))}
 
   <!-- a -->
-  <text x="115" y="108" text-anchor="middle" class="head">a. le centre-ville</text>
-  <text x="115" y="127" text-anchor="middle" class="head">seulement</text>
+  <text x="115" y="108" text-anchor="middle" class="head">a. les stations du</text>
+  <text x="115" y="127" text-anchor="middle" class="head">centre-ville seulement</text>
   <rect x="20" y={Y0} width="190" height={SEG * 4} rx="6" class="slice s1" />
   {[1, 2, 3].map((k) => (<line x1="26" x2="204" y1={Y0 + k * SEG} y2={Y0 + k * SEG} class="cut" />))}
 
   <!-- c -->
-  <text x="325" y="108" text-anchor="middle" class="head">c. la tendance de la</text>
-  <text x="325" y="127" text-anchor="middle" class="head">dernière heure</text>
+  <text x="325" y="108" text-anchor="middle" class="head">c. le nombre de vélos</text>
+  <text x="325" y="127" text-anchor="middle" class="head">signalés, avant la liste</text>
   <rect x="230" y={Y0} width="190" height={SEG * 4} rx="6" class="slice s2" />
   {[1, 2, 3].map((k) => (<line x1="236" x2="414" y1={Y0 + k * SEG} y2={Y0 + k * SEG} class="cut" />))}
 
   <!-- b -->
-  <text x="510" y="108" text-anchor="middle" class="head">b. la collecte</text>
-  <text x="510" y="127" text-anchor="middle" class="head">des données météo</text>
+  <text x="510" y="108" text-anchor="middle" class="head">b. la collecte des</text>
+  <text x="510" y="127" text-anchor="middle" class="head">signalements</text>
   {[0, 1, 2].map((k) => (<rect x="440" y={Y0 + k * SEG} width="140" height={SEG} class="ghost" />))}
   <rect x="440" y={Y0 + 3 * SEG} width="140" height={SEG} fill="url(#g9b-hatch)" class="band-grey" />
   <rect x="440" y={Y0 + 3 * SEG} width="140" height={SEG} class="grey-outline" />
@@ -53,7 +53,7 @@ const SEG = 38, Y0 = 142;
 
     <text x="325" y="328"><tspan class="strong">Simple/Complex</tspan></text>
     <text x="325" y="350">(Lawrence)</text>
-    <text x="325" y="372" class="soft">le R de SPIDR est défendable</text>
+    <text x="325" y="372" class="soft">pas dans SPIDR</text>
 
     <text x="510" y="328"><tspan class="strong">une couche</tspan></text>
     <text x="510" y="350">pas une tranche :</text>
