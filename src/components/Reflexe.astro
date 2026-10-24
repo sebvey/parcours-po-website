@@ -1,0 +1,12 @@
+---
+// L'encadré « Le réflexe » : la question à se poser, en une phrase (slot),
+// et une note sur son statut (formulation du cours).
+import Pastille from './Pastille.astro';
+interface Props { note?: string; }
+const { note } = Astro.props;
+---
+<aside class="reflexe" aria-labelledby="reflexe">
+  <span class="tag" id="reflexe">Le réflexe</span>
+  <p class="q"><slot /></p>
+  {note && <p class="note"><Pastille kind="cours" /> {note}</p>}
+</aside>

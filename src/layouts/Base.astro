@@ -1,0 +1,69 @@
+---
+import '../styles/global.css';
+import { useT, url, defaultLang, type Lang } from '../i18n/ui';
+
+interface Props {
+  title?: string;
+  description?: string;
+  /** Entrée de navigation active : 'home' | 'path' | 'about' | 'search' */
+  nav?: string;
+  lang?: Lang;
+  /** Exclure la page de l'index de recherche. */
+  noindex?: boolean;
+}
+const { title, description, nav, lang = defaultLang, noindex = false } = Astro.props;
+const t = useT(lang);
+const fullTitle = title ? `${title} | ${t('site.name')}` : t('site.name');
+const desc = description ?? t('site.tagline');
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const items = [
+  { key: 'home', href: url(''), label: t('nav.home') },
+  { key: 'path', href: url('parcours/'), label: t('nav.path') },
+  { key: 'about', href: url('a-propos/'), label: t('nav.about') },
+];
+---
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={desc} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href={url('favicon.svg')} />
+    <meta name="color-scheme" content="light dark" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={desc} />
+    <meta property="og:locale" content="fr_FR" />
+    <script is:inline>document.documentElement.classList.add('js');</script>
+  </head>
+  <body>
+    <a class="skip" href="#contenu">{t('skip')}</a>
+    <header class="site-header">
+      <div class="container-wide bar">
+        <a class="brand" href={url('')}>{t('site.name')}</a>
+        <nav class="site-nav" aria-label={t('nav.main')}>
+          <ul>
+            {items.map((i) => (
+              <li><a href={i.href} aria-current={nav === i.key ? 'page' : undefined}>{i.label}</a></li>
+            ))}
+            <li class="nav-search-link"><a href={url('recherche/')} aria-current={nav === 'search' ? 'page' : undefined}>{t('nav.search')}</a></li>
+          </ul>
+        </nav>
+        <form class="search-form" role="search" action={url('recherche/')} method="get">
+          <label class="sr-only" for="q-header">{t('search.label')}</label>
+          <input id="q-header" type="search" name="q" placeholder={t('search.placeholder')} autocomplete="off" />
+        </form>
+      </div>
+    </header>
+    <main id="contenu" data-pagefind-body={noindex ? undefined : ''}>
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="container-wide row">
+        <p><a href={t('footer.licenceLink')} rel="license noopener">{t('footer.licence')}</a></p>
+        <p>{t('site.name')}</p>
+      </div>
+    </footer>
+  </body>
+</html>

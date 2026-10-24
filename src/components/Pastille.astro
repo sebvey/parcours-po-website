@@ -1,0 +1,8 @@
+---
+import { useT } from '../i18n/ui';
+interface Props { kind: 'consensus' | 'ecole' | 'cours'; }
+const { kind } = Astro.props;
+const t = useT();
+const label = t(`pastille.${kind}` as const);
+---
+<span class={`pastille ${kind}`} data-pagefind-ignore>{label}</span>

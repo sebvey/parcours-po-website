@@ -1,0 +1,13 @@
+---
+// Renvoi interne vers un concept ou un sous-concept : lien si la page existe, sinon texte « bientôt ».
+import { lien } from '../lib/concepts';
+import { useT } from '../i18n/ui';
+interface Props { n: string; }
+const { n } = Astro.props;
+const l = await lien(n);
+const t = useT();
+const label = /^\d+$|^A\d+$/.test(n) ? `concept ${n}` : `concept ${l.n}, ${n}`;
+---
+{l.exists
+  ? <a href={l.href}>{label}</a>
+  : <span>{label}<span class="soon" data-pagefind-ignore>{t('concept.soon')}</span></span>}

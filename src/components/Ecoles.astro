@@ -1,0 +1,42 @@
+---
+import Pastille from './Pastille.astro';
+import Refs from './Refs.astro';
+import { inline } from '../lib/inline';
+import type { ConceptEntry } from '../lib/concepts';
+interface Props { data: ConceptEntry['data']['ecoles']; }
+const { data } = Astro.props;
+const cols = [
+  { kind: 'consensus', items: data.consensus, intro: 'Ce que disent les textes de référence et ce que les praticiens font en général.' },
+  { kind: 'ecole', items: data.ecole, intro: 'Des positions défendables, chacune à son auteur : on les pose côte à côte, on ne les fond pas.' },
+  { kind: 'cours', items: data.cours, intro: 'Ce que ce cours décide, sans source externe : à prendre comme tel.' },
+] as const;
+---
+<div class="ecoles">
+  {cols.map((c) => (
+    <section class={`col ${c.kind}`} aria-label={c.kind}>
+      <h3 id={`col-${c.kind}`}><Pastille kind={c.kind} /></h3>
+      <p class="col-intro">{c.intro}</p>
+      <ul>
+        {c.items.map((it) => (
+          <li>
+            {it.auteur && <span class="auteur">{it.auteur}</span>}
+            <span set:html={inline(it.texte)} />{' '}
+            <Refs refs={it.refs} />
+          </li>
+        ))}
+      </ul>
+    </section>
+  ))}
+</div>
+{data.voisines.length > 0 && (
+  <aside class="voisines" aria-labelledby="voisines">
+    <h3 id="voisines">Notion voisine, à ne pas confondre</h3>
+    {data.voisines.map((it) => (
+      <p>
+        {it.auteur && <strong>{it.auteur}. </strong>}
+        <span set:html={inline(it.texte)} />{' '}
+        <Refs refs={it.refs} />
+      </p>
+    ))}
+  </aside>
+)}

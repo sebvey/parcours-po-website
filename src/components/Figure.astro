@@ -1,0 +1,9 @@
+---
+// Un schéma : cadre, légende. Le SVG est dans le slot et porte son propre titre accessible.
+interface Props { legende: string; }
+const { legende } = Astro.props;
+---
+<figure class="figure">
+  <div class="box"><slot /></div>
+  <figcaption>{legende}</figcaption>
+</figure>

@@ -1,0 +1,82 @@
+---
+// Schéma 9b : une part trop grosse, recoupée en deux parts plus fines (a, c)
+// et, à côté, une lamelle horizontale (b), avec le patron sous chaque part.
+const SEG = 38, Y0 = 142;
+---
+<svg viewBox="0 0 600 395" role="img" aria-labelledby="g9b-t g9b-d" class="sch">
+  <title id="g9b-t">Une part trop grosse recoupée en parts verticales plus fines</title>
+  <desc id="g9b-d">
+    En haut, une part en pointillés : prévoir les stations à risque, trop grosse pour un sprint.
+    Elle est recoupée en trois morceaux. Morceau a, le centre-ville seulement : une part verticale qui traverse les quatre couches ;
+    patron : D de SPIDR (Mike Cohn), ou Variations in Data (Richard Lawrence), même idée sous deux noms.
+    Morceau c, la tendance de la dernière heure, avant tout modèle : une part verticale qui traverse les quatre couches ;
+    patron : Simple/Complex (Richard Lawrence) ; le R de SPIDR est défendable.
+    Morceau b, la collecte des données météo : une simple lamelle horizontale au niveau de l’ingestion, les trois couches du dessus restent vides ;
+    c’est une couche, pas une tranche, et il n’a pas de patron.
+  </desc>
+  <defs>
+    <pattern id="g9b-hatch" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="9" height="9" class="hatch-bg" />
+      <line x1="0" y1="0" x2="0" y2="9" class="hatch-line" />
+    </pattern>
+  </defs>
+
+  <!-- La part d’origine -->
+  <rect x="20" y="18" width="560" height="46" rx="8" class="origin" />
+  <text x="300" y="47" text-anchor="middle" class="origin-text">Prévoir les stations à risque : trop gros pour un sprint</text>
+  {[115, 325, 510].map((x) => (<path d={`M${x} 68 V92`} class="link" />))}
+
+  <!-- a -->
+  <text x="115" y="108" text-anchor="middle" class="head">a. le centre-ville</text>
+  <text x="115" y="127" text-anchor="middle" class="head">seulement</text>
+  <rect x="20" y={Y0} width="190" height={SEG * 4} rx="6" class="slice s1" />
+  {[1, 2, 3].map((k) => (<line x1="26" x2="204" y1={Y0 + k * SEG} y2={Y0 + k * SEG} class="cut" />))}
+
+  <!-- c -->
+  <text x="325" y="108" text-anchor="middle" class="head">c. la tendance de la</text>
+  <text x="325" y="127" text-anchor="middle" class="head">dernière heure</text>
+  <rect x="230" y={Y0} width="190" height={SEG * 4} rx="6" class="slice s2" />
+  {[1, 2, 3].map((k) => (<line x1="236" x2="414" y1={Y0 + k * SEG} y2={Y0 + k * SEG} class="cut" />))}
+
+  <!-- b -->
+  <text x="510" y="108" text-anchor="middle" class="head">b. la collecte</text>
+  <text x="510" y="127" text-anchor="middle" class="head">des données météo</text>
+  {[0, 1, 2].map((k) => (<rect x="440" y={Y0 + k * SEG} width="140" height={SEG} class="ghost" />))}
+  <rect x="440" y={Y0 + 3 * SEG} width="140" height={SEG} fill="url(#g9b-hatch)" class="band-grey" />
+  <rect x="440" y={Y0 + 3 * SEG} width="140" height={SEG} class="grey-outline" />
+
+  <!-- Patrons -->
+  <g class="note" text-anchor="middle">
+    <text x="115" y="328"><tspan class="strong">D</tspan> de SPIDR (Cohn)</text>
+    <text x="115" y="350">ou Variations in Data</text>
+    <text x="115" y="372">(Lawrence)</text>
+
+    <text x="325" y="328"><tspan class="strong">Simple/Complex</tspan></text>
+    <text x="325" y="350">(Lawrence)</text>
+    <text x="325" y="372" class="soft">le R de SPIDR est défendable</text>
+
+    <text x="510" y="328"><tspan class="strong">une couche</tspan></text>
+    <text x="510" y="350">pas une tranche :</text>
+    <text x="510" y="372">pas de patron</text>
+  </g>
+</svg>
+
+<style>
+  .sch { font-family: var(--font-ui); }
+  .origin { fill: none; stroke: var(--sch-grey-line); stroke-width: 2.5; stroke-dasharray: 7 5; }
+  .origin-text { font-size: 18px; font-weight: 600; fill: var(--sch-text); }
+  .link { stroke: var(--sch-grey-line); stroke-width: 2; fill: none; }
+  .head { font-size: 17px; font-weight: 650; fill: var(--sch-text); }
+  .slice.s1 { fill: var(--sch-s1); }
+  .slice.s2 { fill: var(--sch-s2); }
+  .cut { stroke: var(--sch-s-ink); stroke-width: 1.5; opacity: 0.6; }
+  .ghost { fill: none; stroke: var(--sch-band-line); stroke-width: 2; stroke-dasharray: 4 4; }
+  .hatch-bg { fill: var(--sch-grey); }
+  .hatch-line { stroke: var(--sch-grey-line); stroke-width: 2; opacity: 0.55; }
+  .band-grey { stroke: none; }
+  .grey-outline { fill: none; stroke: var(--sch-grey-line); stroke-width: 2.5; stroke-dasharray: 7 5; }
+  .note { font-size: 16px; fill: var(--sch-text); }
+  .note .strong { font-weight: 700; }
+  .soft { fill: var(--sch-text-soft); font-size: 15px; }
+  .small { font-size: 13.5px; }
+</style>

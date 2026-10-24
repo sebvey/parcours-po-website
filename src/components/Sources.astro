@@ -1,0 +1,42 @@
+---
+import Pastille from './Pastille.astro';
+import Refs from './Refs.astro';
+import { inline, dateFr } from '../lib/inline';
+import type { ConceptEntry } from '../lib/concepts';
+interface Props { data: ConceptEntry['data']['sources']; }
+const { data } = Astro.props;
+---
+<div class="sources">
+  <h3 id="affirmations">Affirmations et ce qui a été vérifié</h3>
+  <p class="note">Pour chaque affirmation de la page : la source qui la porte et ce que la lecture de cette source a permis de vérifier. Quand une phrase est une formulation du cours, elle est signalée comme telle.</p>
+  <ul class="aff">
+    {data.affirmations.map((a) => (
+      <li>
+        <p class="claim">{a.kind && <><Pastille kind={a.kind} />{' '}</>}<span set:html={inline(a.affirmation)} /></p>
+        <p class="check" set:html={inline(a.verifie)} />
+        <p class="refs"><Refs refs={a.refs} /></p>
+      </li>
+    ))}
+  </ul>
+
+  <h3 id="references">Références</h3>
+  <ol class="reflist">
+    {data.references.map((r) => (
+      <li id={`ref-${r.id}`}>
+        <span class="id">{r.id}</span>
+        <span>
+          {r.url
+            ? <a href={r.url} rel="noopener"><span set:html={inline(r.texte)} /></a>
+            : <span set:html={inline(r.texte)} />}
+          <span class="meta">{r.type} · consultée le {dateFr(r.consultee)}</span>
+        </span>
+      </li>
+    ))}
+  </ol>
+
+  <h3 id="non-verifie">Non vérifié</h3>
+  <p class="note">Ce que les sources consultées ne permettent pas d’établir. La page n’affirme rien de plus sur ces points.</p>
+  <ul class="nonverifie">
+    {data.nonVerifie.map((n) => (<li set:html={inline(n)} />))}
+  </ul>
+</div>

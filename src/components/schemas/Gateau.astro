@@ -1,0 +1,86 @@
+---
+// Schéma 9a : le gâteau en couches. Quatre couches empilées ; une couche entière grisée
+// (tranche horizontale) ; trois parts verticales (tranches 1, 2, 3).
+// Couleurs : variables CSS --sch-* (clair/sombre) définies dans global.css.
+const layers = [
+  { name: 'Restitution', y: 78 },
+  { name: 'Données prêtes', y: 138 },
+  { name: 'Transformation', y: 198 },
+  { name: 'Ingestion', y: 258 },
+];
+const H = 60;
+const X0 = 158, W = 432;
+const slices = [
+  { x: 172, label: 'tranche 1', cls: 's1' },
+  { x: 276, label: 'tranche 2', cls: 's2' },
+  { x: 380, label: 'tranche 3', cls: 's3' },
+];
+const SW = 92;
+const greyY = 198;
+---
+<svg viewBox="0 0 600 440" role="img" aria-labelledby="g9a-t g9a-d" class="sch">
+  <title id="g9a-t">Le gâteau en couches : une tranche horizontale contre trois tranches verticales</title>
+  <desc id="g9a-d">
+    Un gâteau de quatre couches empilées. De bas en haut : ingestion, transformation, données prêtes, restitution.
+    La couche de transformation, prise en entier, est grisée et légendée : tranche horizontale, ne sert pas seule.
+    Trois parts verticales, tranche 1, tranche 2 et tranche 3, traversent les quatre couches de haut en bas.
+    Légende : une tranche verticale contient un peu de chaque couche et sert seule.
+  </desc>
+  <defs>
+    <pattern id="g9a-hatch" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="9" height="9" class="hatch-bg" />
+      <line x1="0" y1="0" x2="0" y2="9" class="hatch-line" />
+    </pattern>
+  </defs>
+
+  <!-- Les quatre couches -->
+  {layers.map((l) => (
+    <>
+      <rect x={X0} y={l.y} width={W} height={H} class="band" />
+      <text x={X0 - 10} y={l.y + H / 2 + 7} text-anchor="end" class="layer">{l.name}</text>
+    </>
+  ))}
+  <!-- La couche entière, grisée -->
+  <rect x={X0} y={greyY} width={W} height={H} fill="url(#g9a-hatch)" class="band-grey" />
+
+  <!-- Les trois parts verticales -->
+  {slices.map((s) => (
+    <>
+      <rect x={s.x} y={layers[0].y - 8} width={SW} height={H * 4 + 16} rx="6" class={`slice ${s.cls}`} />
+      {[1, 2, 3].map((k) => (
+        <line x1={s.x + 6} x2={s.x + SW - 6} y1={layers[0].y + k * H} y2={layers[0].y + k * H} class="cut" />
+      ))}
+      <text x={s.x + SW / 2} y={layers[0].y - 20} text-anchor="middle" class="slice-label">{s.label}</text>
+    </>
+  ))}
+
+  <!-- Contour pointillé de la couche entière, par-dessus les parts -->
+  <rect x={X0} y={greyY} width={W} height={H} class="grey-outline" />
+  <text x={X0 + W - 58} y={greyY + H / 2 + 6} text-anchor="middle" class="grey-note">couche entière</text>
+
+  <!-- Légende -->
+  <g transform="translate(22 346)">
+    <rect width="34" height="22" fill="url(#g9a-hatch)" class="band-grey" />
+    <text x="48" y="17" class="legend"><tspan class="term">tranche horizontale</tspan> : ne sert pas seule</text>
+    <rect y="40" width="34" height="22" rx="4" class="slice s1" />
+    <text x="48" y="57" class="legend"><tspan class="term">tranche verticale</tspan> : un peu de chaque couche, sert seule</text>
+  </g>
+</svg>
+
+<style>
+  .sch { font-family: var(--font-ui); }
+  .band { fill: var(--sch-band); stroke: var(--sch-band-line); stroke-width: 1.5; }
+  .hatch-bg { fill: var(--sch-grey); }
+  .hatch-line { stroke: var(--sch-grey-line); stroke-width: 2; opacity: 0.55; }
+  .band-grey { stroke: none; }
+  .grey-outline { fill: none; stroke: var(--sch-grey-line); stroke-width: 2.5; stroke-dasharray: 7 5; }
+  .slice.s1 { fill: var(--sch-s1); }
+  .slice.s2 { fill: var(--sch-s2); }
+  .slice.s3 { fill: var(--sch-s3); }
+  .cut { stroke: var(--sch-s-ink); stroke-width: 1.5; opacity: 0.6; }
+  .layer { font-size: 19px; font-weight: 600; fill: var(--sch-text); }
+  .slice-label { font-size: 18px; font-weight: 650; fill: var(--sch-text); }
+  .grey-note { font-size: 16px; font-weight: 600; fill: var(--sch-text); paint-order: stroke; stroke: var(--sch-grey); stroke-width: 5px; stroke-linejoin: round; }
+  .legend { font-size: 18.5px; fill: var(--sch-text-soft); }
+  .legend .term { font-weight: 650; fill: var(--sch-text); }
+</style>
