@@ -20,7 +20,7 @@ ecoles:
       texte: "L'éditeur de Jira conseille de limiter les états et les transitions à ce dont l'équipe a besoin. C'est une recommandation de l'éditeur, à lire comme telle, pas un consensus."
       refs: ["S9"]
   cours:
-    - texte: "Peu de niveaux suffisent, et un niveau qui ne contient d'habitude qu'un seul élément est de trop (concept 4). La règle pratique est tirée d'une session, sans source externe."
+    - texte: "Peu de niveaux suffisent, et un niveau qui ne contient d'habitude qu'un seul élément est de trop (concept 4). C'est une règle pratique du cours, sans source externe."
       refs: []
     - texte: "Dans l'outil, « fait » veut dire DoD remplie. Le Scrum Guide dit qu'un élément qui ne la remplit pas ne fait pas partie de l'incrément ; que l'état de l'outil doive suivre la DoD est la règle du cours."
       refs: ["S1"]
@@ -63,7 +63,7 @@ sources:
     - affirmation: "Un niveau est de trop quand il ne contient d'habitude qu'un seul élément ; choisir peu de niveaux."
       kind: "cours"
       refs: []
-      verifie: "Règle pratique du cours, tirée d'une session et déjà sourcée au concept 4, avec l'appui partiel de Cohn (le terme « feature » superflu, à garder en étiquette plutôt qu'en niveau). Aucune source externe ne fixe un nombre de niveaux."
+      verifie: "Règle pratique du cours, déjà sourcée au concept 4, avec l'appui partiel de Cohn (le terme « feature » superflu, à garder en étiquette plutôt qu'en niveau). Aucune source externe ne fixe un nombre de niveaux."
     - affirmation: "Aucun des trois outils n'a de type de lien « dépend de » : Jira dit « blocks / is blocked by », Azure DevOps « Predecessor / Successor », Linear « blocked / blocking »."
       refs: ["S6", "S6b", "S7", "S12"]
       verifie: "Constat sur les types de liens des trois pages. Jira Data Center 11.3 : quatre types par défaut (relates to, duplicates, blocks, clones), configurables ; exemple de la page, A « is blocked by » B, B « blocks » A. Azure DevOps : « Choose Predecessor when linking to a work item that should complete before the current item ». Linear : « You can mark issues as blocked, blocking, related, and duplicate »."
@@ -200,7 +200,7 @@ sources:
     - "**Lien « dépend de » des autres outils** (Trello, GitHub Projects, Monday…) : non vérifié."
     - "**Statuts par défaut d'un espace Scrum ou Kanban de Jira.** La documentation donne des exemples et la liste des statuts disponibles, pas la liste exacte d'un modèle. Le statut « Selected for Development » existe, mais dans quel modèle : non vérifié ; il ne se confond pas avec la DoR."
     - "**Dates des pages Atlassian et Linear** : aucune date de mise à jour affichée, seulement « © 2026 » chez Atlassian. Les noms changent (« work item », ex-« issue » ; « space », ex-« project ») : la page ne cite aucun intitulé de menu."
-    - "**Le niveau de trop** : règle pratique du cours, tirée d'une session (un seul apprenant), non vérifiée hors du cours."
+    - "**Le niveau de trop** : règle pratique du cours, non vérifiée hors du cours."
     - "**« Le PO propose, l'administrateur règle » et « le lien ne remplace pas la conversation »** : choix du cours. Les pages d'éditeurs disent qui a les droits, pas le rôle du PO."
 ---
 import SchemaA1 from '../../../components/schemas/SchemaA1.astro';

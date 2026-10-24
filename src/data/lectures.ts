@@ -25,7 +25,7 @@ export const lectures: Lecture[] = [
     situation: 'Vous devenez Product Owner d’un produit data et vous voulez comprendre le cadre, votre rôle et ce que vous cherchez à obtenir, avant d’entrer dans le détail.',
     minutes: 15,
     etapes: [
-      { ref: '0a', titre: 'Le cadre', pourquoi: 'Qui fait quoi dans une équipe Scrum, les quatre rendez-vous du sprint et les trois supports de travail.' },
+      { ref: '0a', titre: 'Le cadre', pourquoi: 'Qui fait quoi dans une équipe Scrum, les quatre événements du sprint et les trois artefacts.' },
       { ref: '0b', titre: 'Sprint et incrément', pourquoi: 'Une durée d’un côté, un état du produit de l’autre : deux notions qu’on confond souvent.' },
       { ref: '1a', titre: 'Le produit : problème, utilisateurs, valeur', pourquoi: 'Décrire ce que le produit change, et pour qui, avant de parler de technique.' },
       { ref: '1b', titre: 'Qui tranche quoi', pourquoi: 'Ce qui revient au PO et ce qui revient aux Developers : le cœur du rôle.' },

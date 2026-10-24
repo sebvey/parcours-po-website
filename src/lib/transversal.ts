@@ -40,7 +40,14 @@ export async function positions(): Promise<Position[]> {
 /** « Mike Cohn : SPIDR » -> { groupe: "Mike Cohn", sujet: "SPIDR" }. Sans « : », pas de groupe. */
 export function scinde(auteur?: string): { groupe?: string; sujet?: string } {
   if (!auteur) return {};
-  const i = auteur.indexOf(' : ');
+  // Le séparateur est le premier « : » hors parenthèses.
+  let i = -1;
+  for (let k = 0, depth = 0; k < auteur.length; k++) {
+    const c = auteur[k];
+    if (c === '(') depth++;
+    else if (c === ')') depth = Math.max(0, depth - 1);
+    else if (depth === 0 && auteur.startsWith(' : ', k)) { i = k; break; }
+  }
   if (i < 0) return { sujet: auteur };
   const groupe = auteur.slice(0, i).replace(/\s*\([^)]*\)\s*$/, '').trim();
   return { groupe, sujet: auteur.slice(i + 3).trim() };
