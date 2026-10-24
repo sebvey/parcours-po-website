@@ -1,0 +1,242 @@
+---
+numero: "10"
+titre: "Hors périmètre et dépendances"
+objectif: "Écrire le hors périmètre d'une story et savoir ce que devient la demande qui en sort ; traiter une dépendance, dans l'équipe ou envers une autre équipe."
+description: "Comment écrire ce qu'une story ne fait pas, que faire de la demande qui en sort, et comment traiter une dépendance entre deux stories ou envers une autre équipe."
+prerequis: ["9"]
+ecoles:
+  consensus:
+    - auteur: "Le Scrum Guide 2020"
+      texte: "Ne parle ni de hors périmètre ni de dépendance entre éléments du backlog. Dit qu'un élément choisi au Sprint Planning a en général été précisé avant, que le contenu du sprint peut encore se clarifier pendant le sprint avec le PO, et que la revue de sprint peut adapter le backlog, que le PO ordonne."
+      refs: ["S1"]
+    - auteur: "Pratique établie, hors du Scrum Guide"
+      texte: "Réduire les dépendances et rendre visibles celles qui restent. Bill Wake (le I d'INVEST), Mike Cohn et Scrum.org (le Nexus Guide, pour plusieurs équipes sur un même produit) concordent. Cohn donne deux façons de lever une dépendance entre deux stories : les fusionner, si la story fusionnée reste petite, ou les découper autrement. Il compte aussi les dépendances parmi ce qui pèse pour ordonner un backlog (concept 13)."
+      refs: ["S3", "S4", "S5", "S7"]
+  ecole:
+    - auteur: "Une rubrique « Hors périmètre » dans la story"
+      texte: "Certaines équipes l'ajoutent, sans auteur attitré. Le Scrum Guide n'impose aucune forme aux éléments du backlog. Atlassian recommande une section voisine, « ce qu'on ne fait pas », dans un document d'exigences, pas dans une story."
+      refs: ["S1", "S2"]
+    - auteur: "La façon de noter une dépendance"
+      texte: "Un lien entre deux éléments dans l'outil (dans Jira, « blocks / is blocked by » ; détail à l'annexe A1)."
+      refs: ["S10"]
+    - auteur: "SAFe : l'ART Planning Board"
+      texte: "Ce cadre de passage à l'échelle affiche sur un tableau les dépendances entre les features de plusieurs équipes d'un même train. Hors de ce cours."
+      refs: ["S8", "S9"]
+  cours:
+    - texte: "Ne mettre hors périmètre que les demandes plausibles : celles qu'un utilisateur ou une partie prenante pourrait croire incluses. Une évidence que personne n'attend n'a pas sa place dans la liste."
+      refs: []
+    - texte: "Écrit avant le sprint, le hors périmètre aligne les attentes : à la revue, personne ne découvre un manque convenu."
+      refs: ["S2"]
+    - texte: "Quand la story dont l'autre dépend a une valeur seule, garder les deux et les ordonner plutôt que les fusionner. Quand aucune des deux n'en a, redécouper en tranches verticales."
+      refs: ["S4"]
+    - texte: "Entre deux produits, chacun avec son PO, s'accorder entre PO sur l'ordre dans les deux backlogs. Le Scrum Guide ne traite pas ce cas."
+      refs: ["S1", "S7"]
+  voisines:
+    - auteur: "Plusieurs équipes sur un même produit"
+      texte: "Elles partagent le même PO et le même backlog (Scrum Guide, Nexus Guide). Ce n'est pas le cas traité ici : deux produits, chacun avec son PO et son backlog."
+      refs: ["S1", "S7"]
+sources:
+  affirmations:
+    - affirmation: "Le Scrum Guide ne parle ni de hors périmètre ni de dépendance entre éléments du backlog."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "Texte cherché le 22 octobre 2026 : « out of scope » n'y apparaît pas, « depend » deux fois, hors sujet (dans les valeurs). « scope » ne vaut que pour le sprint : « Scope may be clarified and renegotiated with the Product Owner as more is learned »."
+    - affirmation: "Le Scrum Guide n'impose aucune forme aux éléments du backlog : chaque équipe choisit la sienne."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« adding details, such as a description, order, and size. Attributes often vary with the domain of work »."
+    - affirmation: "Un élément choisi au Sprint Planning a en général été précisé avant ; le contenu du sprint peut encore se clarifier pendant le sprint, avec le PO."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "Les éléments faisables en un sprint sont « ready for selection in a Sprint Planning event. They usually acquire this degree of transparency after refining activities ». Le Guide admet aussi qu'on clarifie pendant le sprint (« Scope may be clarified and renegotiated »). « Clarifier ce qui n'y est pas » est une déduction du cours."
+    - affirmation: "À la revue, une demande nouvelle entre au backlog : la revue adapte le backlog."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« The Product Backlog may also be adjusted to meet new opportunities » ; la revue sert à « inspect the outcome of the Sprint and determine future adaptations »."
+    - affirmation: "Le PO ordonne le backlog ; qui veut changer l'ordre le convainc ; l'organisation respecte ses décisions."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« Those wanting to change the Product Backlog can do so by trying to convince the Product Owner » ; « the entire organization must respect their decisions ». Le Guide dit « order » : le cours écrit « ordonner »."
+    - affirmation: "Écrire ce qu'on ne fait pas aide à garder l'équipe concentrée et signale ce qui pourra être vu plus tard."
+      refs: ["S2"]
+      verifie: "Atlassian, modèle de PRD, section « What we're not doing » : « clearly calling out what you're not doing. Flag things that are out of scope at the moment, but might be considered at a later time ». Source marketing, au niveau d'un document d'exigences (feature ou version), pas d'une story : un appui pour l'idée, pas pour la rubrique de story."
+    - affirmation: "Une rubrique « Hors périmètre » dans la story est un choix d'école, sans auteur attitré."
+      kind: "ecole"
+      refs: ["S1", "S2"]
+      verifie: "Aucune source d'auteur trouvée au niveau de la story (voir « Non vérifié »). Le Guide n'en parle pas."
+    - affirmation: "Le hors périmètre aligne les attentes avant le sprint ; à la revue, personne ne découvre un manque convenu."
+      kind: "cours"
+      refs: ["S2"]
+      verifie: "S2 relie la liste d'exclusions à la prévention de la dérive du périmètre (« scope creep »). L'effet en revue de sprint est le raisonnement du cours, sans source."
+    - affirmation: "Ne mettre hors périmètre que des demandes plausibles."
+      kind: "cours"
+      refs: ["S2"]
+      verifie: "S2 dit « might be considered at a later time ». Le critère « plausible » (quelqu'un pourrait croire que c'est inclus) est une règle du cours, sans source."
+    - affirmation: "Une dépendance : une story ne peut pas être livrée, ou n'a pas de sens, avant une autre."
+      kind: "cours"
+      refs: ["S3"]
+      verifie: "Définition du glossaire du cours. Wake définit l'indépendance par la négative : « not overlap in concept » et « schedule and implement them in any order »."
+    - affirmation: "On voudrait des stories indépendantes, on n'y arrive pas toujours (le I d'INVEST)."
+      kind: "consensus"
+      refs: ["S3"]
+      verifie: "« we'd like to be able to schedule and implement them in any order. We can't always achieve this ». Wake ne dit pas comment traiter une dépendance."
+    - affirmation: "Réduire les dépendances et rendre visibles celles qui restent est une pratique établie, pas un texte du Scrum Guide."
+      kind: "consensus"
+      refs: ["S1", "S3", "S4", "S7"]
+      verifie: "Le Guide ne le dit pas. Nexus (Scrum.org), pour plusieurs équipes sur un même produit : « The Product Backlog must be decomposed so that dependencies are transparent, identified across teams, and removed or minimized ». Le Guide fait de la transparence un pilier. L'étiquette « pratique établie » s'appuie sur Nexus, Cohn et Wake, qui concordent, pas sur le Guide."
+    - affirmation: "Deux façons de lever une dépendance entre stories : les fusionner en une story plus grosse, ou les découper autrement. Fusionner se défend si la story fusionnée reste petite."
+      kind: "consensus"
+      refs: ["S4"]
+      verifie: "Cohn, *User Stories Applied*, chapitre 2 : « Combine the dependent stories into one larger but independent story » ; « Find a different way of splitting the stories ». La fusion « works well in this case because the combined story is only five days long » ; sinon, « a better approach is usually to find a different dimension along which to split ». Lu dans une copie du livre hébergée par un tiers (voir « Non vérifié »)."
+    - affirmation: "Quand la story dont l'autre dépend a une valeur seule, garder les deux et les ordonner plutôt que les fusionner ; si aucune n'en a, redécouper."
+      kind: "cours"
+      refs: ["S4"]
+      verifie: "Cohn présente la fusion comme une des deux voies, valable si le résultat reste petit. Le critère « la story dont l'autre dépend a-t-elle une valeur seule ? » est la position du cours, pas celle de Cohn."
+    - affirmation: "Ce sont les Developers qui estiment la taille, donc si la story fusionnée reste petite."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« The Developers who will be doing the work are responsible for the sizing »."
+    - affirmation: "Une dépendance qui reste se traite en ordonnant : l'élément dont un autre dépend remonte."
+      refs: ["S1", "S5"]
+      verifie: "Mountain Goat Software, cinq facteurs pour ordonner : valeur, coût, apprentissage, risque, dépendances. « Some items may not be high priority on their own, but they're necessary for delivering other items » ; l'élément qui le permet « needs to be moved higher on the backlog ». Le PO ordonne [S1]. Comment ordonner : concept 13."
+    - affirmation: "Deux stories dont aucune n'a de valeur seule sont souvent des tranches horizontales ; on redécoupe en tranches verticales."
+      refs: ["S6"]
+      verifie: "Cohn : « Stories split along technical boundaries gives us stories that don't deliver any value to users on their own » ; un découpage peut produire des sous-stories « with dependencies between them that prevent truly completing any within a single iteration »."
+    - affirmation: "Plusieurs équipes Scrum sur un même produit partagent un PO et un backlog ; une équipe qui porte un autre produit, avec son propre PO, sort de ce cadre."
+      refs: ["S1", "S7"]
+      verifie: "Scrum Guide : « multiple cohesive Scrum Teams, each focused on the same product […] should share the same Product Goal, Product Backlog, and Product Owner ». Nexus : « A Nexus has a single Product Owner who manages a single Product Backlog ». Ni le Guide ni Nexus ne traitent deux produits, chacun avec son PO."
+    - affirmation: "Envers une autre équipe, écrire la dépendance dans son backlog, demander à l'autre PO de l'écrire dans le sien et s'accorder sur l'ordre dans les deux backlogs."
+      kind: "cours"
+      refs: ["S1", "S7"]
+      verifie: "Nexus rend les dépendances entre équipes transparentes par un raffinement commun, dans un seul backlog. L'accord entre deux PO de deux produits est un choix du cours, sans source. Appliquer « convaincre le PO » entre deux PO de deux produits est la lecture du cours. L'escalade : concept 14."
+    - affirmation: "SAFe affiche les dépendances entre features de plusieurs équipes sur un tableau, l'« ART Planning Board » (ancien « Program Board »)."
+      kind: "ecole"
+      refs: ["S8", "S9"]
+      verifie: "Glossaire SAFe : « a visualization of the PI's feature delivery dates, feature dependencies among teams, and relevant milestones » ; l'adresse de la page garde « program-board ». Il porte sur des features entre équipes d'un train, pas sur des stories d'une équipe."
+    - affirmation: "Noter une dépendance par un lien entre deux éléments dans l'outil."
+      kind: "ecole"
+      refs: ["S10"]
+      verifie: "Jira : quatre types de liens par défaut, dont « blocks / is blocked by » ; pas de type « dépend de » par défaut (les types sont configurables)."
+    - affirmation: "Les exemples du fil rouge (l'équipe appli et sa PO, Pia) sont des faits inventés ; les exemples de stories de cette page sont des illustrations."
+      refs: []
+      verifie: "Sans source : le cas de l'opérateur de vélos en libre-service est fictif."
+  references:
+    - id: "S1"
+      texte: "Schwaber, Sutherland, *The Scrum Guide*, novembre 2020"
+      url: "https://scrumguides.org/scrum-guide.html"
+      type: "primaire"
+      consultee: "2026-10-22"
+    - id: "S2"
+      texte: "Atlassian, « What is a Product Requirements Document (PRD)? », section « What we're not doing » ; modèle Confluence « Product requirements »"
+      url: "https://www.atlassian.com/agile/product-management/requirements"
+      type: "marketing (éditeur de Confluence et Jira)"
+      consultee: "2026-10-22"
+    - id: "S3"
+      texte: "Wake, « INVEST in Good Stories, and SMART Tasks », xp123.com, 17 août 2003"
+      url: "https://xp123.com/invest-in-good-stories-and-smart-tasks/"
+      type: "primaire"
+      consultee: "2026-10-22"
+    - id: "S4"
+      texte: "Cohn, *User Stories Applied*, Addison-Wesley, 2004, chapitre 2 « Writing Stories », section « Independent » (copie hébergée par un tiers)"
+      url: "https://www.mountaingoatsoftware.com/books/user-stories-applied"
+      type: "primaire (texte de l'auteur, lu dans une copie hébergée par un tiers ; le lien est la fiche du livre)"
+      consultee: "2026-10-22"
+    - id: "S5"
+      texte: "Mountain Goat Software (Cohn), « 5 Key Factors for Effective Product Backlog Prioritization », mis à jour le 15 octobre 2024"
+      url: "https://www.mountaingoatsoftware.com/agile/5-key-factors-for-effective-product-backlog-prioritization"
+      type: "primaire (site de l'auteur, qui vend ses formations)"
+      consultee: "2026-10-22"
+    - id: "S6"
+      texte: "Mountain Goat Software (Cohn), « Five Story-Splitting Mistakes and How to Stop Making Them »"
+      url: "https://www.mountaingoatsoftware.com/agile/five-story-splitting-mistakes-and-how-to-stop-making-them"
+      type: "primaire (site de l'auteur, qui vend ses formations)"
+      consultee: "2026-10-22"
+    - id: "S7"
+      texte: "Scrum.org (Schwaber et al.), *Nexus Guide*, janvier 2021"
+      url: "https://www.scrum.org/resources/online-nexus-guide"
+      type: "primaire (Scrum.org, qui vend formations et certifications)"
+      consultee: "2026-10-22"
+    - id: "S8"
+      texte: "Scaled Agile, Inc., glossaire SAFe, « ART Planning Board »"
+      url: "https://framework.scaledagile.com/blog/glossary_term/program-board"
+      type: "primaire (et marketing : l'éditeur vend certifications et outil)"
+      consultee: "2026-10-22"
+    - id: "S9"
+      texte: "Scaled Agile, Inc., « PI Planning », mise à jour du 15 mars 2026"
+      url: "https://framework.scaledagile.com/pi-planning"
+      type: "primaire (et marketing)"
+      consultee: "2026-10-22"
+    - id: "S10"
+      texte: "Atlassian, « Configuring issue linking », Jira Data Center 11.3 ; « Link work items », Jira Cloud"
+      url: "https://support.atlassian.com/jira-software-cloud/docs/link-issues"
+      type: "primaire (documentation de l'éditeur)"
+      consultee: "2026-10-22"
+  nonVerifie:
+    - "**Une rubrique « Hors périmètre » dans la story, pratique répandue.** Aucune source d'auteur trouvée au niveau de la story ; seul [S2] (marketing) recommande une section voisine, au niveau d'un document d'exigences. Pas de donnée d'usage : la page écrit « certaines équipes l'ajoutent »."
+    - "**Cohn, *User Stories Applied*.** Citations lues dans une copie hébergée par un site universitaire tiers, non sur une édition consultée directement ; le passage concorde avec la table des matières de l'éditeur. La page n'en retient que les deux voies (fusionner, découper autrement) et la condition de taille."
+    - "**Accord entre deux PO de produits distincts sur l'ordre dans leurs backlogs.** Choix du cours. Ni le Scrum Guide ni Nexus ne traitent deux produits ; SAFe le fait au niveau du train, avec d'autres rôles."
+    - "**Le lien « dépend de » dans les outils autres que Jira.** Non vérifié ; relève de l'annexe A1."
+    - "**Date et auteur de [S6].** Page non datée, auteur non affiché (site de Cohn)."
+---
+import Schema10 from '../../../components/schemas/Schema10.astro';
+
+Une story dit ce qu'elle fait ; son **hors périmètre** dit ce qu'elle ne fait pas alors qu'on pourrait s'y attendre. Écrit avant le sprint, il évite qu'un manque convenu passe pour un bug à la revue. Chaque ligne reste une demande : elle entre au backlog, où le PO l'ordonne. Une **dépendance** lie deux stories : l'une ne peut pas être livrée, ou n'a pas de sens, avant l'autre. Entre deux stories de l'équipe, le PO ordonne. Envers une autre équipe, il s'accorde avec le PO de cette équipe sur l'ordre.
+
+<Figure legende="En haut, le hors périmètre : au bord de la story, ce qu'on pourrait croire inclus ; chaque ligne devient une demande au backlog. En bas, les dépendances : dans une équipe, le PO ordonne ; entre deux équipes, les deux PO s'accordent sur l'ordre, et on n'escalade que si cela bloque.">
+  <Schema10 />
+</Figure>
+
+<Sous id="10a" titre="Le hors périmètre" promesse="Dire à l'avance ce qu'une story ne fait pas, et savoir où va chaque demande qui en sort.">
+
+<h4 id="10a1"><span class="num">10a1</span> L'écrire</h4>
+
+Le hors périmètre liste ce que la story ne fait pas alors qu'un utilisateur ou une partie prenante pourrait s'y attendre. On l'écrit quand on précise la story avant le sprint (<Renvoi n="15" />). Une story qui affiche un indicateur sur un tableau de bord peut ainsi préciser : « Hors périmètre : l'export en fichier ; l'envoi par courriel ». Le lecteur sait alors ce qu'il n'aura pas, et ne l'apprend pas à la revue.
+
+On n'y met que les demandes **plausibles**, celles qu'on pourrait croire incluses. « Hors périmètre : réécrire les systèmes sources » n'apprend rien à personne : une évidence n'a pas sa place dans la liste, pas plus qu'une tâche des Developers (<Renvoi n="4" />). Cette règle est un choix du cours <Pastille kind="cours" />. Une ligne vague (« le reste ») est aussi à éviter : on ne sait plus ce qui est exclu.
+
+La rubrique elle-même est un choix d'école <Pastille kind="ecole" /> : le Scrum Guide n'en parle pas et n'impose aucune forme aux éléments du backlog. Certaines équipes l'ajoutent.
+
+<h4 id="10a2"><span class="num">10a2</span> La retrouver à la revue</h4>
+
+Quand une partie prenante réclame à la revue de sprint ce qui était écrit hors périmètre, la story n'a pas de défaut : elle fait ce qui était convenu. Le PO montre la ligne, reconnaît que la demande est légitime, puis dit où elle va : au backlog, comme une nouvelle story. La revue sert justement à adapter le backlog <Pastille kind="consensus" />.
+
+Le PO ordonne ensuite cette demande face aux autres (<Renvoi n="13" />). Il ne la promet pas pour le prochain sprint sur le moment, et ne la refuse pas non plus : « hors périmètre » n'est pas un refus. Si la demande touche une règle qui n'est pas fixée, il la fait fixer plutôt que de la trancher en séance (<Renvoi n="8a2" />).
+
+</Sous>
+
+<Sous id="10b" titre="Les dépendances" promesse="Écrire la dépendance, puis ordonner ou s'accorder, selon qu'elle reste dans l'équipe ou non.">
+
+<h4 id="10b1"><span class="num">10b1</span> Dans l'équipe : fusionner ou ordonner</h4>
+
+Une story dépend d'une autre quand elle ne peut pas être livrée, ou n'a pas de sens, avant elle. On réduit les dépendances autant que possible (le I d'INVEST, <Renvoi n="7" />), sans toujours y arriver. Pour en lever une, Mike Cohn donne deux voies <Pastille kind="consensus" /> : fusionner les deux stories, si la story fusionnée reste petite, ou les découper autrement. Ce sont les Developers qui estiment la taille.
+
+Une dépendance qui reste s'écrit, et le PO ordonne : l'élément dont l'autre dépend passe avant. Le cours <Pastille kind="cours" /> ajoute un critère : si la première story a une valeur seule, on garde les deux et on les ordonne. Fusionner grossirait la story et retarderait la valeur de la première jusqu'à ce que la seconde soit prête. Si aucune des deux n'a de valeur seule (« préparer les relevés », puis « afficher les relevés »), ce sont souvent des tranches horizontales : on les redécoupe en tranches verticales (<Renvoi n="9" />).
+
+<h4 id="10b2"><span class="num">10b2</span> Envers une autre équipe</h4>
+
+<FilRouge>L'équipe appli a sa propre PO, Pia, et son propre backlog : la plateforme lui fournit des données, elle porte l'appli et ses canaux.</FilRouge>
+
+Une dépendance envers une autre équipe ne se règle pas dans son seul backlog. Livrer sa part et tenir la story pour faite ne suffit pas, si l'utilisateur n'est pas servi. Le PO écrit la dépendance dans son backlog, demande à l'autre PO de l'écrire dans le sien, et s'accorde avec lui sur l'ordre dans les deux backlogs, pour que les deux parts arrivent à temps. Chaque PO ordonne seul son backlog : pour changer la place d'un élément chez l'autre, on le convainc.
+
+Le Scrum Guide ne traite pas deux produits qui ont chacun leur PO : plusieurs équipes sur un même produit partagent le PO et le backlog. S'accorder entre PO est donc un choix du cours <Pastille kind="cours" />. Si l'accord ne se fait pas, ou si la dépendance bloque, c'est une escalade (<Renvoi n="14" />), et elle vient après avoir parlé à l'autre PO. Dans l'outil, la dépendance se note souvent par un lien entre les deux éléments (<Renvoi n="A1" />).
+
+</Sous>
+
+<Reflexe note="Formulation du cours.">
+Hors périmètre : « un utilisateur ou une partie prenante pourrait-il croire que c'est inclus ? »<br />
+Dépendance : « la story dont l'autre dépend a-t-elle une valeur seule ? »<br />
+Autre équipe : « son PO sait-il, et l'ordre est-il convenu entre nous ? »
+</Reflexe>
+
+<Erreurs>
+
+- **Ne rien écrire hors périmètre** : chacun comble les silences avec ses attentes, et la revue tourne au « c'est un bug ».
+- **Lister des évidences ou des tâches** : le hors périmètre ne sert qu'aux demandes plausibles.
+- **Prendre le hors périmètre pour un refus**, ou **traiter aussitôt** la demande qui en sort : elle entre au backlog et le PO l'ordonne comme les autres. Une règle qu'elle soulève se fait fixer, pas trancher en revue.
+- **Fusionner deux stories pour supprimer une dépendance saine** : on retarde la valeur de la première. La fusion se défend si la story fusionnée reste petite.
+- **Accepter deux stories dont aucune n'a de valeur seule** : ce sont souvent des tranches horizontales.
+- **Livrer sa part d'une dépendance envers une autre équipe et s'arrêter là** : l'utilisateur n'est pas servi.
+- **Ordonner le backlog d'une autre équipe à sa place**, ou escalader avant de lui parler.
+- **Croire que le Scrum Guide prescrit une rubrique « Hors périmètre » ou un outil de suivi des dépendances** : il n'en parle pas.
+
+</Erreurs>

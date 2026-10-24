@@ -1,0 +1,121 @@
+---
+// Schéma 10 : deux panneaux.
+// 10a : le hors périmètre, au bord de la story, et ce que devient chaque ligne (une demande au backlog).
+// 10b : une dépendance dans un seul backlog (le PO ordonne), puis entre deux backlogs (les deux PO s'accordent).
+// Couleurs : variables CSS --sch-* (clair/sombre) définies dans global.css.
+const demandes = [
+  { y: 100, t: 'export en fichier' },
+  { y: 162, t: 'envoi par courriel' },
+  { y: 224, t: 'historique antérieur' },
+];
+---
+<svg viewBox="0 0 600 800" role="img" aria-labelledby="g10-t g10-d" class="sch">
+  <title id="g10-t">Le hors périmètre d'une story, puis les dépendances dans une équipe et entre deux équipes</title>
+  <desc id="g10-d">
+    Panneau du haut, le hors périmètre. Un cercle contient la story : voir un indicateur sur un tableau de bord.
+    Juste à l'extérieur du cercle, au bord, trois étiquettes : export en fichier, envoi par courriel, historique antérieur.
+    Ce sont des demandes qu'on pourrait croire incluses. De chacune part une flèche vers une boîte : backlog, à ordonner par le PO.
+    Panneau du bas, les dépendances. À gauche, un seul backlog avec deux éléments, A au-dessus de B, et une flèche : B dépend de A.
+    Légende : même équipe, le PO ordonne, l'élément dont l'autre dépend passe avant.
+    À droite, deux backlogs côte à côte, celui de la plateforme et celui de l'équipe appli. Un élément de chacun est relié à l'autre par un trait pointillé.
+    Sous les deux backlogs, le PO de la plateforme et le PO de l'équipe appli, et entre eux une bulle : on s'accorde sur l'ordre.
+    En dessous, en pointillé : si ça bloque, escalade, vue au concept 14.
+  </desc>
+  <defs>
+    <marker id="g10-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" class="arrow-head" />
+    </marker>
+  </defs>
+
+  <!-- Panneau 1 : hors périmètre -->
+  <text x="20" y="34" class="ptitle">10a. Hors périmètre</text>
+  <circle cx="112" cy="168" r="92" class="story" />
+  <text x="112" y="150" text-anchor="middle" class="strong">la story :</text>
+  <text x="112" y="174" text-anchor="middle" class="txt">voir l'indicateur</text>
+  <text x="112" y="196" text-anchor="middle" class="txt">sur le tableau</text>
+  <text x="112" y="218" text-anchor="middle" class="txt">de bord</text>
+
+  {demandes.map((d) => (
+    <>
+      <rect x="214" y={d.y} width="176" height="40" rx="8" class="ask" />
+      <text x="302" y={d.y + 26} text-anchor="middle" class="txt">{d.t}</text>
+      <path d={`M392 ${d.y + 20} H436`} class="arrow" marker-end="url(#g10-arr)" />
+    </>
+  ))}
+  <rect x="440" y="92" width="144" height="180" rx="8" class="backlog" />
+  <text x="512" y="156" text-anchor="middle" class="strong">backlog</text>
+  <text x="512" y="182" text-anchor="middle" class="txt">à ordonner</text>
+  <text x="512" y="204" text-anchor="middle" class="txt">par le PO</text>
+  <text x="20" y="306" class="note">Au bord de la story : ce qu'on pourrait croire inclus.</text>
+  <text x="20" y="330" class="note">Chaque ligne reste une demande, pas un refus.</text>
+
+  <line x1="20" x2="580" y1="364" y2="364" class="sep" />
+
+  <!-- Panneau 2 : dépendances -->
+  <text x="20" y="404" class="ptitle">10b. Dépendances</text>
+
+  <!-- À gauche : un seul backlog -->
+  <rect x="20" y="430" width="240" height="214" rx="8" class="backlog" />
+  <text x="140" y="456" text-anchor="middle" class="strong">un backlog</text>
+  <rect x="50" y="474" width="180" height="42" rx="8" class="item s1" />
+  <text x="140" y="501" text-anchor="middle" class="item-text">A</text>
+  <rect x="50" y="562" width="180" height="42" rx="8" class="item s2" />
+  <text x="140" y="589" text-anchor="middle" class="item-text">B</text>
+  <path d="M140 560 V520" class="arrow" marker-end="url(#g10-arr)" />
+  <text x="152" y="546" class="txt">B dépend de A</text>
+  <text x="140" y="676" text-anchor="middle" class="note">même équipe :</text>
+  <text x="140" y="698" text-anchor="middle" class="note">le PO ordonne</text>
+
+  <!-- À droite : deux backlogs -->
+  <rect x="290" y="430" width="130" height="150" rx="8" class="backlog" />
+  <text x="355" y="456" text-anchor="middle" class="strong">plateforme</text>
+  <rect x="302" y="480" width="106" height="42" rx="8" class="item s1" />
+  <text x="355" y="507" text-anchor="middle" class="item-text">story</text>
+
+  <rect x="460" y="430" width="130" height="150" rx="8" class="backlog" />
+  <text x="525" y="456" text-anchor="middle" class="strong">équipe appli</text>
+  <rect x="472" y="480" width="106" height="42" rx="8" class="item s2" />
+  <text x="525" y="507" text-anchor="middle" class="item-text">élément</text>
+
+  <path d="M408 501 H472" class="dep" />
+
+  <!-- Les deux PO et leur accord -->
+  <path d="M355 580 V606" class="link" />
+  <path d="M525 580 V606" class="link" />
+  <rect x="302" y="606" width="106" height="30" rx="15" class="po" />
+  <text x="355" y="627" text-anchor="middle" class="small">PO plateforme</text>
+  <rect x="472" y="606" width="106" height="30" rx="15" class="po" />
+  <text x="525" y="627" text-anchor="middle" class="small">PO appli</text>
+  <path d="M410 621 H470" class="arrow" marker-start="url(#g10-arr)" marker-end="url(#g10-arr)" />
+  <rect x="352" y="652" width="176" height="52" rx="14" class="bubble" />
+  <text x="440" y="675" text-anchor="middle" class="txt">on s'accorde</text>
+  <text x="440" y="696" text-anchor="middle" class="txt">sur l'ordre</text>
+  <path d="M440 652 V637" class="link" />
+
+  <rect x="290" y="730" width="300" height="48" rx="8" class="esc" />
+  <text x="440" y="752" text-anchor="middle" class="note">si ça bloque : escalade</text>
+  <text x="440" y="772" text-anchor="middle" class="note">(concept 14)</text>
+</svg>
+
+<style>
+  .sch { font-family: var(--font-ui); }
+  .ptitle { font-size: 21px; font-weight: 700; fill: var(--sch-text); }
+  .strong { font-size: 18px; font-weight: 650; fill: var(--sch-text); }
+  .txt { font-size: 17px; fill: var(--sch-text); }
+  .small { font-size: 13.5px; font-weight: 600; fill: var(--sch-text); }
+  .note { font-size: 16.5px; fill: var(--sch-text-soft); }
+  .story { fill: var(--sch-band); stroke: var(--sch-s1); stroke-width: 3; }
+  .ask { fill: none; stroke: var(--sch-grey-line); stroke-width: 2.5; stroke-dasharray: 6 4; }
+  .backlog { fill: var(--sch-band); stroke: var(--sch-band-line); stroke-width: 2; }
+  .arrow { stroke: var(--sch-text-soft); stroke-width: 2.2; fill: none; }
+  .arrow-head { fill: var(--sch-text-soft); }
+  .item.s1 { fill: var(--sch-s1); }
+  .item.s2 { fill: var(--sch-s2); }
+  .item-text { font-size: 18px; font-weight: 700; fill: var(--sch-s-ink); text-anchor: middle; }
+  .dep { stroke: var(--sch-text-soft); stroke-width: 2.4; stroke-dasharray: 5 4; fill: none; }
+  .link { stroke: var(--sch-grey-line); stroke-width: 2; fill: none; }
+  .po { fill: none; stroke: var(--sch-grey-line); stroke-width: 2; }
+  .bubble { fill: var(--sch-grey); stroke: var(--sch-grey-line); stroke-width: 2; }
+  .esc { fill: none; stroke: var(--sch-grey-line); stroke-width: 2.2; stroke-dasharray: 7 5; }
+  .sep { stroke: var(--sch-band-line); stroke-width: 1.5; }
+</style>
