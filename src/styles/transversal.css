@@ -99,6 +99,14 @@ details.cdep[open] > summary { border-bottom: 1px solid var(--rule); }
 .cdep .t { font-family: var(--font-text); font-size: 1.02rem; }
 div.cdep { padding: 0.7rem 1rem; border-style: dashed; color: var(--ink-soft); }
 div.cdep .soon { font-size: 0.78rem; margin-left: 0.4rem; }
+.src-groupe h3 { font-size: 1.05rem; margin: 1.5rem 0 0.6rem; }
+.src-nb { display: block; font-size: 0.8rem; color: var(--ink-soft); margin-top: 0.15rem; }
+.src-corps { padding: 0.4rem 1rem 0.8rem; overflow-wrap: anywhere; }
+.src-corps .reflist { margin: 0.4rem 0 0; }
+.src-sous { font-family: var(--font-ui); font-size: 0.75rem; font-weight: 650; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); margin: 1rem 0 0.4rem; }
+.legende-src { display: grid; grid-template-columns: max-content 1fr; gap: 0.4rem 1rem; margin: 0 0 1rem; max-width: 46rem; }
+.legende-src dt { font-family: var(--font-ui); font-weight: 650; font-size: 0.9rem; }
+.legende-src dd { margin: 0; }
 .sous-liste { list-style: none; margin: 0; padding: 0 1rem; }
 .sous-lien { display: grid; grid-template-columns: 3.2rem 1fr; gap: 0 0.5rem; padding: 0.7rem 0.4rem 0.7rem 0; border-bottom: 1px solid var(--rule); text-decoration: none; color: var(--ink); }
 .sous-lien:hover { background: var(--bg); color: var(--ink); }
