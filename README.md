@@ -54,6 +54,7 @@ props, invariant.
 src/content/concepts/fr/NN-slug.mdx   une page par concept : frontmatter (en-tête, onglets Consensus ou école
                                        et Sources, alignement) et corps MDX (onglet Comprendre)
 src/components/                       composants des pages ; schemas/ : un schéma SVG par concept
+src/icons/                            une icône par fichier (SVG au trait), règles de dessin dans son README
 src/data/                             domaines, glossaire, fil rouge (copiés du cours), versions
 src/lib/                              accès aux concepts, index transversaux, typographie, Markdown en ligne
 src/i18n/ui.ts                        libellés de l'interface

@@ -5,6 +5,16 @@ dit sur quelle version du cours elle est alignée.
 
 ## Non publié
 
+## 0.9.1, 2026-10-25 (aligné sur le cours 2.0.0)
+
+Icônes (T-070) :
+- une icône par fichier dans `src/icons/` (loupe, soleil, lune, marque), importée comme composant :
+  la page construite garde le SVG en ligne, à la couleur du texte ; règles de dessin dans
+  `src/icons/README.md` ;
+- marque du site redessinée au trait (un backlog : trois cartes rangées par priorité), devant le
+  nom du site, et favicon assorti, qui suit le thème clair ou sombre du système ;
+- `/dev/composants/` : rubrique Icônes, toutes les icônes côte à côte.
+
 ## 0.9.0, 2026-10-25 (aligné sur le cours 2.0.0)
 
 En-tête sur une ligne au bureau (T-069) :

@@ -16,6 +16,10 @@ import Refs from '../../components/Refs.astro';
 import FilRouge from '../../components/FilRouge.astro';
 import Gateau from '../../components/schemas/Gateau.astro';
 import { url } from '../../i18n/ui';
+
+// Toutes les icônes de src/icons/, lues au build : une icône ajoutée y apparaît d'elle-même.
+const icones = Object.entries(import.meta.glob('../../icons/*.svg', { eager: true, import: 'default' }))
+  .map(([chemin, Icone]) => ({ nom: chemin.split('/').pop()!.replace('.svg', ''), Icone: Icone as any }));
 import { positions } from '../../lib/transversal';
 
 const toutes = await positions();
@@ -33,6 +37,7 @@ const items = [
   { id: 'erreurs', titre: 'Erreurs' },
   { id: 'refs', titre: 'Refs' },
   { id: 'filrouge', titre: 'FilRouge' },
+  { id: 'icones', titre: 'Icônes' },
 ];
 
 const code = {
@@ -71,6 +76,9 @@ La question à se poser, en une phrase.
 </Erreurs>`,
   refs: `<Refs refs={['S1', 'S2']} />   <!-- lien vers #ref-S1 : la page doit porter ces ancres -->`,
   filrouge: `<FilRouge>Une situation du fil rouge, jamais un exercice.</FilRouge>`,
+  icones: `import Loupe from '../icons/loupe.svg';
+
+<Loupe width="18" height="18" aria-hidden="true" />`,
 };
 ---
 <Base title="Composants" description="Les composants du site, rendus avec leur code d’usage." noindex>
@@ -168,6 +176,17 @@ La question à se poser, en une phrase.
             <pre><code>{code.filrouge}</code></pre>
           </section>
 
+          <section class="fr-section" id="icones" aria-labelledby="icones-t">
+            <h2 id="icones-t">Icônes</h2>
+            <p>Les fichiers de <code>src/icons/</code>, à 18 px (taille de l’en-tête) et à 48 px ; règles de dessin dans <code>src/icons/README.md</code>.</p>
+            <ul class="icones">
+              {icones.map(({ nom, Icone }) => (
+                <li><Icone width="48" height="48" aria-hidden="true" /><Icone width="18" height="18" aria-hidden="true" /><code>{nom}</code></li>
+              ))}
+            </ul>
+            <pre><code>{code.icones}</code></pre>
+          </section>
+
           </div>
         </div>
       </div>
@@ -181,4 +200,10 @@ La question à se poser, en une phrase.
     background: var(--surface); font-size: 0.82rem; line-height: 1.5;
   }
   .dev :global(.sous) { margin-top: 0; }
+  .icones { display: flex; flex-wrap: wrap; gap: 1rem; list-style: none; margin: 1rem 0 0; padding: 0; }
+  .icones li {
+    display: grid; justify-items: center; gap: 0.5rem; width: 6.5rem; padding: 0.9rem 0.5rem; margin: 0;
+    border: 1px solid var(--rule); border-radius: 6px; color: var(--ink);
+  }
+  .icones code { font-size: 0.8rem; }
 </style>

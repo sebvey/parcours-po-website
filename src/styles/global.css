@@ -174,7 +174,7 @@ h1, h2, h3, h4 {
   font-family: var(--font-text); font-weight: 650; font-size: 1.1rem; line-height: 1.2;
   color: var(--ink); text-decoration: none; margin-right: auto;
 }
-.brand img { flex: none; border-radius: 6px; }
+.brand svg { flex: none; color: var(--accent); }
 .brand-nom { max-width: 14rem; }
 .brand:hover { color: var(--ink); }
 .site-nav ul { display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; list-style: none; margin: 0; padding: 0; }

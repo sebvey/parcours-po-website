@@ -2,6 +2,10 @@
 import '../styles/global.css';
 import { useT, url, defaultLang, type Lang } from '../i18n/ui';
 import { siteVersion, coursVersion } from '../data/version';
+import Marque from '../icons/marque.svg';
+import Loupe from '../icons/loupe.svg';
+import Soleil from '../icons/soleil.svg';
+import Lune from '../icons/lune.svg';
 
 interface Props {
   title?: string;
@@ -58,7 +62,7 @@ const items = [
     <header class="site-header">
       <div class="container-wide bar">
         <a class="brand" href={url('')} aria-current={nav === 'home' ? 'page' : undefined}>
-          <img src={url('favicon.svg')} width="28" height="28" alt="" />
+          <Marque width="28" height="28" aria-hidden="true" />
           <span class="brand-nom">{t('site.name')}</span>
         </a>
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-list" hidden>{t('nav.menu')}</button>
@@ -70,12 +74,12 @@ const items = [
           </ul>
         </nav>
         <a class="btn-rond search-link" href={url('recherche/')} title={t('search.label')} aria-current={nav === 'search' ? 'page' : undefined}>
-          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M15 15l5.5 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <Loupe width="18" height="18" aria-hidden="true" />
           <span class="sr-only">{t('nav.search')}</span>
         </a>
         <button class="btn-rond theme-toggle" type="button" hidden>
-          <svg class="icone-soleil" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2.5v2.6M12 18.9v2.6M2.5 12h2.6M18.9 12h2.6M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-          <svg class="icone-lune" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+          <Soleil class="icone-soleil" width="18" height="18" aria-hidden="true" />
+          <Lune class="icone-lune" width="18" height="18" aria-hidden="true" />
           <span class="sr-only"></span>
         </button>
       </div>

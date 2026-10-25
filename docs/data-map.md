@@ -57,6 +57,7 @@ flowchart LR
 | Fil rouge | `src/data/fil-rouge.ts` | copie de `course/fil-rouge-velos.md` |
 | Version du site et du cours | `package.json` (`version`, `parcoursPo.coursVersion`) via `src/data/version.ts` | site |
 | Libellés de l'interface (menu, onglets, pastilles) | `src/i18n/ui.ts` | site |
+| Icônes et marque du site | `src/icons/` ; favicon : `public/favicon.svg`, même dessin | site |
 | Accueil, À propos, chapeaux des pages | `src/pages/*.astro` | site (texte public : relu par le mainteneur) |
 | Recherche | `dist/pagefind/` | dérivée au build (Pagefind indexe les pages qui portent `data-pagefind-body`) |
 | Typographie (espaces insécables, apostrophes) | `src/lib/typo-fr.ts`, `src/middleware.ts` | dérivée au rendu |
