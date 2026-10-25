@@ -5,6 +5,11 @@ dit sur quelle version du cours elle est alignée.
 
 ## Non publié
 
+## 0.3.1, 2026-10-25 (aligné sur le cours 2.0.0)
+
+- Page Domaines (T-059) : un bouton « Tout déplier » / « Tout replier » dans le sommaire collant
+  (sous la liste au bureau, en tête de la barre sur téléphone) ouvre ou ferme les 20 concepts.
+
 ## 0.3.0, 2026-10-25 (aligné sur le cours 2.0.0)
 
 Page Domaines (T-058) :
