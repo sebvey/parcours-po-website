@@ -5,6 +5,20 @@ dit sur quelle version du cours elle est alignée.
 
 ## Non publié
 
+## 0.9.0, 2026-10-25 (aligné sur le cours 2.0.0)
+
+En-tête sur une ligne au bureau (T-069) :
+- la recherche devient un bouton rond à loupe, à côté du bouton de thème, qui ouvre la page
+  Recherche ; au téléphone aussi, à côté de Menu (le champ de l'en-tête et le lien texte
+  disparaissent) ;
+- « Accueil » quitte le menu : le nom du site y mène, précédé du favicon ; sous 26rem, le favicon
+  seul tient lieu de nom ;
+- « À propos » passe dans le pied de page ;
+- le menu replié prend le relais sous 58rem (au lieu de 52rem), largeur de l'en-tête sur une
+  ligne ;
+- page Recherche : le champ reçoit le focus à l'arrivée (l'attribut `autofocus` de Pagefind
+  restait sans effet).
+
 ## 0.8.1, 2026-10-25 (aligné sur le cours 2.0.0)
 
 - Concept 14 (T-068) : empreintes d'alignement réinscrites. La fiche de sources du cours n'avait

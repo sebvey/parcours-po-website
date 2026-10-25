@@ -18,10 +18,13 @@ Ce qui a déjà cassé, ou casse sans bruit. Chaque piège : le symptôme, la ca
 
 - **Symptôme** : un élément ajouté à l'en-tête apparaît avant le titre ou au mauvais rang, sur
   téléphone seulement, ou seulement au bureau.
-- **Cause** : l'ordre visuel de l'en-tête est fixé par `order` dans `src/styles/global.css`
-  (téléphone : thème 1, Menu 2, navigation 3, recherche 4 ; à partir de 52rem, le thème passe à 5,
-  après la recherche). Un élément sans `order` prend 0.
-- **Parade** : donner un `order` au nouvel élément dans les deux cas ; vérifier les captures
+- **Cause** : au bureau (à partir de 58rem), l'en-tête suit l'ordre du code (nom, navigation,
+  loupe, thème) ; en dessous, `order` dans `src/styles/global.css` le fixe (nom 0, loupe 1,
+  thème 2, Menu 3, navigation 4 sur toute la largeur). Un élément sans `order` prend 0. Le
+  seuil de 58rem est la largeur de l'en-tête sur une ligne : un lien de plus dans la navigation
+  oblige à le remesurer.
+- **Parade** : placer le nouvel élément au bon rang dans le code (bureau) et lui donner un
+  `order` sous 58rem ; vérifier les captures
   `mobile-*` et `bureau-*` de `npm run verify`.
 
 ## `BASE_PATH` : le préfixe d'adresse en ligne

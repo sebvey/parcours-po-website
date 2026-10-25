@@ -8,7 +8,6 @@ export const ui = {
   fr: {
     'site.name': "Product Owner d’un produit data",
     'site.tagline': 'Un cours de gestion de produit, en clair et sourcé',
-    'nav.home': 'Accueil',
     'nav.domaines': 'Domaines',
     // --- Pages transversales : index (début)
     'nav.ecoles': 'Consensus ou école',
@@ -22,7 +21,6 @@ export const ui = {
     'nav.main': 'Navigation principale',
     'skip': 'Aller au contenu',
     'search.label': 'Rechercher dans le cours',
-    'search.placeholder': 'Rechercher',
     'footer.licence': '© Sébastien Vey, CC BY 4.0',
     'footer.licenceLink': 'https://creativecommons.org/licenses/by/4.0/deed.fr',
     'footer.site': 'site',

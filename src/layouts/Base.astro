@@ -19,8 +19,8 @@ const desc = description ?? t('site.tagline');
 const canonical = new URL(Astro.url.pathname, Astro.site);
 // Aperçu : tant que la version est 0.x, le site demande aux moteurs de recherche de ne pas l'indexer.
 const preview = siteVersion.startsWith('0.');
+// L'accueil est le lien du nom du site ; À propos est dans le pied de page ; la recherche, un bouton rond.
 const items = [
-  { key: 'home', href: url(''), label: t('nav.home') },
   { key: 'domaines', href: url('domaines/'), label: t('nav.domaines') },
   { key: 'filrouge', href: url('fil-rouge/'), label: t('nav.filrouge') },
   { key: 'glossaire', href: url('glossaire/'), label: t('nav.glossary') },
@@ -28,7 +28,6 @@ const items = [
   { key: 'ecoles', href: url('ecoles/'), label: t('nav.ecoles') },
   { key: 'sources', href: url('sources/'), label: t('nav.sources') },
   // --- Pages transversales : index (fin)
-  { key: 'about', href: url('a-propos/'), label: t('nav.about') },
 ];
 ---
 <!doctype html>
@@ -58,21 +57,23 @@ const items = [
     <a class="skip" href="#contenu">{t('skip')}</a>
     <header class="site-header">
       <div class="container-wide bar">
-        <a class="brand" href={url('')}>{t('site.name')}</a>
+        <a class="brand" href={url('')} aria-current={nav === 'home' ? 'page' : undefined}>
+          <img src={url('favicon.svg')} width="28" height="28" alt="" />
+          <span class="brand-nom">{t('site.name')}</span>
+        </a>
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-list" hidden>{t('nav.menu')}</button>
         <nav class="site-nav" aria-label={t('nav.main')}>
           <ul id="nav-list">
             {items.map((i) => (
               <li><a href={i.href} aria-current={nav === i.key ? 'page' : undefined}>{i.label}</a></li>
             ))}
-            <li class="nav-search-link"><a href={url('recherche/')} aria-current={nav === 'search' ? 'page' : undefined}>{t('nav.search')}</a></li>
           </ul>
         </nav>
-        <form class="search-form" role="search" action={url('recherche/')} method="get">
-          <label class="sr-only" for="q-header">{t('search.label')}</label>
-          <input id="q-header" type="search" name="q" placeholder={t('search.placeholder')} autocomplete="off" />
-        </form>
-        <button class="theme-toggle" type="button" hidden>
+        <a class="btn-rond search-link" href={url('recherche/')} title={t('search.label')} aria-current={nav === 'search' ? 'page' : undefined}>
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M15 15l5.5 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <span class="sr-only">{t('nav.search')}</span>
+        </a>
+        <button class="btn-rond theme-toggle" type="button" hidden>
           <svg class="icone-soleil" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2.5v2.6M12 18.9v2.6M2.5 12h2.6M18.9 12h2.6M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
           <svg class="icone-lune" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
           <span class="sr-only"></span>
@@ -128,7 +129,7 @@ const items = [
     </main>
     <footer class="site-footer">
       <div class="container-wide row">
-        <p><a href={t('footer.licenceLink')} rel="license noopener">{t('footer.licence')}</a></p>
+        <p><a href={url('a-propos/')} aria-current={nav === 'about' ? 'page' : undefined}>{t('nav.about')}</a> · <a href={t('footer.licenceLink')} rel="license noopener">{t('footer.licence')}</a></p>
         <p>{t('site.name')} · {t('footer.site')} {siteVersion} · {t('footer.cours')} {coursVersion}</p>
       </div>
     </footer>

@@ -10,7 +10,7 @@ const bundle = url('pagefind/');
       <p class="eyebrow">Recherche</p>
       <h1>Rechercher dans le cours</h1>
       <pagefind-config bundle-path={bundle} base-url={import.meta.env.BASE_URL}></pagefind-config>
-      <pagefind-input autofocus></pagefind-input>
+      <pagefind-input></pagefind-input>
       <pagefind-summary></pagefind-summary>
       <pagefind-results></pagefind-results>
       <noscript><p>La recherche demande JavaScript.</p></noscript>
@@ -19,17 +19,19 @@ const bundle = url('pagefind/');
   </div>
   <script is:inline type="module" src={`${bundle}pagefind-component-ui.js`} onerror="document.getElementById('search-fallback').hidden=false"></script>
   <script is:inline>
-    // Préremplit la recherche depuis ?q= (formulaire de l'en-tête).
+    // Donne le focus au champ (l'attribut autofocus de Pagefind reste sans effet) et le préremplit depuis ?q= (lien direct).
     window.addEventListener('DOMContentLoaded', function () {
       var q = new URLSearchParams(location.search).get('q');
-      if (!q) return;
       customElements.whenDefined('pagefind-input').then(function () {
         setTimeout(function () {
           var host = document.querySelector('pagefind-input');
           var input = host && (host.querySelector('input') || (host.shadowRoot && host.shadowRoot.querySelector('input')));
           if (!input) return;
-          input.value = q;
-          input.dispatchEvent(new Event('input', { bubbles: true }));
+          if (q) {
+            input.value = q;
+            input.dispatchEvent(new Event('input', { bubbles: true }));
+          }
+          input.focus();
         }, 50);
       });
     });
