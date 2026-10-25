@@ -5,6 +5,13 @@ dit sur quelle version du cours elle est alignée.
 
 ## Non publié
 
+## 0.10.1, 2026-10-25 (aligné sur le cours 2.1.0)
+
+Numéros de concept en pastilles (T-072) :
+- Fil rouge (« Central aux concepts ») et Glossaire (concepts de chaque terme) : les numéros
+  soulignés séparés par des virgules deviennent les pastilles de la page Sources, titre du
+  concept en infobulle.
+
 ## 0.10.0, 2026-10-25 (aligné sur le cours 2.1.0)
 
 Une page par domaine, dans l'ordre de lecture (T-071b) :
