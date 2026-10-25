@@ -1,4 +1,7 @@
 ---
+// Onglet « Sources » d'une page de concept : affirmations et ce qui a été vérifié, références,
+// non vérifié. Props : `data`, le bloc `sources` du frontmatter. Invariant : chaque référence
+// porte l'ancre `ref-<id>` (ref-S1), cible des renvois <Refs> et de la page Sources.
 import Pastille from './Pastille.astro';
 import Refs from './Refs.astro';
 import { inline, dateFr } from '../lib/inline';

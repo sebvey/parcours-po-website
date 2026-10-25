@@ -1,4 +1,8 @@
 ---
+// Onglet « Consensus ou école » d'une page de concept : trois colonnes (consensus, choix d'école,
+// choix du cours), puis les notions voisines. Props : `data`, le bloc `ecoles` du frontmatter.
+// Invariant : chaque position porte l'ancre `<nature>-<rang>` (ecole-3), cible de l'index
+// Consensus ou école (src/lib/transversal.ts) : réordonner le frontmatter change les adresses.
 import Pastille from './Pastille.astro';
 import Refs from './Refs.astro';
 import { inline } from '../lib/inline';

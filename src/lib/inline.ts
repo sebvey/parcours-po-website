@@ -1,5 +1,5 @@
 // Markdown en ligne minimal pour les données du frontmatter : **gras**, *italique*.
-// Tout le reste est échappé.
+// Tout le reste est échappé : la sortie va dans `set:html`. La typographie (typoFr) est appliquée.
 const esc = (s: string) =>
   s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 

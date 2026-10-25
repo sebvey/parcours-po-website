@@ -1,3 +1,4 @@
+// Versions affichées dans le pied de page et dans À propos, lues dans package.json au build.
 import pkg from '../../package.json';
 
 /** Version du site (MAJOR égal à celui du cours). Source : package.json. */

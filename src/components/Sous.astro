@@ -1,5 +1,8 @@
 ---
-// Un sous-concept : titre ancré (#9a), phrase de promesse, corps.
+// Un sous-concept : titre ancré (#9a), phrase de promesse, corps. Props : `id` (adresse stable, on
+// ne la renomme pas), `titre`, `promesse`. Invariant : la page Domaines relit ces attributs dans le
+// texte MDX (sousConcepts, src/lib/concepts.ts) : écrits en littéraux entre guillemets doubles,
+// jamais en expression {…}.
 interface Props { id: string; titre: string; promesse?: string; }
 const { id, titre, promesse } = Astro.props;
 ---

@@ -5,6 +5,24 @@ dit sur quelle version du cours elle est alignée.
 
 ## Non publié
 
+## 0.8.0, 2026-10-25 (aligné sur le cours 2.0.0)
+
+Outillage et documentation pour les développeurs (T-050j) :
+- **`npm run verify`** : build avec le préfixe d'adresse en ligne, liens et ancres internes,
+  captures de chaque page au bureau et à 375 px en clair et en sombre, échec sur un défilement
+  horizontal ou une erreur JavaScript, contrôle du style du texte rendu, alignement sur le cours en
+  avertissement (Playwright en dépendance de développement).
+- **Page `/dev/composants/`** (et `/dev/sommaire-compact/`) : chaque composant rendu avec son code
+  d'usage, hors menu et hors index.
+- **Documentation** : `docs/recipes.md`, `docs/data-map.md`, `docs/pitfalls.md`, `CLAUDE.md` ;
+  README allégé ; en-tête (rôle, props, invariant) dans chaque composant et fichier de `src/lib/`
+  et `src/data/`.
+- Corrections trouvées par `verify` : une adresse longue débordait à 375 px dans l'onglet Sources
+  (concept 6) ; les flèches de précédent et suivant sont cachées aux lecteurs d'écran ; la page 404
+  n'annonce plus d'adresse canonique.
+- Les pages hors index (recherche, 404, démonstration) demandent aussi aux moteurs de ne pas les
+  indexer ; le middleware typographique ne touche plus le code (`pre`, `code`).
+
 ## 0.7.0, 2026-10-25 (aligné sur le cours 2.0.0)
 
 T-065 :

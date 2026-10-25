@@ -1,6 +1,9 @@
 ---
 // Une position de l'index « Consensus ou école » : sujet, première phrase, suite repliable, renvoi au concept.
-// `court` : dans un groupe déjà titré par son concept, le renvoi ne répète pas le titre.
+// Props : `p` (une Position de src/lib/transversal.ts), `sujet` (en gras, en tête), `court` : dans
+// un groupe déjà titré par son concept, le renvoi ne répète pas le titre. À placer dans un <ul>.
+// Invariant : seule la première phrase s'affiche, la suite se replie ; la coupe ne tombe jamais
+// dans un passage en gras ou en italique (premierePhrase).
 import { inline } from '../lib/inline';
 import { typoFr } from '../lib/typo-fr';
 import { premierePhrase, type Position } from '../lib/transversal';
