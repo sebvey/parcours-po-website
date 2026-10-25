@@ -5,6 +5,13 @@ dit sur quelle version du cours elle est alignée.
 
 ## Non publié
 
+## 0.5.0, 2026-10-25 (aligné sur le cours 2.0.0)
+
+- Page Domaines (T-062) : un bouton « Lire » à droite de chaque concept, visible plié comme
+  déplié ; le lien « Lire le concept N » en bas de la liste disparaît.
+- Page de concept (T-062) : précédent / suivant quitte l'en-tête ; deux cartes en bas de page et,
+  au bureau, deux flèches dans la barre d'onglets collante.
+
 ## 0.4.0, 2026-10-25 (aligné sur le cours 2.0.0)
 
 Page Fil rouge (T-061) :

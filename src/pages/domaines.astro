@@ -34,8 +34,9 @@ const items = tous.map((d) => ({ id: domaineId(d), n: d.n > 0 ? d.n : undefined,
                 {d.concepts.map((c) => {
                   const e = dispo.get(c.n);
                   return (
-                    <li>
+                    <li class="cdep-item">
                       {e ? (
+                        <>
                         <details class="cdep">
                           <summary><span class="num">{libelle(c.n)} {c.n}</span> <span class="t">{c.titre}</span></summary>
                           <ol class="sous-liste">
@@ -51,8 +52,9 @@ const items = tous.map((d) => ({ id: domaineId(d), n: d.n > 0 ? d.n : undefined,
                               </li>
                             ))}
                           </ol>
-                          <p class="lire"><a href={conceptUrl(c.n)}>Lire le concept {c.n}</a></p>
                         </details>
+                        <a class="lire-btn" href={conceptUrl(c.n)} aria-label={`Lire le concept ${c.n} : ${c.titre}`}>Lire</a>
+                        </>
                       ) : (
                         <div class="cdep off"><span class="num">{libelle(c.n)} {c.n}</span> <span class="t">{c.titre}</span> <span class="soon">{t('concept.soon')}</span></div>
                       )}
