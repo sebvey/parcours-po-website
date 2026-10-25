@@ -20,7 +20,8 @@ npm run preview    # sert dist/ sur http://localhost:4321 (recherche comprise)
 src/content/concepts/fr/NN-slug.mdx   un fichier par concept : en-tête, onglets Écoles et Sources
                                        (frontmatter) et onglet Comprendre (corps MDX)
 src/components/                       pastilles, sous-concepts, « Le réflexe », erreurs, onglets,
-                                       sommaire collant (Sommaire, pages Domaines et Fil rouge)
+                                       sommaire collant (Sommaire : options « Tout déplier » et compact ; pages
+                                       Domaines, Fil rouge, Sources, Consensus ou école, Glossaire)
 src/components/schemas/               un schéma SVG par concept, en variables CSS (clair et sombre)
 src/data/domaines.ts                  les sept domaines du cours et leurs concepts, puis les annexes
 src/data/glossaire.ts                 les termes du glossaire et les termes à éviter
@@ -73,6 +74,12 @@ dans le pied de page et dans À propos, sa version et celle du cours sur laquell
 
 Passer sur une nouvelle version du cours : mettre `parcoursPo.coursVersion` à jour, réaligner les
 pages que `check-alignment` signale, inscrire les empreintes, noter le changement dans `CHANGELOG.md`.
+
+## Thème
+
+Clair ou sombre selon le système ; le bouton de l'en-tête bascule et mémorise le choix
+(`localStorage`, clé `theme`), appliqué avant l'affichage par un script de `src/layouts/Base.astro`.
+Les couleurs sont des jetons CSS en tête de `src/styles/global.css`.
 
 ## Déploiement
 

@@ -77,7 +77,9 @@
     --sch-text-soft: #b3aea3;
   }
 }
+:root[data-theme='light'] { color-scheme: light; }
 :root[data-theme='dark'] {
+  color-scheme: dark;
   --bg: #161513;
   --surface: #1f1d1a;
   --surface-2: #292622;
@@ -180,6 +182,23 @@ h1, h2, h3, h4 {
 .site-nav a:hover { color: var(--ink); }
 .site-nav a[aria-current='page'] { color: var(--ink); border-bottom-color: var(--accent); }
 .search-form { display: none; }
+.theme-toggle {
+  display: inline-flex; align-items: center; justify-content: center; width: 2.25rem; height: 2.25rem; padding: 0;
+  border: 1px solid var(--rule); border-radius: 999px; background: var(--surface); color: var(--ink-soft); cursor: pointer;
+}
+.theme-toggle:hover { color: var(--ink); background: var(--surface-2); }
+.theme-toggle[hidden] { display: none; }
+/* Téléphone : le bouton de thème à côté du bouton Menu ; bureau : après la recherche. */
+.theme-toggle { order: 1; }
+.nav-toggle { order: 2; }
+.site-nav { order: 3; }
+.search-form { order: 4; }
+@media (max-width: 51.99rem) { .brand { max-width: 11rem; } }
+@media (min-width: 52rem) { .theme-toggle { order: 5; } }
+/* L'icône montre le thème vers lequel on bascule. */
+.theme-toggle .icone-soleil { display: none; }
+.theme-toggle[aria-pressed='true'] .icone-soleil { display: block; }
+.theme-toggle[aria-pressed='true'] .icone-lune { display: none; }
 @media (min-width: 52rem) {
   .search-form { display: block; }
   .search-form input {
@@ -372,6 +391,12 @@ a.pn-carte:hover { background: var(--surface-2); color: var(--ink); }
 .sommaire a:hover { color: var(--ink); background: var(--surface); }
 .sommaire a[aria-current] { color: var(--accent); font-weight: 650; }
 .sommaire .sommaire-n { font-weight: 700; min-width: 1em; }
+@media (min-width: 60rem) {
+  .sommaire-compact ol { display: flex; flex-wrap: wrap; gap: 0.25rem; }
+  .sommaire-compact a { padding: 0.25rem 0.5rem; min-width: 2rem; justify-content: center; border-left: 0; border-radius: 4px; }
+  .sommaire-compact li:last-child { flex-basis: 100%; }
+  .sommaire-compact li:last-child a { justify-content: flex-start; }
+}
 .tout-deplier {
   font: inherit; font-size: 0.88rem; font-weight: 650; color: var(--accent); cursor: pointer;
   padding: 0.35rem 0.8rem; border: 1px solid var(--accent); border-radius: 999px; background: var(--bg);

@@ -45,7 +45,14 @@ const items = [
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={desc} />
     <meta property="og:locale" content="fr_FR" />
-    <script is:inline>document.documentElement.classList.add('js');</script>
+    <script is:inline>
+      document.documentElement.classList.add('js');
+      // Thème choisi par le lecteur (bouton de l'en-tête), appliqué avant l'affichage ; sinon, celui du système.
+      try {
+        var theme = localStorage.getItem('theme');
+        if (theme === 'light' || theme === 'dark') document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) {}
+    </script>
   </head>
   <body>
     <a class="skip" href="#contenu">{t('skip')}</a>
@@ -65,8 +72,38 @@ const items = [
           <label class="sr-only" for="q-header">{t('search.label')}</label>
           <input id="q-header" type="search" name="q" placeholder={t('search.placeholder')} autocomplete="off" />
         </form>
+        <button class="theme-toggle" type="button" hidden>
+          <svg class="icone-soleil" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2.5v2.6M12 18.9v2.6M2.5 12h2.6M18.9 12h2.6M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <svg class="icone-lune" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+          <span class="sr-only"></span>
+        </button>
       </div>
     </header>
+    <script is:inline>
+      // Bouton clair / sombre : bascule le thème affiché et mémorise le choix.
+      (function () {
+        var b = document.querySelector('.theme-toggle');
+        if (!b) return;
+        var racine = document.documentElement;
+        var sombreSysteme = window.matchMedia('(prefers-color-scheme: dark)');
+        function actuel() { return racine.getAttribute('data-theme') || (sombreSysteme.matches ? 'dark' : 'light'); }
+        function maj() {
+          var sombre = actuel() === 'dark';
+          b.setAttribute('aria-pressed', sombre ? 'true' : 'false');
+          b.querySelector('.sr-only').textContent = 'Thème sombre';
+          b.title = sombre ? 'Passer au thème clair' : 'Passer au thème sombre';
+        }
+        b.hidden = false;
+        b.addEventListener('click', function () {
+          var t = actuel() === 'dark' ? 'light' : 'dark';
+          racine.setAttribute('data-theme', t);
+          try { localStorage.setItem('theme', t); } catch (e) {}
+          maj();
+        });
+        sombreSysteme.addEventListener('change', maj);
+        maj();
+      })();
+    </script>
     <script is:inline>
       (function () {
         var b = document.querySelector('.nav-toggle');

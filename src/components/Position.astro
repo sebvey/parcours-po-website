@@ -1,16 +1,19 @@
 ---
 // Une position de l'index « Consensus ou école » : sujet, première phrase, suite repliable, renvoi au concept.
+// `court` : dans un groupe déjà titré par son concept, le renvoi ne répète pas le titre.
 import { inline } from '../lib/inline';
 import { typoFr } from '../lib/typo-fr';
 import { premierePhrase, type Position } from '../lib/transversal';
-interface Props { p: Position; sujet?: string; }
-const { p, sujet } = Astro.props;
+interface Props { p: Position; sujet?: string; court?: boolean; }
+const { p, sujet, court = false } = Astro.props;
 const { debut, suite } = premierePhrase(p.texte);
 ---
 <li class="pos">
   <p class="pos-tete">
     {sujet && <strong class="pos-sujet">{typoFr(sujet)}</strong>}
-    <a class="pos-lien" href={p.href}><span class="sr-only">Voir dans </span>{/^A/.test(p.n) ? `annexe ${p.n}` : `concept ${p.n}`}<span class="pos-titre"> · {p.titre}</span></a>
+    {court
+      ? <a class="pos-lien" href={p.href}>voir dans {/^A/.test(p.n) ? 'l’annexe' : 'le concept'}</a>
+      : <a class="pos-lien" href={p.href}><span class="sr-only">Voir dans </span>{/^A/.test(p.n) ? `annexe ${p.n}` : `concept ${p.n}`}<span class="pos-titre"> · {p.titre}</span></a>}
   </p>
   <p class="pos-texte" set:html={inline(debut)} />
   {suite && (
