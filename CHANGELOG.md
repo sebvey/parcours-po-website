@@ -5,6 +5,12 @@ dit sur quelle version du cours elle est alignée.
 
 ## Non publié
 
+## 0.6.1, 2026-10-25 (aligné sur le cours 2.0.0)
+
+- Page Sources (T-064) : la légende définit « marketing » par ce que vaut la source (elle vend
+  aussi ce dont elle parle ; fiable pour décrire son offre, ce qu'elle recommande est à prendre
+  avec recul), comme le modèle de fiche de sources du cours.
+
 ## 0.6.0, 2026-10-25 (aligné sur le cours 2.0.0)
 
 Page Sources (T-063) :
