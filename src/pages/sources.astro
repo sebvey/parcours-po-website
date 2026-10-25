@@ -1,87 +1,129 @@
 ---
 import Base from '../layouts/Base.astro';
-import { bibliographie, nonVerifie } from '../lib/transversal';
+import Sommaire from '../components/Sommaire.astro';
+import '../styles/transversal.css';
+import { bibliographie } from '../lib/transversal';
 import { inline } from '../lib/inline';
-
+import { domaines, annexes } from '../data/domaines';
+import { disponibles, conceptUrl } from '../lib/concepts';
 const { entrees, totalCitations } = await bibliographie();
-const nv = await nonVerifie();
-const nbNonVerifie = nv.reduce((s, c) => s + c.items.length, 0);
-
-// Lettre de tête, pour repérer un auteur dans une longue liste.
-const lettre = (tri: string) => {
-  const c = tri.normalize('NFD').replace(/[̀-ͯ]/g, '').charAt(0).toUpperCase();
-  return /[A-Z]/.test(c) ? c : '#';
-};
-const lettres = [...new Set(entrees.map((e) => lettre(e.tri)))];
-const cherche = (e: (typeof entrees)[number]) =>
-  `${e.texte} ${e.url ?? ''} ${e.types.join(' ')} ${e.citations.map((c) => `concept ${c.n}`).join(' ')}`.toLowerCase();
+const dispo = await disponibles();
+// Les sources qui portent le cours : citées par au moins 3 concepts.
+const SEUIL = 3;
+const conceptsDe = (e: (typeof entrees)[number]) =>
+  e.citations.filter((c, i, a) => a.findIndex((x) => x.n === c.n) === i);
+const piliers = entrees
+  .map((e) => ({ e, concepts: conceptsDe(e) }))
+  .filter((p) => p.concepts.length >= SEUIL)
+  .sort((a, b) => b.concepts.length - a.concepts.length);
+const libelle = (n: string) => (/^A/.test(n) ? 'Annexe' : 'Concept');
+const norm = (s: string) => s.toLowerCase();
+const groupes = [...domaines, annexes].map((d) => ({
+  titre: d.n === 0 ? 'Annexes' : `Domaine ${d.n} · ${d.titre}`,
+  concepts: d.concepts.filter((c) => dispo.has(c.n)).map((c) => ({ c, s: dispo.get(c.n)!.data.sources })),
+}));
+const items = [
+  { id: 'socle', titre: 'Sur quoi repose le cours' },
+  { id: 'lire-source', titre: 'Lire une source' },
+  { id: 'par-concept', titre: 'Concept par concept' },
+];
 ---
-<Base title="Sources" nav="sources" description="La bibliographie du cours, dédoublonnée, et la liste de ce que les sources consultées ne permettent pas d’établir.">
+<Base title="Sources" nav="sources" description="Les sources qui portent le cours, comment lire une source, et pour chaque concept ses références et ce qu’elles ne permettent pas d’établir.">
   <div class="container-wide">
     <section class="page index-page">
       <p class="eyebrow">Index transversal</p>
       <h1>Sources</h1>
-      <p class="lead">Tout ce que le cours a consulté, une fois par document, avec les concepts qui le citent. Puis, concept par concept, ce que ces sources ne permettent pas d’établir.</p>
-      <nav class="saut" aria-label="Sections de la page" data-pagefind-ignore>
-        <ul>
-          <li><a href="#bibliographie">Bibliographie <span class="nb">{entrees.length}</span></a></li>
-          <li><a href="#non-verifie">Non vérifié <span class="nb">{nbNonVerifie}</span></a></li>
-        </ul>
-      </nav>
+      <p class="lead">{entrees.length} documents consultés, cités {totalCitations} fois. Quelques-uns portent le cours ; les autres appuient un concept précis.</p>
 
-      <section id="bibliographie" aria-labelledby="h-biblio">
-        <h2 id="h-biblio">Bibliographie</h2>
-        <p class="sec-intro">{entrees.length} documents distincts, cités {totalCitations} fois dans les pages de concept. Triés par auteur ou par titre. Les numéros [S1], [S2]… renvoient à la liste de références de l’onglet Sources du concept.</p>
-
-        <div class="filtre-sources" data-pagefind-ignore hidden>
-          <label for="filtre-src">Filtrer la bibliographie</label>
-          <input id="filtre-src" type="search" placeholder="Auteur, titre, adresse ou « concept 9 »" autocomplete="off" />
-          <p id="filtre-etat" class="etat" role="status" aria-live="polite"></p>
-        </div>
-
-        <nav class="saut lettres" aria-label="Lettres" data-pagefind-ignore>
-          <ul>{lettres.map((l) => (<li><a href={`#l-${l}`}>{l}</a></li>))}</ul>
-        </nav>
-
-        <ol class="biblio" id="biblio">
-          {entrees.map((e, i) => {
-            const ouvre = i === 0 || lettre(entrees[i - 1].tri) !== lettre(e.tri);
-            return (
-              <li class="bib" data-cherche={cherche(e)} id={ouvre ? `l-${lettre(e.tri)}` : undefined}>
-                <p class="bib-texte">
-                  {e.url
-                    ? <a href={e.url} rel="noopener"><span set:html={inline(e.texte)} /></a>
-                    : <span set:html={inline(e.texte)} />}
-                </p>
-                <p class="bib-meta">{e.types.join(' · ')}</p>
-                <p class="bib-cites">
-                  <span class="lib">Cité dans</span>
-                  <span class="chips">
-                    {e.citations.map((c) => (
-                      <a class="chip" href={c.href} title={`Concept ${c.n} : ${c.titre}`} aria-label={`Concept ${c.n}, référence ${c.id}`}>{c.n}<span class="chip-ref"> {c.id}</span></a>
-                    ))}
-                  </span>
-                </p>
-              </li>
-            );
-          })}
-        </ol>
-        <p id="biblio-vide" class="etat" hidden>Aucune référence ne correspond à ce filtre.</p>
-      </section>
-
-      <section id="non-verifie" aria-labelledby="h-nv">
-        <h2 id="h-nv">Non vérifié</h2>
-        <p class="sec-intro">Ce que les sources consultées ne permettent pas d’établir, tel que chaque concept le dit. Les pages n’affirment rien de plus sur ces points.</p>
-        {nv.map((c) => (
-          <section class="nv-concept" aria-labelledby={`nv-${c.n}`}>
-            <h3 id={`nv-${c.n}`}>{/^A/.test(c.n) ? 'Annexe' : 'Concept'} {c.n} · {c.titre}</h3>
-            <ul class="nonverifie">
-              {c.items.map((t) => (<li set:html={inline(t)} />))}
-            </ul>
-            <p class="nv-lien" data-pagefind-ignore><a href={c.href}>Voir dans l’onglet Sources {/^A/.test(c.n) ? `de l’annexe ${c.n}` : `du concept ${c.n}`}</a></p>
+      <div class="avec-sommaire">
+        <Sommaire items={items} label="Dans cette page" />
+        <div class="sommaire-contenu">
+          <section class="fr-section" id="socle" aria-labelledby="socle-t">
+            <h2 id="socle-t">Sur quoi repose le cours</h2>
+            <p class="sec-intro">Les sources citées par au moins {SEUIL} concepts.</p>
+            <ol class="biblio">
+              {piliers.map(({ e, concepts }) => (
+                <li class="bib">
+                  <p class="bib-texte">
+                    {e.url
+                      ? <a href={e.url} rel="noopener"><span set:html={inline(e.texte)} /></a>
+                      : <span set:html={inline(e.texte)} />}
+                  </p>
+                  <p class="bib-meta">{e.types.join(' · ')}</p>
+                  <p class="bib-cites">
+                    <span class="lib">{concepts.length} concepts</span>
+                    <span class="chips">
+                      {concepts.map((c) => (
+                        <a class="chip" href={c.href} title={`${libelle(c.n)} ${c.n} : ${c.titre}`}>{c.n}</a>
+                      ))}
+                    </span>
+                  </p>
+                </li>
+              ))}
+            </ol>
           </section>
-        ))}
-      </section>
+
+          <section class="fr-section" id="lire-source" aria-labelledby="lire-source-t">
+            <h2 id="lire-source-t">Lire une source</h2>
+            <p class="sec-intro">Sous chaque référence, son type dit ce qu’elle vaut.</p>
+            <dl class="legende-src">
+              <dt>primaire</dt><dd>Le texte de l’auteur ou de l’organisme.</dd>
+              <dt>secondaire</dt><dd>Une reprise par un tiers sérieux.</dd>
+              <dt>marketing</dt><dd>Un éditeur ou un organisme qui vend un outil ou une formation : une allégation.</dd>
+            </dl>
+            <p class="sec-intro">Une précision suit parfois le type (« primaire pour ce que fait l’outil ; marketing pour ce qu’il recommande »). Les faits du fil rouge sont inventés : ils n’ont pas de source.</p>
+          </section>
+
+          <section class="fr-section" id="par-concept" aria-labelledby="par-concept-t">
+            <h2 id="par-concept-t">Concept par concept</h2>
+            <p class="sec-intro">Déployez un concept pour voir ses références et ce qu’elles ne permettent pas d’établir.</p>
+            <div class="filtre-sources" data-pagefind-ignore hidden>
+              <label for="filtre-src">Filtrer les sources</label>
+              <input id="filtre-src" type="search" placeholder="Auteur, titre, adresse ou « concept 9 »" autocomplete="off" />
+              <p id="filtre-etat" class="etat" role="status" aria-live="polite"></p>
+            </div>
+            {groupes.map((g) => (
+              <div class="src-groupe">
+                <h3>{g.titre}</h3>
+                <ul class="cdep-liste">
+                  {g.concepts.map(({ c, s }) => (
+                    <li class="cdep-item" data-concept={`concept ${c.n}`}>
+                      <details class="cdep">
+                        <summary><span class="num">{libelle(c.n)} {c.n}</span> <span class="t">{c.titre}</span> <span class="src-nb">{s.references.length} sources{s.nonVerifie.length > 0 && ` · ${s.nonVerifie.length} non vérifiés`}</span></summary>
+                        <div class="src-corps">
+                          <ol class="reflist">
+                            {s.references.map((r) => (
+                              <li class="src-ref" data-cherche={norm(`${r.texte} ${r.url ?? ''} ${r.type}`)}>
+                                <span class="id">{r.id}</span>
+                                <span>
+                                  {r.url
+                                    ? <a href={r.url} rel="noopener"><span set:html={inline(r.texte)} /></a>
+                                    : <span set:html={inline(r.texte)} />}
+                                  <span class="meta">{r.type}</span>
+                                </span>
+                              </li>
+                            ))}
+                          </ol>
+                          {s.nonVerifie.length > 0 && (
+                            <div class="src-nv">
+                              <p class="src-sous">Non vérifié</p>
+                              <ul class="nonverifie">
+                                {s.nonVerifie.map((t) => (<li set:html={inline(t)} />))}
+                              </ul>
+                            </div>
+                          )}
+                        </div>
+                      </details>
+                      <a class="lire-btn" href={conceptUrl(c.n, 'sources')} aria-label={`Ouvrir l’onglet Sources du ${libelle(c.n).toLowerCase()} ${c.n}`}>Ouvrir</a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+            <p id="src-vide" class="etat" hidden>Aucune source ne correspond à ce filtre.</p>
+          </section>
+        </div>
+      </div>
     </section>
   </div>
 
@@ -90,24 +132,45 @@ const cherche = (e: (typeof entrees)[number]) =>
       var box = document.querySelector('.filtre-sources');
       var input = document.getElementById('filtre-src');
       var etat = document.getElementById('filtre-etat');
-      var vide = document.getElementById('biblio-vide');
-      var items = Array.prototype.slice.call(document.querySelectorAll('#biblio .bib'));
-      if (!box || !input || !items.length) return;
+      var vide = document.getElementById('src-vide');
+      var concepts = Array.prototype.slice.call(document.querySelectorAll('#par-concept .cdep-item'));
+      var groupes = Array.prototype.slice.call(document.querySelectorAll('#par-concept .src-groupe'));
+      if (!box || !input || !concepts.length) return;
       box.hidden = false;
-      var total = items.length;
       function norm(s) { return (s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, ''); }
-      var index = items.map(function (li) { return norm(li.getAttribute('data-cherche')); });
+      var donnees = concepts.map(function (li) {
+        return {
+          li: li,
+          details: li.querySelector('details'),
+          nom: norm(li.getAttribute('data-concept')),
+          refs: Array.prototype.slice.call(li.querySelectorAll('.src-ref')).map(function (r) {
+            return { el: r, txt: norm(r.getAttribute('data-cherche')) };
+          }),
+          nv: li.querySelector('.src-nv')
+        };
+      });
+      // Filtre : les concepts qui ont une source correspondante restent, dépliés, avec ces seules
+      // sources ; « concept 9 » garde le concept 9 entier.
       function filtrer() {
         var q = norm(input.value).trim().split(/\s+/).filter(Boolean);
-        var n = 0;
-        items.forEach(function (li, i) {
-          var ok = q.every(function (m) { return index[i].indexOf(m) >= 0; });
-          li.hidden = !ok;
-          if (ok) n++;
+        var nb = 0;
+        var nomCherche = donnees.some(function (d) { return q.length > 0 && q.join(' ') === d.nom; });
+        donnees.forEach(function (d) {
+          var nomOk = q.length > 0 && q.join(' ') === d.nom;
+          var visibles = 0;
+          d.refs.forEach(function (r) {
+            var ok = !q.length || nomOk || (!nomCherche && q.every(function (m) { return r.txt.indexOf(m) >= 0; }));
+            r.el.hidden = !ok;
+            if (ok) visibles++;
+          });
+          if (d.nv) d.nv.hidden = q.length > 0 && !nomOk;
+          d.li.hidden = q.length > 0 && visibles === 0;
+          if (q.length) { d.details.open = visibles > 0; nb += visibles; }
         });
-        etat.textContent = q.length ? n + ' sur ' + total + ' références' : '';
-        vide.hidden = n !== 0;
-        document.querySelector('.lettres').hidden = q.length > 0;
+        groupes.forEach(function (g) { g.hidden = !g.querySelector('.cdep-item:not([hidden])'); });
+        if (!q.length) donnees.forEach(function (d) { d.details.open = false; });
+        etat.textContent = q.length ? nb + (nb > 1 ? ' références' : ' référence') : '';
+        vide.hidden = !q.length || nb > 0;
       }
       input.addEventListener('input', filtrer);
     })();

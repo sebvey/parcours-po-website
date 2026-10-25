@@ -118,9 +118,3 @@ export async function bibliographie(): Promise<{ entrees: Biblio[]; totalCitatio
   entrees.sort((a, b) => a.tri.localeCompare(b.tri, 'fr', { sensitivity: 'base', ignorePunctuation: true }));
   return { entrees, totalCitations };
 }
-
-export async function nonVerifie(): Promise<{ n: string; titre: string; href: string; items: string[] }[]> {
-  return (await conceptsEnOrdre())
-    .filter((c) => c.entry.data.sources.nonVerifie.length > 0)
-    .map((c) => ({ n: c.n, titre: c.titre, href: conceptUrl(c.n, 'non-verifie'), items: c.entry.data.sources.nonVerifie }));
-}

@@ -5,6 +5,18 @@ dit sur quelle version du cours elle est alignée.
 
 ## Non publié
 
+## 0.6.0, 2026-10-25 (aligné sur le cours 2.0.0)
+
+Page Sources (T-063) :
+- sommaire collant commun, trois sections : Sur quoi repose le cours, Lire une source, Concept par
+  concept ;
+- « Sur quoi repose le cours » : les sources citées par au moins 3 concepts ;
+- « Lire une source » : la légende primaire, secondaire, marketing ;
+- « Concept par concept » : groupé par domaine, chaque concept se déplie sur ses références et ses
+  points non vérifiés, avec un bouton vers son onglet Sources ; le filtre cherche dans toutes les
+  sources et déplie les concepts concernés ;
+- la liste alphabétique, la barre de lettres et la liste « Non vérifié » à plat disparaissent.
+
 ## 0.5.0, 2026-10-25 (aligné sur le cours 2.0.0)
 
 - Page Domaines (T-062) : un bouton « Lire » à droite de chaque concept, visible plié comme
