@@ -356,42 +356,42 @@ h1, h2, h3, h4 {
 .nonverifie { max-width: 46rem; padding-left: 1.2em; }
 .nonverifie li { margin-bottom: 0.7em; font-size: 0.98rem; }
 
-/* ---------- Domaines ---------- */
-.dom-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0 2.5rem; margin-top: 1.5rem; }
-.dom-layout > * { min-width: 0; }
-/* Le bouton « Tout déplier » compense lui-même le décalage : pas d'ancrage natif en plus. */
-.dom-contenu { overflow-anchor: none; }
-@media (min-width: 60rem) { .dom-layout { grid-template-columns: 14rem minmax(0, 1fr); } }
-.dom-toc { font-family: var(--font-ui); font-size: 0.92rem; }
-.dom-toc ol { list-style: none; margin: 0; padding: 0; }
-.dom-toc a { display: flex; gap: 0.5rem; align-items: baseline; text-decoration: none; color: var(--ink-soft); border-radius: 4px; }
-.dom-toc a:hover { color: var(--ink); background: var(--surface); }
-.dom-toc a[aria-current] { color: var(--accent); font-weight: 650; }
-.dom-toc .toc-n { font-weight: 700; min-width: 1em; }
+/* ---------- Sommaire collant (Domaines, Fil rouge) et page Domaines ---------- */
+.avec-sommaire { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0 2.5rem; margin-top: 1.5rem; }
+.avec-sommaire > * { min-width: 0; }
+/* Le bouton « Tout déplier » (page Domaines) compense lui-même le décalage : pas d'ancrage natif en plus. */
+.sommaire-contenu { overflow-anchor: none; }
+@media (min-width: 60rem) { .avec-sommaire { grid-template-columns: 14rem minmax(0, 1fr); } }
+.sommaire { font-family: var(--font-ui); font-size: 0.92rem; }
+.sommaire ol { list-style: none; margin: 0; padding: 0; }
+.sommaire a { display: flex; gap: 0.5rem; align-items: baseline; text-decoration: none; color: var(--ink-soft); border-radius: 4px; }
+.sommaire a:hover { color: var(--ink); background: var(--surface); }
+.sommaire a[aria-current] { color: var(--accent); font-weight: 650; }
+.sommaire .sommaire-n { font-weight: 700; min-width: 1em; }
 .tout-deplier {
   font: inherit; font-size: 0.88rem; font-weight: 650; color: var(--accent); cursor: pointer;
   padding: 0.35rem 0.8rem; border: 1px solid var(--accent); border-radius: 999px; background: var(--bg);
 }
 .tout-deplier:hover { background: var(--surface-2); }
 @media (min-width: 60rem) {
-  .dom-toc { position: sticky; top: 1rem; align-self: start; padding-top: 1.75rem; }
-  .dom-toc a { padding: 0.35rem 0.5rem; border-left: 3px solid transparent; border-radius: 0 4px 4px 0; }
-  .dom-toc a[aria-current] { border-left-color: var(--accent); background: var(--surface); }
+  .sommaire { position: sticky; top: 1rem; align-self: start; padding-top: 1.75rem; }
+  .sommaire a { padding: 0.35rem 0.5rem; border-left: 3px solid transparent; border-radius: 0 4px 4px 0; }
+  .sommaire a[aria-current] { border-left-color: var(--accent); background: var(--surface); }
   .tout-deplier { margin: 1rem 0 0 0.5rem; }
 }
 @media (max-width: 59.99rem) {
-  .dom-toc { position: sticky; top: 0; z-index: 5; display: flex; align-items: center; background: var(--bg); border-bottom: 1px solid var(--rule); margin-inline: calc(-1 * var(--gutter)); }
-  .dom-toc ol { flex: 1; min-width: 0; }
+  .sommaire { position: sticky; top: 0; z-index: 5; display: flex; align-items: center; background: var(--bg); border-bottom: 1px solid var(--rule); margin-inline: calc(-1 * var(--gutter)); }
+  .sommaire ol { flex: 1; min-width: 0; }
   .tout-deplier { order: -1; flex: none; margin-left: var(--gutter); white-space: nowrap; }
-  .dom-toc ol { display: flex; gap: 0.4rem; overflow-x: auto; padding: 0.55rem var(--gutter); scrollbar-width: none; }
-  .dom-toc ol::-webkit-scrollbar { display: none; }
-  .dom-toc li { flex: none; }
-  .dom-toc a { white-space: nowrap; padding: 0.3rem 0.75rem; border: 1px solid var(--rule); border-radius: 999px; background: var(--surface); }
-  .dom-toc a[aria-current] { border-color: var(--accent); }
-  .domaine { scroll-margin-top: 3.5rem; }
+  .sommaire ol { display: flex; gap: 0.4rem; overflow-x: auto; padding: 0.55rem var(--gutter); scrollbar-width: none; }
+  .sommaire ol::-webkit-scrollbar { display: none; }
+  .sommaire li { flex: none; }
+  .sommaire a { white-space: nowrap; padding: 0.3rem 0.75rem; border: 1px solid var(--rule); border-radius: 999px; background: var(--surface); }
+  .sommaire a[aria-current] { border-color: var(--accent); }
+  .sommaire-contenu [id] { scroll-margin-top: 3.5rem; }
 }
 .domaine { padding: 1.75rem 0; border-top: 1px solid var(--rule); scroll-margin-top: 1rem; }
-.dom-contenu > .domaine:first-child { border-top: 0; }
+.sommaire-contenu > .domaine:first-child { border-top: 0; }
 .page .domaine h2 { font-size: 1.3rem; margin: 0 0 0.3rem; }
 .domaine h2 .ancre { font-family: var(--font-ui); font-size: 0.6em; margin-left: 0.4em; text-decoration: none; color: var(--ink-soft); opacity: 0; }
 .domaine h2:hover .ancre, .domaine h2 .ancre:focus-visible { opacity: 1; }
@@ -399,6 +399,9 @@ h1, h2, h3, h4 {
 .domaine .q { font-size: 0.98rem; color: var(--ink-soft); margin: 0 0 1rem; line-height: 1.5; max-width: 46rem; }
 .domaine .n { font-family: var(--font-ui); font-size: 0.75rem; font-weight: 650; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); margin: 0 0 0.3rem; }
 .eyebrow-lien { color: inherit; }
+.fr-section { padding: 1.75rem 0 0.5rem; border-top: 1px solid var(--rule); }
+.sommaire-contenu > .fr-section:first-child { border-top: 0; }
+.page .fr-section > h2 { margin-top: 0; }
 .cards { display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); list-style: none; padding: 0; margin: 0; }
 .card {
   display: block; height: 100%; padding: 0.9rem 1rem; border: 1px solid var(--rule); border-radius: 6px;

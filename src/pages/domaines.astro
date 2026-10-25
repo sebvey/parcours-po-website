@@ -4,11 +4,13 @@ import '../styles/transversal.css';
 import { inline } from '../lib/inline';
 import { domaines, annexes, domaineId } from '../data/domaines';
 import { disponibles, conceptUrl, sousConcepts } from '../lib/concepts';
+import Sommaire from '../components/Sommaire.astro';
 import { useT } from '../i18n/ui';
 const t = useT();
 const dispo = await disponibles();
 const libelle = (n: string) => (/^A/.test(n) ? 'Annexe' : 'Concept');
 const tous = [...domaines, annexes];
+const items = tous.map((d) => ({ id: domaineId(d), n: d.n > 0 ? d.n : undefined, titre: d.titre }));
 ---
 <Base title="Domaines" nav="domaines" description="Le cours en sept domaines, du cadre du produit à l’exploration : ce qu’on sait faire à la fin de chacun, ses concepts et leurs sections.">
   <div class="container-wide">
@@ -17,17 +19,12 @@ const tous = [...domaines, annexes];
       <h1>Domaines</h1>
       <p class="lead">Le cours se lit dans l’ordre, domaine après domaine. Déployez un concept pour voir ses sections et aller droit à celle qui vous sert.</p>
 
-      <div class="dom-layout">
-        <nav class="dom-toc" aria-label="Domaines" data-pagefind-ignore>
-          <ol>
-            {tous.map((d) => (
-              <li><a href={`#${domaineId(d)}`} data-toc={domaineId(d)}>{d.n > 0 && <span class="toc-n">{d.n}</span>}<span class="toc-t">{d.titre}</span></a></li>
-            ))}
-          </ol>
+      <div class="avec-sommaire">
+        <Sommaire items={items} label="Domaines">
           <button type="button" class="tout-deplier" aria-expanded="false" hidden>Tout déplier</button>
-        </nav>
+        </Sommaire>
 
-        <div class="dom-contenu">
+        <div class="sommaire-contenu">
           {tous.map((d) => (
             <section class="domaine" id={domaineId(d)} aria-labelledby={`${domaineId(d)}-t`}>
               <p class="n">{d.n === 0 ? 'Hors domaines' : `Domaine ${d.n}`}</p>
@@ -96,7 +93,8 @@ const tous = [...domaines, annexes];
           var ouvrir = bouton.getAttribute('aria-expanded') !== 'true';
           // Le domaine en cours de lecture garde sa place à l'écran : les concepts au-dessus
           // changent de hauteur, on compense par un défilement de l'écart.
-          var ancre = sections.length ? sections[indiceActif()] : null;
+          var nav = document.querySelector('nav.sommaire');
+          var ancre = nav && nav.sectionActive ? nav.sectionActive() : null;
           var avant = ancre ? ancre.getBoundingClientRect().top : 0;
           concepts.forEach(function (d) { d.open = ouvrir; });
           if (ancre) window.scrollBy(0, ancre.getBoundingClientRect().top - avant);
@@ -104,45 +102,6 @@ const tous = [...domaines, annexes];
         });
         document.addEventListener('toggle', etatBouton, true);
       }
-      // Sommaire : met en évidence le domaine en cours de lecture.
-      var liens = Array.prototype.slice.call(document.querySelectorAll('.dom-toc a[data-toc]'));
-      var toc = document.querySelector('.dom-toc ol');
-      if (!liens.length) return;
-      var sections = liens.map(function (a) { return document.getElementById(a.getAttribute('data-toc')); });
-      var actif = null;
-      function activer(i) {
-        if (i === actif) return;
-        actif = i;
-        liens.forEach(function (a, j) {
-          if (j === i) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
-        });
-        // Barre horizontale (téléphone) : ramène la pastille active en vue, sans bouger la page.
-        var a = liens[i];
-        if (toc.scrollWidth > toc.clientWidth) {
-          var ra = a.getBoundingClientRect(), rt = toc.getBoundingClientRect();
-          toc.scrollBy({ left: ra.left + ra.width / 2 - (rt.left + rt.width / 2), behavior: 'smooth' });
-        }
-      }
-      // Le domaine actif est le dernier dont le haut a passé le tiers de l'écran ; en bas de
-      // page, le dernier domaine.
-      function indiceActif() {
-        var seuil = window.innerHeight / 3, i = 0;
-        sections.forEach(function (s, j) { if (s.getBoundingClientRect().top <= seuil) i = j; });
-        if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) i = sections.length - 1;
-        return i;
-      }
-      function calculer() { activer(indiceActif()); }
-      var attente = false;
-      window.addEventListener('scroll', function () {
-        if (attente) return;
-        attente = true;
-        requestAnimationFrame(function () { attente = false; calculer(); });
-      }, { passive: true });
-      window.addEventListener('resize', calculer);
-      window.addEventListener('load', calculer);
-      window.addEventListener('hashchange', calculer);
-      document.addEventListener('toggle', calculer, true);
-      calculer();
     })();
   </script>
 </Base>

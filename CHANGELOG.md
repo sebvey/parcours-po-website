@@ -5,6 +5,17 @@ dit sur quelle version du cours elle est alignée.
 
 ## Non publié
 
+## 0.4.0, 2026-10-25 (aligné sur le cours 2.0.0)
+
+Page Fil rouge (T-061) :
+- même sommaire collant que la page Domaines (composant commun `Sommaire`), à la place des liens
+  en haut de page ;
+- « L'entreprise » devient deux sections, « L'opérateur » (l'entreprise du cours) et « La
+  collectivité » (la métropole, extérieure à l'opérateur : elle finance le service, Charlotte la
+  représente, elle tient le référentiel des quartiers), comme le fil rouge du cours ;
+- la phrase de renvoi aux concepts 2 et 0 disparaît : l'étiquette « Objectif produit » renvoie au
+  concept 2, « équipe vélos » au concept 0.
+
 ## 0.3.2, 2026-10-25 (aligné sur le cours 2.0.0)
 
 - Page Domaines (T-060) : « Tout déplier » et « Tout replier » laissent le domaine en cours de
