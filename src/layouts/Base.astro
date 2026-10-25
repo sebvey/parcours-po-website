@@ -9,7 +9,7 @@ interface Props {
   /** Entrée de navigation active : 'home' | 'domaines' | 'filrouge' | 'glossaire' | 'ecoles' | 'sources' | 'about' | 'search' */
   nav?: string;
   lang?: Lang;
-  /** Exclure la page de l'index de recherche. */
+  /** Page hors index : ni dans la recherche Pagefind, ni pour les moteurs de recherche (pas d'adresse canonique). */
   noindex?: boolean;
 }
 const { title, description, nav, lang = defaultLang, noindex = false } = Astro.props;
@@ -38,8 +38,8 @@ const items = [
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{fullTitle}</title>
     <meta name="description" content={desc} />
-    <link rel="canonical" href={canonical} />
-    {preview && <meta name="robots" content="noindex, nofollow" />}
+    {!noindex && <link rel="canonical" href={canonical} />}
+    {(preview || noindex) && <meta name="robots" content="noindex, nofollow" />}
     <link rel="icon" type="image/svg+xml" href={url('favicon.svg')} />
     <meta name="color-scheme" content="light dark" />
     <meta property="og:title" content={fullTitle} />

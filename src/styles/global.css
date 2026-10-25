@@ -372,7 +372,7 @@ a.pn-carte:hover { background: var(--surface-2); color: var(--ink); }
 .aff .check { margin: 0; font-size: 0.95rem; line-height: 1.55; color: var(--ink-soft); }
 .aff .refs { margin: 0.35rem 0 0; }
 .reflist { list-style: none; padding: 0; margin: 0; max-width: 52rem; }
-.reflist li { display: grid; grid-template-columns: 3rem 1fr; gap: 0.25rem 0.75rem; padding: 0.85rem 0; border-top: 1px solid var(--rule); font-size: 0.97rem; line-height: 1.5; scroll-margin-top: 5rem; }
+.reflist li { display: grid; grid-template-columns: 3rem minmax(0, 1fr); overflow-wrap: anywhere; gap: 0.25rem 0.75rem; padding: 0.85rem 0; border-top: 1px solid var(--rule); font-size: 0.97rem; line-height: 1.5; scroll-margin-top: 5rem; }
 .reflist li:target { background: var(--surface); }
 .reflist .id { font-family: var(--font-ui); font-weight: 700; color: var(--ink-soft); }
 .reflist .meta { display: block; font-family: var(--font-ui); font-size: 0.8rem; color: var(--ink-soft); margin-top: 0.2rem; }
