@@ -5,6 +5,13 @@ dit sur quelle version du cours elle est alignée.
 
 ## Non publié
 
+## 0.2.1, 2026-10-25 (aligné sur le cours 2.0.0)
+
+- Accueil (T-057c) : « Par où commencer » vient juste après le chapeau, en deux portes (commencer
+  par le concept 0, voir les sept domaines), chacune avec sa ligne d'explication ; les boutons du
+  haut de page disparaissent. « Comment lire une page » suit, sa première phrase simplifiée
+  (« Chaque concept suit la même forme, en trois onglets »).
+
 ## 0.2.0, 2026-10-25 (aligné sur le cours 2.0.0)
 
 Le cours remplace ses sept objectifs par sept domaines qui le partitionnent (T-057a) ; le site
