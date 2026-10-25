@@ -24,7 +24,7 @@ src/components/schemas/               un schéma SVG par concept, en variables C
 src/data/domaines.ts                  les sept domaines du cours et leurs concepts, puis les annexes
 src/data/glossaire.ts                 les termes du glossaire et les termes à éviter
 src/data/fil-rouge.ts                 le cas fictif (entreprise, acteurs, sources de données)
-src/data/lectures.ts                  la lecture rapide de chaque domaine (et de l'annexe A2)
+src/lib/concepts.ts                   concepts rédigés, adresses, sous-concepts lus dans les pages (<Sous>)
 src/lib/transversal.ts                index Consensus ou école et bibliographie, générés depuis les concepts
 src/i18n/ui.ts                        textes de l'interface (le français est la langue par défaut)
 src/pages/                            accueil, domaines, fil rouge, glossaire, consensus ou école, sources, à propos, recherche, concepts/[num] ;
@@ -40,8 +40,8 @@ Le site est la projection du cours (`course/` du dépôt `parcours-po`). Il n'in
 
 - **Le fond suit le cours** : même texte, mêmes exemples, mêmes attributions et mêmes sources que
   les fiches `course/concepts/` et `course/sources/`. La banque d'exemples n'est pas reprise.
-- **La forme est au site** : schémas, composants, mise en page, onglets, lectures rapides des
-  domaines et pages d'orientation. Les domaines eux-mêmes (titres, concepts) viennent du cours. Un schéma ou une mise en page ne contredit pas la fiche.
+- **La forme est au site** : schémas, composants, mise en page, onglets, sommaire et concepts
+  dépliables de la page Domaines, pages d'orientation. Les domaines eux-mêmes (titres, concepts) viennent du cours. Un schéma ou une mise en page ne contredit pas la fiche.
 - **Tout contenu d'enseignement nouveau passe d'abord par le cours**, puis par le site. Une page
   qui dit autre chose que sa fiche a tort, sauf si la fiche est corrigée en même temps.
 

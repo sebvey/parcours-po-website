@@ -1,4 +1,4 @@
-/* Pages transversales : glossaire, fil rouge, domaines (lectures rapides). */
+/* Pages transversales : glossaire, fil rouge, domaines (concepts dépliables). */
 [hidden] { display: none !important; }
 
 .tr h2 { scroll-margin-top: 1.5rem; }
@@ -81,28 +81,24 @@ div.tr-text p { margin: 0 0 1em; }
   .tr-table td::before { content: attr(data-label); display: block; font-family: var(--font-ui); font-size: 0.7rem; font-weight: 650; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); }
 }
 
-/* ---------- Domaines : lecture rapide ---------- */
-.dom-jump { margin: 1.5rem 0 1rem; }
-details.lec { margin-top: 1rem; border: 1px solid var(--rule); border-radius: 6px; background: var(--surface); }
-details.lec > summary { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.2rem 1rem; padding: 0.75rem 1rem; cursor: pointer; font-family: var(--font-ui); list-style-position: inside; }
-details.lec > summary:hover { background: var(--surface-2); }
-details.lec .lec-t { font-weight: 650; color: var(--accent); }
-details.lec .lec-m { font-size: 0.85rem; color: var(--ink-soft); }
-details.lec[open] > summary { border-bottom: 1px solid var(--rule); }
-details.lec > :not(summary) { margin-left: 1rem; margin-right: 1rem; }
-details.lec > .situation, details.lec > .lec-avant { margin-top: 0.9rem; }
-details.lec .situation { font-size: 1rem; line-height: 1.55; margin-bottom: 0.6rem; text-wrap: pretty; }
-.lec-avant { font-size: 0.95rem; color: var(--ink-soft); font-style: italic; margin: 0 0 1rem; }
-.etapes { list-style: none; counter-reset: etape; padding: 0; margin: 0 0 1.25rem; }
-.etapes li { counter-increment: etape; margin: 0; }
-.etape { display: grid; grid-template-columns: 3.4rem 1fr; gap: 0 0.5rem; padding: 0.85rem 0.6rem 0.85rem 0; border-top: 1px solid var(--rule); text-decoration: none; color: var(--ink); }
-.etapes li:last-child .etape { border-bottom: 1px solid var(--rule); }
-.etape:hover { background: var(--surface); color: var(--ink); }
-.etape:hover .tt { text-decoration: underline; }
-.etape .ref { font-family: var(--font-ui); font-weight: 700; font-size: 0.9rem; color: var(--accent); padding-top: 0.2rem; padding-left: 0.2rem; }
-.etape .corps { display: flex; flex-direction: column; gap: 0.15rem; min-width: 0; }
-.etape .tt { font-size: 1.08rem; line-height: 1.35; font-weight: 600; color: var(--accent); }
-.etape .src { font-family: var(--font-ui); font-size: 0.78rem; color: var(--ink-soft); }
-.etape .pq { font-size: 0.97rem; line-height: 1.5; text-wrap: pretty; }
+/* ---------- Domaines : concepts dépliables ---------- */
+.cdep-liste { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; max-width: 46rem; }
+.cdep { border: 1px solid var(--rule); border-radius: 6px; background: var(--surface); font-family: var(--font-ui); }
+details.cdep { border-color: var(--accent); }
+.cdep > summary { padding: 0.7rem 1rem; cursor: pointer; list-style-position: inside; }
+.cdep > summary:hover { background: var(--surface-2); }
+details.cdep[open] > summary { border-bottom: 1px solid var(--rule); }
+.cdep .num { font-size: 0.78rem; font-weight: 700; color: var(--ink-soft); margin-right: 0.35rem; }
+.cdep .t { font-family: var(--font-text); font-size: 1.02rem; }
+div.cdep { padding: 0.7rem 1rem; border-style: dashed; color: var(--ink-soft); }
+div.cdep .soon { font-size: 0.78rem; margin-left: 0.4rem; }
+.sous-liste { list-style: none; margin: 0; padding: 0 1rem; }
+.sous-lien { display: grid; grid-template-columns: 3.2rem 1fr; gap: 0 0.5rem; padding: 0.7rem 0.4rem 0.7rem 0; border-bottom: 1px solid var(--rule); text-decoration: none; color: var(--ink); }
+.sous-lien:hover { background: var(--bg); color: var(--ink); }
+.sous-lien:hover .tt { text-decoration: underline; }
+.sous-lien .ref { font-weight: 700; font-size: 0.9rem; color: var(--accent); padding-left: 0.2rem; }
+.sous-lien .corps { display: flex; flex-direction: column; gap: 0.15rem; min-width: 0; }
+.sous-lien .tt { font-family: var(--font-text); font-size: 1.02rem; line-height: 1.35; font-weight: 600; color: var(--accent); }
+.sous-lien .pq { font-family: var(--font-text); font-size: 0.95rem; line-height: 1.5; text-wrap: pretty; }
+.cdep .lire { margin: 0; padding: 0.7rem 1rem; font-size: 0.9rem; font-weight: 650; }
 
-details.lec .etape:hover { background: var(--bg); }

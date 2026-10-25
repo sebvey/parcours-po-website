@@ -357,15 +357,37 @@ h1, h2, h3, h4 {
 .nonverifie li { margin-bottom: 0.7em; font-size: 0.98rem; }
 
 /* ---------- Domaines ---------- */
-.domaine { padding: 1.75rem 0; border-top: 1px solid var(--rule); display: grid; gap: 1rem 2rem; scroll-margin-top: 1rem; }
-@media (min-width: 52rem) { .domaine { grid-template-columns: 15rem 1fr; } }
+.dom-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0 2.5rem; margin-top: 1.5rem; }
+.dom-layout > * { min-width: 0; }
+@media (min-width: 60rem) { .dom-layout { grid-template-columns: 14rem minmax(0, 1fr); } }
+.dom-toc { font-family: var(--font-ui); font-size: 0.92rem; }
+.dom-toc ol { list-style: none; margin: 0; padding: 0; }
+.dom-toc a { display: flex; gap: 0.5rem; align-items: baseline; text-decoration: none; color: var(--ink-soft); border-radius: 4px; }
+.dom-toc a:hover { color: var(--ink); background: var(--surface); }
+.dom-toc a[aria-current] { color: var(--accent); font-weight: 650; }
+.dom-toc .toc-n { font-weight: 700; min-width: 1em; }
+@media (min-width: 60rem) {
+  .dom-toc { position: sticky; top: 1rem; align-self: start; padding-top: 1.75rem; }
+  .dom-toc a { padding: 0.35rem 0.5rem; border-left: 3px solid transparent; border-radius: 0 4px 4px 0; }
+  .dom-toc a[aria-current] { border-left-color: var(--accent); background: var(--surface); }
+}
+@media (max-width: 59.99rem) {
+  .dom-toc { position: sticky; top: 0; z-index: 5; background: var(--bg); border-bottom: 1px solid var(--rule); margin-inline: calc(-1 * var(--gutter)); }
+  .dom-toc ol { display: flex; gap: 0.4rem; overflow-x: auto; padding: 0.55rem var(--gutter); scrollbar-width: none; }
+  .dom-toc ol::-webkit-scrollbar { display: none; }
+  .dom-toc li { flex: none; }
+  .dom-toc a { white-space: nowrap; padding: 0.3rem 0.75rem; border: 1px solid var(--rule); border-radius: 999px; background: var(--surface); }
+  .dom-toc a[aria-current] { border-color: var(--accent); }
+  .domaine { scroll-margin-top: 3.5rem; }
+}
+.domaine { padding: 1.75rem 0; border-top: 1px solid var(--rule); scroll-margin-top: 1rem; }
+.dom-contenu > .domaine:first-child { border-top: 0; }
 .page .domaine h2 { font-size: 1.3rem; margin: 0 0 0.3rem; }
 .domaine h2 .ancre { font-family: var(--font-ui); font-size: 0.6em; margin-left: 0.4em; text-decoration: none; color: var(--ink-soft); opacity: 0; }
 .domaine h2:hover .ancre, .domaine h2 .ancre:focus-visible { opacity: 1; }
 @media (hover: none) { .domaine h2 .ancre { opacity: 0.6; } }
-.domaine .q { font-size: 0.95rem; color: var(--ink-soft); margin: 0; line-height: 1.5; }
+.domaine .q { font-size: 0.98rem; color: var(--ink-soft); margin: 0 0 1rem; line-height: 1.5; max-width: 46rem; }
 .domaine .n { font-family: var(--font-ui); font-size: 0.75rem; font-weight: 650; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); margin: 0 0 0.3rem; }
-.domaine:target { background: var(--surface); }
 .eyebrow-lien { color: inherit; }
 .cards { display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); list-style: none; padding: 0; margin: 0; }
 .card {
