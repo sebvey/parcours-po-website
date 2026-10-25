@@ -21,13 +21,15 @@ const minuscule = (s: string) => s.charAt(0).toLowerCase() + s.slice(1);
         <div class="sommaire-contenu">
           {domaines.map((d) => (
             <section class="domaine" id={domaineId(d)} aria-labelledby={`${domaineId(d)}-t`}>
-              <a class="dom-carte" href={domaineUrl(d)}>
-                <span class="n">Domaine {d.n}</span>
-                <h2 id={`${domaineId(d)}-t`}>{d.titre}</h2>
-                <span class="q">À la fin, vous savez : {minuscule(d.saitFaire)}</span>
-                <span class="dom-fleche" aria-hidden="true">→</span>
-              </a>
-              <ConceptsDepliables concepts={d.concepts} />
+              <div class="dom-bloc">
+                <a class="dom-carte" href={domaineUrl(d)}>
+                  <span class="n">Domaine {d.n}</span>
+                  <h2 id={`${domaineId(d)}-t`}>{d.titre}</h2>
+                  <span class="q">À la fin, vous savez : {minuscule(d.saitFaire)}</span>
+                  <span class="dom-fleche" aria-hidden="true">→</span>
+                </a>
+                <ConceptsDepliables concepts={d.concepts} />
+              </div>
             </section>
           ))}
 

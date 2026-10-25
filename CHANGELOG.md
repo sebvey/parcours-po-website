@@ -13,8 +13,8 @@ Une page par domaine, dans l'ordre de lecture (T-071b) :
   d'une ligne ; empreinte de la fiche dans `alignement`, contrôlée par `check-alignment` ;
 - ordre de lecture : domaine 1, concepts 0 à 2, domaine 2, concepts 3 à 8… ; les cartes
   précédent / suivant et les flèches de la barre d'onglets passent par la page du domaine ;
-- `/domaines/` devient la carte : chaque domaine en carte (ce qu'on sait à la fin) qui mène à sa
-  page, puis ses concepts en tuiles dépliables ; les ancres `#domaine-N` restent valides ;
+- `/domaines/` devient la carte : chaque domaine en un bloc, en-tête (ce qu'on sait à la fin) qui mène à sa
+  page et ses concepts en tuiles dépliables à l'intérieur ; les ancres `#domaine-N` restent valides ;
 - le surtitre d'une page de concept mène à la page de son domaine ;
 - accueil : « Commencer : domaine 1 » à la place de « Commencer : concept 0 » ;
 - alignement sur le cours 2.1.0 : pages de concept réestampillées (fiches inchangées).
