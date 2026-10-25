@@ -1,0 +1,67 @@
+---
+import Base from '../../layouts/Base.astro';
+import '../../styles/transversal.css';
+import { domaines, annexes, domaineId } from '../../data/domaines';
+import { disponibles, conceptUrl } from '../../lib/concepts';
+import { domaineUrl } from '../../lib/lecture';
+import Sommaire from '../../components/Sommaire.astro';
+import ConceptsDepliables from '../../components/ConceptsDepliables.astro';
+import { useT } from '../../i18n/ui';
+const t = useT();
+const dispo = await disponibles();
+const items = [...domaines, annexes].map((d) => ({ id: domaineId(d), n: d.n > 0 ? d.n : undefined, titre: d.titre }));
+const minuscule = (s: string) => s.charAt(0).toLowerCase() + s.slice(1);
+---
+<Base title="Domaines" nav="domaines" description="Le cours en sept domaines, du cadre du produit à l’exploration : ce qu’on sait faire à la fin de chacun, et ses concepts.">
+  <div class="container-wide">
+    <section class="page tr">
+      <p class="eyebrow">La carte du cours</p>
+      <h1>Domaines</h1>
+      <p class="lead">Le cours se lit dans l’ordre, domaine après domaine. Chaque domaine a sa page : elle le présente, puis déroule ses concepts.</p>
+
+      <div class="avec-sommaire">
+        <Sommaire items={items} label="Domaines" deplier />
+
+        <div class="sommaire-contenu">
+          {domaines.map((d) => (
+            <section class="domaine" id={domaineId(d)} aria-labelledby={`${domaineId(d)}-t`}>
+              <p class="n">Domaine {d.n}</p>
+              <h2 id={`${domaineId(d)}-t`}><a class="dom-lien" href={domaineUrl(d)}>{d.titre}</a><a class="ancre" href={`#${domaineId(d)}`} aria-label={`Lien vers : ${d.titre}`}>#</a></h2>
+              <p class="q">À la fin, vous savez : {minuscule(d.saitFaire)}</p>
+              <ul class="dom-concepts">
+                {d.concepts.map((c) => (
+                  <li>{dispo.has(c.n)
+                    ? <a href={conceptUrl(c.n)}><span class="num">{c.n}</span>{c.titre}</a>
+                    : <span><span class="num">{c.n}</span>{c.titre} <span class="soon">{t('concept.soon')}</span></span>}</li>
+                ))}
+              </ul>
+              <a class="btn secondary dom-btn" href={domaineUrl(d)}>Lire le domaine {d.n}</a>
+            </section>
+          ))}
+
+          <section class="domaine" id={domaineId(annexes)} aria-labelledby={`${domaineId(annexes)}-t`}>
+            <p class="n">Hors domaines</p>
+            <h2 id={`${domaineId(annexes)}-t`}>{annexes.titre}<a class="ancre" href={`#${domaineId(annexes)}`} aria-label={`Lien vers : ${annexes.titre}`}>#</a></h2>
+            <p class="q">{annexes.saitFaire}</p>
+            <ConceptsDepliables concepts={annexes.concepts} />
+          </section>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script is:inline>
+    (function () {
+      // Anciennes adresses des lectures rapides : #domaine-3-lecture -> #domaine-3.
+      function ancienneAdresse() {
+        var m = location.hash.match(/^#((?:domaine-\d+)|annexes)-lecture$/);
+        if (!m) return;
+        history.replaceState(null, '', '#' + m[1]);
+        var cible = document.getElementById(m[1]);
+        if (cible) cible.scrollIntoView();
+      }
+      ancienneAdresse();
+      window.addEventListener('hashchange', ancienneAdresse);
+    })();
+  </script>
+</Base>

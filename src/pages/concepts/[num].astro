@@ -12,8 +12,10 @@ import Erreurs from '../../components/Erreurs.astro';
 import Figure from '../../components/Figure.astro';
 import { useT, url } from '../../i18n/ui';
 import { typoFr } from '../../lib/typo-fr';
-import { slugOf, tousLesConcepts, domaineId } from '../../data/domaines';
+import Voisins from '../../components/Voisins.astro';
+import { slugOf, tousLesConcepts } from '../../data/domaines';
 import { disponibles, conceptUrl } from '../../lib/concepts';
+import { lecture, voisins, domaineUrl } from '../../lib/lecture';
 
 export async function getStaticPaths() {
   const entries = (await getCollection('concepts')).filter((e) => e.id.startsWith('fr/'));
@@ -28,14 +30,7 @@ const dispo = await disponibles('fr');
 
 const known = tousLesConcepts.find((c) => c.n === d.numero);
 const isAnnexe = d.numero.startsWith('A');
-const sequence = tousLesConcepts.filter((c) => !c.n.startsWith('A'));
-const idx = sequence.findIndex((c) => c.n === d.numero);
-const neighbour = (i: number) => {
-  const c = sequence[i];
-  return c ? { ...c, href: dispo.has(c.n) ? conceptUrl(c.n) : undefined } : undefined;
-};
-const prev = isAnnexe ? undefined : neighbour(idx - 1);
-const next = isAnnexe ? undefined : neighbour(idx + 1);
+const { prev, next } = isAnnexe ? {} : voisins(lecture(dispo), d.numero);
 const prereqs = d.prerequis.map((n) => {
   const c = tousLesConcepts.find((x) => x.n === n);
   return { n, titre: c?.titre ?? '', href: dispo.has(n) ? conceptUrl(n) : undefined };
@@ -49,7 +44,7 @@ const tabs = [
 ---
 <Base title={`Concept ${d.numero} : ${d.titre}`} description={typoFr(d.description)} nav="domaines">
   <header class="concept-head container">
-    <p class="eyebrow">{isAnnexe ? 'Annexe' : t('concept.label')} {d.numero}{known && !isAnnexe && <> · <a class="eyebrow-lien" href={url(`domaines/#${domaineId(known.domaine)}`)}>Domaine {known.domaine.n} : {known.domaine.titre}</a></>}</p>
+    <p class="eyebrow">{isAnnexe ? 'Annexe' : t('concept.label')} {d.numero}{known && !isAnnexe && <> · <a class="eyebrow-lien" href={domaineUrl(known.domaine)}>Domaine {known.domaine.n} : {known.domaine.titre}</a></>}</p>
     <h1>{typoFr(d.titre)}</h1>
     <p class="lead">{typoFr(d.objectif)}</p>
     <div class="concept-meta" data-pagefind-ignore>
@@ -71,9 +66,9 @@ const tabs = [
         ))}
       </div>
       {!isAnnexe && (prev?.href || next?.href) && (
-        <nav class="pn-mini" aria-label="Concepts voisins, raccourci">
-          {prev?.href && <a href={prev.href} title={`${t('concept.previous')} : ${prev.n}. ${prev.titre}`}><span aria-hidden="true">←</span> {prev.n}</a>}
-          {next?.href && <a href={next.href} title={`${t('concept.next')} : ${next.n}. ${next.titre}`}>{next.n} <span aria-hidden="true">→</span></a>}
+        <nav class="pn-mini" aria-label="Pages voisines, raccourci">
+          {prev?.href && <a href={prev.href} title={`${t('concept.previous')} : ${prev.long}`}><span aria-hidden="true">←</span> {prev.court}</a>}
+          {next?.href && <a href={next.href} title={`${t('concept.next')} : ${next.long}`}>{next.court} <span aria-hidden="true">→</span></a>}
         </nav>
       )}
     </div>
@@ -97,16 +92,7 @@ const tabs = [
       <Sources data={d.sources} />
     </section>
 
-    {!isAnnexe && (
-      <nav class="pn-bas" aria-label="Concepts voisins" data-pagefind-ignore>
-        {prev ? (prev.href
-          ? <a class="pn-carte" href={prev.href}><span class="dir"><span aria-hidden="true">←</span> {t('concept.previous')}</span><span class="t">{prev.n}. {prev.titre}</span></a>
-          : <span class="pn-carte off"><span class="dir"><span aria-hidden="true">←</span> {t('concept.previous')}</span><span class="t">{prev.n}. {prev.titre}</span></span>) : <span />}
-        {next ? (next.href
-          ? <a class="pn-carte nx" href={next.href}><span class="dir">{t('concept.next')} <span aria-hidden="true">→</span></span><span class="t">{next.n}. {next.titre}</span></a>
-          : <span class="pn-carte nx off"><span class="dir">{t('concept.next')} <span aria-hidden="true">→</span></span><span class="t">{next.n}. {next.titre}</span></span>) : <span />}
-      </nav>
-    )}
+    {!isAnnexe && <Voisins prev={prev} next={next} />}
 
     <p class="concept-meta" style="margin:3rem auto 0;max-width:var(--measure)" data-pagefind-ignore>
       Ce site accompagne un cours donné par un agent IA : voir <a href={url('a-propos/#cours-accompagne')}>À propos</a>.

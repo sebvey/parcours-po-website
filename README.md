@@ -53,10 +53,13 @@ props, invariant.
 ```
 src/content/concepts/fr/NN-slug.mdx   une page par concept : frontmatter (en-tête, onglets Consensus ou école
                                        et Sources, alignement) et corps MDX (onglet Comprendre)
+src/content/domaines/fr/N-slug.mdx    une page par domaine : frontmatter (description, alignement) et corps MDX
+                                       (présentation du domaine)
 src/components/                       composants des pages ; schemas/ : un schéma SVG par concept
 src/icons/                            une icône par fichier (SVG au trait), règles de dessin dans son README
 src/data/                             domaines, glossaire, fil rouge (copiés du cours), versions
-src/lib/                              accès aux concepts, index transversaux, typographie, Markdown en ligne
+src/lib/                              accès aux concepts, ordre de lecture, index transversaux, typographie,
+                                       Markdown en ligne
 src/i18n/ui.ts                        libellés de l'interface
 src/pages/                            une page par adresse ; dev/ : démonstration des composants
 src/middleware.ts                     typographie française sur tout le HTML
@@ -68,14 +71,15 @@ scripts/                              check-alignment, verify
 Le site est la projection du cours (`course/` du dépôt `parcours-po`). Il n'invente pas de fond.
 
 - **Le fond suit le cours** : même texte, mêmes exemples, mêmes attributions et mêmes sources que
-  les fiches `course/concepts/` et `course/sources/`. La banque d'exemples n'est pas reprise.
+  les fiches `course/concepts/`, `course/sources/` et `course/domains/`. La banque d'exemples n'est pas reprise.
 - **La forme est au site** : schémas, composants, mise en page, onglets, sommaire et concepts
   dépliables de la page Domaines, pages d'orientation. Les domaines eux-mêmes (titres, concepts) viennent du cours. Un schéma ou une mise en page ne contredit pas la fiche.
 - **Tout contenu d'enseignement nouveau passe d'abord par le cours**, puis par le site. Une page
   qui dit autre chose que sa fiche a tort, sauf si la fiche est corrigée en même temps.
 
 Chaque page de concept porte, dans son frontmatter (`alignement`), la version du cours et les
-empreintes sha256 de la fiche `course/concepts` et de la fiche `course/sources` dont elle dérive.
+empreintes sha256 de la fiche `course/concepts` et de la fiche `course/sources` dont elle dérive ;
+chaque page de domaine, celle de sa fiche `course/domains` (`--stamp D3` pour un domaine).
 
 ```sh
 npm run check-alignment                          # liste les pages dont une fiche a changé

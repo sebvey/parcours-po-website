@@ -65,4 +65,23 @@ const concepts = defineCollection({
   }),
 });
 
-export const collections = { concepts };
+// Une page par domaine et par langue : src/content/domaines/<langue>/N-slug.mdx, projection de
+// course/domains/N-slug.md. Le corps est la présentation du domaine ; titre, concepts et « on
+// sait faire » viennent de src/data/domaines.ts (course/plan.md).
+const domaines = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/domaines' }),
+  schema: z.object({
+    /** 1 à 7. */
+    numero: z.number().int().min(1).max(7),
+    /** Une phrase pour les moteurs de recherche et les aperçus. */
+    description: z.string(),
+    /** Fiche du cours dont la page dérive : version du cours et empreinte sha256.
+     *  Écrit par `npm run check-alignment -- --stamp`, lu par `npm run check-alignment`. */
+    alignement: z.object({
+      coursVersion: z.string(),
+      fiche: z.string().length(64),
+    }),
+  }),
+});
+
+export const collections = { concepts, domaines };

@@ -1,0 +1,17 @@
+---
+// Les deux cartes précédent / suivant en bas d'une page de domaine ou de concept, dans l'ordre de
+// lecture (src/lib/lecture.ts). Une étape sans page est grisée.
+import type { Etape } from '../lib/lecture';
+import { useT } from '../i18n/ui';
+interface Props { prev?: Etape; next?: Etape; }
+const { prev, next } = Astro.props;
+const t = useT();
+---
+<nav class="pn-bas" aria-label="Pages voisines" data-pagefind-ignore>
+  {prev ? (prev.href
+    ? <a class="pn-carte" href={prev.href}><span class="dir"><span aria-hidden="true">←</span> {t('concept.previous')}</span><span class="t">{prev.long}</span></a>
+    : <span class="pn-carte off"><span class="dir"><span aria-hidden="true">←</span> {t('concept.previous')}</span><span class="t">{prev.long}</span></span>) : <span />}
+  {next ? (next.href
+    ? <a class="pn-carte nx" href={next.href}><span class="dir">{t('concept.next')} <span aria-hidden="true">→</span></span><span class="t">{next.long}</span></a>
+    : <span class="pn-carte nx off"><span class="dir">{t('concept.next')} <span aria-hidden="true">→</span></span><span class="t">{next.long}</span></span>) : <span />}
+</nav>
