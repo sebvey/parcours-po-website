@@ -1,11 +1,11 @@
 ---
-// Page d'un domaine : sa présentation (projection de course/domains/N-slug.md), puis ses concepts
-// dépliables. Elle prend place dans l'ordre de lecture, avant le premier concept du domaine.
+// Page d'un domaine : le problème et d'où l'on vient (projection de course/domains/N-slug.md), puis
+// ses concepts dépliables, chacun avec son accroche. Elle prend place dans l'ordre de lecture,
+// avant le premier concept du domaine.
 import { getCollection, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import '../../styles/transversal.css';
 import Renvoi from '../../components/Renvoi.astro';
-import FilRouge from '../../components/FilRouge.astro';
 import Pastille from '../../components/Pastille.astro';
 import ConceptsDepliables from '../../components/ConceptsDepliables.astro';
 import Voisins from '../../components/Voisins.astro';
@@ -37,13 +37,12 @@ const plage = d.concepts.length === 1 ? `concept ${d.concepts[0].n}` : `concepts
 
   <div class="container-wide">
     <div class="prose domaine-prose">
-      <Content components={{ Renvoi, FilRouge, Pastille }} />
+      <Content components={{ Renvoi, Pastille }} />
     </div>
 
     <section class="prose domaine-concepts" aria-labelledby="concepts-du-domaine">
       <h2 id="concepts-du-domaine">{d.concepts.length === 1 ? 'Le concept du domaine' : 'Les concepts du domaine'}</h2>
-      <p>Déployez un concept pour voir ses sections et aller droit à celle qui vous sert.</p>
-      <ConceptsDepliables concepts={d.concepts} />
+      <ConceptsDepliables concepts={d.concepts} accroches={entry.data.accroches} />
     </section>
 
     <Voisins prev={prev} next={next} />

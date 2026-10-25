@@ -1,13 +1,14 @@
 ---
 // Les concepts d'un domaine (ou les annexes), chacun dépliable sur ses sous-concepts, lus au
 // build dans les pages de concept, avec un bouton « Lire ». Un concept sans page est « bientôt ».
-// Props : `concepts`, ceux d'un domaine de src/data/domaines.ts.
+// Props : `concepts`, ceux d'un domaine de src/data/domaines.ts ; `accroches` (facultatif), une ligne
+// par concept sous son titre.
 import { inline } from '../lib/inline';
 import { disponibles, conceptUrl, sousConcepts } from '../lib/concepts';
 import type { ConceptRef } from '../data/domaines';
 import { useT } from '../i18n/ui';
-interface Props { concepts: ConceptRef[]; }
-const { concepts } = Astro.props;
+interface Props { concepts: ConceptRef[]; accroches?: Record<string, string>; }
+const { concepts, accroches = {} } = Astro.props;
 const t = useT();
 const dispo = await disponibles();
 const libelle = (n: string) => (/^A/.test(n) ? 'Annexe' : 'Concept');
@@ -20,7 +21,7 @@ const libelle = (n: string) => (/^A/.test(n) ? 'Annexe' : 'Concept');
         {e ? (
           <>
           <details class="cdep" data-deplier>
-            <summary><span class="num">{libelle(c.n)} {c.n}</span> <span class="t">{c.titre}</span></summary>
+            <summary><span class="num">{libelle(c.n)} {c.n}</span> <span class="t">{c.titre}</span>{accroches[c.n] && <span class="acc" set:html={inline(accroches[c.n])} />}</summary>
             <ol class="sous-liste">
               {sousConcepts(e).map((s) => (
                 <li>

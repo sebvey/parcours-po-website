@@ -66,8 +66,8 @@ const concepts = defineCollection({
 });
 
 // Une page par domaine et par langue : src/content/domaines/<langue>/N-slug.mdx, projection de
-// course/domains/N-slug.md. Le corps est la présentation du domaine ; titre, concepts et « on
-// sait faire » viennent de src/data/domaines.ts (course/plan.md).
+// course/domains/N-slug.md. Le corps reprend « Le problème » et « D'où l'on vient, où l'on va » ;
+// titre, concepts et « on sait faire » viennent de src/data/domaines.ts (course/plan.md).
 const domaines = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/domaines' }),
   schema: z.object({
@@ -75,6 +75,9 @@ const domaines = defineCollection({
     numero: z.number().int().min(1).max(7),
     /** Une phrase pour les moteurs de recherche et les aperçus. */
     description: z.string(),
+    /** Une ligne par concept du domaine (numéro -> accroche), récrite pour le site depuis « Le fil
+     *  des concepts » de la fiche. */
+    accroches: z.record(z.string(), z.string()),
     /** Fiche du cours dont la page dérive : version du cours et empreinte sha256.
      *  Écrit par `npm run check-alignment -- --stamp`, lu par `npm run check-alignment`. */
     alignement: z.object({

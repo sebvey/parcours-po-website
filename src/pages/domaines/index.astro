@@ -2,13 +2,9 @@
 import Base from '../../layouts/Base.astro';
 import '../../styles/transversal.css';
 import { domaines, annexes, domaineId } from '../../data/domaines';
-import { disponibles, conceptUrl } from '../../lib/concepts';
 import { domaineUrl } from '../../lib/lecture';
 import Sommaire from '../../components/Sommaire.astro';
 import ConceptsDepliables from '../../components/ConceptsDepliables.astro';
-import { useT } from '../../i18n/ui';
-const t = useT();
-const dispo = await disponibles();
 const items = [...domaines, annexes].map((d) => ({ id: domaineId(d), n: d.n > 0 ? d.n : undefined, titre: d.titre }));
 const minuscule = (s: string) => s.charAt(0).toLowerCase() + s.slice(1);
 ---
@@ -17,7 +13,7 @@ const minuscule = (s: string) => s.charAt(0).toLowerCase() + s.slice(1);
     <section class="page tr">
       <p class="eyebrow">La carte du cours</p>
       <h1>Domaines</h1>
-      <p class="lead">Le cours se lit dans l’ordre, domaine après domaine. Chaque domaine a sa page : elle le présente, puis déroule ses concepts.</p>
+      <p class="lead">Le cours se lit dans l’ordre, domaine après domaine. Ouvrez un domaine pour sa présentation, ou dépliez un concept pour aller droit à la section qui vous sert.</p>
 
       <div class="avec-sommaire">
         <Sommaire items={items} label="Domaines" deplier />
@@ -25,17 +21,13 @@ const minuscule = (s: string) => s.charAt(0).toLowerCase() + s.slice(1);
         <div class="sommaire-contenu">
           {domaines.map((d) => (
             <section class="domaine" id={domaineId(d)} aria-labelledby={`${domaineId(d)}-t`}>
-              <p class="n">Domaine {d.n}</p>
-              <h2 id={`${domaineId(d)}-t`}><a class="dom-lien" href={domaineUrl(d)}>{d.titre}</a><a class="ancre" href={`#${domaineId(d)}`} aria-label={`Lien vers : ${d.titre}`}>#</a></h2>
-              <p class="q">À la fin, vous savez : {minuscule(d.saitFaire)}</p>
-              <ul class="dom-concepts">
-                {d.concepts.map((c) => (
-                  <li>{dispo.has(c.n)
-                    ? <a href={conceptUrl(c.n)}><span class="num">{c.n}</span>{c.titre}</a>
-                    : <span><span class="num">{c.n}</span>{c.titre} <span class="soon">{t('concept.soon')}</span></span>}</li>
-                ))}
-              </ul>
-              <a class="btn secondary dom-btn" href={domaineUrl(d)}>Lire le domaine {d.n}</a>
+              <a class="dom-carte" href={domaineUrl(d)}>
+                <span class="n">Domaine {d.n}</span>
+                <h2 id={`${domaineId(d)}-t`}>{d.titre}</h2>
+                <span class="q">À la fin, vous savez : {minuscule(d.saitFaire)}</span>
+                <span class="dom-fleche" aria-hidden="true">→</span>
+              </a>
+              <ConceptsDepliables concepts={d.concepts} />
             </section>
           ))}
 

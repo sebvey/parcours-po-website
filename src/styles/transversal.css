@@ -97,6 +97,7 @@ details.cdep { border-color: var(--accent); }
 details.cdep[open] > summary { border-bottom: 1px solid var(--rule); }
 .cdep .num { font-size: 0.78rem; font-weight: 700; color: var(--ink-soft); margin-right: 0.35rem; }
 .cdep .t { font-family: var(--font-text); font-size: 1.02rem; }
+.cdep .acc { display: block; margin: 0.25rem 0 0 1.1rem; font-family: var(--font-text); font-size: 0.95rem; line-height: 1.45; color: var(--ink-soft); text-wrap: pretty; }
 div.cdep { padding: 0.7rem 1rem; border-style: dashed; color: var(--ink-soft); }
 div.cdep .soon { font-size: 0.78rem; margin-left: 0.4rem; }
 .cdep .pos-liste { padding: 0 1rem 0.4rem; font-family: var(--font-text); }
