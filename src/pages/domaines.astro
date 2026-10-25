@@ -24,6 +24,7 @@ const tous = [...domaines, annexes];
               <li><a href={`#${domaineId(d)}`} data-toc={domaineId(d)}>{d.n > 0 && <span class="toc-n">{d.n}</span>}<span class="toc-t">{d.titre}</span></a></li>
             ))}
           </ol>
+          <button type="button" class="tout-deplier" aria-expanded="false" hidden>Tout déplier</button>
         </nav>
 
         <div class="dom-contenu">
@@ -81,6 +82,23 @@ const tous = [...domaines, annexes];
       }
       ancienneAdresse();
       window.addEventListener('hashchange', ancienneAdresse);
+      // Bouton « Tout déplier » : ouvre ou ferme tous les concepts ; son libellé suit l'état.
+      var bouton = document.querySelector('.tout-deplier');
+      var concepts = Array.prototype.slice.call(document.querySelectorAll('details.cdep'));
+      function etatBouton() {
+        var tous = concepts.length > 0 && concepts.every(function (d) { return d.open; });
+        bouton.textContent = tous ? 'Tout replier' : 'Tout déplier';
+        bouton.setAttribute('aria-expanded', tous ? 'true' : 'false');
+      }
+      if (bouton && concepts.length) {
+        bouton.hidden = false;
+        bouton.addEventListener('click', function () {
+          var ouvrir = bouton.getAttribute('aria-expanded') !== 'true';
+          concepts.forEach(function (d) { d.open = ouvrir; });
+          etatBouton();
+        });
+        document.addEventListener('toggle', etatBouton, true);
+      }
       // Sommaire : met en évidence le domaine en cours de lecture.
       var liens = Array.prototype.slice.call(document.querySelectorAll('.dom-toc a[data-toc]'));
       var toc = document.querySelector('.dom-toc ol');
@@ -96,7 +114,8 @@ const tous = [...domaines, annexes];
         // Barre horizontale (téléphone) : ramène la pastille active en vue, sans bouger la page.
         var a = liens[i];
         if (toc.scrollWidth > toc.clientWidth) {
-          toc.scrollTo({ left: a.offsetLeft - (toc.clientWidth - a.offsetWidth) / 2, behavior: 'smooth' });
+          var ra = a.getBoundingClientRect(), rt = toc.getBoundingClientRect();
+          toc.scrollBy({ left: ra.left + ra.width / 2 - (rt.left + rt.width / 2), behavior: 'smooth' });
         }
       }
       // Le domaine actif est le dernier dont le haut a passé le tiers de l'écran ; en bas de
