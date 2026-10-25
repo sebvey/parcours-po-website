@@ -430,6 +430,19 @@ a.pn-carte:hover { background: var(--surface-2); color: var(--ink); }
 @media (hover: none) { .domaine h2 .ancre { opacity: 0.6; } }
 .domaine .q { font-size: 0.98rem; color: var(--ink-soft); margin: 0 0 1rem; line-height: 1.5; max-width: 46rem; }
 .domaine .n { font-family: var(--font-ui); font-size: 0.75rem; font-weight: 650; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); margin: 0 0 0.3rem; }
+.dom-bloc { max-width: 46rem; border: 1px solid var(--rule); border-left: 5px solid var(--accent); border-radius: 0 6px 6px 0; background: var(--surface); }
+.dom-bloc .cdep-liste { padding: 0 0.9rem 0.9rem; }
+.dom-bloc .cdep { background: var(--bg); }
+.dom-carte { position: relative; display: block; padding: 0.9rem 3rem 0.95rem 1.1rem; border-radius: 0 6px 0 0; color: var(--ink); text-decoration: none; }
+.dom-carte:hover { background: var(--surface-2); color: var(--ink); }
+.dom-carte .n, .dom-carte .q { display: block; }
+.page .dom-carte h2 { margin: 0 0 0.35rem; color: var(--accent); }
+.dom-carte .q { margin: 0; }
+.dom-fleche { position: absolute; right: 1.1rem; top: 50%; transform: translateY(-50%); color: var(--accent); transition: transform 0.15s; }
+.dom-carte:hover .dom-fleche { transform: translate(0.2rem, -50%); }
+.domaine-concepts { margin-top: 2.5rem; }
+.domaine-concepts .cdep-liste { max-width: none; padding-left: 0; }
+.domaine-concepts .cdep-liste li { margin-bottom: 0; }
 .eyebrow-lien { color: inherit; }
 .fr-section { padding: 1.75rem 0 0.5rem; border-top: 1px solid var(--rule); }
 .sommaire-contenu > .fr-section:first-child { border-top: 0; }

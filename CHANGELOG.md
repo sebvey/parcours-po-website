@@ -5,6 +5,22 @@ dit sur quelle version du cours elle est alignée.
 
 ## Non publié
 
+## 0.10.0, 2026-10-25 (aligné sur le cours 2.1.0)
+
+Une page par domaine, dans l'ordre de lecture (T-071b) :
+- `/domaines/N/` : le problème et d'où l'on vient, où l'on va (projection de
+  `course/domains/N-slug.md`), puis ses concepts en tuiles dépliables, chacune avec une accroche
+  d'une ligne ; empreinte de la fiche dans `alignement`, contrôlée par `check-alignment` ;
+- ordre de lecture : domaine 1, concepts 0 à 2, domaine 2, concepts 3 à 8… ; les cartes
+  précédent / suivant et les flèches de la barre d'onglets passent par la page du domaine ;
+- `/domaines/` devient la carte : chaque domaine en un bloc, en-tête (ce qu'on sait à la fin) qui mène à sa
+  page et ses concepts en tuiles dépliables à l'intérieur ; les ancres `#domaine-N` restent valides ;
+- le surtitre d'une page de concept mène à la page de son domaine ;
+- les boutons « Lire » (tuiles de concept) et « Ouvrir » (page Sources) deviennent une flèche, icône
+  `src/icons/fleche.svg`, la même que celle de l'en-tête d'un domaine ;
+- accueil : « Commencer : domaine 1 » à la place de « Commencer : concept 0 » ;
+- alignement sur le cours 2.1.0 : pages de concept réestampillées (fiches inchangées).
+
 ## 0.9.1, 2026-10-25 (aligné sur le cours 2.0.0)
 
 Icônes (T-070) :

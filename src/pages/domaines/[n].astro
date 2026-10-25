@@ -1,0 +1,54 @@
+---
+// Page d'un domaine : le problème et d'où l'on vient (projection de course/domains/N-slug.md), puis
+// ses concepts dépliables, chacun avec son accroche. Elle prend place dans l'ordre de lecture,
+// avant le premier concept du domaine.
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import '../../styles/transversal.css';
+import Renvoi from '../../components/Renvoi.astro';
+import Pastille from '../../components/Pastille.astro';
+import ConceptsDepliables from '../../components/ConceptsDepliables.astro';
+import Voisins from '../../components/Voisins.astro';
+import { domaines } from '../../data/domaines';
+import { disponibles } from '../../lib/concepts';
+import { lecture, voisins } from '../../lib/lecture';
+import { typoFr } from '../../lib/typo-fr';
+import { url } from '../../i18n/ui';
+
+export async function getStaticPaths() {
+  const entries = (await getCollection('domaines')).filter((e) => e.id.startsWith('fr/'));
+  return entries.map((entry) => ({ params: { n: String(entry.data.numero) }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const d = domaines.find((x) => x.n === entry.data.numero)!;
+const { Content } = await render(entry);
+const dispo = await disponibles('fr');
+const { prev, next } = voisins(lecture(dispo), `D${d.n}`);
+const minuscule = (s: string) => s.charAt(0).toLowerCase() + s.slice(1);
+const plage = d.concepts.length === 1 ? `concept ${d.concepts[0].n}` : `concepts ${d.concepts[0].n} à ${d.concepts.at(-1)!.n}`;
+---
+<Base title={`Domaine ${d.n} : ${d.titre}`} description={typoFr(entry.data.description)} nav="domaines">
+  <header class="concept-head container">
+    <p class="eyebrow">Domaine {d.n} · {plage} · <a class="eyebrow-lien" href={url('domaines/')}>tous les domaines</a></p>
+    <h1>{d.titre}</h1>
+    <p class="lead">À la fin, vous savez : {minuscule(d.saitFaire)}</p>
+  </header>
+
+  <div class="container-wide">
+    <div class="prose domaine-prose">
+      <Content components={{ Renvoi, Pastille }} />
+    </div>
+
+    <section class="prose domaine-concepts" aria-labelledby="concepts-du-domaine">
+      <h2 id="concepts-du-domaine">{d.concepts.length === 1 ? 'Le concept du domaine' : 'Les concepts du domaine'}</h2>
+      <ConceptsDepliables concepts={d.concepts} accroches={entry.data.accroches} />
+    </section>
+
+    <Voisins prev={prev} next={next} />
+
+    <p class="concept-meta" style="margin:3rem auto 0;max-width:var(--measure)" data-pagefind-ignore>
+      Ce site accompagne un cours donné par un agent IA : voir <a href={url('a-propos/#cours-accompagne')}>À propos</a>.
+    </p>
+  </div>
+</Base>

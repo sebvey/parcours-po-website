@@ -12,12 +12,14 @@ flowchart LR
     subgraph cours["Le cours (dépôt parcours-po, course/)"]
         CF["concepts/NN-slug.md"]
         CS["sources/NN-slug.md"]
+        CD["domains/N-slug.md"]
         CP["plan.md"]
         CG["glossary.md"]
         CR["fil-rouge-velos.md"]
     end
     subgraph site["Le site (src/)"]
         MDX["content/concepts/fr/NN-slug.mdx<br/>corps + frontmatter"]
+        DMX["content/domaines/fr/N-slug.mdx"]
         DOM["data/domaines.ts"]
         GLO["data/glossaire.ts"]
         FR["data/fil-rouge.ts"]
@@ -25,12 +27,16 @@ flowchart LR
     end
     CF -- "copie, empreinte sha256" --> MDX
     CS -- "copie, empreinte sha256" --> MDX
+    CD -- "copie, empreinte sha256" --> DMX
     CP -- copie --> DOM
     CG -- copie --> GLO
     CR -- copie --> FR
     MDX -- "page de concept" --> P1["/concepts/NN/"]
     MDX -- "dérivé : sous-concepts (Sous)" --> P2["/domaines/"]
     DOM --> P2
+    DMX -- "page de domaine" --> P8["/domaines/N/"]
+    DOM --> P8
+    MDX -- "dérivé : sous-concepts (Sous)" --> P8
     MDX -- "dérivé : positions (lib/transversal.ts)" --> P3["/ecoles/"]
     MDX -- "dérivé : bibliographie" --> P4["/sources/"]
     GLO --> P5["/glossaire/"]
@@ -47,10 +53,12 @@ flowchart LR
 | Concept : onglet Consensus ou école | frontmatter `ecoles` | copie de la fiche du concept (Consensus et choix d'école) |
 | Concept : onglet Sources | frontmatter `sources` | copie de `course/sources/NN-slug.md` |
 | Concept : schémas | `src/components/schemas/` | site (forme) ; ils ne contredisent pas la fiche |
-| Concept : domaine, précédent et suivant | `src/data/domaines.ts` | copie de `course/plan.md` |
+| Concept et domaine : domaine, précédent et suivant | `src/data/domaines.ts`, ordre de lecture dans `src/lib/lecture.ts` | copie de `course/plan.md` |
 | Empreintes et version du cours d'une page | frontmatter `alignement` | dérivée : écrite par `npm run check-alignment -- --stamp NN` |
-| Domaines : titres, « à la fin, vous savez », concepts | `src/data/domaines.ts` | copie de `course/plan.md` (Domaines du cours, Concepts, Annexes) |
-| Domaines : sous-concepts et promesses | attributs des `<Sous>` des pages | dérivée au build (`sousConcepts`, `src/lib/concepts.ts`) |
+| Page de domaine : le problème, d'où l'on vient | corps MDX de `src/content/domaines/fr/N-slug.mdx` | copie des sections « Le problème » et « D'où l'on vient, où l'on va » de `course/domains/N-slug.md` (renvois « concept N » en `<Renvoi>`) ; le cas du fil rouge n'est pas repris |
+| Page de domaine : accroche de chaque concept | frontmatter `accroches` | récrite depuis « Le fil des concepts » de la fiche, une ligne par concept |
+| Domaines et page de domaine : titres, « à la fin, vous savez », concepts | `src/data/domaines.ts` | copie de `course/plan.md` (Domaines du cours, Concepts, Annexes) |
+| Domaines, page de domaine : sous-concepts et promesses | attributs des `<Sous>` des pages | dérivée au build (`sousConcepts`, `src/lib/concepts.ts`) |
 | Consensus ou école (index) | `src/lib/transversal.ts` | dérivée au build des frontmatters `ecoles` |
 | Sources (page) | `src/lib/transversal.ts` | dérivée au build des frontmatters `sources` |
 | Glossaire | `src/data/glossaire.ts` | copie de `course/glossary.md` |
@@ -64,8 +72,9 @@ flowchart LR
 
 ## Ce qui est contrôlé
 
-- Les pages de concept portent les empreintes de leurs deux fiches : `npm run check-alignment` liste
-  celles dont une fiche a changé (avertissement dans `npm run verify`).
+- Les pages de concept portent les empreintes de leurs deux fiches, les pages de domaine celle de
+  leur fiche `course/domains` : `npm run check-alignment` liste celles dont une fiche a changé
+  (avertissement dans `npm run verify`).
 - `domaines.ts`, `glossaire.ts` et `fil-rouge.ts` n'ont pas d'empreinte : rien ne signale un écart
   avec `plan.md`, `glossary.md` ou `fil-rouge-velos.md`. À relire quand le cours publie une version.
 - Le titre d'un concept vit à deux endroits : `titre` du frontmatter (en-tête de la page) et

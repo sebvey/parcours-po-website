@@ -3,9 +3,7 @@ import Base from '../layouts/Base.astro';
 import Pastille from '../components/Pastille.astro';
 import '../styles/transversal.css';
 import { url } from '../i18n/ui';
-import { disponibles, conceptUrl } from '../lib/concepts';
-const dispo = await disponibles();
-const first = dispo.get('0');
+import { domaineUrl } from '../lib/lecture';
 ---
 <Base nav="home" description="Un cours de gestion de produit pour le Product Owner d’un produit data : des concepts courts, des schémas, des sources visibles.">
   <div class="container">
@@ -18,8 +16,8 @@ const first = dispo.get('0');
     <section class="page" style="padding-top:1rem" aria-labelledby="commencer">
       <h2 id="commencer" style="margin-top:0">Par où commencer</h2>
       <div class="portes">
-        {first && <div><a class="btn" href={conceptUrl('0')}>Commencer : concept 0</a><p>Le cours se lit dans l’ordre, concept par concept, du 0 au 17.</p></div>}
-        <div><a class="btn secondary" href={url('domaines/')}>Voir les sept domaines</a><p>Ce qu’on sait faire à la fin de chaque domaine, et une lecture rapide pour creuser un sujet.</p></div>
+        <div><a class="btn" href={domaineUrl(1)}>Commencer : domaine 1</a><p>Le cours se lit dans l’ordre, domaine après domaine : chacun se présente, puis déroule ses concepts.</p></div>
+        <div><a class="btn secondary" href={url('domaines/')}>Voir les sept domaines</a><p>La carte du cours : ce qu’on sait faire à la fin de chaque domaine, et ses concepts.</p></div>
         <div><a class="btn secondary" href={url('fil-rouge/')}>Voir le fil rouge</a><p>Le cas inventé sur lequel s’appuient les exemples : l’opérateur de vélos, l’équipe, les acteurs.</p></div>
         <div><a class="btn secondary" href={url('glossaire/')}>Ouvrir le glossaire</a><p>Le sens exact des termes du cours, et les termes à éviter.</p></div>
       </div>
