@@ -5,6 +5,18 @@ dit sur quelle version du cours elle est alignée.
 
 ## Non publié
 
+## 0.3.0, 2026-10-25 (aligné sur le cours 2.0.0)
+
+Page Domaines (T-058) :
+- chapeau réduit à une phrase ;
+- sommaire collant à la place des liens sous le chapeau : colonne à gauche au bureau, barre de
+  pastilles en haut sur téléphone ; le domaine en cours de lecture y est mis en évidence ;
+- chaque concept se déplie et liste ses sous-concepts (numéro, titre, promesse), chacun lié à sa
+  section, puis « Lire le concept » ; les sous-concepts sont lus au build dans les pages de
+  concept ;
+- les lectures rapides disparaissent (elles citaient 44 des 50 sous-concepts) ; les anciennes
+  adresses `#domaine-N-lecture` mènent au domaine.
+
 ## 0.2.2, 2026-10-25 (aligné sur le cours 2.0.0)
 
 - Accueil (T-057d) : le fil rouge et le glossaire ont chacun leur porte dans « Par où commencer »

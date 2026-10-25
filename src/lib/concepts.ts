@@ -27,3 +27,19 @@ export async function lien(ref: string) {
     href: exists ? conceptUrl(n, /[a-z]/i.test(ref.slice(n.length)) ? ref : '') : undefined,
   };
 }
+
+export interface SousConcept {
+  id: string;
+  titre: string;
+  promesse?: string;
+}
+
+/** Les sous-concepts d'une page, lus dans ses composants `<Sous id titre promesse>`, dans l'ordre. */
+export function sousConcepts(entry: ConceptEntry): SousConcept[] {
+  const attr = (tag: string, nom: string) => tag.match(new RegExp(`\\b${nom}="([^"]*)"`))?.[1];
+  return [...(entry.body ?? '').matchAll(/<Sous\b[^>]*>/g)].map(([tag]) => ({
+    id: attr(tag, 'id') ?? '',
+    titre: attr(tag, 'titre') ?? '',
+    promesse: attr(tag, 'promesse'),
+  }));
+}

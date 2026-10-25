@@ -2,101 +2,120 @@
 import Base from '../layouts/Base.astro';
 import '../styles/transversal.css';
 import { inline } from '../lib/inline';
-import { domaines, annexes, domaineId, conceptOf, tousLesConcepts, type Domaine } from '../data/domaines';
-import { lectureDe, type Lecture } from '../data/lectures';
-import { disponibles, conceptUrl } from '../lib/concepts';
+import { domaines, annexes, domaineId } from '../data/domaines';
+import { disponibles, conceptUrl, sousConcepts } from '../lib/concepts';
 import { useT } from '../i18n/ui';
 const t = useT();
 const dispo = await disponibles();
-const concept = (ref: string) => tousLesConcepts.find((c) => c.n === conceptOf(ref));
-const duree = (m: number) => `environ ${m} min`;
 const libelle = (n: string) => (/^A/.test(n) ? 'Annexe' : 'Concept');
-const sections: { d: Domaine; l?: Lecture }[] = [...domaines, annexes].map((d) => ({ d, l: lectureDe(d.n) }));
+const tous = [...domaines, annexes];
 ---
-<Base title="Domaines" nav="domaines" description="Le cours en sept domaines, du cadre du produit à l’exploration : ce qu’on sait faire à la fin de chacun, ses concepts et sa lecture rapide.">
+<Base title="Domaines" nav="domaines" description="Le cours en sept domaines, du cadre du produit à l’exploration : ce qu’on sait faire à la fin de chacun, ses concepts et leurs sections.">
   <div class="container-wide">
     <section class="page tr">
       <p class="eyebrow">La carte du cours</p>
       <h1>Domaines</h1>
-      <p class="lead">Dix-huit concepts en sept domaines, plus deux annexes. Le cours se lit dans l’ordre, domaine après domaine ; chaque concept appartient à un seul domaine, et les sept couvrent tout le cours. Pour aller droit à l’essentiel d’un domaine, ouvrez sa lecture rapide.</p>
+      <p class="lead">Le cours se lit dans l’ordre, domaine après domaine. Déployez un concept pour voir ses sections et aller droit à celle qui vous sert.</p>
 
-      <ol class="tr-jump dom-jump" aria-label="Aller à un domaine">
-        {domaines.map((d) => <li><a href={`#${domaineId(d)}`}>{d.n}. {d.titre}</a></li>)}
-        <li><a href="#annexes">Annexes</a></li>
-      </ol>
+      <div class="dom-layout">
+        <nav class="dom-toc" aria-label="Domaines" data-pagefind-ignore>
+          <ol>
+            {tous.map((d) => (
+              <li><a href={`#${domaineId(d)}`} data-toc={domaineId(d)}>{d.n > 0 && <span class="toc-n">{d.n}</span>}<span class="toc-t">{d.titre}</span></a></li>
+            ))}
+          </ol>
+        </nav>
 
-      {sections.map(({ d, l }) => (
-        <section class="domaine" id={domaineId(d)} aria-labelledby={`${domaineId(d)}-t`}>
-          <div>
-            <p class="n">{d.n === 0 ? 'Hors domaines' : `Domaine ${d.n}`}</p>
-            <h2 id={`${domaineId(d)}-t`}>{d.titre}<a class="ancre" href={`#${domaineId(d)}`} aria-label={`Lien vers : ${d.titre}`}>#</a></h2>
-            <p class="q">{d.n === 0 ? d.saitFaire : <>À la fin, vous savez : {d.saitFaire.charAt(0).toLowerCase() + d.saitFaire.slice(1)}</>}</p>
-          </div>
-          <div>
-            <ul class="cards">
-              {d.concepts.map((c) => {
-                const e = dispo.get(c.n);
-                return (
-                  <li>
-                    {e ? (
-                      <a class="card" href={conceptUrl(c.n)}>
-                        <span class="num">{libelle(c.n)} {c.n}</span>
-                        <span class="t">{c.titre}</span>
-                        <span class="st">Lire le concept</span>
-                      </a>
-                    ) : (
-                      <div class="card off">
-                        <span class="num">{libelle(c.n)} {c.n}</span>
-                        <span class="t">{c.titre}</span>
-                        <span class="st">{t('concept.soon')}</span>
-                      </div>
-                    )}
-                  </li>
-                );
-              })}
-            </ul>
-            {l && (
-              <details class="lec" id={`${domaineId(d)}-lecture`}>
-                <summary>
-                  <span class="lec-t">{l.titre ? <>Lecture : {inline(l.titre)}</> : 'Lecture rapide'}</span>
-                  <span class="lec-m">{duree(l.minutes)} · {l.etapes.length} sections</span>
-                </summary>
-                {l.situation && <p class="situation" set:html={inline(l.situation)} />}
-                {l.avant && <p class="lec-avant" set:html={inline(l.avant)} />}
-                <ol class="etapes">
-                  {l.etapes.map((e) => {
-                    const c = concept(e.ref);
-                    return (
-                      <li>
-                        <a class="etape" href={conceptUrl(conceptOf(e.ref), e.ref)}>
-                          <span class="ref">{e.ref}</span>
-                          <span class="corps">
-                            <span class="tt" set:html={inline(e.titre)} />
-                            <span class="src">{libelle(conceptOf(e.ref))} {conceptOf(e.ref)}{c ? ` : ${c.titre}` : ''}</span>
-                            <span class="pq" set:html={inline(e.pourquoi)} />
-                          </span>
-                        </a>
-                      </li>
-                    );
-                  })}
-                </ol>
-              </details>
-            )}
-          </div>
-        </section>
-      ))}
+        <div class="dom-contenu">
+          {tous.map((d) => (
+            <section class="domaine" id={domaineId(d)} aria-labelledby={`${domaineId(d)}-t`}>
+              <p class="n">{d.n === 0 ? 'Hors domaines' : `Domaine ${d.n}`}</p>
+              <h2 id={`${domaineId(d)}-t`}>{d.titre}<a class="ancre" href={`#${domaineId(d)}`} aria-label={`Lien vers : ${d.titre}`}>#</a></h2>
+              <p class="q">{d.n === 0 ? d.saitFaire : <>À la fin, vous savez : {d.saitFaire.charAt(0).toLowerCase() + d.saitFaire.slice(1)}</>}</p>
+              <ul class="cdep-liste">
+                {d.concepts.map((c) => {
+                  const e = dispo.get(c.n);
+                  return (
+                    <li>
+                      {e ? (
+                        <details class="cdep">
+                          <summary><span class="num">{libelle(c.n)} {c.n}</span> <span class="t">{c.titre}</span></summary>
+                          <ol class="sous-liste">
+                            {sousConcepts(e).map((s) => (
+                              <li>
+                                <a class="sous-lien" href={conceptUrl(c.n, s.id)}>
+                                  <span class="ref">{s.id}</span>
+                                  <span class="corps">
+                                    <span class="tt" set:html={inline(s.titre)} />
+                                    {s.promesse && <span class="pq" set:html={inline(s.promesse)} />}
+                                  </span>
+                                </a>
+                              </li>
+                            ))}
+                          </ol>
+                          <p class="lire"><a href={conceptUrl(c.n)}>Lire le concept {c.n}</a></p>
+                        </details>
+                      ) : (
+                        <div class="cdep off"><span class="num">{libelle(c.n)} {c.n}</span> <span class="t">{c.titre}</span> <span class="soon">{t('concept.soon')}</span></div>
+                      )}
+                    </li>
+                  );
+                })}
+              </ul>
+            </section>
+          ))}
+        </div>
+      </div>
     </section>
   </div>
 
   <script is:inline>
-    // Une adresse qui vise une lecture (#domaine-3-lecture) l'ouvre.
     (function () {
-      function ouvrir() {
-        var el = location.hash && document.getElementById(location.hash.slice(1));
-        if (el && el.tagName === 'DETAILS') { el.open = true; el.scrollIntoView(); }
+      // Anciennes adresses des lectures rapides : #domaine-3-lecture -> #domaine-3.
+      function ancienneAdresse() {
+        var m = location.hash.match(/^#((?:domaine-\d+)|annexes)-lecture$/);
+        if (!m) return;
+        history.replaceState(null, '', '#' + m[1]);
+        var cible = document.getElementById(m[1]);
+        if (cible) cible.scrollIntoView();
       }
-      ouvrir();
-      window.addEventListener('hashchange', ouvrir);
+      ancienneAdresse();
+      window.addEventListener('hashchange', ancienneAdresse);
+      // Sommaire : met en évidence le domaine en cours de lecture.
+      var liens = Array.prototype.slice.call(document.querySelectorAll('.dom-toc a[data-toc]'));
+      var toc = document.querySelector('.dom-toc ol');
+      if (!liens.length) return;
+      var sections = liens.map(function (a) { return document.getElementById(a.getAttribute('data-toc')); });
+      var actif = null;
+      function activer(i) {
+        if (i === actif) return;
+        actif = i;
+        liens.forEach(function (a, j) {
+          if (j === i) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
+        });
+        // Barre horizontale (téléphone) : ramène la pastille active en vue, sans bouger la page.
+        var a = liens[i];
+        if (toc.scrollWidth > toc.clientWidth) {
+          toc.scrollTo({ left: a.offsetLeft - (toc.clientWidth - a.offsetWidth) / 2, behavior: 'smooth' });
+        }
+      }
+      // Le domaine actif est le dernier dont le haut a passé le tiers de l'écran ; en bas de
+      // page, le dernier domaine.
+      function calculer() {
+        var seuil = window.innerHeight / 3, i = 0;
+        sections.forEach(function (s, j) { if (s.getBoundingClientRect().top <= seuil) i = j; });
+        if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) i = sections.length - 1;
+        activer(i);
+      }
+      var attente = false;
+      window.addEventListener('scroll', function () {
+        if (attente) return;
+        attente = true;
+        requestAnimationFrame(function () { attente = false; calculer(); });
+      }, { passive: true });
+      window.addEventListener('resize', calculer);
+      document.addEventListener('toggle', calculer, true);
+      calculer();
     })();
   </script>
 </Base>
