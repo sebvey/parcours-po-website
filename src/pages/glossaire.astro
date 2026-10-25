@@ -3,7 +3,8 @@ import Base from '../layouts/Base.astro';
 import '../styles/transversal.css';
 import { inline } from '../lib/inline';
 import { conceptUrl } from '../lib/concepts';
-import { tousLesConcepts } from '../data/domaines';
+import Sommaire from '../components/Sommaire.astro';
+import { tousLesConcepts, domaines, annexes } from '../data/domaines';
 import { termes, aEviter } from '../data/glossaire';
 
 const sansAccent = (s: string) => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
@@ -23,14 +24,26 @@ for (const t of tries) {
 groupes.sort((a, b) => (a.lettre === '0-9' ? -1 : b.lettre === '0-9' ? 1 : a.lettre.localeCompare(b.lettre)));
 const idLettre = (l: string) => `lettre-${l.toLowerCase()}`;
 const plain = (s: string) => s.replace(/\*+/g, '');
-const concepts = tousLesConcepts.filter((c) => termes.some((t) => t.concepts.includes(c.n)));
+const sert = (n: string) => termes.some((t) => t.concepts.includes(n));
+// Le choix du concept, groupé par domaine.
+const choix = [...domaines, annexes]
+  .map((d) => ({ titre: d.n === 0 ? 'Annexes' : `Domaine ${d.n} · ${d.titre}`, concepts: d.concepts.filter((c) => sert(c.n)) }))
+  .filter((g) => g.concepts.length > 0);
+const items = [
+  ...groupes.map((g) => ({ id: idLettre(g.lettre), titre: g.lettre })),
+  { id: 'termes-a-eviter', titre: 'Termes à éviter' },
+];
 ---
 <Base title="Glossaire" nav="glossaire" description="Les termes du cours, avec leur traduction anglaise, leur définition et le concept qui les introduit, et les termes à éviter.">
   <div class="container-wide">
     <section class="page tr">
       <p class="eyebrow">Les mots du cours</p>
       <h1>Glossaire</h1>
-      <p class="lead">Un seul terme par notion : le cours emploie le même mot partout, en français, ou en anglais quand c’est l’usage. Chaque terme renvoie au concept qui l’introduit. La fin de la page liste les <a href="#termes-a-eviter">termes à éviter</a>.</p>
+      <p class="lead">Un seul terme par notion, le même partout : en français, ou en anglais quand c’est l’usage. Chaque terme renvoie aux concepts qui l’introduisent.</p>
+
+      <div class="avec-sommaire">
+        <Sommaire items={items} label="Lettres du glossaire" compact />
+        <div class="sommaire-contenu">
 
       <div class="gl-filtre" data-pagefind-ignore hidden>
         <form role="search" aria-label="Filtrer le glossaire">
@@ -42,18 +55,17 @@ const concepts = tousLesConcepts.filter((c) => termes.some((t) => t.concepts.inc
             <label for="gl-c">Concept</label>
             <select id="gl-c" autocomplete="off">
               <option value="">Tous les concepts</option>
-              {concepts.map((c) => <option value={c.n}>{c.n}. {c.titre}</option>)}
+              {choix.map((g) => (
+                <optgroup label={g.titre}>
+                  {g.concepts.map((c) => <option value={c.n}>{c.n}. {c.titre}</option>)}
+                </optgroup>
+              ))}
             </select>
           </div>
         </form>
         <p class="gl-statut" role="status" aria-live="polite" id="gl-statut"></p>
       </div>
 
-      <nav class="gl-lettres" aria-label="Aller à une lettre" id="gl-lettres">
-        <ul>
-          {groupes.map((g) => <li><a href={`#${idLettre(g.lettre)}`}>{g.lettre}</a></li>)}
-        </ul>
-      </nav>
 
       <div id="gl-liste">
         {groupes.map((g) => (
@@ -88,6 +100,8 @@ const concepts = tousLesConcepts.filter((c) => termes.some((t) => t.concepts.inc
           </li>
         ))}
       </ul>
+        </div>
+      </div>
     </section>
   </div>
 
@@ -98,7 +112,6 @@ const concepts = tousLesConcepts.filter((c) => termes.some((t) => t.concepts.inc
       var sel = document.getElementById('gl-c');
       var statut = document.getElementById('gl-statut');
       var vide = document.getElementById('gl-vide');
-      var lettres = document.getElementById('gl-lettres');
       if (!ui || !q || !sel) return;
       ui.hidden = false;
       var formulaire = q.closest('form');
@@ -118,7 +131,8 @@ const concepts = tousLesConcepts.filter((c) => termes.some((t) => t.concepts.inc
         });
         groupes.forEach(function (g) { g.hidden = !g.querySelector('.gl-terme:not([hidden])'); });
         var actif = mots.length > 0 || c !== '';
-        lettres.hidden = actif;
+        var nav = document.querySelector('nav.sommaire');
+        if (nav && nav.rafraichir) nav.rafraichir();
         vide.hidden = n !== 0;
         statut.textContent = actif ? (n === 0 ? 'Aucun terme' : n + (n === 1 ? ' terme' : ' termes') + ' sur ' + items.length) : '';
       }

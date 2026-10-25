@@ -1,34 +1,29 @@
 ---
 import Base from '../layouts/Base.astro';
-import Pastille from '../components/Pastille.astro';
 import { siteVersion, coursVersion } from '../data/version';
 ---
-<Base title="À propos" nav="about" description="Pour qui est ce cours, comment il est fait, comment lire les pastilles, et sous quelle licence il est publié.">
+<Base title="À propos" nav="about" description="Un cours donné par un agent IA, comment ce site est fait, ses versions et sa licence.">
   <div class="container">
     <section class="page prose">
       <h1>À propos</h1>
-      <p class="lead">Ce site est la version publique d’un cours de gestion de produit pour le Product Owner d’un produit data.</p>
+      <p class="lead">Ce site accompagne un cours de gestion de produit pour le Product Owner d’un produit data, donné par un agent IA.</p>
 
-      <h2 id="pour-qui">Pour qui</h2>
-      <p>Pour un développeur ou un profil data (data engineer, analyste), à l’aise avec la technique et débutant en gestion de produit, qui devient Product Owner d’un produit data (plateforme, indicateurs, modèles) et veut de bonnes bases pour tenir le rôle dans une équipe Scrum ou proche. Le cours suppose une équipe qui travaille en sprints ; une annexe traite le travail sans sprint.</p>
-
-      <h2 id="comment-lire">Comment lire les pastilles</h2>
-      <p>Chaque affirmation importante dit d’où elle vient. <Pastille kind="consensus" /> : un texte de référence ou une pratique établie. <Pastille kind="ecole" /> : une position défendable, attribuée à son auteur, que d’autres écoles contestent. <Pastille kind="cours" /> : une décision de ce cours, sans source externe. Les sources consultées, et ce qui n’a pas pu être vérifié, sont dans l’onglet « Sources » de chaque concept.</p>
-
-      <h2 id="fil-rouge">Un cas fictif</h2>
-      <p>Les exemples s’appuient sur un cas inventé : un opérateur de vélos en libre-service, sa plateforme de données et son équipe. Les personnes, les chiffres et les faits de ce cas sont fictifs. Ils servent à illustrer, pas à documenter.</p>
-
-      <h2 id="cours-accompagne">Un cours accompagné</h2>
-      <p>La matière de ce site sert aussi de base à un cours accompagné par un professeur. Ce site ne contient ni question ni exercice : ils appartiennent au cours accompagné.</p>
+      <h2 id="cours-accompagne">Un cours donné par un agent</h2>
+      <p>Ce site sert avant tout de support à un cours donné par un agent IA, qui fait progresser l’apprenant concept par concept, avec des questions et des exercices. Il se lit aussi seul : chaque page se suffit à elle-même. Les questions et les exercices restent dans le cours ; le site n’en contient pas.</p>
 
       <h2 id="fabrication">Comment ce site est fait</h2>
-      <p>Les pages ont été rédigées par des agents d’IA à partir du cours, puis contrôlées par des audits. <a href="https://github.com/sebvey/parcours-po-website/blob/main/docs/construction.md" rel="noopener">La méthode, les agents et ce qui n’a pas été vérifié</a> sont décrits dans le dépôt du site.</p>
+      <p>Le cours repose sur une base de connaissances écrite pour l’agent qui l’enseigne : une fiche par concept, ses sources, un glossaire et un cas fil rouge. Ce site est tiré de cette base. Il a été développé de façon agentique : des agents IA ont rédigé les pages, construit le site et contrôlé le résultat, sous la direction d’un mainteneur. <a href="https://github.com/sebvey/parcours-po-website/blob/main/docs/construction.md" rel="noopener">La méthode et ce qui n’a pas été vérifié</a> sont décrits dans le dépôt du site.</p>
 
       <h2 id="versions">Versions</h2>
-      <p>Ce site est en version <strong>{siteVersion}</strong>. Il reprend le fond du cours dans sa version <strong>{coursVersion}</strong>. Les deux numéros partagent le même premier chiffre : il change quand le cours renumérote ses concepts, retire un concept ou change les concepts d’un domaine, et alors les adresses des pages changent aussi. Le journal du site est <a href="https://github.com/sebvey/parcours-po-website/blob/main/CHANGELOG.md" rel="noopener">CHANGELOG.md</a>, dans le dépôt.</p>
+      <ul>
+        <li>Ce site : <strong>{siteVersion}</strong>.{siteVersion.startsWith('0.') && ' Tant que le premier chiffre est 0, c’est un aperçu.'}</li>
+        <li>Le cours dont il reprend le fond : <strong>{coursVersion}</strong>.</li>
+        <li>À la mise en ligne, le site prendra le premier chiffre du cours. Ce chiffre change quand l’organisation du cours change (numéros des concepts, contenu des domaines) ; les adresses des pages peuvent alors changer.</li>
+        <li>Le détail des changements : <a href="https://github.com/sebvey/parcours-po-website/blob/main/CHANGELOG.md" rel="noopener">CHANGELOG.md</a>.</li>
+      </ul>
 
       <h2 id="licence">Licence</h2>
-      <p>© Sébastien Vey. Les textes et les schémas sont publiés sous licence <a href="https://creativecommons.org/licenses/by/4.0/deed.fr" rel="license noopener">Creative Commons Attribution 4.0 (CC BY 4.0)</a> : vous pouvez les réutiliser, y compris à des fins commerciales, en citant l’auteur. Le code du site est sous licence MIT.</p>
+      <p>© Sébastien Vey. Textes et schémas sous licence <a href="https://creativecommons.org/licenses/by/4.0/deed.fr" rel="license noopener">Creative Commons Attribution 4.0</a> : réutilisables, y compris à des fins commerciales, en citant l’auteur. Le code du site est sous licence MIT.</p>
     </section>
   </div>
 </Base>

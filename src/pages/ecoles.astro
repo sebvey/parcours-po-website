@@ -2,6 +2,8 @@
 import Base from '../layouts/Base.astro';
 import Pastille from '../components/Pastille.astro';
 import Position from '../components/Position.astro';
+import Sommaire from '../components/Sommaire.astro';
+import '../styles/transversal.css';
 import { positions, scinde, groupeConsensus, slug, type Position as Pos } from '../lib/transversal';
 
 const toutes = await positions();
@@ -50,53 +52,57 @@ for (const p of cours) {
 }
 
 const sections = [
-  { kind: 'consensus', id: 'consensus', groupes: gConsensus, n: consensus.length, intro: 'Ce que disent les textes de référence (d’abord le Scrum Guide) et ce que les praticiens font en général. Les positions sont groupées par texte ou par pratique.' },
-  { kind: 'ecole', id: 'ecoles', groupes: gEcole, n: ecole.length, intro: 'Des positions défendables, chacune attribuée à son auteur ou à son école. Elles sont posées côte à côte, pas fondues. Groupées par auteur.' },
-  { kind: 'cours', id: 'cours', groupes: gCours, n: cours.length, intro: 'Ce que ce cours décide, sans source externe qui l’impose : à prendre comme tel. Groupées par concept.' },
+  { kind: 'consensus', id: 'consensus', titre: 'Consensus', groupes: gConsensus, n: consensus.length, intro: 'Groupées par texte de référence ou par pratique.' },
+  { kind: 'ecole', id: 'ecoles', titre: 'Choix d’école', groupes: gEcole, n: ecole.length, intro: 'Rangées par auteur ou par école, posées côte à côte.' },
+  { kind: 'cours', id: 'cours', titre: 'Choix du cours', groupes: gCours, n: cours.length, intro: 'Groupées par concept, dans l’ordre du cours.' },
 ] as const;
+const items = sections.map((s) => ({ id: s.id, titre: `${s.titre} (${s.n})` }));
 ---
-<Base title="Consensus ou école" nav="ecoles" description="Toutes les positions du cours, par nature : ce qui fait consensus, ce qui relève d’un choix d’école, ce que le cours décide lui-même.">
+<Base title="Consensus ou école" nav="ecoles" description="Toutes les positions du cours, par nature : ce qui fait consensus, ce qui relève d’un choix d’école, ce que le cours décide lui-même.">
   <div class="container-wide">
     <section class="page index-page">
       <p class="eyebrow">Index transversal</p>
       <h1>Consensus ou école</h1>
-      <p class="lead">Toutes les positions du cours, de tous les concepts, rangées selon ce qui les fonde. Chaque entrée renvoie au concept et à l’endroit exact où elle est posée.</p>
+      <p class="lead">Les {toutes.length} positions du cours, rangées selon ce qui les fonde. Chacune renvoie à l’endroit du concept où elle est posée.</p>
 
       <dl class="legende" data-pagefind-ignore>
         <div><dt><Pastille kind="consensus" /></dt><dd>Ce que disent les textes de référence et ce que les praticiens font en général.</dd></div>
-        <div><dt><Pastille kind="ecole" /></dt><dd>Une position défendable, portée par un auteur ou une école, à côté d’autres : le lecteur voit qui la défend.</dd></div>
+        <div><dt><Pastille kind="ecole" /></dt><dd>Une position défendable, portée par un auteur ou une école, à côté d’autres : le lecteur voit qui la défend.</dd></div>
         <div><dt><Pastille kind="cours" /></dt><dd>Un choix que le cours fait lui-même, sans source externe qui l’impose.</dd></div>
       </dl>
 
-      <nav class="saut" aria-label="Sections de l’index" data-pagefind-ignore>
-        <ul>
+      <div class="avec-sommaire">
+        <Sommaire items={items} label="Natures des positions" deplier />
+        <div class="sommaire-contenu">
           {sections.map((s) => (
-            <li><a href={`#${s.id}`}><Pastille kind={s.kind} /> <span class="nb">{s.n}</span></a></li>
-          ))}
-        </ul>
-      </nav>
-
-      {sections.map((s) => (
-        <section class={`index-sec ${s.kind}`} id={s.id} aria-labelledby={`h-${s.id}`}>
-          <h2 id={`h-${s.id}`}><Pastille kind={s.kind} /> <span class="nb">{s.n} positions</span></h2>
-          <p class="sec-intro">{s.intro}</p>
-          {s.kind === 'ecole' && (
-            <nav class="saut auteurs" aria-label="Auteurs et écoles" data-pagefind-ignore>
-              <ul>
-                {s.groupes.map((g) => (<li><a href={`#${s.kind}-${g.id}`}>{g.titre}</a></li>))}
+            <section class={`fr-section index-sec ${s.kind}`} id={s.id} aria-labelledby={`h-${s.id}`}>
+              <h2 id={`h-${s.id}`}>{s.titre}</h2>
+              <p class="sec-intro"><Pastille kind={s.kind} /> {s.n} positions, {s.intro.charAt(0).toLowerCase() + s.intro.slice(1)}</p>
+              {s.kind === 'ecole' ? (
+                // La plupart des auteurs n'ont qu'une position : une liste à plat, l'auteur en tête.
+                <ul class="pos-liste pos-plate">
+                  {s.groupes.flatMap((g) => g.items.map((it) => (
+                    <Position p={it.p} sujet={g.titre === AUTRES ? it.sujet : (it.sujet ? `${g.titre} : ${it.sujet}` : g.titre)} />
+                  )))}
+                </ul>
+              ) : (
+              <ul class="cdep-liste">
+                {s.groupes.map((g) => (
+                  <li class="cdep-item" id={`${s.kind}-${g.id}`}>
+                    <details class="cdep" data-deplier>
+                      <summary><span class="t">{g.titre}</span> <span class="src-nb">{g.items.length} {g.items.length > 1 ? 'positions' : 'position'}</span></summary>
+                      <ul class="pos-liste">
+                        {g.items.map((it) => (<Position p={it.p} sujet={it.sujet} court={s.kind === 'cours'} />))}
+                      </ul>
+                    </details>
+                  </li>
+                ))}
               </ul>
-            </nav>
-          )}
-          {s.groupes.map((g) => (
-            <section class="groupe" aria-labelledby={`g-${s.kind}-${g.id}`}>
-              <h3 id={`${s.kind}-${g.id}`}><span id={`g-${s.kind}-${g.id}`}>{g.titre}</span> <span class="nb">{g.items.length}</span></h3>
-              <ul class="pos-liste">
-                {g.items.map((it) => (<Position p={it.p} sujet={it.sujet} />))}
-              </ul>
+              )}
             </section>
           ))}
-        </section>
-      ))}
+        </div>
+      </div>
     </section>
   </div>
 </Base>

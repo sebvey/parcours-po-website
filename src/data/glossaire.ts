@@ -1,4 +1,5 @@
-// Glossaire du cours : contenu propre au site, copié une fois du cours puis maintenu ici.
+// Glossaire du cours : reprise de course/glossary.md (mêmes termes, mêmes définitions, mêmes
+// termes à éviter) ; à réaligner quand le glossaire du cours change.
 // Un seul terme par notion. `concepts` : les concepts qui introduisent le terme ("0".."17", "A1", "A2").
 // Les textes admettent *italique* et **gras** (voir src/lib/inline.ts).
 export interface Terme {

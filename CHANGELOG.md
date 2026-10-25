@@ -5,6 +5,25 @@ dit sur quelle version du cours elle est alignée.
 
 ## Non publié
 
+## 0.7.0, 2026-10-25 (aligné sur le cours 2.0.0)
+
+T-065 :
+- **Thème clair / sombre** : un bouton dans l'en-tête bascule le thème et mémorise le choix
+  (sinon, la préférence du système) ; le thème est appliqué avant l'affichage.
+- **À propos** : réduite au cours donné par un agent IA, à la fabrication du site (agentique, à
+  partir de la base de connaissances du cours), aux versions (liste plus lisible, qui ne dit plus
+  à tort que site et cours partagent le premier chiffre pendant l'aperçu) et à la licence ; « pour
+  qui », les pastilles et le cas fictif, déjà ailleurs, sont retirés. La note en bas des pages de
+  concept suit.
+- **Consensus ou école** : sommaire collant (les trois natures et leur nombre de positions) ;
+  consensus et choix du cours en groupes dépliables, avec « Tout déplier » ; choix d'école en
+  liste à plat triée par auteur (la plupart des auteurs n'ont qu'une position).
+- **Glossaire** : sommaire collant des lettres (en grille au bureau) et des termes à éviter, qui
+  suit le filtre ; choix du concept groupé par domaine ; chapeau resserré. Le fond était déjà
+  aligné sur le glossaire du cours.
+- Le bouton « Tout déplier » devient une option du composant `Sommaire` (Domaines, Sources,
+  Consensus ou école).
+
 ## 0.6.1, 2026-10-25 (aligné sur le cours 2.0.0)
 
 - Page Sources (T-064) : la légende définit « marketing » par ce que vaut la source (elle vend
