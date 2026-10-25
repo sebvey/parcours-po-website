@@ -5,6 +5,12 @@ dit sur quelle version du cours elle est alignée.
 
 ## Non publié
 
+## 0.8.1, 2026-10-25 (aligné sur le cours 2.0.0)
+
+- Concept 14 (T-068) : empreintes d'alignement réinscrites. La fiche de sources du cours n'avait
+  changé que par un renvoi interne renommé (« L'entreprise » devenue « L'opérateur ») ; la page
+  ne change pas.
+
 ## 0.8.0, 2026-10-25 (aligné sur le cours 2.0.0)
 
 Outillage et documentation pour les développeurs (T-050j) :
