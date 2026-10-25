@@ -359,6 +359,8 @@ h1, h2, h3, h4 {
 /* ---------- Domaines ---------- */
 .dom-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0 2.5rem; margin-top: 1.5rem; }
 .dom-layout > * { min-width: 0; }
+/* Le bouton « Tout déplier » compense lui-même le décalage : pas d'ancrage natif en plus. */
+.dom-contenu { overflow-anchor: none; }
 @media (min-width: 60rem) { .dom-layout { grid-template-columns: 14rem minmax(0, 1fr); } }
 .dom-toc { font-family: var(--font-ui); font-size: 0.92rem; }
 .dom-toc ol { list-style: none; margin: 0; padding: 0; }

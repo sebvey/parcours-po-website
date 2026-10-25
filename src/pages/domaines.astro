@@ -94,7 +94,12 @@ const tous = [...domaines, annexes];
         bouton.hidden = false;
         bouton.addEventListener('click', function () {
           var ouvrir = bouton.getAttribute('aria-expanded') !== 'true';
+          // Le domaine en cours de lecture garde sa place à l'écran : les concepts au-dessus
+          // changent de hauteur, on compense par un défilement de l'écart.
+          var ancre = sections.length ? sections[indiceActif()] : null;
+          var avant = ancre ? ancre.getBoundingClientRect().top : 0;
           concepts.forEach(function (d) { d.open = ouvrir; });
+          if (ancre) window.scrollBy(0, ancre.getBoundingClientRect().top - avant);
           etatBouton();
         });
         document.addEventListener('toggle', etatBouton, true);
@@ -120,12 +125,13 @@ const tous = [...domaines, annexes];
       }
       // Le domaine actif est le dernier dont le haut a passé le tiers de l'écran ; en bas de
       // page, le dernier domaine.
-      function calculer() {
+      function indiceActif() {
         var seuil = window.innerHeight / 3, i = 0;
         sections.forEach(function (s, j) { if (s.getBoundingClientRect().top <= seuil) i = j; });
         if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) i = sections.length - 1;
-        activer(i);
+        return i;
       }
+      function calculer() { activer(indiceActif()); }
       var attente = false;
       window.addEventListener('scroll', function () {
         if (attente) return;
@@ -133,6 +139,8 @@ const tous = [...domaines, annexes];
         requestAnimationFrame(function () { attente = false; calculer(); });
       }, { passive: true });
       window.addEventListener('resize', calculer);
+      window.addEventListener('load', calculer);
+      window.addEventListener('hashchange', calculer);
       document.addEventListener('toggle', calculer, true);
       calculer();
     })();
