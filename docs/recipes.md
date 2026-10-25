@@ -10,7 +10,8 @@ Toute recette finit par `npm run verify`, qui doit passer avant la PR.
 
 Le fond vient du cours : le sous-concept existe d'abord dans `course/concepts/NN-slug.md`.
 
-1. Dans `src/content/concepts/fr/NN-slug.mdx`, à sa place dans le corps :
+1. Dans `src/content/concepts/fr/NN-slug.mdx`, dans l'ordre de la fiche, entre les autres `<Sous>`
+   et avant les blocs de fin (`<Reflexe>`, `<Erreurs>`) :
 
    ```mdx
    <Sous id="9c" titre="Titre court" promesse="Une phrase : ce que le lecteur saura faire.">
@@ -28,12 +29,14 @@ Le fond vient du cours : le sous-concept existe d'abord dans `course/concepts/NN
 2. Si le sous-concept a des positions ou des sources nouvelles, les ajouter au frontmatter
    (`ecoles`, `sources`), à la suite : l'ordre fait les ancres (`ecole-3`, `ref-S4`).
 3. Inscrire les empreintes, une fois la page alignée sur la fiche :
-   `npm run check-alignment -- --stamp NN`.
+   `npm run check-alignment -- --stamp NN`. Il lit le dépôt du cours (`../parcours-po` par
+   défaut) ; sans lui, l'étape attend, et `verify` n'en fait qu'un avertissement.
 4. Ailleurs : un `<Renvoi n="9c" />` y renvoie depuis un autre concept ; la page Domaines le liste
    seule.
 
-Vérification : `npm run verify` ; sur `/concepts/NN/#9c`, le titre ; sur `/domaines/`, le concept
-déplié montre `9c` et sa promesse.
+Vérification : `npm run verify` ; dans le site construit, `.verify/dist/concepts/NN/index.html`
+porte `id="9c"` et `.verify/dist/domaines/index.html` liste `9c` avec sa promesse (au navigateur :
+le concept déplié sur `/domaines/`).
 
 ## Créer une page longue (sommaire collant, dépliables)
 
@@ -49,10 +52,12 @@ déplié montre `9c` et sa promesse.
      { id: 'seconde', titre: 'Seconde section' },
    ];
    ---
-   <Base title="Titre" nav="cle" description="Une phrase pour les moteurs de recherche.">
+   <Base title="Titre" description="Une phrase pour les moteurs de recherche.">
      <div class="container-wide">
        <section class="page tr">
+         <p class="eyebrow">Sur-titre court</p>
          <h1>Titre</h1>
+         <p class="lead">Le chapeau : une ou deux phrases sur ce que la page apporte.</p>
          <div class="avec-sommaire">
            <Sommaire items={items} label="Dans cette page" deplier />
            <div class="sommaire-contenu">
@@ -62,7 +67,7 @@ déplié montre `9c` et sa promesse.
                  <li class="cdep-item">
                    <details class="cdep" data-deplier>
                      <summary><span class="t">Un bloc long</span></summary>
-                     …
+                     <p>Le contenu du bloc : paragraphes, listes.</p>
                    </details>
                  </li>
                </ul>
@@ -75,13 +80,18 @@ déplié montre `9c` et sa promesse.
    </Base>
    ```
 
+   Les classes viennent de `src/styles/global.css` et `transversal.css` : `page tr` (page
+   transversale), `eyebrow` et `lead` (sur-titre, chapeau), `fr-section` (section du sommaire),
+   `cdep-liste`, `cdep-item`, `cdep` et `t` (liste de blocs dépliables et leur titre).
    Chaque `id` de `items` existe dans la page, sinon le sommaire reste inerte. Un seul `Sommaire`
    par page. `deplier` seulement s'il y a des `details[data-deplier]` ; `compact` pour des entrées
    d'une ou deux lettres. Une page qui filtre ses sections appelle
    `document.querySelector('nav.sommaire').rafraichir()` après chaque filtre (voir
    `src/pages/glossaire.astro`).
-2. Dans le menu : une entrée dans `items` de `src/layouts/Base.astro` et son libellé dans
-   `src/i18n/ui.ts`. Une page hors menu et hors recherche prend `noindex` sur `<Base>`.
+2. Menu : une page n'y entre que par une entrée dans `items` de `src/layouts/Base.astro`, son
+   libellé dans `src/i18n/ui.ts`, et `nav="<clé de l'entrée>"` sur `<Base>` (lien actif) ; sinon,
+   ni entrée ni `nav`. Recherche : `noindex` sur `<Base>` exclut la page de Pagefind et des
+   moteurs (balise `robots`, pas d'adresse canonique).
 3. Le chapeau et les textes d'orientation d'une page publique sont relus par le mainteneur avant
    la PR.
 

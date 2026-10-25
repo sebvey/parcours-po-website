@@ -23,8 +23,10 @@ npm run verify     # tout vérifier avant une PR (ci-dessous)
 
 - les liens et ancres internes de chaque page ;
 - dans un Chromium headless, chaque page au bureau (1280 px) et à 375 px, en clair et en sombre :
-  capture pleine page dans `.verify/captures/`, aucun défilement horizontal (dépliables ouverts et
-  chaque onglet d'un concept compris), aucune erreur JavaScript ;
+  capture pleine page à l'ouverture (dépliables fermés), dans
+  `.verify/captures/<bureau|mobile>-<clair|sombre>/<page>.png` (`concepts_09.png`, `accueil.png`) ;
+  aucun défilement horizontal, mesuré à l'ouverture, puis tous les dépliables ouverts, puis sur
+  chaque onglet d'un concept ; aucune erreur JavaScript ;
 - le style du texte rendu : ni tiret long, ni tiret moyen entre espaces, ni flèche, hors code,
   schémas et citations entre « » ;
 - l'alignement sur le cours (`check-alignment`), en avertissement.
