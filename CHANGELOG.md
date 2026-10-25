@@ -5,6 +5,11 @@ dit sur quelle version du cours elle est alignée.
 
 ## Non publié
 
+## 0.3.2, 2026-10-25 (aligné sur le cours 2.0.0)
+
+- Page Domaines (T-060) : « Tout déplier » et « Tout replier » laissent le domaine en cours de
+  lecture à sa place à l'écran.
+
 ## 0.3.1, 2026-10-25 (aligné sur le cours 2.0.0)
 
 - Page Domaines (T-059) : un bouton « Tout déplier » / « Tout replier » dans le sommaire collant
