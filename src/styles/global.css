@@ -170,9 +170,12 @@ h1, h2, h3, h4 {
   padding-block: 0.9rem;
 }
 .brand {
+  display: inline-flex; align-items: center; gap: 0.6rem;
   font-family: var(--font-text); font-weight: 650; font-size: 1.1rem; line-height: 1.2;
-  color: var(--ink); text-decoration: none; margin-right: auto; max-width: 14rem;
+  color: var(--ink); text-decoration: none; margin-right: auto;
 }
+.brand img { flex: none; border-radius: 6px; }
+.brand-nom { max-width: 14rem; }
 .brand:hover { color: var(--ink); }
 .site-nav ul { display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; list-style: none; margin: 0; padding: 0; }
 .site-nav a {
@@ -181,33 +184,33 @@ h1, h2, h3, h4 {
 }
 .site-nav a:hover { color: var(--ink); }
 .site-nav a[aria-current='page'] { color: var(--ink); border-bottom-color: var(--accent); }
-.search-form { display: none; }
-.theme-toggle {
-  display: inline-flex; align-items: center; justify-content: center; width: 2.25rem; height: 2.25rem; padding: 0;
+/* Boutons ronds de l'en-tête : recherche (un lien) et thème. */
+.btn-rond {
+  display: inline-flex; align-items: center; justify-content: center; flex: none; width: 2.25rem; height: 2.25rem; padding: 0;
   border: 1px solid var(--rule); border-radius: 999px; background: var(--surface); color: var(--ink-soft); cursor: pointer;
 }
-.theme-toggle:hover { color: var(--ink); background: var(--surface-2); }
+.btn-rond:hover { color: var(--ink); background: var(--surface-2); }
+.btn-rond[aria-current='page'] { color: var(--ink); border-color: var(--accent); }
 .theme-toggle[hidden] { display: none; }
-/* Téléphone : le bouton de thème à côté du bouton Menu ; bureau : après la recherche. */
-.theme-toggle { order: 1; }
-.nav-toggle { order: 2; }
-.site-nav { order: 3; }
-.search-form { order: 4; }
-@media (max-width: 51.99rem) { .brand { max-width: 11rem; } }
-@media (min-width: 52rem) { .theme-toggle { order: 5; } }
+/* Bureau : nom | liens | recherche | thème, sur une ligne (ordre du code).
+   Téléphone : nom | recherche | thème | Menu, puis la navigation repliée sur toute la largeur. */
+@media (max-width: 57.99rem) {
+  .site-header .bar { gap: 0.5rem 0.75rem; }
+  .brand { margin-right: auto; }
+  .brand-nom { max-width: 11rem; }
+  .search-link { order: 1; }
+  .theme-toggle { order: 2; }
+  .nav-toggle { order: 3; }
+  .site-nav { order: 4; flex-basis: 100%; }
+}
+/* Bureau : les deux boutons ronds restent groupés. */
+@media (min-width: 58rem) { .search-link + .theme-toggle { margin-left: -0.75rem; } }
+/* Très étroit : le favicon seul tient lieu de nom (le nom reste lu par les lecteurs d'écran). */
+@media (max-width: 26rem) { .brand-nom { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; } }
 /* L'icône montre le thème vers lequel on bascule. */
 .theme-toggle .icone-soleil { display: none; }
 .theme-toggle[aria-pressed='true'] .icone-soleil { display: block; }
 .theme-toggle[aria-pressed='true'] .icone-lune { display: none; }
-@media (min-width: 52rem) {
-  .search-form { display: block; }
-  .search-form input {
-    font: inherit; font-size: 0.92rem; width: 11rem; padding: 0.4rem 0.7rem;
-    border: 1px solid var(--rule); border-radius: 999px; background: var(--surface); color: var(--ink);
-  }
-  .search-form input::placeholder { color: var(--ink-soft); }
-  .nav-search-link { display: none; }
-}
 
 .site-footer {
   margin-top: 5rem; padding-block: 2rem; border-top: 1px solid var(--rule);
@@ -563,13 +566,13 @@ a.card .st { color: var(--accent); font-weight: 650; }
 
 /* Menu replié sur écran étroit (sans JavaScript, la navigation reste visible sur deux lignes) */
 .nav-toggle { display: none; }
-@media (max-width: 51.99rem) {
+@media (max-width: 57.99rem) {
   .nav-js .nav-toggle {
     display: inline-block; font: inherit; font-size: 0.95rem; font-weight: 600; min-height: 44px; padding: 0.4rem 1rem;
     background: transparent; color: var(--ink); border: 1px solid var(--ink-soft); border-radius: 6px; cursor: pointer;
   }
   .nav-js .nav-toggle[aria-expanded='true'] { background: var(--surface); }
-  .nav-js .site-nav { display: none; flex-basis: 100%; order: 3; }
+  .nav-js .site-nav { display: none; }
   .nav-js .site-nav.is-open { display: block; }
   .nav-js .site-nav ul { flex-direction: column; gap: 0; border-top: 1px solid var(--rule); }
   .nav-js .site-nav li + li { border-top: 1px solid var(--rule); }

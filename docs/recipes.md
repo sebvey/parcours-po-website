@@ -90,7 +90,8 @@ le concept déplié sur `/domaines/`).
    `src/pages/glossaire.astro`).
 2. Menu : une page n'y entre que par une entrée dans `items` de `src/layouts/Base.astro`, son
    libellé dans `src/i18n/ui.ts`, et `nav="<clé de l'entrée>"` sur `<Base>` (lien actif) ; sinon,
-   ni entrée ni `nav`. Recherche : `noindex` sur `<Base>` exclut la page de Pagefind et des
+   ni entrée ni `nav`. Une entrée de plus allonge l'en-tête : remesurer son seuil (`docs/pitfalls.md`,
+   « En-tête sur téléphone »). Recherche : `noindex` sur `<Base>` exclut la page de Pagefind et des
    moteurs (balise `robots`, pas d'adresse canonique).
 3. Le chapeau et les textes d'orientation d'une page publique sont relus par le mainteneur avant
    la PR.
