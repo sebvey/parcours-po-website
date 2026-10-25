@@ -6,6 +6,7 @@ import { bibliographie } from '../lib/transversal';
 import { inline } from '../lib/inline';
 import { domaines, annexes } from '../data/domaines';
 import { disponibles, conceptUrl } from '../lib/concepts';
+import Fleche from '../icons/fleche.svg';
 const { entrees, totalCitations } = await bibliographie();
 const dispo = await disponibles();
 // Les sources qui portent le cours : citées par au moins 3 concepts.
@@ -114,7 +115,7 @@ const items = [
                           )}
                         </div>
                       </details>
-                      <a class="lire-btn" href={conceptUrl(c.n, 'sources')} aria-label={`Ouvrir l’onglet Sources du ${libelle(c.n).toLowerCase()} ${c.n}`}><span aria-hidden="true">→</span></a>
+                      <a class="lire-btn" href={conceptUrl(c.n, 'sources')} aria-label={`Ouvrir l’onglet Sources du ${libelle(c.n).toLowerCase()} ${c.n}`}><Fleche width="24" height="24" aria-hidden="true" /></a>
                     </li>
                   ))}
                 </ul>

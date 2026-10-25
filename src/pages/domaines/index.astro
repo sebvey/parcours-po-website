@@ -4,6 +4,7 @@ import '../../styles/transversal.css';
 import { domaines, annexes, domaineId } from '../../data/domaines';
 import { domaineUrl } from '../../lib/lecture';
 import Sommaire from '../../components/Sommaire.astro';
+import Fleche from '../../icons/fleche.svg';
 import ConceptsDepliables from '../../components/ConceptsDepliables.astro';
 const items = [...domaines, annexes].map((d) => ({ id: domaineId(d), n: d.n > 0 ? d.n : undefined, titre: d.titre }));
 const minuscule = (s: string) => s.charAt(0).toLowerCase() + s.slice(1);
@@ -26,7 +27,7 @@ const minuscule = (s: string) => s.charAt(0).toLowerCase() + s.slice(1);
                   <span class="n">Domaine {d.n}</span>
                   <h2 id={`${domaineId(d)}-t`}>{d.titre}</h2>
                   <span class="q">À la fin, vous savez : {minuscule(d.saitFaire)}</span>
-                  <span class="dom-fleche" aria-hidden="true">→</span>
+                  <Fleche class="dom-fleche" width="24" height="24" aria-hidden="true" />
                 </a>
                 <ConceptsDepliables concepts={d.concepts} />
               </div>

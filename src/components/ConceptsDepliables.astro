@@ -7,6 +7,7 @@ import { inline } from '../lib/inline';
 import { disponibles, conceptUrl, sousConcepts } from '../lib/concepts';
 import type { ConceptRef } from '../data/domaines';
 import { useT } from '../i18n/ui';
+import Fleche from '../icons/fleche.svg';
 interface Props { concepts: ConceptRef[]; accroches?: Record<string, string>; }
 const { concepts, accroches = {} } = Astro.props;
 const t = useT();
@@ -36,7 +37,7 @@ const libelle = (n: string) => (/^A/.test(n) ? 'Annexe' : 'Concept');
               ))}
             </ol>
           </details>
-          <a class="lire-btn" href={conceptUrl(c.n)} aria-label={`Lire le concept ${c.n} : ${c.titre}`}><span aria-hidden="true">→</span></a>
+          <a class="lire-btn" href={conceptUrl(c.n)} aria-label={`Lire le concept ${c.n} : ${c.titre}`}><Fleche width="24" height="24" aria-hidden="true" /></a>
           </>
         ) : (
           <div class="cdep off"><span class="num">{libelle(c.n)} {c.n}</span> <span class="t">{c.titre}</span> <span class="soon">{t('concept.soon')}</span></div>
