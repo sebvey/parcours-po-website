@@ -5,9 +5,19 @@ import { inline } from '../lib/inline';
 import { avecRenvois } from '../lib/renvois';
 import { conceptUrl } from '../lib/concepts';
 import { tousLesConcepts } from '../data/domaines';
-import { entreprise, produit, objectifProduit, mesureResultat, equipe, frontieres, frontieresNote, acteursNote, acteurs, sources } from '../data/fil-rouge';
+import Sommaire from '../components/Sommaire.astro';
+import { operateur, collectiviteIntro, collectivite, produit, objectifProduit, mesureResultat, equipe, frontieres, frontieresNote, acteursNote, acteurs, sources } from '../data/fil-rouge';
 
 const titreDe = (n: string) => tousLesConcepts.find((c) => c.n === n)?.titre ?? '';
+// Liens internes à la page : « [[#ancre:texte]] ».
+const avecAncres = (t: string) => inline(t).replace(/\[\[#([a-z-]+):([^\]]+)\]\]/g, '<a href="#$1">$2</a>');
+const items = [
+  { id: 'operateur', titre: 'L’opérateur' },
+  { id: 'collectivite', titre: 'La collectivité' },
+  { id: 'produit', titre: 'Le produit et l’équipe' },
+  { id: 'acteurs', titre: 'Les acteurs' },
+  { id: 'sources', titre: 'Les sources de données' },
+];
 ---
 <Base title="Fil rouge" nav="filrouge" description="L’opérateur de vélos en libre-service, cas fictif des exemples du cours : l’entreprise, le produit, l’équipe, les acteurs et les sources de données.">
   <div class="container-wide">
@@ -15,30 +25,34 @@ const titreDe = (n: string) => tousLesConcepts.find((c) => c.n === n)?.titre ?? 
       <p class="eyebrow">Le cas des exemples</p>
       <h1>Fil rouge : un opérateur de vélos en libre-service</h1>
       <p class="lead">Les exemples du cours s’appuient tous sur un même cas, <strong>inventé</strong> : un opérateur de vélos, sa plateforme de données et son équipe. Les personnes, les chiffres et les faits de ce cas sont fictifs. Ils servent à illustrer, pas à documenter.</p>
-      <ul class="tr-jump" aria-label="Dans cette page">
-        <li><a href="#entreprise">L’entreprise</a></li>
-        <li><a href="#produit">Le produit et l’équipe</a></li>
-        <li><a href="#acteurs">Les acteurs</a></li>
-        <li><a href="#sources">Les sources de données</a></li>
-      </ul>
-
-      <h2 id="entreprise">L’entreprise</h2>
-      <ul class="tr-text">{entreprise.map((p) => <li set:html={inline(p)} />)}</ul>
-
-      <h2 id="produit">Le produit et l’équipe</h2>
+      <div class="avec-sommaire">
+        <Sommaire items={items} label="Dans cette page" />
+        <div class="sommaire-contenu">
+      <section class="fr-section" id="operateur" aria-labelledby="operateur-t">
+      <h2 id="operateur-t">L’opérateur</h2>
+      <ul class="tr-text">{operateur.map((p) => <li set:html={inline(p)} />)}</ul>
+      </section>
+      <section class="fr-section" id="collectivite" aria-labelledby="collectivite-t">
+      <h2 id="collectivite-t">La collectivité</h2>
+      <p class="tr-text-p" set:html={inline(collectiviteIntro)} />
+      <ul class="tr-text">{collectivite.map((p) => <li set:html={avecAncres(p)} />)}</ul>
+      </section>
+      <section class="fr-section" id="produit" aria-labelledby="produit-t">
+      <h2 id="produit-t">Le produit et l’équipe</h2>
       <div class="tr-text">{produit.map((p) => <p set:html={inline(p)} />)}</div>
       <div class="objectif">
-        <span class="tag">Objectif produit</span>
+        <a class="tag" href={conceptUrl('2')}>Objectif produit</a>
         <p class="q" set:html={inline(`« ${objectifProduit} »`)} />
         <p class="m" set:html={inline(mesureResultat)} />
       </div>
-      <p class="tr-text-p" set:html={avecRenvois('L’objectif produit et sa mesure sont expliqués au concept [[2:2]] ; l’équipe et ses rôles, au concept [[0:0]].')} />
-      <div class="tr-text">{equipe.map((p) => <p set:html={inline(p)} />)}</div>
+      <div class="tr-text">{equipe.map((p) => <p set:html={avecRenvois(p)} />)}</div>
       <p class="tr-sub">Ce que la plateforme ne fait pas</p>
       <ul class="tr-text">{frontieres.map((p) => <li set:html={inline(p)} />)}</ul>
       <p class="tr-text-p" set:html={avecRenvois(frontieresNote)} />
 
-      <h2 id="acteurs">Les acteurs</h2>
+      </section>
+      <section class="fr-section" id="acteurs" aria-labelledby="acteurs-t">
+      <h2 id="acteurs-t">Les acteurs</h2>
       <p class="tr-text-p" set:html={inline(acteursNote)} />
       <ul class="acteurs">
         {acteurs.map((a) => (
@@ -59,7 +73,9 @@ const titreDe = (n: string) => tousLesConcepts.find((c) => c.n === n)?.titre ?? 
         ))}
       </ul>
 
-      <h2 id="sources">Les sources de données</h2>
+      </section>
+      <section class="fr-section" id="sources" aria-labelledby="sources-t">
+      <h2 id="sources-t">Les sources de données</h2>
       <p class="tr-text-p">Ce que la plateforme peut lire, à qui cela appartient, et ce qu’on sait de sa fraîcheur.</p>
       <div class="table-wrap" role="region" aria-label="Sources de données" tabindex="0">
         <table class="tr-table">
@@ -77,6 +93,9 @@ const titreDe = (n: string) => tousLesConcepts.find((c) => c.n === n)?.titre ?? 
             ))}
           </tbody>
         </table>
+      </div>
+      </section>
+        </div>
       </div>
     </section>
   </div>

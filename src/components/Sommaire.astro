@@ -1,0 +1,68 @@
+---
+// Sommaire collant d'une page longue : colonne à gauche au bureau, barre de pastilles en haut
+// sur téléphone ; la section en cours de lecture est mise en évidence. À placer comme premier
+// enfant d'un bloc `.avec-sommaire`, le contenu dans `.sommaire-contenu`. Le slot accueille un
+// contrôle propre à la page (bouton). Une seule instance par page.
+// La nav expose `sectionActive()` : la section en cours de lecture, pour qui doit la garder en
+// place (voir la page Domaines).
+interface Item { id: string; n?: number | string; titre: string; }
+interface Props { items: Item[]; label: string; }
+const { items, label } = Astro.props;
+---
+<nav class="sommaire" aria-label={label} data-pagefind-ignore>
+  <ol>
+    {items.map((i) => (
+      <li><a href={`#${i.id}`} data-sommaire={i.id}>{i.n !== undefined && <span class="sommaire-n">{i.n}</span>}<span class="sommaire-t">{i.titre}</span></a></li>
+    ))}
+  </ol>
+  <slot />
+</nav>
+
+<script is:inline>
+  (function () {
+    function init() {
+      var nav = document.querySelector('nav.sommaire');
+      if (!nav) return;
+      var liste = nav.querySelector('ol');
+      var liens = Array.prototype.slice.call(nav.querySelectorAll('a[data-sommaire]'));
+      var sections = liens.map(function (a) { return document.getElementById(a.getAttribute('data-sommaire')); });
+      if (!liens.length || sections.some(function (s) { return !s; })) return;
+      var actif = null;
+      function activer(i) {
+        if (i === actif) return;
+        actif = i;
+        liens.forEach(function (a, j) {
+          if (j === i) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
+        });
+        // Barre horizontale (téléphone) : ramène la pastille active en vue, sans bouger la page.
+        if (liste.scrollWidth > liste.clientWidth) {
+          var ra = liens[i].getBoundingClientRect(), rl = liste.getBoundingClientRect();
+          liste.scrollBy({ left: ra.left + ra.width / 2 - (rl.left + rl.width / 2), behavior: 'smooth' });
+        }
+      }
+      // La section active est la dernière dont le haut a passé le tiers de l'écran ; en bas de
+      // page, la dernière section.
+      function indiceActif() {
+        var seuil = window.innerHeight / 3, i = 0;
+        sections.forEach(function (s, j) { if (s.getBoundingClientRect().top <= seuil) i = j; });
+        if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) i = sections.length - 1;
+        return i;
+      }
+      function calculer() { activer(indiceActif()); }
+      nav.sectionActive = function () { return sections[indiceActif()]; };
+      var attente = false;
+      window.addEventListener('scroll', function () {
+        if (attente) return;
+        attente = true;
+        requestAnimationFrame(function () { attente = false; calculer(); });
+      }, { passive: true });
+      window.addEventListener('resize', calculer);
+      window.addEventListener('load', calculer);
+      window.addEventListener('hashchange', calculer);
+      document.addEventListener('toggle', calculer, true);
+      calculer();
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+    else init();
+  })();
+</script>

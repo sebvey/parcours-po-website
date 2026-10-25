@@ -19,7 +19,8 @@ npm run preview    # sert dist/ sur http://localhost:4321 (recherche comprise)
 ```
 src/content/concepts/fr/NN-slug.mdx   un fichier par concept : en-tête, onglets Écoles et Sources
                                        (frontmatter) et onglet Comprendre (corps MDX)
-src/components/                       pastilles, sous-concepts, « Le réflexe », erreurs, onglets
+src/components/                       pastilles, sous-concepts, « Le réflexe », erreurs, onglets,
+                                       sommaire collant (Sommaire, pages Domaines et Fil rouge)
 src/components/schemas/               un schéma SVG par concept, en variables CSS (clair et sombre)
 src/data/domaines.ts                  les sept domaines du cours et leurs concepts, puis les annexes
 src/data/glossaire.ts                 les termes du glossaire et les termes à éviter

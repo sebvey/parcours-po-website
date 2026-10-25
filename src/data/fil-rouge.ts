@@ -19,11 +19,17 @@ export interface SourceDonnees {
   fraicheur: string;
 }
 
-export const entreprise: string[] = [
-  'Un opérateur exploite le service de vélos en libre-service d’une métropole : environ 300 stations, 3 000 vélos et 40 000 abonnés.',
-  'La métropole (la collectivité) finance le service par une subvention et attend des indicateurs pour la justifier devant son conseil. Le conseil examine la subvention une fois par an, et la collectivité y présente un bilan.',
+export const operateur: string[] = [
+  'Un opérateur exploite le service de vélos en libre-service d’une métropole : environ 300 stations, 3 000 vélos et 40 000 abonnés. C’est l’entreprise du cours.',
   'La DSI de l’opérateur gère les systèmes (bornes, location, appli) et donne les accès à leurs données.',
   'Le comité de direction de l’opérateur réunit notamment la directrice des opérations (Odile) et le DSI (Sid). Leurs désaccords s’y tranchent, comme ceux entre la plateforme et l’appli que leurs PO et Scarlette ne règlent pas.',
+];
+
+export const collectiviteIntro = 'La métropole, appelée la collectivité, est extérieure à l’opérateur.';
+export const collectivite: string[] = [
+  'Elle finance le service par une subvention et attend des indicateurs pour la justifier devant son conseil. Le conseil examine la subvention une fois par an, et la collectivité y présente un bilan.',
+  'Charlotte, chargée de mission mobilité, la représente ([[#charlotte:voir sa fiche]]).',
+  'Elle tient le référentiel des quartiers ([[#quartiers:voir les sources]]).',
 ];
 
 export const produit: string[] = [
@@ -37,7 +43,7 @@ export const mesureResultat =
 
 export const equipe: string[] = [
   'Dans les exemples, le Product Owner, c’est vous, le lecteur.',
-  'L’**équipe vélos**, celle de la plateforme, compte deux data engineers (Dana et Diego) et une analyste (Anna), qui travaillent en sprints de deux semaines. Sa Scrum Master, Scarlette, l’est aussi de l’équipe appli.',
+  'L’[[0:**équipe vélos**]], celle de la plateforme, compte deux data engineers (Dana et Diego) et une analyste (Anna), qui travaillent en sprints de deux semaines. Sa Scrum Master, Scarlette, l’est aussi de l’équipe appli.',
 ];
 
 export const frontieres: string[] = [
