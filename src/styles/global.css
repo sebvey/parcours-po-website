@@ -458,6 +458,9 @@ a.card .st { color: var(--accent); font-weight: 650; }
 .three { display: grid; gap: 1.5rem; grid-template-columns: 1fr; margin-top: 1.5rem; }
 @media (min-width: 52rem) { .three { grid-template-columns: repeat(3, 1fr); } }
 .three p { margin: 0.5rem 0 0; font-size: 0.98rem; line-height: 1.55; }
+.portes { display: grid; gap: 1.25rem 2rem; grid-template-columns: 1fr; margin-top: 1rem; }
+@media (min-width: 40rem) { .portes { grid-template-columns: 1fr 1fr; } }
+.portes p { margin: 0.6rem 0 0; font-size: 0.98rem; line-height: 1.55; }
 
 /* ---------- Recherche ---------- */
 .search-page {
