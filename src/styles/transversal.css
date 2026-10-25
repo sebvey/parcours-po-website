@@ -87,12 +87,15 @@ a.tag { width: fit-content; text-decoration: underline; text-underline-offset: 3
 .cdep { border: 1px solid var(--rule); border-radius: 6px; background: var(--surface); font-family: var(--font-ui); }
 details.cdep { border-color: var(--accent); }
 .cdep-item { position: relative; }
-.cdep > summary { padding: 0.7rem 5.5rem 0.7rem 1rem; cursor: pointer; list-style-position: inside; }
+.cdep > summary { padding: 0.7rem 3.6rem 0.7rem 1rem; cursor: pointer; list-style-position: inside; }
+/* Ouvrir la page d'une tuile : la même flèche que l'en-tête d'un domaine (.dom-fleche). */
 .lire-btn {
-  position: absolute; top: 0.5rem; right: 0.6rem; font-family: var(--font-ui); font-size: 0.85rem; font-weight: 650;
-  padding: 0.25rem 0.85rem; border: 1px solid var(--accent); border-radius: 999px; background: var(--bg); color: var(--accent); text-decoration: none;
+  position: absolute; top: 0.3rem; right: 0.4rem; display: grid; place-items: center; width: 2.4rem; height: 2.4rem;
+  border-radius: 6px; font-size: 1.3rem; line-height: 1; color: var(--accent); text-decoration: none;
 }
+.lire-btn span { transition: transform 0.15s; }
 .lire-btn:hover { background: var(--surface-2); color: var(--accent); }
+.lire-btn:hover span { transform: translateX(0.2rem); }
 .cdep > summary:hover { background: var(--surface-2); }
 details.cdep[open] > summary { border-bottom: 1px solid var(--rule); }
 .cdep .num { font-size: 0.78rem; font-weight: 700; color: var(--ink-soft); margin-right: 0.35rem; }

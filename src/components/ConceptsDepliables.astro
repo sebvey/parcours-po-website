@@ -1,6 +1,6 @@
 ---
 // Les concepts d'un domaine (ou les annexes), chacun dépliable sur ses sous-concepts, lus au
-// build dans les pages de concept, avec un bouton « Lire ». Un concept sans page est « bientôt ».
+// build dans les pages de concept, avec une flèche qui ouvre le concept. Un concept sans page est « bientôt ».
 // Props : `concepts`, ceux d'un domaine de src/data/domaines.ts ; `accroches` (facultatif), une ligne
 // par concept sous son titre.
 import { inline } from '../lib/inline';
@@ -36,7 +36,7 @@ const libelle = (n: string) => (/^A/.test(n) ? 'Annexe' : 'Concept');
               ))}
             </ol>
           </details>
-          <a class="lire-btn" href={conceptUrl(c.n)} aria-label={`Lire le concept ${c.n} : ${c.titre}`}>Lire</a>
+          <a class="lire-btn" href={conceptUrl(c.n)} aria-label={`Lire le concept ${c.n} : ${c.titre}`}><span aria-hidden="true">→</span></a>
           </>
         ) : (
           <div class="cdep off"><span class="num">{libelle(c.n)} {c.n}</span> <span class="t">{c.titre}</span> <span class="soon">{t('concept.soon')}</span></div>
