@@ -20,8 +20,9 @@ const first = dispo.get('0');
       <div class="portes">
         {first && <div><a class="btn" href={conceptUrl('0')}>Commencer : concept 0</a><p>Le cours se lit dans l’ordre, concept par concept, du 0 au 17.</p></div>}
         <div><a class="btn secondary" href={url('domaines/')}>Voir les sept domaines</a><p>Ce qu’on sait faire à la fin de chaque domaine, et une lecture rapide pour creuser un sujet.</p></div>
+        <div><a class="btn secondary" href={url('fil-rouge/')}>Voir le fil rouge</a><p>Le cas inventé sur lequel s’appuient les exemples : l’opérateur de vélos, l’équipe, les acteurs.</p></div>
+        <div><a class="btn secondary" href={url('glossaire/')}>Ouvrir le glossaire</a><p>Le sens exact des termes du cours, et les termes à éviter.</p></div>
       </div>
-      <p style="margin-top:1.5rem">Les exemples s’appuient sur un cas inventé, le <a href={url('fil-rouge/')}>fil rouge</a> ; le <a href={url('glossaire/')}>glossaire</a> donne le sens exact des termes.</p>
     </section>
 
     <section class="page" style="padding-top:1rem" aria-labelledby="lire">
