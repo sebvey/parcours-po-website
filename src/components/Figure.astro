@@ -1,5 +1,6 @@
 ---
-// Un schéma : cadre, légende. Le SVG est dans le slot et porte son propre titre accessible.
+// Un schéma : cadre, légende. Props : `legende`. Le SVG (src/components/schemas/) est dans le slot
+// et porte son propre titre accessible ; il dessine en variables CSS --sch-* (clair et sombre).
 interface Props { legende: string; }
 const { legende } = Astro.props;
 ---

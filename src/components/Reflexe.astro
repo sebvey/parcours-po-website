@@ -1,6 +1,7 @@
 ---
 // L'encadré « Le réflexe » : la question à se poser, en une phrase (slot),
-// et une note sur son statut (formulation du cours).
+// et une note sur son statut (formulation du cours). Props : `note`, facultative, précédée de la
+// pastille « choix du cours ». Ancre fixe #reflexe : une seule fois par page.
 import Pastille from './Pastille.astro';
 interface Props { note?: string; }
 const { note } = Astro.props;

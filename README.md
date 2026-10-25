@@ -1,7 +1,7 @@
 # Product Owner d'un produit data (site)
 
 Site public, en français, du cours de gestion de produit « Product Owner d'un produit data ».
-Astro (site statique), contenu en MDX, recherche Pagefind, déployable sur GitHub Pages.
+Astro (site statique), contenu en MDX, recherche Pagefind, publié sur GitHub Pages.
 
 ## Lancer
 
@@ -9,32 +9,58 @@ Node 22.23.4 ou plus (testé avec Node 24).
 
 ```sh
 npm install
+npx playwright install chromium   # une fois, pour npm run verify
 npm run dev        # développement (la recherche n'y est pas disponible)
 npm run build      # vérifie les types, construit dist/, puis indexe avec Pagefind
 npm run preview    # sert dist/ sur http://localhost:4321 (recherche comprise)
+npm run verify     # tout vérifier avant une PR (ci-dessous)
 ```
+
+## Vérifier
+
+`npm run verify` (`scripts/verify.mjs`) construit le site comme en ligne, avec le préfixe
+`/parcours-po-website/`, dans `.verify/dist`, puis contrôle :
+
+- les liens et ancres internes de chaque page ;
+- dans un Chromium headless, chaque page au bureau (1280 px) et à 375 px, en clair et en sombre :
+  capture pleine page à l'ouverture (dépliables fermés), dans
+  `.verify/captures/<bureau|mobile>-<clair|sombre>/<page>.png` (`concepts_09.png`, `accueil.png`) ;
+  aucun défilement horizontal, mesuré à l'ouverture, puis tous les dépliables ouverts, puis sur
+  chaque onglet d'un concept ; aucune erreur JavaScript ;
+- le style du texte rendu : ni tiret long, ni tiret moyen entre espaces, ni flèche, hors code,
+  schémas et citations entre « » ;
+- l'alignement sur le cours (`check-alignment`), en avertissement.
+
+`npm run verify -- --no-build` réutilise le dernier build ; `--page domaines` (répétable) limite
+le navigateur à ces pages. Restent à tester à la main : les interactions (sommaire, dépliables,
+filtres, onglets, bouton de thème) et les autres navigateurs.
+
+## Documentation
+
+| Document | Pour |
+|---|---|
+| `docs/recipes.md` | faire une tâche : sous-concept, page longue, schéma, texte, publication |
+| `docs/data-map.md` | savoir d'où vient chaque information affichée |
+| `docs/pitfalls.md` | ce qui casse sans bruit, et la parade |
+| `/dev/composants/` | chaque composant rendu, avec son code d'usage (hors menu, hors index) |
+| `docs/construction.md` | l'histoire de la première version |
+
+Chaque composant et chaque fichier de `src/lib/` et `src/data/` commence par un commentaire : rôle,
+props, invariant.
 
 ## Structure
 
 ```
-src/content/concepts/fr/NN-slug.mdx   un fichier par concept : en-tête, onglets Écoles et Sources
-                                       (frontmatter) et onglet Comprendre (corps MDX)
-src/components/                       pastilles, sous-concepts, « Le réflexe », erreurs, onglets,
-                                       sommaire collant (Sommaire : options « Tout déplier » et compact ; pages
-                                       Domaines, Fil rouge, Sources, Consensus ou école, Glossaire)
-src/components/schemas/               un schéma SVG par concept, en variables CSS (clair et sombre)
-src/data/domaines.ts                  les sept domaines du cours et leurs concepts, puis les annexes
-src/data/glossaire.ts                 les termes du glossaire et les termes à éviter
-src/data/fil-rouge.ts                 le cas fictif (entreprise, acteurs, sources de données)
-src/lib/concepts.ts                   concepts rédigés, adresses, sous-concepts lus dans les pages (<Sous>)
-src/lib/transversal.ts                index Consensus ou école et bibliographie, générés depuis les concepts
-src/i18n/ui.ts                        textes de l'interface (le français est la langue par défaut)
-src/pages/                            accueil, domaines, fil rouge, glossaire, consensus ou école, sources, à propos, recherche, concepts/[num] ;
-                                       parcours et lectures : anciennes adresses, redirigées vers domaines
+src/content/concepts/fr/NN-slug.mdx   une page par concept : frontmatter (en-tête, onglets Consensus ou école
+                                       et Sources, alignement) et corps MDX (onglet Comprendre)
+src/components/                       composants des pages ; schemas/ : un schéma SVG par concept
+src/data/                             domaines, glossaire, fil rouge (copiés du cours), versions
+src/lib/                              accès aux concepts, index transversaux, typographie, Markdown en ligne
+src/i18n/ui.ts                        libellés de l'interface
+src/pages/                            une page par adresse ; dev/ : démonstration des composants
+src/middleware.ts                     typographie française sur tout le HTML
+scripts/                              check-alignment, verify
 ```
-
-Ajouter un concept : copier `09-decoupage-vertical.mdx` sous `src/content/concepts/fr/`. La page Domaines
-le rend cliquable dès que le fichier existe. Les renvois internes s'écrivent `<Renvoi n="8" />`.
 
 ## Le site et le cours
 
@@ -67,24 +93,21 @@ dans le pied de page et dans À propos, sa version et celle du cours sur laquell
 
 - **MAJOR** : égal au MAJOR du cours. Il change quand le cours casse un identifiant (numéro de
   concept, sous-concept, adresse, concepts d'un domaine). Tant que le site est en aperçu (0.x),
-  son MAJOR reste 0 ; la mise en ligne prend le MAJOR du cours.
+  son MAJOR reste 0 et les pages demandent aux moteurs de ne pas les indexer ; la mise en ligne
+  prend le MAJOR du cours.
 - **MINOR** : libre de chaque côté. Côté site : une page, un schéma ou une fonction nouvelle, ou
   un réalignement de fond sur une nouvelle version du cours.
 - **PATCH** : une correction qui ne change ni le fond ni la structure (faute, style, lien).
 
 Passer sur une nouvelle version du cours : mettre `parcoursPo.coursVersion` à jour, réaligner les
 pages que `check-alignment` signale, inscrire les empreintes, noter le changement dans `CHANGELOG.md`.
+Publier : `docs/recipes.md`.
 
 ## Thème
 
 Clair ou sombre selon le système ; le bouton de l'en-tête bascule et mémorise le choix
 (`localStorage`, clé `theme`), appliqué avant l'affichage par un script de `src/layouts/Base.astro`.
 Les couleurs sont des jetons CSS en tête de `src/styles/global.css`.
-
-## Déploiement
-
-`.github/workflows/deploy.yml` construit et publie sur GitHub Pages (lancement manuel seulement).
-L'adresse de base se règle par `SITE_URL` et `BASE_PATH` à la construction.
 
 ## Langues
 

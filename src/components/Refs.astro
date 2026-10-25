@@ -1,5 +1,6 @@
 ---
-// Renvois [S1], [S2] vers la liste des références de l'onglet Sources.
+// Renvois [S1], [S2] vers la liste des références de l'onglet Sources. Props : `refs`. Invariant :
+// la page porte les ancres `ref-<id>` (composant Sources) ; `npm run verify` signale une ancre absente.
 interface Props { refs: string[]; }
 const { refs } = Astro.props;
 ---

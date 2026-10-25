@@ -1,4 +1,5 @@
-// Le fil rouge : un cas fictif d'opérateur de vélos en libre-service. Contenu propre au site.
+// Le fil rouge : un cas fictif d'opérateur de vélos en libre-service. Reprise à la main de
+// course/fil-rouge-velos.md, sans empreinte : à réaligner quand le fil rouge du cours change.
 // Les textes admettent *italique*, **gras** et les renvois [[11b]] (voir src/lib/renvois.ts).
 export interface Acteur {
   /** Ancre stable : /fil-rouge/#regis */

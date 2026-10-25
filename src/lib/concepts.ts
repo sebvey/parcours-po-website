@@ -1,3 +1,6 @@
+// Les pages de concept (collection `concepts`) : concepts rédigés, adresses, liens de renvoi,
+// sous-concepts. Invariant : toute adresse de concept passe par conceptUrl (préfixe BASE_PATH,
+// numéro sur deux chiffres : /concepts/09/).
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { slugOf, conceptOf, tousLesConcepts } from '../data/domaines';
 import { url } from '../i18n/ui';

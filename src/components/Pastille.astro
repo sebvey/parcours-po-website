@@ -1,4 +1,6 @@
 ---
+// Pastille de nature : consensus, choix d'école, choix du cours. Props : `kind`. Libellés dans
+// src/i18n/ui.ts, couleurs dans les jetons --p-* de global.css ; ignorée par Pagefind.
 import { useT } from '../i18n/ui';
 interface Props { kind: 'consensus' | 'ecole' | 'cours'; }
 const { kind } = Astro.props;

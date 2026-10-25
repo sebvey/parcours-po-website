@@ -1,4 +1,6 @@
-// Typographie française : espace insécable avant « : ; ? ! » et à l'intérieur des guillemets « ».
+// Typographie française : espace insécable avant « : ; ? ! » et à l'intérieur des guillemets « »,
+// apostrophe courbe. Appliquée deux fois, par remark (Markdown, hors code) et par src/middleware.ts
+// (tout le HTML, hors script, style, pre et code) : elle doit rester idempotente.
 const NBSP = ' ';
 const NNBSP = ' ';
 

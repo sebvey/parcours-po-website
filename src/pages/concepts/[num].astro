@@ -100,11 +100,11 @@ const tabs = [
     {!isAnnexe && (
       <nav class="pn-bas" aria-label="Concepts voisins" data-pagefind-ignore>
         {prev ? (prev.href
-          ? <a class="pn-carte" href={prev.href}><span class="dir">← {t('concept.previous')}</span><span class="t">{prev.n}. {prev.titre}</span></a>
-          : <span class="pn-carte off"><span class="dir">← {t('concept.previous')}</span><span class="t">{prev.n}. {prev.titre}</span></span>) : <span />}
+          ? <a class="pn-carte" href={prev.href}><span class="dir"><span aria-hidden="true">←</span> {t('concept.previous')}</span><span class="t">{prev.n}. {prev.titre}</span></a>
+          : <span class="pn-carte off"><span class="dir"><span aria-hidden="true">←</span> {t('concept.previous')}</span><span class="t">{prev.n}. {prev.titre}</span></span>) : <span />}
         {next ? (next.href
-          ? <a class="pn-carte nx" href={next.href}><span class="dir">{t('concept.next')} →</span><span class="t">{next.n}. {next.titre}</span></a>
-          : <span class="pn-carte nx off"><span class="dir">{t('concept.next')} →</span><span class="t">{next.n}. {next.titre}</span></span>) : <span />}
+          ? <a class="pn-carte nx" href={next.href}><span class="dir">{t('concept.next')} <span aria-hidden="true">→</span></span><span class="t">{next.n}. {next.titre}</span></a>
+          : <span class="pn-carte nx off"><span class="dir">{t('concept.next')} <span aria-hidden="true">→</span></span><span class="t">{next.n}. {next.titre}</span></span>) : <span />}
       </nav>
     )}
 

@@ -1,5 +1,7 @@
 ---
 // Renvoi interne vers un concept ou un sous-concept : lien si la page existe, sinon texte « bientôt ».
+// Props : `n`, « 8 », « 8a2 » ou « A1 ». Le lien vise l'ancre du même nom (id d'un <Sous> ou d'un
+// <h4>) sur la page du concept.
 import { lien } from '../lib/concepts';
 import { useT } from '../i18n/ui';
 interface Props { n: string; }

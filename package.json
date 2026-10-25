@@ -1,6 +1,6 @@
 {
   "name": "parcours-po-website",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "private": true,
   "type": "module",
   "description": "Site public du cours « Product Owner d'un produit data »",
@@ -13,7 +13,8 @@
     "build": "astro check && astro build && pagefind --site dist",
     "preview": "astro preview",
     "check": "astro check",
-    "check-alignment": "node scripts/check-alignment.mjs"
+    "check-alignment": "node scripts/check-alignment.mjs",
+    "verify": "node scripts/verify.mjs"
   },
   "dependencies": {
     "@astrojs/check": "0.9.12",
@@ -25,5 +26,8 @@
   },
   "parcoursPo": {
     "coursVersion": "2.0.0"
+  },
+  "devDependencies": {
+    "playwright": "1.64.1"
   }
 }
