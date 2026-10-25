@@ -5,6 +5,11 @@ dit sur quelle version du cours elle est alignée.
 
 ## Non publié
 
+## 0.2.2, 2026-10-25 (aligné sur le cours 2.0.0)
+
+- Accueil (T-057d) : le fil rouge et le glossaire ont chacun leur porte dans « Par où commencer »
+  (un bouton et une description), à la place de la phrase qui les citait.
+
 ## 0.2.1, 2026-10-25 (aligné sur le cours 2.0.0)
 
 - Accueil (T-057c) : « Par où commencer » vient juste après le chapeau, en deux portes (commencer
