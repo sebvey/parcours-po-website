@@ -166,9 +166,12 @@ function debordement() {
   if (document.documentElement.scrollWidth <= largeur + 1) return null;
   const nom = (el) => el.tagName.toLowerCase() + (el.id ? `#${el.id}` : '') + (el.classList.length ? `.${[...el.classList].join('.')}` : '');
   const fautifs = [];
+  // Le plus haut élément qui dépasse, hors des conteneurs qui défilent eux-mêmes (barre du sommaire).
+  const dansDefilant = (el) => { for (let a = el.parentElement; a; a = a.parentElement) if (getComputedStyle(a).overflowX !== 'visible') return true; return false; };
   for (const el of document.body.querySelectorAll('*')) {
     const r = el.getBoundingClientRect();
-    if (r.width && r.right > largeur + 1 && !(el.parentElement && el.parentElement.getBoundingClientRect().right > largeur + 1)) {
+    const p = el.parentElement;
+    if (r.width && r.right > largeur + 1 && !(p && p.getBoundingClientRect().right > largeur + 1 && !dansDefilant(p)) && !dansDefilant(el)) {
       fautifs.push(`${nom(el)} « ${el.textContent.trim().slice(0, 50)} » (${Math.round(r.right)} px)`);
       if (fautifs.length === 3) break;
     }

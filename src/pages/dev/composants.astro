@@ -1,0 +1,184 @@
+---
+// Page de démonstration pour les développeurs : chaque composant rendu, avec son code d'usage.
+// Hors navigation, hors index (Pagefind et moteurs) ; `npm run verify` la capture comme les autres.
+// L'option `compact` du Sommaire est sur /dev/sommaire-compact/ (une seule instance par page).
+import Base from '../../layouts/Base.astro';
+import '../../styles/transversal.css';
+import Sommaire from '../../components/Sommaire.astro';
+import Sous from '../../components/Sous.astro';
+import Position from '../../components/Position.astro';
+import Pastille from '../../components/Pastille.astro';
+import Renvoi from '../../components/Renvoi.astro';
+import Figure from '../../components/Figure.astro';
+import Reflexe from '../../components/Reflexe.astro';
+import Erreurs from '../../components/Erreurs.astro';
+import Refs from '../../components/Refs.astro';
+import FilRouge from '../../components/FilRouge.astro';
+import Gateau from '../../components/schemas/Gateau.astro';
+import { url } from '../../i18n/ui';
+import { positions } from '../../lib/transversal';
+
+const toutes = await positions();
+const ecole = toutes.find((p) => p.kind === 'ecole' && p.n === '9')!;
+const cours = toutes.filter((p) => p.kind === 'cours' && p.n === '9').slice(0, 2);
+
+const items = [
+  { id: 'sommaire', titre: 'Sommaire' },
+  { id: 'sous', titre: 'Sous' },
+  { id: 'position', titre: 'Position' },
+  { id: 'pastille', titre: 'Pastille' },
+  { id: 'renvoi', titre: 'Renvoi' },
+  { id: 'figure', titre: 'Figure' },
+  { id: 'reflexe', titre: 'Reflexe' },
+  { id: 'erreurs', titre: 'Erreurs' },
+  { id: 'refs', titre: 'Refs' },
+  { id: 'filrouge', titre: 'FilRouge' },
+];
+
+const code = {
+  sommaire: `<div class="avec-sommaire">
+  <Sommaire items={[{ id: 'a', n: 1, titre: 'Première section' }]} label="Dans cette page" deplier />
+  <div class="sommaire-contenu">
+    <section id="a">
+      <details class="cdep" data-deplier>…</details>
+    </section>
+  </div>
+</div>
+<!-- Section masquée par un filtre : document.querySelector('nav.sommaire').rafraichir() -->`,
+  sous: `<Sous id="9a" titre="La tranche verticale" promesse="Une phrase de promesse.">
+
+<h4 id="9a1"><span class="num">9a1</span> Titre du point</h4>
+
+Texte en Markdown.
+
+</Sous>`,
+  position: `<ul class="pos-liste">
+  <Position p={position} sujet="Mike Cohn : SPIDR" />
+  <Position p={position} court />   <!-- dans un groupe déjà titré par son concept -->
+</ul>`,
+  pastille: `<Pastille kind="consensus" />  <Pastille kind="ecole" />  <Pastille kind="cours" />`,
+  renvoi: `<Renvoi n="8" />  <Renvoi n="9a" />  <Renvoi n="A1" />`,
+  figure: `import Gateau from '../../../components/schemas/Gateau.astro';
+
+<Figure legende="La légende, en une ou deux phrases.">
+  <Gateau />
+</Figure>`,
+  reflexe: `<Reflexe note="Formulation du cours.">
+La question à se poser, en une phrase.
+</Reflexe>`,
+  erreurs: `<Erreurs>
+- **L'erreur** : ce qu'il faut faire à la place (<Renvoi n="5" />).
+</Erreurs>`,
+  refs: `<Refs refs={['S1', 'S2']} />   <!-- lien vers #ref-S1 : la page doit porter ces ancres -->`,
+  filrouge: `<FilRouge>Une situation du fil rouge, jamais un exercice.</FilRouge>`,
+};
+---
+<Base title="Composants" description="Les composants du site, rendus avec leur code d’usage." noindex>
+  <div class="container-wide">
+    <section class="page tr">
+      <p class="eyebrow">Pour les développeurs</p>
+      <h1>Composants</h1>
+      <p class="lead">Chaque composant du site, rendu, avec son code d’usage. Page hors navigation et hors index. Les composants des onglets (Ecoles, Sources) se voient sur toute page de concept ; l’option <code>compact</code> du sommaire, sur <a href={url('dev/sommaire-compact/')}>sa page</a>.</p>
+
+      <div class="avec-sommaire">
+        <Sommaire items={items} label="Composants" deplier />
+        <div class="sommaire-contenu">
+          <div class="prose dev">
+
+          <section class="fr-section" id="sommaire" aria-labelledby="sommaire-t">
+            <h2 id="sommaire-t">Sommaire</h2>
+            <p>Le sommaire collant de cette page : colonne à gauche au bureau, barre en haut sur téléphone. Avec <code>deplier</code>, le bouton « Tout déplier » ouvre les <code>details[data-deplier]</code> (ceux de la section Position) et garde la section lue en place.</p>
+            <pre><code>{code.sommaire}</code></pre>
+          </section>
+
+          <section class="fr-section" id="sous" aria-labelledby="sous-t">
+            <h2 id="sous-t">Sous</h2>
+            <Sous id="Xa" titre="Un sous-concept" promesse="Sa phrase de promesse, lue aussi par la page Domaines.">
+              <h4 id="Xa1"><span class="num">Xa1</span> Un point du sous-concept</h4>
+              <p>Le corps du sous-concept, en Markdown dans une page de concept.</p>
+            </Sous>
+            <pre><code>{code.sous}</code></pre>
+          </section>
+
+          <section class="fr-section" id="position" aria-labelledby="position-t">
+            <h2 id="position-t">Position</h2>
+            <ul class="pos-liste">
+              <Position p={ecole} sujet={ecole.auteur} />
+            </ul>
+            <ul class="cdep-liste">
+              <li class="cdep-item">
+                <details class="cdep" data-deplier>
+                  <summary><span class="t">Concept 9 · groupe dépliable, renvois courts</span></summary>
+                  <ul class="pos-liste">
+                    {cours.map((p) => <Position p={p} court />)}
+                  </ul>
+                </details>
+              </li>
+            </ul>
+            <pre><code>{code.position}</code></pre>
+          </section>
+
+          <section class="fr-section" id="pastille" aria-labelledby="pastille-t">
+            <h2 id="pastille-t">Pastille</h2>
+            <p><Pastille kind="consensus" /> <Pastille kind="ecole" /> <Pastille kind="cours" /></p>
+            <pre><code>{code.pastille}</code></pre>
+          </section>
+
+          <section class="fr-section" id="renvoi" aria-labelledby="renvoi-t">
+            <h2 id="renvoi-t">Renvoi</h2>
+            <p>Voir le <Renvoi n="8" />, le <Renvoi n="9a" /> et l’<Renvoi n="A1" />.</p>
+            <pre><code>{code.renvoi}</code></pre>
+          </section>
+
+          <section class="fr-section" id="figure" aria-labelledby="figure-t">
+            <h2 id="figure-t">Figure</h2>
+            <Figure legende="La légende du schéma. Le SVG porte son propre titre accessible.">
+              <Gateau />
+            </Figure>
+            <pre><code>{code.figure}</code></pre>
+          </section>
+
+          <section class="fr-section" id="reflexe" aria-labelledby="reflexe-t">
+            <h2 id="reflexe-t">Reflexe</h2>
+            <Reflexe note="Formulation du cours.">La question à se poser, en une phrase.</Reflexe>
+            <pre><code>{code.reflexe}</code></pre>
+          </section>
+
+          <section class="fr-section" id="erreurs" aria-labelledby="erreurs-t">
+            <h2 id="erreurs-t">Erreurs</h2>
+            <Erreurs>
+              <ul><li><strong>L’erreur</strong> : ce qu’il faut faire à la place (<Renvoi n="5" />).</li></ul>
+            </Erreurs>
+            <pre><code>{code.erreurs}</code></pre>
+          </section>
+
+          <section class="fr-section" id="refs" aria-labelledby="refs-t">
+            <h2 id="refs-t">Refs</h2>
+            <p>Une affirmation et ses sources <Refs refs={['S1', 'S2']} />.</p>
+            <ol class="reflist">
+              <li id="ref-S1"><span class="id">S1</span><span>Référence de démonstration</span></li>
+              <li id="ref-S2"><span class="id">S2</span><span>Autre référence de démonstration</span></li>
+            </ol>
+            <pre><code>{code.refs}</code></pre>
+          </section>
+
+          <section class="fr-section" id="filrouge" aria-labelledby="filrouge-t">
+            <h2 id="filrouge-t">FilRouge</h2>
+            <FilRouge>Étienne veut une vue des vélos en panne.</FilRouge>
+            <pre><code>{code.filrouge}</code></pre>
+          </section>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</Base>
+
+<style>
+  .dev pre {
+    overflow-x: auto; margin: 1rem 0 0; padding: 0.8rem 1rem; border: 1px solid var(--rule); border-radius: 6px;
+    background: var(--surface); font-size: 0.82rem; line-height: 1.5;
+  }
+  .dev :global(.sous) { margin-top: 0; }
+</style>

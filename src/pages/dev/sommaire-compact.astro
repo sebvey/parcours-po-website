@@ -1,0 +1,37 @@
+---
+// Démonstration de l'option `compact` du Sommaire (entrées courtes en grille au bureau).
+// Hors navigation, hors index ; voir /dev/composants/.
+import Base from '../../layouts/Base.astro';
+import '../../styles/transversal.css';
+import Sommaire from '../../components/Sommaire.astro';
+import { url } from '../../i18n/ui';
+
+const lettres = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
+const items = [...lettres.map((l) => ({ id: `lettre-${l}`, titre: l })), { id: 'fin', titre: 'Une entrée longue, sur toute la largeur' }];
+const usage = `<Sommaire items={[{ id: 'lettre-A', titre: 'A' }, …]} label="Lettres" compact />`;
+---
+<Base title="Sommaire compact" description="L’option compact du sommaire collant." noindex>
+  <div class="container-wide">
+    <section class="page tr">
+      <p class="eyebrow">Pour les développeurs</p>
+      <h1>Sommaire compact</h1>
+      <p class="lead">Avec <code>compact</code>, les entrées courtes se rangent en grille au bureau ; la dernière prend toute la largeur. Retour aux <a href={url('dev/composants/')}>composants</a>.</p>
+      <pre class="dev-code"><code>{usage}</code></pre>
+      <div class="avec-sommaire">
+        <Sommaire items={items} label="Lettres" compact />
+        <div class="sommaire-contenu">
+          {items.map((i) => (
+            <section class="fr-section" id={i.id} aria-labelledby={`${i.id}-t`}>
+              <h2 id={`${i.id}-t`}>{i.titre}</h2>
+              <p>Une section de démonstration.</p>
+            </section>
+          ))}
+        </div>
+      </div>
+    </section>
+  </div>
+</Base>
+
+<style>
+  .dev-code { overflow-x: auto; padding: 0.8rem 1rem; border: 1px solid var(--rule); border-radius: 6px; background: var(--surface); font-size: 0.82rem; }
+</style>
