@@ -37,7 +37,7 @@ div.tr-text p { margin: 0 0 1em; }
 .gl-en { font-family: var(--font-ui); font-size: 0.88rem; color: var(--ink-soft); margin: 0 0 0.5rem; }
 .gl-etq { text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.7rem; font-weight: 650; margin-right: 0.35em; }
 .gl-def { margin: 0 0 0.5rem; font-size: 1rem; line-height: 1.6; text-wrap: pretty; }
-.gl-orig { font-family: var(--font-ui); font-size: 0.85rem; color: var(--ink-soft); margin: 0; }
+.gl-orig { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; font-family: var(--font-ui); font-size: 0.85rem; color: var(--ink-soft); margin: 0; }
 .gl-vide { margin: 2rem 0; color: var(--ink-soft); }
 
 .eviter { list-style: none; padding: 0; margin: 1rem 0 0; display: grid; gap: 0.9rem; grid-template-columns: 1fr; max-width: 52rem; }
@@ -63,7 +63,7 @@ a.tag { width: fit-content; text-decoration: underline; text-underline-offset: 3
 .acteur dl { margin: 0; }
 .acteur dt { font-family: var(--font-ui); font-size: 0.7rem; font-weight: 650; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); margin-top: 0.6rem; }
 .acteur dd { margin: 0.1rem 0 0; font-size: 0.97rem; line-height: 1.5; }
-.acteur .sert { font-family: var(--font-ui); font-size: 0.85rem; color: var(--ink-soft); margin: 0.8rem 0 0; padding-top: 0.6rem; border-top: 1px solid var(--rule); }
+.acteur .sert { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; font-family: var(--font-ui); font-size: 0.85rem; color: var(--ink-soft); margin: 0.8rem 0 0; padding-top: 0.6rem; border-top: 1px solid var(--rule); }
 
 .table-wrap { max-width: 100%; }
 .tr-table { width: 100%; border-collapse: collapse; font-size: 0.97rem; line-height: 1.5; }

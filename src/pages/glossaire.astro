@@ -79,7 +79,7 @@ const items = [
                   <p class="gl-def" set:html={inline(t.def)} />
                   <p class="gl-orig">
                     {t.concepts.length > 1 ? 'Concepts' : 'Concept'} :
-                    {t.concepts.map((n, i) => <>{i > 0 ? ', ' : ' '}<a href={conceptUrl(n)} title={titreDe(n)}>{n}</a></>)}
+                    <span class="chips">{t.concepts.map((n) => <a class="chip" href={conceptUrl(n)} title={`${/^A/.test(n) ? 'Annexe' : 'Concept'} ${n} : ${titreDe(n)}`}>{n}</a>)}</span>
                   </p>
                 </li>
               ))}

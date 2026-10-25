@@ -66,7 +66,7 @@ const items = [
                 <dd set:html={inline(a.besoin)} />
               </dl>
               <p class="sert">Central aux concepts :
-                {a.concepts.map((n, i) => <>{i > 0 ? ', ' : ' '}<a href={conceptUrl(n)} title={titreDe(n)}>{n}</a></>)}
+                <span class="chips">{a.concepts.map((n) => <a class="chip" href={conceptUrl(n)} title={`${/^A/.test(n) ? 'Annexe' : 'Concept'} ${n} : ${titreDe(n)}`}>{n}</a>)}</span>
               </p>
             </article>
           </li>

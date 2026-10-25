@@ -1,6 +1,6 @@
 {
   "name": "parcours-po-website",
-  "version": "0.10.0",
+  "version": "0.10.1",
   "private": true,
   "type": "module",
   "description": "Site public du cours « Product Owner d'un produit data »",
