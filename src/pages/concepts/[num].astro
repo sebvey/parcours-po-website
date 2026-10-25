@@ -61,20 +61,6 @@ const tabs = [
           : <span>{p.n}. {p.titre}<span class="soon">{t('concept.soon')}</span></span>}</>
       ))}
     </div>
-    {!isAnnexe && (
-      <nav class="pn" aria-label="Concepts voisins" data-pagefind-ignore>
-        <div>
-          {prev && (prev.href
-            ? <a href={prev.href}><span class="dir">{t('concept.previous')}</span>{prev.n}. {prev.titre}</a>
-            : <span class="off"><span class="dir">{t('concept.previous')}</span>{prev.n}. {prev.titre}<span class="soon">{t('concept.soon')}</span></span>)}
-        </div>
-        <div class="nx">
-          {next && (next.href
-            ? <a href={next.href}><span class="dir">{t('concept.next')}</span>{next.n}. {next.titre}</a>
-            : <span class="off"><span class="dir">{t('concept.next')}</span>{next.n}. {next.titre}<span class="soon">{t('concept.soon')}</span></span>)}
-        </div>
-      </nav>
-    )}
   </header>
 
   <div class="tabs-bar" data-pagefind-ignore>
@@ -84,6 +70,12 @@ const tabs = [
           <a id={`tab-${tab.id}`} href={`#${tab.id}`} data-tab={tab.id}>{tab.label}</a>
         ))}
       </div>
+      {!isAnnexe && (prev?.href || next?.href) && (
+        <nav class="pn-mini" aria-label="Concepts voisins, raccourci">
+          {prev?.href && <a href={prev.href} title={`${t('concept.previous')} : ${prev.n}. ${prev.titre}`}><span aria-hidden="true">←</span> {prev.n}</a>}
+          {next?.href && <a href={next.href} title={`${t('concept.next')} : ${next.n}. ${next.titre}`}>{next.n} <span aria-hidden="true">→</span></a>}
+        </nav>
+      )}
     </div>
   </div>
 
@@ -104,6 +96,17 @@ const tabs = [
       <h2 class="panel-title" id="titre-sources">{t('tab.sources')}</h2>
       <Sources data={d.sources} />
     </section>
+
+    {!isAnnexe && (
+      <nav class="pn-bas" aria-label="Concepts voisins" data-pagefind-ignore>
+        {prev ? (prev.href
+          ? <a class="pn-carte" href={prev.href}><span class="dir">← {t('concept.previous')}</span><span class="t">{prev.n}. {prev.titre}</span></a>
+          : <span class="pn-carte off"><span class="dir">← {t('concept.previous')}</span><span class="t">{prev.n}. {prev.titre}</span></span>) : <span />}
+        {next ? (next.href
+          ? <a class="pn-carte nx" href={next.href}><span class="dir">{t('concept.next')} →</span><span class="t">{next.n}. {next.titre}</span></a>
+          : <span class="pn-carte nx off"><span class="dir">{t('concept.next')} →</span><span class="t">{next.n}. {next.titre}</span></span>) : <span />}
+      </nav>
+    )}
 
     <p class="concept-meta" style="margin:3rem auto 0;max-width:var(--measure)" data-pagefind-ignore>
       Ce cours existe aussi sous la forme d’un parcours accompagné par un professeur : voir <a href={url('a-propos/#cours-accompagne')}>À propos</a>.
