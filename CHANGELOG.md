@@ -5,6 +5,14 @@ dit sur quelle version du cours elle est alignée.
 
 ## Non publié
 
+## 2.2.2, 2026-10-26 (aligné sur le cours 2.4.0)
+
+Réalignement sur le cours 2.4.0 (T-113) :
+- `parcoursPo.coursVersion` 2.4.0 ; empreintes des 20 pages de concept et des 7 pages de domaine
+  inscrites (fiches changées : concepts 3, 7, 10 et 12).
+- Aucun changement de page : le cours 2.4.0 ne change que des situations, réponses attendues et
+  erreurs fréquentes de la banque d'exemples, hors des parties publiques.
+
 ## 2.2.1, 2026-10-26 (aligné sur le cours 2.3.1)
 
 Réalignement sur le cours 2.3.1 (T-111) :
