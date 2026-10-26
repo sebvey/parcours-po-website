@@ -5,11 +5,16 @@ dit sur quelle version du cours elle est alignée.
 
 ## Non publié
 
+## 2.4.0, 2026-10-27 (aligné sur le cours 2.5.0)
+
+- `parcoursPo.coursVersion` 2.5.0 ; empreintes des 20 pages de concept et des 7 pages de domaine
+  inscrites (seules les fiches de domaine ont changé : `duree`).
+
 Pied de page (T-119) : « Ce site accompagne un cours donné par un agent IA · À propos » à gauche,
 licence et versions à droite, plus discrètes ; le nom du site en sort. La phrase de fin des pages de
 domaine et de concept est retirée.
 
-Durée de conversation avec l'agent (T-118), d'après `duree` des fiches de domaine (cours, non publié) :
+Durée de conversation avec l'agent (T-118), d'après `duree` des fiches de domaine (cours 2.5.0) :
 - Page Domaines : barre du parcours en tête (un segment en bulle par domaine, proportionnel à sa
   durée, total au bout) et bulle « ≈ 1 h 30 avec l'agent » sur chaque bloc de domaine.
 - Page de domaine : bulle de durée, nombre de sessions et de concepts sous le chapeau.

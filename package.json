@@ -1,6 +1,6 @@
 {
   "name": "parcours-po-website",
-  "version": "2.3.1",
+  "version": "2.4.0",
   "private": true,
   "type": "module",
   "description": "Site public du cours « Product Owner d'un produit data »",
@@ -25,7 +25,7 @@
     "typescript": "6.0.3"
   },
   "parcoursPo": {
-    "coursVersion": "2.4.1"
+    "coursVersion": "2.5.0"
   },
   "devDependencies": {
     "playwright": "1.64.1"
