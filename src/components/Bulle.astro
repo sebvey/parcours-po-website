@@ -1,0 +1,11 @@
+---
+// Bulle de durée : le temps de conversation avec l'agent, en forme de bulle de dialogue
+// (« ≈ 1 h 30 avec l'agent »). Props : `minutes`. Couleurs dans les jetons --bulle-* de
+// global.css ; ignorée par Pagefind.
+import { dureeTexte } from '../data/domaines';
+import { useT } from '../i18n/ui';
+interface Props { minutes: number; }
+const { minutes } = Astro.props;
+const t = useT();
+---
+<span class="bulle" data-pagefind-ignore>≈ {dureeTexte(minutes)} {t('duree.agent')}</span>

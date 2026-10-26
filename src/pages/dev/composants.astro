@@ -8,6 +8,8 @@ import Sommaire from '../../components/Sommaire.astro';
 import Sous from '../../components/Sous.astro';
 import Position from '../../components/Position.astro';
 import Pastille from '../../components/Pastille.astro';
+import Bulle from '../../components/Bulle.astro';
+import Parcours from '../../components/Parcours.astro';
 import Renvoi from '../../components/Renvoi.astro';
 import Figure from '../../components/Figure.astro';
 import Reflexe from '../../components/Reflexe.astro';
@@ -31,6 +33,8 @@ const items = [
   { id: 'sous', titre: 'Sous' },
   { id: 'position', titre: 'Position' },
   { id: 'pastille', titre: 'Pastille' },
+  { id: 'bulle', titre: 'Bulle' },
+  { id: 'parcours', titre: 'Parcours' },
   { id: 'renvoi', titre: 'Renvoi' },
   { id: 'figure', titre: 'Figure' },
   { id: 'reflexe', titre: 'Reflexe' },
@@ -62,6 +66,8 @@ Texte en Markdown.
   <Position p={position} court />   <!-- dans un groupe déjà titré par son concept -->
 </ul>`,
   pastille: `<Pastille kind="consensus" />  <Pastille kind="ecole" />  <Pastille kind="cours" />`,
+  bulle: `<Bulle minutes={90} />`,
+  parcours: `<Parcours />  (ou page={url('domaines/')} hors de la page Domaines)`,
   renvoi: `<Renvoi n="8" />  <Renvoi n="9a" />  <Renvoi n="A1" />`,
   figure: `import Gateau from '../../../components/schemas/Gateau.astro';
 
@@ -130,6 +136,18 @@ La question à se poser, en une phrase.
             <h2 id="pastille-t">Pastille</h2>
             <p><Pastille kind="consensus" /> <Pastille kind="ecole" /> <Pastille kind="cours" /></p>
             <pre><code>{code.pastille}</code></pre>
+          </section>
+
+          <section class="fr-section" id="bulle" aria-labelledby="bulle-t">
+            <h2 id="bulle-t">Bulle</h2>
+            <p><Bulle minutes={90} /> <Bulle minutes={25} /></p>
+            <pre><code>{code.bulle}</code></pre>
+          </section>
+
+          <section class="fr-section" id="parcours" aria-labelledby="parcours-t">
+            <h2 id="parcours-t">Parcours</h2>
+            <Parcours page={url('domaines/')} />
+            <pre><code>{code.parcours}</code></pre>
           </section>
 
           <section class="fr-section" id="renvoi" aria-labelledby="renvoi-t">

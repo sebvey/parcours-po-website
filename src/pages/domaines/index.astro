@@ -6,6 +6,8 @@ import { domaineUrl } from '../../lib/lecture';
 import Sommaire from '../../components/Sommaire.astro';
 import Fleche from '../../icons/fleche.svg';
 import ConceptsDepliables from '../../components/ConceptsDepliables.astro';
+import Bulle from '../../components/Bulle.astro';
+import Parcours from '../../components/Parcours.astro';
 const items = [...domaines, annexes].map((d) => ({ id: domaineId(d), n: d.n > 0 ? d.n : undefined, titre: d.titre }));
 const minuscule = (s: string) => s.charAt(0).toLowerCase() + s.slice(1);
 ---
@@ -20,6 +22,7 @@ const minuscule = (s: string) => s.charAt(0).toLowerCase() + s.slice(1);
         <Sommaire items={items} label="Domaines" deplier />
 
         <div class="sommaire-contenu">
+          <Parcours />
           {domaines.map((d) => (
             <section class="domaine" id={domaineId(d)} aria-labelledby={`${domaineId(d)}-t`}>
               <div class="dom-bloc">
@@ -27,6 +30,7 @@ const minuscule = (s: string) => s.charAt(0).toLowerCase() + s.slice(1);
                   <span class="n">Domaine {d.n}</span>
                   <h2 id={`${domaineId(d)}-t`}>{d.titre}</h2>
                   <span class="q">À la fin, vous savez : {minuscule(d.saitFaire)}</span>
+                  {d.duree && <Bulle minutes={d.duree} />}
                   <Fleche class="dom-fleche" width="24" height="24" aria-hidden="true" />
                 </a>
                 <ConceptsDepliables concepts={d.concepts} />

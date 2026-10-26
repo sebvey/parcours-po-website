@@ -1,0 +1,29 @@
+---
+// Barre du parcours : un segment en bulle par domaine, de longueur proportionnelle à sa durée,
+// lien vers le bloc du domaine ; le total au bout. Les segments de moins de 40 min n'affichent
+// que leur numéro. Durées : `duree` de src/data/domaines.ts. Prop `page` : la page des blocs
+// (vide : la page courante).
+import { domaines, domaineId, dureeTexte, dureeTotale } from '../data/domaines';
+import { useT } from '../i18n/ui';
+interface Props { page?: string; }
+const { page = '' } = Astro.props;
+const t = useT();
+const avecDuree = domaines.filter((d) => d.duree);
+---
+<figure class="parcours" data-pagefind-ignore>
+  <figcaption class="parcours-tete">
+    <span class="parcours-titre">{t('duree.parcours')}</span>
+    <span class="bulle">≈ {dureeTexte(dureeTotale)} {t('duree.agent')}</span>
+  </figcaption>
+  <ol class="parcours-barre">
+    {avecDuree.map((d) => (
+      <li style={`flex-grow:${d.duree}`}>
+        <a href={`${page}#${domaineId(d)}`} aria-label={`Domaine ${d.n} : ${d.titre}, ${dureeTexte(d.duree!)}`} title={`Domaine ${d.n} : ${d.titre}`}>
+          <span class="pn" aria-hidden="true">{d.n}</span>
+          {d.duree! >= 40 && <span class="pd" aria-hidden="true">{dureeTexte(d.duree!)}</span>}
+        </a>
+      </li>
+    ))}
+  </ol>
+  <p class="parcours-note">{t('duree.note')}</p>
+</figure>

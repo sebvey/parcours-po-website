@@ -58,6 +58,7 @@ flowchart LR
 | Page de domaine : le problème, d'où l'on vient | corps MDX de `src/content/domaines/fr/N-slug.mdx` | copie des sections « Le problème » et « D'où l'on vient, où l'on va » de `course/domains/N-slug.md` (renvois « concept N » en `<Renvoi>`) ; le cas du fil rouge n'est pas repris |
 | Page de domaine : accroche de chaque concept | frontmatter `accroches` | récrite depuis « Le fil des concepts » de la fiche, une ligne par concept |
 | Domaines et page de domaine : titres, « à la fin, vous savez », concepts | `src/data/domaines.ts` | copie de `course/plan.md` (Domaines du cours, Concepts, Annexes) |
+| Domaines et page de domaine : durée avec l'agent (bulle, barre du parcours) | `duree` dans `src/data/domaines.ts` | copie du frontmatter `duree` de `course/domains/N-slug.md` |
 | Domaines, page de domaine : sous-concepts et promesses | attributs des `<Sous>` des pages | dérivée au build (`sousConcepts`, `src/lib/concepts.ts`) |
 | Consensus ou école (index) | `src/lib/transversal.ts` | dérivée au build des frontmatters `ecoles` |
 | Sources (page) | `src/lib/transversal.ts` | dérivée au build des frontmatters `sources` |
