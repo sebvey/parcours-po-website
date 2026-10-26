@@ -28,6 +28,8 @@ ecoles:
       refs: ["S2"]
     - texte: "« Négociable » ne veut pas dire « tout est ouvert » : une contrainte réelle d'usage ne se négocie pas, et elle s'écrit dans un critère d'acceptation, sans nommer de solution. Règle pratique du cours, sans source externe."
       refs: ["S1"]
+    - texte: "Le cours range aussi sous I le travail d'une autre équipe dont la story a besoin. Choix du cours : chez Wake, I ne vise que les autres stories."
+      refs: ["S1"]
 sources:
   affirmations:
     - affirmation: "INVEST : six critères d'une bonne story, proposés par Bill Wake en 2003, dans le milieu XP."
@@ -173,8 +175,8 @@ sources:
     - "**Origine XP du spike au-delà de Wells.** Le site de Wells (1999) est un site de règles XP, pas une source datée de l'invention ; *Extreme Programming Explained* (Beck) n'a pas été consulté. La page écrit « venue d'XP », sans auteur ni date d'invention."
     - "**Mot flou dont dépendent plusieurs lettres** et **« négociable ne veut pas dire tout ouvert ».** Règles pratiques du cours, sans source externe : base faible."
 alignement:
-  coursVersion: "2.2.1"
-  fiche: "e691169d2bffd6953980067d409ad9bedc5f3b6f5e0edf5ade2f7a10e50d9591"
+  coursVersion: "2.3.0"
+  fiche: "a05c00ad6d7b7db1944513022d2ce9375729087d9c5580e712fd2a8c63b8a99b"
   sources: "e66c257e6ec945f2dba82de9751b5b615c624d11913c661b088dcb8b177f5605"
 ---
 import Schema07 from '../../../components/schemas/Schema07.astro';
@@ -189,7 +191,7 @@ INVEST donne six critères pour juger une story : **I**ndependent, **N**egotiabl
 
 <h4 id="7a1"><span class="num">7a1</span> Les six lettres</h4>
 
-- **I, Independent.** La story ne chevauche pas les autres et peut se planifier dans n'importe quel ordre, autant que possible. Wake reconnaît qu'on n'y arrive pas toujours : une dépendance ne condamne pas la story, elle s'écrit et se traite (<Renvoi n="10" />).
+- **I, Independent.** La story ne chevauche pas les autres et peut se planifier dans n'importe quel ordre, autant que possible. Le cours y range aussi le travail d'une autre équipe dont elle a besoin (chez Wake, I ne vise que les autres stories). Wake reconnaît qu'on n'y arrive pas toujours : une dépendance ne condamne pas la story, elle s'écrit et se traite (<Renvoi n="10" />).
 - **N, Negotiable.** Elle porte le besoin, pas les détails de la solution (voir <Renvoi n="7b" />).
 - **V, Valuable.** Elle a de la valeur pour l'utilisateur. Wake dit « le client » ; l'utilisateur est la lecture du cours. L'Agile Alliance glose ce V par « valuable (or vertical) » : le découpage vertical s'étudie au <Renvoi n="9" />.
 - **E, Estimable.** Les Developers peuvent l'estimer assez pour que le PO l'ordonne et la planifie. Pas besoin d'une estimation exacte : on estime mal ce qu'on ne comprend pas.

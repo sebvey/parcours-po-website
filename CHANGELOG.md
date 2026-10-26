@@ -5,6 +5,16 @@ dit sur quelle version du cours elle est alignée.
 
 ## Non publié
 
+## 2.2.0, 2026-10-26 (aligné sur le cours 2.3.0)
+
+Réalignement sur le cours 2.3.0 (T-110) :
+- `parcoursPo.coursVersion` 2.3.0 ; empreintes des 20 pages de concept et des 7 pages de domaine
+  inscrites (fiches changées : concepts 2, 4, 5, 7, 9, 13, 14 et A1).
+- Concept 7 : I d'INVEST couvre aussi le travail d'une autre équipe dont la story a besoin, en 7a1
+  et dans les positions du cours (choix du cours ; chez Wake, I ne vise que les autres stories).
+- Autres fiches : corrections de renvois et de formulations dans la banque d'exemples, hors des
+  parties publiques ; pages inchangées.
+
 ## 2.1.1, 2026-10-26 (aligné sur le cours 2.2.1)
 
 Réalignement sur le cours 2.2.1 (T-107) :
