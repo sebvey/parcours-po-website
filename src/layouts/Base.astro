@@ -133,8 +133,8 @@ const items = [
     </main>
     <footer class="site-footer">
       <div class="container-wide row">
-        <p><a href={url('a-propos/')} aria-current={nav === 'about' ? 'page' : undefined}>{t('nav.about')}</a> · <a href={t('footer.licenceLink')} rel="license noopener">{t('footer.licence')}</a></p>
-        <p>{t('site.name')} · {t('footer.site')} {siteVersion} · {t('footer.cours')} {coursVersion}</p>
+        <p>{t('footer.accompagne')} · <a href={url('a-propos/')} aria-current={nav === 'about' ? 'page' : undefined}>{t('nav.about')}</a></p>
+        <p class="footer-meta"><a href={t('footer.licenceLink')} rel="license noopener">{t('footer.licence')}</a> · {t('footer.site')} {siteVersion} · {t('footer.cours')} {coursVersion}</p>
       </div>
     </footer>
   </body>

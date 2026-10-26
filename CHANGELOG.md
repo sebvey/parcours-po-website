@@ -5,6 +5,10 @@ dit sur quelle version du cours elle est alignée.
 
 ## Non publié
 
+Pied de page (T-119) : « Ce site accompagne un cours donné par un agent IA · À propos » à gauche,
+licence et versions à droite, plus discrètes ; le nom du site en sort. La phrase de fin des pages de
+domaine et de concept est retirée.
+
 Durée de conversation avec l'agent (T-118), d'après `duree` des fiches de domaine (cours, non publié) :
 - Page Domaines : barre du parcours en tête (un segment en bulle par domaine, proportionnel à sa
   durée, total au bout) et bulle « ≈ 1 h 30 avec l'agent » sur chaque bloc de domaine.

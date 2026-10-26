@@ -23,6 +23,7 @@ export const ui = {
     'search.label': 'Rechercher dans le cours',
     'footer.licence': '© Sébastien Vey, CC BY 4.0',
     'footer.licenceLink': 'https://creativecommons.org/licenses/by/4.0/deed.fr',
+    'footer.accompagne': 'Ce site accompagne un cours donné par un agent IA',
     'footer.site': 'site',
     'footer.cours': 'cours',
     'pastille.consensus': 'consensus',
