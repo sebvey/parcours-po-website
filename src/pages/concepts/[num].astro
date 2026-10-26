@@ -10,7 +10,7 @@ import FilRouge from '../../components/FilRouge.astro';
 import Reflexe from '../../components/Reflexe.astro';
 import Erreurs from '../../components/Erreurs.astro';
 import Figure from '../../components/Figure.astro';
-import { useT, url } from '../../i18n/ui';
+import { useT } from '../../i18n/ui';
 import { typoFr } from '../../lib/typo-fr';
 import Voisins from '../../components/Voisins.astro';
 import { slugOf, tousLesConcepts } from '../../data/domaines';
@@ -93,10 +93,6 @@ const tabs = [
     </section>
 
     {!isAnnexe && <Voisins prev={prev} next={next} />}
-
-    <p class="concept-meta" style="margin:3rem auto 0;max-width:var(--measure)" data-pagefind-ignore>
-      Ce site accompagne un cours donné par un agent IA : voir <a href={url('a-propos/#cours-accompagne')}>À propos</a>.
-    </p>
   </div>
 
   <script is:inline>

@@ -227,6 +227,8 @@ h1, h2, h3, h4 {
 }
 .site-footer .row { display: flex; flex-wrap: wrap; gap: 0.5rem 2rem; justify-content: space-between; }
 .site-footer p { margin: 0; }
+.site-footer .footer-meta { font-size: 0.8rem; color: var(--ink-soft); }
+.site-footer .footer-meta a { color: inherit; }
 
 /* ---------- Pages simples ---------- */
 .page { padding-block: 3rem 1rem; }
