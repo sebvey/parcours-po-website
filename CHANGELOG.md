@@ -5,6 +5,16 @@ dit sur quelle version du cours elle est alignée.
 
 ## Non publié
 
+## 2.2.1, 2026-10-26 (aligné sur le cours 2.3.1)
+
+Réalignement sur le cours 2.3.1 (T-111) :
+- `parcoursPo.coursVersion` 2.3.1 ; empreintes des 20 pages de concept et des 7 pages de domaine
+  inscrites (fiches de sources changées : concepts 7, 8 et 13).
+- Concepts 7 et 8 : la règle non fixée que le PO fait fixer renvoie à 7a2, plus au concept 4
+  (positions du cours, sources).
+- Concept 13 : Odile dite directrice des opérations, qui encadre la maintenance (sources, non
+  vérifié).
+
 ## 2.2.0, 2026-10-26 (aligné sur le cours 2.3.0)
 
 Réalignement sur le cours 2.3.0 (T-110) :
