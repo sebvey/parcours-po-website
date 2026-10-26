@@ -22,6 +22,9 @@
   --p-cours-bg: #e9e2f5;
   --p-cours-fg: #46277f;
   --p-cours-line: #b2a0d8;
+  --bulle-bg: #e2ecf5;
+  --bulle-fg: #164a78;
+  --bulle-alt: #c9dbec;
 
   /* Schémas */
   --sch-band: #ebe7dc;
@@ -64,6 +67,9 @@
     --p-cours-bg: #2c2248;
     --p-cours-fg: #d1bff5;
     --p-cours-line: #5f4a97;
+    --bulle-bg: #1c2f42;
+    --bulle-fg: #b0d3f2;
+    --bulle-alt: #26405a;
 
     --sch-band: #24221e;
     --sch-band-line: #4a463e;
@@ -98,6 +104,9 @@
   --p-cours-bg: #2c2248;
   --p-cours-fg: #d1bff5;
   --p-cours-line: #5f4a97;
+  --bulle-bg: #1c2f42;
+  --bulle-fg: #b0d3f2;
+  --bulle-alt: #26405a;
   --sch-band: #24221e;
   --sch-band-line: #4a463e;
   --sch-grey: #3a3731;
@@ -440,6 +449,24 @@ a.pn-carte:hover { background: var(--surface-2); color: var(--ink); }
 .dom-carte .q { margin: 0; }
 .dom-fleche { position: absolute; right: 1.1rem; top: 50%; transform: translateY(-50%); color: var(--accent); transition: transform 0.15s; }
 .dom-carte:hover .dom-fleche { transform: translate(0.2rem, -50%); }
+.bulle { position: relative; display: inline-block; font-family: var(--font-ui); font-size: 0.8rem; line-height: 1.3; padding: 0.2rem 0.65rem; border-radius: 10px; background: var(--bulle-bg); color: var(--bulle-fg); white-space: nowrap; }
+.bulle::after { content: ""; position: absolute; left: 0.8rem; bottom: -5px; border: 5px solid transparent; border-top-color: var(--bulle-bg); border-bottom: 0; }
+.dom-carte .bulle { margin-top: 0.6rem; }
+.domaine-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.9rem; margin-top: 1rem; font-family: var(--font-ui); font-size: 0.85rem; color: var(--ink-soft); }
+.parcours { max-width: 46rem; margin: 0 0 2rem; }
+.parcours-tete { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; margin-bottom: 0.7rem; }
+.parcours-titre { font-family: var(--font-ui); font-size: 0.75rem; font-weight: 650; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); }
+.parcours-barre { display: flex; gap: 4px; list-style: none; margin: 0; padding: 0 0 6px; }
+.parcours-barre li { flex-basis: 0; min-width: 1.6rem; margin: 0; }
+.parcours-barre a { position: relative; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 2.9rem; border-radius: 10px; background: var(--bulle-bg); color: var(--bulle-fg); text-decoration: none; font-family: var(--font-ui); line-height: 1.2; }
+.parcours-barre li:nth-child(even) a { background: var(--bulle-alt); }
+.parcours-barre a::after { content: ""; position: absolute; left: 0.7rem; bottom: -5px; border: 5px solid transparent; border-top-color: var(--bulle-bg); border-bottom: 0; }
+.parcours-barre li:nth-child(even) a::after { border-top-color: var(--bulle-alt); }
+.parcours-barre a:hover { outline: 2px solid var(--accent); outline-offset: -2px; }
+.parcours-barre .pn { font-weight: 650; font-size: 0.9rem; }
+.parcours-barre .pd { font-size: 0.72rem; white-space: nowrap; }
+.parcours-note { font-family: var(--font-ui); font-size: 0.8rem; color: var(--ink-soft); margin: 0.6rem 0 0; }
+@media (max-width: 40rem) { .parcours { margin-top: 1.25rem; } .parcours-barre .pd { display: none; } .parcours-barre a::after { left: 0.35rem; } }
 .domaine-concepts { margin-top: 2.5rem; }
 .domaine-concepts .cdep-liste { max-width: none; padding-left: 0; }
 .domaine-concepts .cdep-liste li { margin-bottom: 0; }

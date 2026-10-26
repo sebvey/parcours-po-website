@@ -9,6 +9,7 @@ import Renvoi from '../../components/Renvoi.astro';
 import Pastille from '../../components/Pastille.astro';
 import ConceptsDepliables from '../../components/ConceptsDepliables.astro';
 import Voisins from '../../components/Voisins.astro';
+import Bulle from '../../components/Bulle.astro';
 import { domaines } from '../../data/domaines';
 import { disponibles } from '../../lib/concepts';
 import { lecture, voisins } from '../../lib/lecture';
@@ -26,13 +27,23 @@ const { Content } = await render(entry);
 const dispo = await disponibles('fr');
 const { prev, next } = voisins(lecture(dispo), `D${d.n}`);
 const minuscule = (s: string) => s.charAt(0).toLowerCase() + s.slice(1);
-const plage = d.concepts.length === 1 ? `concept ${d.concepts[0].n}` : `concepts ${d.concepts[0].n} à ${d.concepts.at(-1)!.n}`;
+// Une session par heure entamée.
+const nSessions = Math.ceil((d.duree ?? 0) / 60);
+const sessions = nSessions <= 1 ? 'une session' : nSessions === 2 ? 'environ deux sessions' : `environ ${nSessions} sessions`;
+const plage =d.concepts.length === 1 ? `concept ${d.concepts[0].n}` : `concepts ${d.concepts[0].n} à ${d.concepts.at(-1)!.n}`;
 ---
 <Base title={`Domaine ${d.n} : ${d.titre}`} description={typoFr(entry.data.description)} nav="domaines">
   <header class="concept-head container">
     <p class="eyebrow">Domaine {d.n} · {plage} · <a class="eyebrow-lien" href={url('domaines/')}>tous les domaines</a></p>
     <h1>{d.titre}</h1>
     <p class="lead">À la fin, vous savez : {minuscule(d.saitFaire)}</p>
+    {d.duree && (
+      <p class="domaine-meta" data-pagefind-ignore>
+        <Bulle minutes={d.duree} />
+        <span>{sessions}</span>
+        <span>{d.concepts.length === 1 ? '1 concept' : `${d.concepts.length} concepts`}</span>
+      </p>
+    )}
   </header>
 
   <div class="container-wide">

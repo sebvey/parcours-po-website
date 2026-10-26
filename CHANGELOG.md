@@ -5,6 +5,12 @@ dit sur quelle version du cours elle est alignée.
 
 ## Non publié
 
+Durée de conversation avec l'agent (T-118), d'après `duree` des fiches de domaine (cours, non publié) :
+- Page Domaines : barre du parcours en tête (un segment en bulle par domaine, proportionnel à sa
+  durée, total au bout) et bulle « ≈ 1 h 30 avec l'agent » sur chaque bloc de domaine.
+- Page de domaine : bulle de durée, nombre de sessions et de concepts sous le chapeau.
+- Composants `Bulle` et `Parcours` ; empreintes des 7 pages de domaine inscrites.
+
 ## 2.3.1, 2026-10-26 (aligné sur le cours 2.4.1)
 
 Mise en forme des énumérations nommées :
