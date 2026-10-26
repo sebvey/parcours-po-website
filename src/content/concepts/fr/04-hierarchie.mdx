@@ -184,8 +184,8 @@ sources:
     - "**Le sens de « thème » dans Jira** (regroupement transversal). Lu seulement dans [S6], page qui affiche un avertissement de fiabilité ; absent de [S3]. La page ne le cite pas."
     - "**Les trois tests du cours** (compter les « je veux », niveau de trop, juger ce qu'il reste à livrer). Choix du cours, sans source externe, observées sur un seul apprenant (base faible) : à prendre comme des règles pratiques, pas comme un consensus."
 alignement:
-  coursVersion: "2.1.0"
-  fiche: "d1f60535efa479af4a7fdc0d41cdf3597cfc90c073c65972df5b6d9e1042c06a"
+  coursVersion: "2.2.0"
+  fiche: "475d6413cf29c06a3fbb46ecb0146768c9d3f48766bb94711c0f848290419a60"
   sources: "8d0bf30adad8043e19c041b13378e4d21655e9866259c93eecf21ad58cfde1c6"
 ---
 import Schema04 from '../../../components/schemas/Schema04.astro';
@@ -231,6 +231,8 @@ Régler les niveaux dans l'outil : <Renvoi n="A1" />.
 
 <h4 id="4b1"><span class="num">4b1</span> Le test du compte</h4>
 
+Un « je veux » est un besoin que l'utilisateur dit lui-même, à la première personne (« je veux voir… ») ; la story entière s'écrit au <Renvoi n="5" />.
+
 Le test est un choix du cours <Pastille kind="cours" />. On écrit les « je veux » de **ce qu'il reste à livrer** à l'utilisateur, pas le travail technique, puis on les compte :
 
 - **un seul**, qui tient dans un sprint : une **story** ;
@@ -255,7 +257,7 @@ Le niveau se juge d'après ce qu'il reste à livrer, pas dans l'absolu. Ce qui e
 <Erreurs>
 
 - **Classer un epic en story** : une phrase courte, ou au format d'une story, cache plusieurs besoins (« gérer toute la flotte », exemple inventé). Déplier le « je veux » : s'il en contient d'autres, ce n'est pas une story.
-- **Mettre une tâche au backlog produit** : le travail qui ne sert qu'à réaliser une story (cas inventé : convertir un fichier en entrée pour un écran) est une tâche, dans le plan des Developers (backlog de sprint). Un travail technique qui porte sa propre raison (dédoublonner les relevés, <Renvoi n="3" />) entre, lui, au backlog, et le PO l'ordonne.
+- **Mettre une tâche au backlog produit** : le travail qui ne sert qu'à réaliser une story (cas inventé : convertir un fichier en entrée pour un écran) est une tâche, dans le plan des Developers (backlog de sprint). Un travail technique qui porte sa propre raison (par exemple dédoublonner les relevés des stations, qui contiennent des doublons, défaut connu des données : ce travail sert plusieurs vues, pas une seule story ; <Renvoi n="3" />) entre, lui, au backlog, et le PO l'ordonne.
 - **Croire que Scrum impose des niveaux**, ou copier ceux de l'outil sans les choisir.
 - **Garder un niveau de trop** : quand la plupart des features ne contiennent qu'une story, un niveau double le travail.
 - **Faire du thème un niveau** : son sens varie selon l'outil et l'auteur.

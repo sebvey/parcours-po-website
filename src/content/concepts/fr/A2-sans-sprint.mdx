@@ -180,8 +180,8 @@ sources:
     - "**Part des équipes data qui travaillent en flux** : aucune enquête trouvée (ce qui ne prouve pas qu'il n'en existe pas). La page ne l'affirme pas."
     - "**Dates des pages de Kanban University** : non datées ; l'ajout de la « Risk Review » en 2014 est dit par Anderson, sans autre source."
 alignement:
-  coursVersion: "2.1.0"
-  fiche: "728128e24e52cd23b3873799ddbb949e6bb9aaf5db6b719da2622e5f0d22ccfd"
+  coursVersion: "2.2.0"
+  fiche: "d138ebbd6a64940134fb4fea763c4c4ed1a972d796108dc0eb877d7623aed7dc"
   sources: "5418ff737353c85eec28f7cc1adc1712435c433f0545b418d666a93404b6688f"
 ---
 import SchemaA2 from '../../../components/schemas/SchemaA2.astro';
@@ -198,7 +198,7 @@ Une équipe qui garde ses sprints et y ajoute des pratiques de flux fait du Kanb
 
 Sans sprint, aucun Sprint Planning ne choisit le travail de deux semaines. L'équipe fixe combien d'éléments peuvent être en cours à la fois, c'est-à-dire commencés et pas finis, et en commence un nouveau quand le nombre repasse sous cette limite. Le *Kanban Guide* lui fait écrire sa Definition of Workflow, qui dit entre autres où commence un élément, où il finit, et à quelle règle il franchit chaque passage.
 
-Pour une équipe qui avait une DoR, c'est là qu'elle sert : la DoR devient la règle pour franchir le début du flux <Pastille kind="cours" />. Kanban University appelle ce moment le point d'engagement <Pastille kind="ecole" />. Le PO a ordonné le backlog, les Developers tirent l'élément suivant <Pastille kind="cours" />. Pour la DoR elle-même, voir <Renvoi n="11b" />.
+La Definition of Ready (DoR), que l'équipe écrit, liste les conditions qu'un élément remplit avant qu'on le commence <Pastille kind="ecole" /> : elle est absente du Scrum Guide. C'est elle qui sert de règle pour franchir le début du flux <Pastille kind="cours" />. Kanban University appelle ce moment le point d'engagement <Pastille kind="ecole" />. Le PO a ordonné le backlog, les Developers tirent l'élément suivant <Pastille kind="cours" />. Pour la DoR elle-même, voir <Renvoi n="11b" />.
 
 </Sous>
 
@@ -222,7 +222,7 @@ Ce qui reste nécessaire : inspecter ce qui est livré avec les parties prenante
 
 Parmi les quatre mesures que le *Kanban Guide* fait suivre (travail en cours, débit, âge d'un élément, temps de cycle), le temps de cycle va du début d'un élément à sa fin. Sur son historique, l'équipe en tire une prévision en deux parties, une durée et une probabilité : c'est son attente de niveau de service. Le débit est l'une des mesures suivies, pas la base de cette prévision. Le guide donne cet exemple : « 85 % des éléments sont finis en huit jours ou moins ».
 
-Deux précisions. La durée se compte à partir du début d'un élément, pas de la demande ni d'aujourd'hui : un élément qui n'a pas commencé n'a pas encore de temps de cycle. Et la probabilité dit qu'une part des éléments prend plus longtemps : ce n'est pas une promesse. La prévision vient des Developers et de leurs mesures, pas d'une date que le PO invente <Pastille kind="cours" /> ; elle se revoit à mesure qu'on avance (<Renvoi n="16c" />).
+Deux précisions. La durée se compte à partir du début d'un élément, pas de la demande ni d'aujourd'hui : un élément qui n'a pas commencé n'a pas encore de temps de cycle. Et la probabilité dit qu'une part des éléments prend plus longtemps : ce n'est pas une promesse. La prévision vient des Developers et de leurs mesures, pas d'une date que le PO invente <Pastille kind="cours" /> ; elle se revoit à mesure qu'on avance. C'est le même principe que pour une prévision en sprints (<Renvoi n="16c" />).
 
 </Sous>
 

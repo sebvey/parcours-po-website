@@ -43,7 +43,7 @@ export const termes: Terme[] = [
   { id: "vision-produit", terme: "Vision produit", en: "product vision", def: "Raison d'être du produit à long terme ; absente du Scrum Guide (choix d'école)", concepts: ["2"] },
   { id: "mesure-de-resultat", terme: "Mesure de résultat", en: "outcome metric", def: "Mesure qui dit si on s'approche du résultat visé", concepts: ["2"] },
   { id: "backlog-produit", terme: "Backlog produit", en: "Product Backlog", def: "Liste ordonnée et émergente de ce qui pourrait améliorer le produit", concepts: ["0", "3"] },
-  { id: "element-du-backlog", terme: "Élément du backlog", en: "Product Backlog item", def: "Toute entrée du backlog, quel que soit son niveau", concepts: ["3"] },
+  { id: "element-du-backlog", terme: "Élément du backlog", en: "Product Backlog item", def: "Toute entrée du backlog, quel que soit son niveau", concepts: ["0", "3"] },
   { id: "epic-feature-story-tache", terme: "Epic, feature, story, tâche", en: "epic, feature, story, task", def: "Niveaux de découpage d'un besoin, choisis par l'équipe ; la tâche est du travail des Developers, pas un besoin", concepts: ["4"] },
   { id: "user-story", terme: "User story (story)", en: "user story", def: "Un besoin précis d'un utilisateur, vu de lui ; format courant (choix d'école) : en tant que, je veux, afin de", concepts: ["5"] },
   { id: "3c", terme: "3C", en: "Card, Conversation, Confirmation", def: "Une story est une carte, une conversation et une confirmation (Jeffries)", concepts: ["5"] },

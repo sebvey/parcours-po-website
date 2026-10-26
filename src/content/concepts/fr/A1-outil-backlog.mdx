@@ -207,8 +207,8 @@ sources:
     - "**Le niveau de trop** : règle pratique du cours, non vérifiée hors du cours."
     - "**« Le PO propose, l'administrateur règle » et « le lien ne remplace pas la conversation »** : choix du cours. Les pages d'éditeurs disent qui a les droits, pas le rôle du PO."
 alignement:
-  coursVersion: "2.1.0"
-  fiche: "ae79b7ca711c2d42c7c099f355b10de28dbee295fefa354e4a367eebb1624f9a"
+  coursVersion: "2.2.0"
+  fiche: "8c11fb28ba0a4f0b7f95fc02462323ba013d687ccddd703441afcccdc684b474"
   sources: "d49114c4187aadddef5c57ed1671079ad071c73010f42eb0e47948cf799292bd"
 ---
 import SchemaA1 from '../../../components/schemas/SchemaA1.astro';
@@ -225,7 +225,7 @@ Jira propose par défaut trois niveaux (Epic, Story, Subtask). Azure DevOps, en 
 
 Un niveau de trop ne se retire pas toujours. Azure DevOps ne retire pas un niveau hérité : on le renomme, on désactive son type, et chaque équipe choisit les niveaux qu'elle affiche. Pour Jira, la documentation décrit le retrait d'un niveau ajouté, pas celui d'un niveau par défaut. Mais ne pas pouvoir retirer un niveau n'oblige pas à l'employer : l'équipe peut cesser de s'en servir, et ne pas l'afficher quand l'outil le permet.
 
-Ces réglages touchent plus que l'équipe. La hiérarchie de Jira vaut pour tous les espaces gérés par l'entreprise, et la changer casse les liens parent et enfant existants. Le processus d'Azure DevOps s'applique à tous les projets qui l'emploient. D'où le partage des rôles <Pastille kind="cours" /> : le PO dit quel niveau il veut garder et pourquoi, l'équipe choisit, l'administrateur règle.
+Ces réglages touchent plus que l'équipe. La hiérarchie de Jira vaut pour tous les espaces gérés par l'entreprise, et la changer casse les liens parent et enfant existants. Le processus d'Azure DevOps s'applique à tous les projets qui l'emploient. D'où, dans les deux outils, le partage des rôles <Pastille kind="cours" /> : le PO dit ce qu'il veut et pourquoi, l'équipe choisit ses niveaux, l'administrateur de l'outil fait le réglage.
 
 </Sous>
 
