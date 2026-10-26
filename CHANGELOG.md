@@ -5,6 +5,13 @@ dit sur quelle version du cours elle est alignée.
 
 ## Non publié
 
+## 2.3.1, 2026-10-26 (aligné sur le cours 2.4.1)
+
+Mise en forme des énumérations nommées :
+- Concept 0 : les trois sujets du Sprint Planning (Pourquoi, Quoi, Comment) et les responsabilités
+  du PO et des Developers passent en liste ; les noms sont en gras. Concept 15 : mêmes noms en gras.
+- `docs/recipes.md` : règle d'écriture des énumérations.
+
 ## 2.3.0, 2026-10-26 (aligné sur le cours 2.4.1)
 
 Réalignement sur les cours 2.4.0 et 2.4.1 (T-113) :
