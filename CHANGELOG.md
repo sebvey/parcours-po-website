@@ -5,6 +5,10 @@ dit sur quelle version du cours elle est alignée.
 
 ## Non publié
 
+Glossaire (T-120) : un petit drapeau britannique rond remplace l'étiquette « En anglais » devant le
+terme anglais (« En anglais » reste pour les lecteurs d'écran) ; icône `drapeau-en.svg`, exception
+aux règles de dessin documentée dans `src/icons/README.md`.
+
 ## 2.4.0, 2026-10-27 (aligné sur le cours 2.5.0)
 
 - `parcoursPo.coursVersion` 2.5.0 ; empreintes des 20 pages de concept et des 7 pages de domaine

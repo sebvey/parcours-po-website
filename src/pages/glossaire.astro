@@ -4,6 +4,7 @@ import '../styles/transversal.css';
 import { inline } from '../lib/inline';
 import { conceptUrl } from '../lib/concepts';
 import Sommaire from '../components/Sommaire.astro';
+import DrapeauEn from '../icons/drapeau-en.svg';
 import { tousLesConcepts, domaines, annexes } from '../data/domaines';
 import { termes, aEviter } from '../data/glossaire';
 
@@ -75,7 +76,7 @@ const items = [
               {g.items.map((t) => (
                 <li class="gl-terme" id={t.id} data-s={sansAccent(`${t.terme} ${t.en} ${plain(t.def)}`)} data-c={` ${t.concepts.join(' ')} `}>
                   <h3><a href={`#${t.id}`} class="gl-nom"><span set:html={inline(t.terme)} /></a></h3>
-                  <p class="gl-en"><span class="gl-etq">En anglais</span> <span lang="en">{t.en}</span></p>
+                  <p class="gl-en"><DrapeauEn class="gl-drapeau" width="16" height="16" aria-hidden="true" /><span class="sr-only">En anglais :</span> <span lang="en">{t.en}</span></p>
                   <p class="gl-def" set:html={inline(t.def)} />
                   <p class="gl-orig">
                     {t.concepts.length > 1 ? 'Concepts' : 'Concept'} :
