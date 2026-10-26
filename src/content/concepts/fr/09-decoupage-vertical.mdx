@@ -222,8 +222,8 @@ sources:
     - "**Le découpage par couches serait « l'erreur la plus courante ».** Affirmation de [S7], sans donnée à l'appui : la page ne la reprend pas comme un fait."
     - "**Couches d'un produit data.** Aucune source data consultée : les quatre couches sont un exemple du cours."
 alignement:
-  coursVersion: "2.1.0"
-  fiche: "fe5359701942495c82b3ecdd955ed54e5959418a216620e7fedd6af4f212d810"
+  coursVersion: "2.2.0"
+  fiche: "1e4a386a880acc0502cda708e5a07d70254c215de2fb4e1291e67c96e64bed3e"
   sources: "96f8d0cc418ce64c25ac91553e22a3eca95e748e95d25b3b96538ee6b881f495"
 ---
 import Gateau from '../../../components/schemas/Gateau.astro';
@@ -265,13 +265,13 @@ Une story que les Developers estiment trop grosse pour un sprint se découpe (<R
   <PartRecoupee />
 </Figure>
 
-Les stations du centre-ville seulement (a) et les vélos signalés, confirmés ou non par un technicien (c), traversent les couches et livrent à Étienne une vue qu'il peut consulter. Une table des signalements prête, sans vue (b), est une couche : rien pour Étienne tant qu'elle n'est pas raccrochée à un usage. Que la liste non confirmée suffise à Étienne n'est pas tranché : c'est une hypothèse, à vérifier avant de s'engager (exploration bornée, <Renvoi n="17" />).
+Les stations du centre-ville seulement (a) et les vélos signalés, confirmés ou non par un technicien (c), traversent les couches et livrent à Étienne une vue qu'il peut consulter. Une table des signalements prête, sans vue (b), est une couche : rien pour Étienne tant qu'elle n'est pas raccrochée à un usage. Que la liste non confirmée suffise à Étienne n'est pas tranché : c'est une hypothèse, à vérifier avant de s'engager, par une exploration bornée (un travail court, limité dans le temps, qui répond à une question sans livrer de fonction ; <Renvoi n="17" />).
 
 <h4 id="9b2"><span class="num">9b2</span> Les patrons et leur catalogue</h4>
 
 Des catalogues de patrons aident à trouver où couper. Ce sont des choix d'école <Pastille kind="ecole" />, chacun à son auteur, posés côte à côte :
 
-- **SPIDR**, de Mike Cohn : cinq techniques. Spike (une exploration bornée, <Renvoi n="17" />), Paths (un chemin de l'utilisateur à la fois), Interfaces (une interface à la fois, ou une interface minimale d'abord), Data (une partie des données d'abord), Rules (assouplir d'abord une règle).
+- **SPIDR**, de Mike Cohn : cinq techniques. Spike (une exploration bornée : un travail limité dans le temps qui répond à une question, sans livrer de fonction ; <Renvoi n="17" />), Paths (un chemin de l'utilisateur à la fois), Interfaces (une interface à la fois, ou une interface minimale d'abord), Data (une partie des données d'abord), Rules (assouplir d'abord une règle).
 - **Richard Lawrence**, neuf patrons (2009), dont Variations in Data (une variante des données d'abord) et Simple/Complex (« quelle est la version la plus simple ? », puis les variantes en stories à part).
 
 Les deux catalogues se recoupent en partie, sans se confondre : on attribue chaque patron à son catalogue. Sur l'exemple, le morceau a restreint les données : c'est le D de SPIDR, ou Variations in Data chez Lawrence, même idée sous deux noms. Le morceau c assouplit d'abord une règle (ne pas distinguer encore les pannes confirmées) : c'est le R de SPIDR. Lawrence a un patron voisin, Business Rule Variations (une story par variante de règle), qui diffère : on ne les confond pas. Ce rattachement est l'application du cours <Pastille kind="cours" />, pas un fait de source. Le nom compte moins que la question qu'il fait poser.
@@ -287,7 +287,7 @@ Les deux catalogues se recoupent en partie, sans se confondre : on attribue chaq
 - **Découper par couche** (collecter, transformer, restituer) : rien pour l'utilisateur avant la fin. C'est le réflexe probable d'un profil technique.
 - **Croire que traverser les couches suffit** : la tranche doit servir seule. Un walking skeleton sert l'équipe, pas l'utilisateur.
 - **Appliquer le vertical aux tâches** : il s'arrête à la story. Les tâches sont horizontales et appartiennent aux Developers.
-- **Nommer la forme dans la tranche** (un écran, un export) : la story dit ce que l'utilisateur obtient, la forme reste aux Developers (<Renvoi n="5" />).
+- **Nommer la forme dans la tranche** (un écran, un export) : la story dit ce que l'utilisateur obtient, la forme reste aux Developers (<Renvoi n="5" />, <Renvoi n="7b" />).
 - **Fixer une règle en découpant** (« presque vide », « heures de pointe ») : une règle non fixée, le PO la fait fixer (<Renvoi n="8" />).
 - **Trancher une hypothèse dans le découpage** (« la liste non confirmée suffira ») : on la vérifie avant (<Renvoi n="17" />).
 - **Légender une part « story »** : une tranche est une façon de découper ; elle n’est une story qu’au niveau du sprint.

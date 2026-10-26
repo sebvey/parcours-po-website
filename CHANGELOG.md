@@ -5,6 +5,23 @@ dit sur quelle version du cours elle est alignée.
 
 ## Non publié
 
+## 2.1.0, 2026-10-26 (aligné sur le cours 2.2.0)
+
+Réalignement sur le cours 2.2.0 (T-099) :
+- `parcoursPo.coursVersion` 2.2.0 ; empreintes des 20 pages de concept et des 7 pages de domaine
+  inscrites.
+- Concept 0 : 0a1 et 0a2 détaillés comme dans le cours (ce dont répond chaque responsabilité ; but,
+  participants et durée de chaque événement), 0b dit qu'un élément hors DoD retourne au backlog ;
+  une position du cours (rétrospective sans les parties prenantes) et neuf affirmations sourcées
+  ajoutées.
+- Concepts 1, 3, 4, 5, 7, 8, 9, 11, 12, 14, 15, 17, A1 et A2 : précisions reportées des fiches
+  (quantité choisie au Sprint Planning, « je veux » défini, forme « En tant que… », exploration
+  bornée définie, renvois corrigés, l'équipe Scrum distincte des parties prenantes, exigence de DoD
+  propre à une sorte de travail, DoR définie en A2a, rôles du réglage de l'outil en A1a).
+- Glossaire : « Élément du backlog » rattaché aux concepts 0 et 3.
+
+## 2.0.0, 2026-10-26 (aligné sur le cours 2.1.0)
+
 Mise en ligne (T-050g) :
 - le site quitte l'aperçu : version 2.0.0, MAJOR égal à celui du cours ; les pages ne demandent
   plus aux moteurs de ne pas les indexer.

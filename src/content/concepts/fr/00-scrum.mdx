@@ -24,6 +24,8 @@ ecoles:
       refs: ["S1"]
     - texte: "Un pipeline fini mais que personne ne peut consulter n'est pas un incrément."
       refs: ["S1"]
+    - texte: "La rétrospective réunit l'équipe Scrum, sans les parties prenantes. Le Guide ne nomme que l'équipe Scrum ; le cours en tire que les parties prenantes n'y viennent pas."
+      refs: ["S1"]
 sources:
   affirmations:
     - affirmation: "Scrum est un cadre de travail, décrit par le Scrum Guide de Schwaber et Sutherland (novembre 2020)."
@@ -38,18 +40,34 @@ sources:
       kind: "consensus"
       refs: ["S1", "S2"]
       verifie: "« no sub-teams or hierarchies » ; « self-managing, meaning they internally decide who does what, when, and how » ; « typically 10 or fewer people ». Historique des révisions : 2020 supprime le concept d'équipe de développement séparée au sein de l'équipe."
+    - affirmation: "L'équipe Scrum est tournée vers un seul objectif à la fois, l'objectif produit."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« focused on one objective at a time, the Product Goal »."
     - affirmation: "Les Developers réalisent l'incrément, adaptent leur plan chaque jour et respectent la DoD."
       kind: "consensus"
       refs: ["S1"]
       verifie: "« Developers are the people in the Scrum Team that are committed to creating any aspect of a usable Increment each Sprint » ; « Adapting their plan each day toward the Sprint Goal » ; « Instilling quality by adhering to a Definition of Done »."
+    - affirmation: "Les Developers, quel que soit leur métier, répondent du plan du sprint, de la qualité selon la DoD, de l'adaptation du plan chaque jour et de leur responsabilité les uns envers les autres ; eux seuls décident comment transformer un élément en incrément."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« We use the word \"developers\" in Scrum not to exclude, but to simplify » (les analystes sont cités parmi ceux qui font le travail) ; « Creating a plan for the Sprint, the Sprint Backlog; Instilling quality by adhering to a Definition of Done; Adapting their plan each day toward the Sprint Goal; and, Holding each other accountable as professionals » ; « How this is done is at the sole discretion of the Developers »."
     - affirmation: "Le PO répond de la valeur du produit et de la gestion du backlog, dont l'ordre ; il peut en déléguer le travail mais reste responsable ; qui veut changer le backlog doit le convaincre."
       kind: "consensus"
       refs: ["S1"]
       verifie: "« accountable for maximizing the value of the product » ; la gestion du backlog comprend « Developing and explicitly communicating the Product Goal; Creating and clearly communicating Product Backlog items; Ordering Product Backlog items » ; « one person, not a committee » ; « may delegate the responsibility to others. Regardless, the Product Owner remains accountable » ; « Those wanting to change the Product Backlog can do so by trying to convince the Product Owner ». « Ticket » n'est pas un terme du Guide."
+    - affirmation: "Le PO veille à ce que le backlog soit transparent, visible et compris ; l'organisation respecte ses décisions, visibles dans le contenu et l'ordre du backlog."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« Ensuring that the Product Backlog is transparent, visible and understood » ; « the entire organization must respect their decisions. These decisions are visible in the content and ordering of the Product Backlog »."
     - affirmation: "Le Scrum Master répond de l'efficacité de l'équipe et aide à lever les obstacles ; l'équipe n'a pas de hiérarchie."
       kind: "consensus"
       refs: ["S1"]
       verifie: "« accountable for the Scrum Team's effectiveness » ; « Causing the removal of impediments » ; « no sub-teams or hierarchies ». « Il n'est pas le chef » est la conséquence tirée par le cours de l'absence de hiérarchie."
+    - affirmation: "Le Scrum Master met en place Scrum ; il sert l'équipe (autogestion, incréments qui remplissent la DoD, levée des obstacles, événements utiles et tenus dans leur durée), le PO (techniques pour l'objectif produit et le backlog, collaboration avec les parties prenantes) et l'organisation (adoption de Scrum)."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« accountable for establishing Scrum as defined in the Scrum Guide » ; « Coaching the team members in self-management » ; « Helping the Scrum Team focus on creating high-value Increments that meet the Definition of Done » ; « Causing the removal of impediments » ; « Ensuring that all Scrum events take place and are positive, productive, and kept within the timebox » ; « Helping find techniques for effective Product Goal definition and Product Backlog management » ; « Facilitating stakeholder collaboration as requested or needed » ; « Leading, training, and coaching the organization in its Scrum adoption ». « Il ne décide ni de l'ordre ni du comment » découle des responsabilités du PO et des Developers."
     - affirmation: "Le sprint est une durée fixe d'un mois au plus ; le suivant commence dès la fin du précédent."
       kind: "consensus"
       refs: ["S1"]
@@ -61,22 +79,46 @@ sources:
       kind: "consensus"
       refs: ["S1"]
       verifie: "« Scrum combines four formal events for inspection and adaptation within a containing event, the Sprint »."
+    - affirmation: "Le sprint contient tous les autres événements ; chaque événement est une occasion d'inspecter et d'adapter ; pendant le sprint, la qualité ne baisse pas."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« The Sprint is a container for all other events. Each event in Scrum is a formal opportunity to inspect and adapt » ; « Quality does not decrease »."
     - affirmation: "Sprint Planning : il ouvre le sprint ; le PO propose comment le sprint peut augmenter la valeur, toute l'équipe fixe l'objectif de sprint, les Developers choisissent les éléments en discutant avec le PO et font leur plan ; 8 heures au plus pour un sprint d'un mois."
       kind: "consensus"
       refs: ["S1"]
       verifie: "« Sprint Planning initiates the Sprint » ; trois sujets « Why », « What », « How » ; « The Product Owner proposes how the product could increase its value and utility in the current Sprint. The whole Scrum Team then collaborates to define a Sprint Goal » ; « Through discussion with the Product Owner, the Developers select items from the Product Backlog » ; « timeboxed to a maximum of eight hours for a one-month Sprint »."
+    - affirmation: "Sprint Planning : toute l'équipe Scrum y travaille ; plus court en général pour un sprint plus court."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« This resulting plan is created by the collaborative work of the entire Scrum Team » ; « For shorter Sprints, the event is usually shorter »."
     - affirmation: "Daily Scrum : 15 minutes, pour les Developers, sur l'avancement vers l'objectif de sprint ; ils en choisissent la structure."
       kind: "consensus"
       refs: ["S1", "S2"]
       verifie: "« a 15-minute event for the Developers » ; « inspect progress toward the Sprint Goal and adapt the Sprint Backlog » ; « The Developers can select whatever structure and techniques they want, as long as their Daily Scrum focuses on progress toward the Sprint Goal ». Les trois questions classiques ont été retirées du Guide en 2020."
+    - affirmation: "Daily Scrum : à la même heure et au même endroit ; le PO et le Scrum Master y participent comme Developers s'ils travaillent sur des éléments du sprint ; il produit un plan pour la journée ; le plan s'adapte aussi en dehors du Daily Scrum."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« held at the same time and place every working day » ; « If the Product Owner or Scrum Master are actively working on items in the Sprint Backlog, they participate as Developers » ; « produces an actionable plan for the next day of work » ; « The Daily Scrum is not the only time Developers are allowed to adjust their plan »."
     - affirmation: "Revue de sprint : séance de travail où l'équipe présente son travail aux parties prenantes clés, puis ils inspectent ce que le sprint a produit et adaptent le backlog ; elle ne se réduit pas à une présentation ; 4 heures au plus pour un sprint d'un mois."
       kind: "consensus"
       refs: ["S1"]
       verifie: "« The Scrum Team presents the results of their work to key stakeholders » ; « inspect the outcome of the Sprint and determine future adaptations » ; « The Product Backlog may also be adjusted » ; « working session […] avoid limiting it to a presentation » ; « maximum of four hours for a one-month Sprint ». La page écrit « ce que le sprint a produit » pour « outcome », car « résultat » est réservé au sens du concept 2."
+    - affirmation: "Revue de sprint : avant-dernier événement du sprint ; l'avancement vers l'objectif produit y est discuté ; on y regarde ce qui a changé autour du produit et on décide ensemble de la suite."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« the second to last event of the Sprint » ; « progress toward the Product Goal is discussed » ; « what has changed in their environment » ; « attendees collaborate on what to do next »."
     - affirmation: "Rétrospective : l'équipe inspecte sa façon de travailler, DoD comprise ; elle clôt le sprint ; 3 heures au plus."
       kind: "consensus"
       refs: ["S1"]
       verifie: "« inspects how the last Sprint went with regards to individuals, interactions, processes, tools, and their Definition of Done » ; « concludes the Sprint » ; « maximum of three hours »."
+    - affirmation: "Rétrospective : son but est de gagner en qualité et en efficacité ; l'équipe dit ce qui a bien marché et les problèmes rencontrés, et choisit les changements les plus utiles, qu'elle peut ajouter au backlog du sprint suivant."
+      kind: "consensus"
+      refs: ["S1"]
+      verifie: "« plan ways to increase quality and effectiveness » ; « what went well during the Sprint, what problems it encountered » ; « identifies the most helpful changes » ; « may even be added to the Sprint Backlog for the next Sprint »."
+    - affirmation: "La rétrospective réunit l'équipe Scrum, sans les parties prenantes."
+      kind: "cours"
+      refs: ["S1"]
+      verifie: "Le Guide confie la rétrospective à « The Scrum Team » sans parler des parties prenantes : qu'elle les exclue est la lecture du cours."
     - affirmation: "Pendant le sprint, on ne compromet pas l'objectif de sprint."
       kind: "consensus"
       refs: ["S1"]
@@ -148,7 +190,7 @@ sources:
       texte: "Schwaber, Sutherland, *The Scrum Guide*, novembre 2020 (version HTML, portage du PDF de 14 pages)"
       url: "https://scrumguides.org/scrum-guide.html"
       type: "primaire"
-      consultee: "2026-10-22"
+      consultee: "2026-10-26"
     - id: "S2"
       texte: "Scrumguides.org, « Scrum Guide Revision History », section « Changes between 2017 and 2020 Scrum Guides »"
       url: "https://scrumguides.org/revisions.html"
@@ -163,9 +205,9 @@ sources:
     - "**Les termes français de la traduction officielle du Guide [S3].** Le texte du PDF français n'a pas pu être extrait ; les termes de cette page suivent le glossaire du cours, sans vérification contre cette traduction."
     - "**La fréquence de la confusion « on livre un sprint ».** Observée dans l'expérience du cours, sans étude ni source externe : la page ne la donne pas comme un fait mesuré."
 alignement:
-  coursVersion: "2.1.0"
-  fiche: "60646c48e22f4b3fced385ba98ffd4ff62bf44e20d7f350e27c81aa3e1a26df0"
-  sources: "6df54ad6ca5ca03945c833b4e6d602167570aa3d2b101f710a363753cdfa8c4c"
+  coursVersion: "2.2.0"
+  fiche: "719e270356183cbcc74ff9938d6c8d825f33d9b94c2046bb6cf10bcf96b3db3c"
+  sources: "8e9ab303ec2212103f4e10be0624f0d85cb0da9417e839007cacdc1a85a8e8f3"
 ---
 import Schema00 from '../../../components/schemas/Schema00.astro';
 
@@ -181,22 +223,22 @@ Ce cours suppose une équipe Scrum qui travaille en sprints <Pastille kind="cour
 
 <h4 id="0a1"><span class="num">0a1</span> Trois responsabilités</h4>
 
-Une équipe Scrum est une seule équipe, sans sous-équipe ni hiérarchie, de dix personnes au plus en général, qui s'organise elle-même. Elle porte trois responsabilités :
+Une équipe Scrum est une seule équipe, petite (dix personnes au plus en général), sans sous-équipe ni hiérarchie, tournée vers un seul objectif à la fois, l'objectif produit. Elle s'organise elle-même : elle décide en interne qui fait quoi, quand et comment. Elle porte trois responsabilités ; une responsabilité dit de quoi chacun répond, pas qui commande.
 
-- **Le Product Owner (PO)** répond de la valeur du produit et du backlog : l'objectif produit, les éléments, leur ordre. C'est une seule personne, pas un comité. Il peut confier le travail, il en reste responsable ; qui veut changer le backlog doit le convaincre.
-- **Les Developers** réalisent l'incrément : ils font le plan du sprint, l'adaptent chaque jour et respectent la Definition of Done (DoD), les exigences de qualité de l'équipe.
-- **Le Scrum Master** répond de l'efficacité de l'équipe et l'aide notamment à lever les obstacles. Il n'est pas son chef : l'équipe n'a pas de hiérarchie.
+- **Le Product Owner (PO)** répond de la valeur du produit. Il répond aussi du backlog produit : formuler l'objectif produit et le faire connaître ; créer les éléments du backlog (toute entrée du backlog, quelle que soit sa taille, <Renvoi n="3" />) et les rendre clairs ; les ordonner ; veiller à ce que le backlog soit transparent, visible et compris. Il peut faire ce travail ou le confier à d'autres ; il en reste responsable. C'est une seule personne, pas un comité. Qui veut changer le backlog doit convaincre le PO, et l'organisation respecte ses décisions, visibles dans le contenu et l'ordre du backlog. Ce qu'il tranche face aux Developers et aux parties prenantes vient au <Renvoi n="1b" />.
+- **Les Developers** sont les membres de l'équipe qui réalisent l'incrément, quel que soit leur métier : le mot « developers » n'exclut aucune compétence. Ils répondent de quatre choses : créer le backlog de sprint, leur plan pour le sprint ; la qualité, en respectant la Definition of Done (DoD), les exigences de qualité de l'équipe ; adapter leur plan chaque jour vers l'objectif de sprint ; se tenir responsables les uns envers les autres. Comment transformer un élément du backlog en incrément, eux seuls le décident.
+- **Le Scrum Master** répond de l'efficacité de l'équipe Scrum, et de la mise en place de Scrum tel que le décrit le Scrum Guide. Il sert l'équipe : il l'aide à s'organiser elle-même et à se concentrer sur des incréments qui remplissent la DoD, fait lever les obstacles à son avancement, et veille à ce que les événements aient lieu, soient utiles et tiennent leur durée. Il sert le PO : il l'aide à trouver des techniques pour l'objectif produit et le backlog, et facilite la collaboration avec les parties prenantes (toute personne ou équipe concernée par le produit, <Renvoi n="1" />). Il sert l'organisation, en l'aidant à adopter Scrum. Il n'est pas le chef de l'équipe : l'équipe n'a pas de hiérarchie.
 
 <FilRouge>L'équipe vélos compte deux data engineers (Dana, Diego) et une analyste (Anna) : ce sont ses Developers. Scarlette en est la Scrum Master, et l'est aussi de l'équipe appli.</FilRouge>
 
 <h4 id="0a2"><span class="num">0a2</span> Le sprint et ses quatre événements</h4>
 
-Le sprint dure un mois au plus, toujours la même durée, et le suivant commence dès que le précédent se termine, sans pause. Il est lui-même un événement, celui qui en contient quatre autres, chacun avec son but (les durées maximales sont celles d'un sprint d'un mois) :
+Le sprint dure un mois au plus, toujours la même durée, et le suivant commence dès que le précédent se termine, sans pause. Il est lui-même un événement, celui qui en contient quatre autres : Sprint Planning au début, Daily Scrum chaque jour, revue de sprint puis rétrospective à la fin. Chaque événement est une occasion d'inspecter le travail et de l'adapter. Pendant le sprint, on ne fait rien qui compromette l'objectif de sprint, et la qualité ne baisse pas. Les durées maximales ci-dessous sont celles d'un sprint d'un mois :
 
-- **Sprint Planning** (8 heures) : il ouvre le sprint. Le PO propose comment le sprint peut augmenter la valeur du produit, toute l'équipe fixe l'objectif de sprint, les Developers choisissent les éléments avec le PO et font leur plan.
-- **Daily Scrum** (15 minutes) : le point des Developers sur l'avancement vers l'objectif de sprint, où ils adaptent leur plan. Ils en choisissent la structure.
-- **Revue de sprint** (4 heures) : une séance de travail, pas une simple présentation. L'équipe présente son travail aux parties prenantes clés ; ensemble, ils inspectent ce que le sprint a produit et adaptent le backlog.
-- **Rétrospective** (3 heures) : l'équipe inspecte sa façon de travailler, DoD comprise. Elle clôt le sprint.
+- **Sprint Planning** (8 heures, en général moins pour un sprint plus court) : il ouvre le sprint ; toute l'équipe Scrum y prépare le sprint, en trois sujets. Pourquoi ce sprint a de la valeur : le PO propose comment le produit peut gagner en valeur pendant le sprint, puis toute l'équipe fixe l'objectif de sprint. Quoi : les Developers choisissent, en discutant avec le PO, les éléments du backlog qu'ils prennent. Comment : les Developers planifient le travail de chaque élément, et eux seuls en décident. L'objectif, les éléments et le plan forment le backlog de sprint. Comment le PO prépare le Sprint Planning vient au <Renvoi n="15b" />.
+- **Daily Scrum** (15 minutes) : un événement pour les Developers, chaque jour du sprint, à la même heure et au même endroit. Son but : inspecter l'avancement vers l'objectif de sprint et adapter le backlog de sprint, avec un plan pour la journée qui vient. Les Developers choisissent la forme du point. Le PO ou le Scrum Master n'y participent comme Developers que s'ils travaillent eux-mêmes sur des éléments du sprint. Les Developers peuvent adapter leur plan à tout moment de la journée, pas seulement au Daily Scrum.
+- **Revue de sprint** (4 heures) : l'avant-dernier événement du sprint. L'équipe Scrum y présente son travail aux parties prenantes clés, et l'avancement vers l'objectif produit est discuté. Ensemble, ils regardent ce que le sprint a produit et ce qui a changé autour du produit, puis décident de la suite : le backlog peut être adapté. C'est une séance de travail, pas une simple présentation. Ce que le PO y mène vient au <Renvoi n="15c" />.
+- **Rétrospective** (3 heures) : son but est de trouver comment gagner en qualité et en efficacité. L'équipe Scrum y inspecte comment s'est passé le sprint : les personnes, leurs échanges, les processus, les outils et la DoD. Elle dit ce qui a bien marché, les problèmes rencontrés, et choisit les changements les plus utiles, qu'elle peut ajouter au backlog du sprint suivant. Elle réunit l'équipe Scrum, sans les parties prenantes <Pastille kind="cours" />. La rétrospective clôt le sprint.
 
 <FilRouge>L'équipe vélos travaille en sprints de deux semaines : c'est conforme, un mois étant un maximum. Des sprints plus courts donnent plus de cycles d'apprentissage.</FilRouge>
 
@@ -218,7 +260,7 @@ Le sprint est une durée, qui contient les événements. L'incrément est une é
 
 - plusieurs incréments peuvent naître dans un même sprint ;
 - on peut livrer un incrément avant la fin du sprint : la revue de sprint n'est pas une porte de mise en production, et la seule règle pendant le sprint est de ne rien changer qui mette en danger l'objectif de sprint ;
-- un travail qui ne remplit pas la DoD ne fait pas partie de l'incrément : il n'est ni livré, ni présenté à la revue, et retourne au backlog produit.
+- un travail qui ne remplit pas la DoD ne fait pas partie de l'incrément : il n'est ni livré, ni présenté à la revue, et retourne au backlog produit, où le PO l'ordonne avec le reste.
 
 On ne « livre » donc pas un sprint : on livre des incréments, au moment où ils existent. Il faut aussi qu'un incrément soit utilisable : un travail fini mais que personne ne peut consulter n'en est pas un <Pastille kind="cours" />.
 

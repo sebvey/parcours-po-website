@@ -192,8 +192,8 @@ sources:
     - "**Une story porte des critères d'acceptation, comme consensus.** Non confirmé par le Scrum Guide : la page la présente comme une pratique établie (XP, Wake, Cohn), pas comme un consensus."
     - "**Cohn, *User Stories Applied* (2004).** Livre non lu : rien de la page ne s'y appuie."
 alignement:
-  coursVersion: "2.1.0"
-  fiche: "7e85a0d986e48eebc5694207a87f618d523e64f3df6228c7df5ba4a4623b8118"
+  coursVersion: "2.2.0"
+  fiche: "902a6f3c20fff586a5207705c9b5d3079a75f37811efada0398ee39f86ffbbc5"
   sources: "fbbde243dbe16f6bbbe1b93068332d35adc49f6401eddbb90a96509c7b91cc28"
 ---
 import Schema08 from '../../../components/schemas/Schema08.astro';
@@ -212,15 +212,15 @@ Un critère d'acceptation est **propre à une story** et se tranche OK ou KO. Un
 
 Deux questions permettent de les séparer : pour une règle, « est-ce encore vrai si cette story n'existe pas ? » ; pour un critère, « un testeur peut-il dire OK ou KO sans me poser de question ? ». Cette séparation est un choix du cours <Pastille kind="cours" /> : chez Matt Wynne, règles et critères vont sur la même carte, et aucune source consultée ne les distingue ainsi. Elle sert à ne pas recopier une règle dans chaque story, ni à prendre un cas précis pour une règle générale.
 
-Une **contrainte d'usage** (par exemple, l'utilisateur ne dispose que d'un moyen d'accès précis) va dans le contexte de départ, le Given, d'un critère : c'est ainsi que le testeur la vérifie (<Renvoi n="7b" />) <Pastille kind="cours" />. Ce qui vaut pour toutes les vues de l'équipe, lui, ne se répète pas dans chaque story : c'est la Definition of Done (<Renvoi n="11" />).
+Une **contrainte d'usage** (par exemple, l'utilisateur ne dispose que d'un moyen d'accès précis) va dans un critère (<Renvoi n="7b" />), dans son contexte de départ, le Given (<Renvoi n="8b1" />) : c'est ainsi que le testeur la vérifie <Pastille kind="cours" />. Ce qui vaut pour toutes les vues de l'équipe, lui, ne se répète pas dans chaque story : c'est la Definition of Done (<Renvoi n="11" />).
 
-<FilRouge>La DoR de l'équipe vélos demande des règles métier fixées avant qu'une story entre dans un sprint (<Renvoi n="11" />).</FilRouge>
+<FilRouge>La DoR de l'équipe vélos (sa Definition of Ready : les conditions qu'elle écrit pour qu'un élément soit prêt à être choisi, <Renvoi n="11" />) demande des règles métier fixées avant qu'une story entre dans un sprint.</FilRouge>
 
 <h4 id="8a2"><span class="num">8a2</span> La règle non fixée</h4>
 
 Un critère qui s'appuie sur une règle non fixée **la fixe en douce** : le cas qu'il choisit tranche la règle, sans que personne l'ait décidée. Exemple inventé pour l'illustration : « Then la location de plus de 24 heures est signalée » décide qu'une location est trop longue au-delà de 24 heures, alors que la durée maximale n'est fixée par personne.
 
-Pour le repérer, on se demande, critère par critère : **quelle règle ce cas suppose-t-il, et est-elle fixée ?** Si elle ne l'est pas, le PO ne l'invente pas et ne la tranche pas à la place de l'utilisateur concerné : il la fait fixer, et la story attend (<Renvoi n="4" />, <Renvoi n="7a2" />). Dans l'Example Mapping, cette règle est une question sans réponse, sur une carte rouge, sans exemple dessous ; elle ne devient règle métier qu'une fois fixée, et les critères l'illustrent alors.
+Pour le repérer, on se demande, critère par critère : **quelle règle ce cas suppose-t-il, et est-elle fixée ?** Si elle ne l'est pas, le PO ne l'invente pas et ne la tranche pas à la place de l'utilisateur concerné : il la fait fixer, et la story attend (<Renvoi n="7a2" />). Dans l'Example Mapping, cette règle est une question sans réponse, sur une carte rouge, sans exemple dessous ; elle ne devient règle métier qu'une fois fixée, et les critères l'illustrent alors.
 
 </Sous>
 
@@ -247,7 +247,7 @@ Règle : « est-ce encore vrai si cette story n'existe pas ? » Critère : « un
 <Erreurs>
 
 - **Confondre règle et critère** : recopier la même règle (cas inventé : « un abonné loue un seul vélo à la fois ») dans les critères de chaque story, ou ériger un cas précis en règle.
-- **Fixer une règle non fixée dans un critère** (cas inventé : une durée maximale de location, non fixée) : le critère décide en douce. Le PO la fait fixer avant que la story parte.
+- **Fixer une règle non fixée dans un critère** (cas inventé : une durée maximale de location, non fixée) : le critère décide en douce. Le PO la fait fixer avant que la story parte (<Renvoi n="7a2" /> ; DoR, <Renvoi n="11" />).
 - **Inventer une règle dans le Then** (cas inventé : « l'abonné suspendu ne peut pas louer », si aucune règle ne le dit) : relire chaque Then contre les règles fixées.
 - **Un mot flou** (« récent », « rapidement ») : écrire la valeur fixée (cas inventé : « chargée en moins de 3 secondes »).
 - **Un Then vague ou un When absent ou mal placé** : sans événement ni résultat observable, on ne sait pas quoi vérifier ni quand.
