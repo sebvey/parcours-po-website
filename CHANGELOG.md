@@ -5,6 +5,10 @@ dit sur quelle version du cours elle est alignée.
 
 ## Non publié
 
+Mise en ligne (T-050g) :
+- le site quitte l'aperçu : version 2.0.0, MAJOR égal à celui du cours ; les pages ne demandent
+  plus aux moteurs de ne pas les indexer.
+
 ## 0.10.1, 2026-10-25 (aligné sur le cours 2.1.0)
 
 Numéros de concept en pastilles (T-072) :
