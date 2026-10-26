@@ -121,6 +121,10 @@ du schéma reste lisible à 375 px et contrasté en sombre.
   inscrire ensuite les empreintes : `npm run check-alignment -- --stamp NN`.
 - **Forme** (faute, tournure, mise en page) : directement dans le site.
 - **Interface** (menu, onglets, pastilles) : `src/i18n/ui.ts`.
+- Énumération : des éléments nommés en tête (« Pourquoi : … ; Quoi : … ») se mettent en liste, un
+  élément par puce, avec le nom en **gras** ; dans une donnée de frontmatter, qui n'accepte pas la
+  liste, le nom seul en gras. Une énumération sans nom (« quatre choses : a ; b ; c ») se met aussi
+  en liste dès que ses éléments dépassent une ligne.
 - Style : ni tiret long, ni flèche en prose (une citation entre « » garde sa ponctuation) ; un seul
   terme par notion, celui du glossaire ; « donné par un agent IA ».
 
