@@ -35,7 +35,7 @@ div.tr-text p { margin: 0 0 1em; }
 .gl-nom { color: var(--ink); text-decoration: none; }
 .gl-nom:hover { color: var(--accent); text-decoration: underline; }
 .gl-en { font-family: var(--font-ui); font-size: 0.88rem; color: var(--ink-soft); margin: 0 0 0.5rem; }
-.gl-etq { text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.7rem; font-weight: 650; margin-right: 0.35em; }
+.gl-drapeau { overflow: hidden; vertical-align: -0.2em; margin-right: 0.3em; border-radius: 50%; box-shadow: 0 0 0 1px var(--rule); }
 .gl-def { margin: 0 0 0.5rem; font-size: 1rem; line-height: 1.6; text-wrap: pretty; }
 .gl-orig { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; font-family: var(--font-ui); font-size: 0.85rem; color: var(--ink-soft); margin: 0; }
 .gl-vide { margin: 2rem 0; color: var(--ink-soft); }

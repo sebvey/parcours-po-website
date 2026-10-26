@@ -22,3 +22,7 @@ Règles de dessin, pour que les icônes restent cohérentes :
 `marque.svg` est la marque du site (un backlog : trois cartes rangées par priorité) ;
 `public/favicon.svg` en reprend le dessin, avec ses couleurs écrites (un favicon ne suit pas le
 CSS de la page).
+
+`drapeau-en.svg` marque le terme anglais du glossaire : seule exception aux règles de dessin, il
+garde ses couleurs (bleu #0052B4, rouge #D80027) et se dessine carré ; la page l'arrondit en CSS
+(`border-radius`), sans `clipPath` dont l'identifiant se répéterait à chaque terme.
