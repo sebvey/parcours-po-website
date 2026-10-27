@@ -1,3 +1,5 @@
+> Frozen on 2026-10-27; successor: github.com/sebvey/feyn
+
 # Product Owner d'un produit data (site)
 
 Site public, en français, du cours de gestion de produit « Product Owner d'un produit data ».
